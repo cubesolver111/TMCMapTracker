@@ -74,7 +74,8 @@
           {
             "name":"Blue Warp Heart Piece",
             "short_name":"Blue Warp HP",
-            "access_rules": ["bombs","gust"],
+            "access_rules": ["bombs","gust","{}"],
+            "capture_item":true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
             "chest_opened_img":"images/Heart Piece Gray.png"
@@ -164,7 +165,8 @@
           {
             "name":"Bombable Wall Heart Piece",
             "short_name":"Bomb Wall HP",
-            "access_rules": ["bombs"],
+            "access_rules": ["bombs","{}"],
+            "capture_item": true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
             "chest_opened_img":"images/Heart Piece Gray.png"
@@ -482,7 +484,8 @@
           },
           {
             "name":"Heart Piece",
-            "access_rules":["cape,cane"],
+            "access_rules":["cape,cane","{cape}"],
+            "capture_item": true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
             "chest_opened_img":"images/Heart Piece Gray.png"
