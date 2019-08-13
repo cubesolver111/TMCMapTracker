@@ -3,7 +3,7 @@
   "game_name": "Minish Cap Randomizer",
   "platform": "GBA",
   "package_version": "1.0.0.0",
-  "package_uid": "tmc_tracker",
+  "package_uid": "tmcrando_maptracker_cube",
   "author": "cubesolver111",
   "variants": {
     "standard": {
