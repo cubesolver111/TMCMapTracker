@@ -962,7 +962,6 @@
                 "map":"map",
                 "x":1550,
                 "y":1300,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
