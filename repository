@@ -1,0 +1,34 @@
+{
+  "name": "TMC Map Tracker",
+  "packages": [
+    {
+      "name": "Minish Cap Randomizer Map Tracker",
+      "author": "Cube",
+      "game_name": "Minish Cap Randomizer",
+      "flags": [
+        "map",
+        "pins",
+        "chathud"
+      ],
+      "version": "1.0.0.0",
+      "uid": "tmcrando_maptracker_cubesolver",
+      "link": "https://github.com/cubesolver111/TMCMapTracker/blob/master/TMCMapTracker.zip",
+      "variants": [
+        {
+          "name": "Map Tracker",
+          "flags": [
+            "map",
+            "pins",
+            "chathud"
+          ]
+        },
+        {
+          "name": "Items Only",
+          "flags": [
+            "chathud"
+          ]
+        }
+      ]
+    }
+  ]
+}
