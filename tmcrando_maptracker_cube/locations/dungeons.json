@@ -96,7 +96,8 @@
           {
             "name":"Madderpillar Heart Piece",
             "short_name":"Madderpillar HP",
-            "access_rules": ["gust","lamp"],
+            "access_rules": ["gust","lamp","{}"],
+            "capture_item": true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
             "chest_opened_img":"images/Heart Piece Gray.png"
