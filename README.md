@@ -23,4 +23,8 @@ When other modes for the randomizer become available, the tracker will also be u
 
 ## Settings
 
-For the moment, heart pieces are not randomized. However, if you press the Heart Piece button, you can see the location of heart pieces should you wish to grab some extra health. Once heart pieces are randomized, this setting will be removed.
+There are currently no settings as there is only one mode for the randomizer. As the randomizer progresses, settings will be added. Right now, the proposed settings are open, standard, and kinsanity.
+
+In open, all fusions are completed from the start of the game and the locations they unlock will be considered in logic.
+In standard, all fusions are vanilla and will not be considered in logic.
+In kinsanity, all fusions are randomized and will be considered in logic.
