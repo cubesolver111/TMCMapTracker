@@ -114,21 +114,6 @@
                             }
                         },
                         {
-                          "type": "group",
-                          "header": "Options",
-                          "dock": "left",
-                          "content": {
-                            "type": "itemgrid",
-                            "h_alignment": "left",
-                            "item_margin": "1,2",
-                            "rows": [
-                              [
-                                "hearts_off"
-                              ]
-                            ]
-                          }
-                        },
-                        {
                             "type": "group",
                             "header": "Pinned Locations",
                             "content": {
@@ -168,21 +153,6 @@
                                 "type": "layout",
                                 "key": "shared_item_grid"
                             }
-                        },
-                        {
-                          "type": "group",
-                          "header": "Options",
-                          "dock": "left",
-                          "content": {
-                            "type": "itemgrid",
-                            "h_alignment": "left",
-                            "item_margin": "1,2",
-                            "rows": [
-                              [
-                                "hearts_off"
-                              ]
-                            ]
-                          }
                         },
                         {
                             "type": "group",

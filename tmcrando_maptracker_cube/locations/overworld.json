@@ -62,19 +62,18 @@
                   },
                   //Crenel Wall HP
                   {
-                    "name":"Crenel Wall Heart Piece",
+                    "name":"Fairy Cave Heart Piece",
                     "access_rules":["bombs"],
                     "map_locations": [
                       {
                         "map":"map",
                         "x":110,
                         "y":600,
-                        "visibility_rules":["hearts_on"]
                       }
                     ],
                     "sections": [
                       {
-                        "name":"Crenel Wall",
+                        "name":"Fairy Cave",
                         "item_count": 1,
                         "chest_unopened_img":"images/Heart Piece.png",
                         "chest_opened_img":"images/Heart Piece Gray.png"
@@ -165,6 +164,12 @@
                       {
                         "name":"Chests",
                         "item_count":2
+                      },
+                      {
+                        "name":"Heart Piece",
+                        "item_count":1,
+                        "chest_unopened_img":"images/Heart Piece.png",
+                        "chest_opened_img":"images/Heart Piece Gray.png"
                       }
                     ]
                   },
@@ -203,25 +208,6 @@
                     "map":"map",
                     "x":40,
                     "y":700,
-                    "visibility_rules":["hearts_off"]
-                  }
-                ],
-                "sections": [
-                  {
-                    "name":"Chests",
-                    "item_count": 2
-                  }
-                ]
-              },
-              {
-                "name":"Crenel Heart Piece Cave",
-                "access_rules":["bombs"],
-                "map_locations": [
-                  {
-                    "map":"map",
-                    "x":40,
-                    "y":700,
-                    "visibility_rules":["hearts_on"]
                   }
                 ],
                 "sections": [
@@ -277,19 +263,18 @@
                 ]
               },
               {
-                "name":"Crenel Wall Cave",
-                "access_rules":["mitts"],
+                "name":"Crenel Climbing Wall Cave",
+                "access_rules":["mitts,grip"],
                 "map_locations": [
                   {
                     "map":"map",
                     "x":35,
                     "y":200,
-                    "visibility_rules":["hearts_on"]
                   }
                 ],
                 "sections": [
                   {
-                    "name":"Crenel Wall Cave",
+                    "name":"Crenel Climbing Wall Cave",
                     "item_count":1,
                     "chest_opened_img":"images/Heart Piece.png",
                     "chest_unopened_img":"images/Heart Piece Gray.png"
@@ -315,12 +300,12 @@
                     "children":[
                       {
                         "name":"Minish Wall Hole",
+                        "access_rules":["boots,flippers","boots,bow","cape"],
                         "map_locations": [
                           {
                             "map":"map",
                             "x":230,
                             "y":2000,
-                            "visibility_rules":["hearts_on"]
                           }
                         ],
                         "sections": [
@@ -413,6 +398,26 @@
                       {
                         "name":"Bow Chest",
                         "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Swiftblade the First",
+                    "access_rules":["boots,bow","cape","boots,flippers"],
+                    "map_locations": [
+                      {
+                        "map":"map",
+                        "x":50,
+                        "y":1600,
+                        "visibility_rules":["rando"]
+                      }
+                    ],
+                    "sections": [
+                      {
+                        "name":"Heart Piece",
+                        "item_count":1,
+                        "chest_unopened_img":"images/Heart Piece.png",
+                        "chest_opened_img":"images/Heart Piece Gray.png"
                       }
                     ]
                   },
@@ -528,19 +533,18 @@
                     ]
                   },
                   {
-                    "name":"Castor Wilds North Cave",
-                    "access_rules":["flippers","cape"],
+                    "name":"Castor Wilds Top Right Cave",
+                    "access_rules":["boots,flippers,bow","cape,bow"],
                     "map_locations": [
                       {
                         "map":"map",
                         "x":650,
                         "y":1150,
-                        "visibility_rules":["hearts_on"]
                       }
                     ],
                     "sections": [
                       {
-                        "name":"Castor Wilds North Cave",
+                        "name":"Castor Wilds Top Right Cave",
                         "item_count":1,
                         "chest_unopened_img":"images/Heart Piece.png",
                         "chest_opened_img":"images/Heart Piece Gray.png"
@@ -559,7 +563,7 @@
               {
                 "map":"map",
                 "x":875,
-                "y":1210,
+                "y":1210
               }
             ],
             "sections": [
@@ -641,7 +645,24 @@
           //Grimblade Dojo
           {
             "name":"Grimblade",
-            "access_rules":["sword","lamp"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1610,
+                "y":360,
+              }
+            ],
+            "sections": [
+              {
+                "name":"Heart Piece",
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"Grimblade",
             "map_locations": [
               {
                 "map":"map",
@@ -745,13 +766,12 @@
               },
               {
                 "name":"Northwest Grave",
-                "access_rules":["sword4,gravekey,boots"],
+                "access_rules":["sword4,gravekey,boots,spinattack"],
                 "map_locations": [
                   {
                     "map":"map",
                     "x":725,
                     "y":200,
-                    "visibility_rules":["hearts_on"]
                   }
                 ],
                 "sections":[
@@ -765,7 +785,7 @@
               },
               {
                 "name":"Royal Crypt",
-                "access_rules":["gravekey,sword4,boots"],
+                "access_rules":["gravekey,sword4,boots,spinattack"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -785,13 +805,12 @@
           },
           {
             "name":"North Field Heart Piece",
-            "access_rules":["bombs","flippers"],
+            "access_rules":["bombs","flippers","cape"],
             "map_locations": [
               {
                 "map":"map",
                 "x":1175,
                 "y":650,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -905,36 +924,7 @@
               {
                 "map":"map",
                 "x":1225,
-                "y":1359,
-                "visibility_rules":["hearts_off"]
-              }
-            ],
-            "sections": [
-              {
-                "name":"Rem",
-                "access_rules":["mushroom"],
-                "item_count":1
-              },
-              {
-                "name":"Simon's Simulations",
-                "access_rules":["sword"],
-                "item_count":1,
-              },
-              {
-                "name":"Figurine House",
-                "access_rules":["carlov"],
-                "item_count": 3
-              },
-            ]
-          },
-          {
-            "name":"Eastern Shops",
-            "map_locations": [
-              {
-                "map":"map",
-                "x":1225,
                 "y":1350,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections":[
@@ -956,7 +946,7 @@
                 "item_count": 3
               },
               {
-                "name":"Herb's House Heart Piece",
+                "name":"Figurine House Heart Piece",
                 "access_rules":["carlov"],
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
@@ -1088,31 +1078,6 @@
                 "map":"map",
                 "x": 1225,
                 "y": 1250,
-                "visibility_rules":["hearts_off"],
-              }
-            ],
-            "sections":[
-              {
-                "name":"Mulldozers",
-                "access_rules":["$canDamage,cane"],
-                "item_count":1
-              },
-              {
-                "name":"Small Chest",
-                "access_rules":["flippers","cape"],
-                "item_count":1
-              }
-            ]
-          },
-          {
-            "name":"Fountain",
-            "access_rules": ["bottle,cane","bottle,cape","bottle,flippers"],
-            "map_locations": [
-              {
-                "map":"map",
-                "x": 1225,
-                "y": 1250,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections":[
@@ -1129,7 +1094,7 @@
               {
                 "name":"Heart Piece",
                 "item_count":1,
-                "access_rules":["flippers","cape"],
+                "access_rules":["cape"],
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
@@ -1200,7 +1165,7 @@
           //Cuccos
           {
             "name":"Anju",
-            "access_rules": ["boots,flippers","boots,cape"],
+            "access_rules": ["flippers","cape"],
             "map_locations": [
               {
                 "map":"map",
@@ -1212,6 +1177,8 @@
               {
                 "name":"Anju",
                 "item_count": 1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
               }
             ]
           },
@@ -1251,6 +1218,8 @@
               {
                 "name":"Bell",
                 "item_count": 1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
               }
             ]
           },
@@ -1286,42 +1255,12 @@
                 "map":"map",
                 "x":1500,
                 "y":1050,
-                "visibility_rules":["hearts_off"]
-
               }
             ],
             "sections": [
               {
                 "name":"Garden Chests",
-                "access_rules":["cane,sword5"],
-                "item_count":3
-              },
-              {
-                "name":"Roof Chest",
-                "access_rules":["cane"],
-                "item_count":1
-              },
-              {
-                "name":"Basement",
-                "access_rules":["bombs"],
-                "item_count":1
-              }
-            ]
-          },
-          {
-            "name":"School",
-            "map_locations": [
-              {
-                "map":"map",
-                "x":1500,
-                "y":1050,
-                "visibility_rules":["hearts_on"]
-              }
-            ],
-            "sections": [
-              {
-                "name":"Garden Chests",
-                "access_rules":["sword5,cane"],
+                "access_rules":["sword5,cane,spinattack"],
                 "item_count":3
               },
               {
@@ -1402,13 +1341,12 @@
           //Southwest Tree Heart Piece
           {
             "name":"Tree Heart Piece",
+            "access_rules":["sword","lights","lamp","bombs"],
             "map_locations": [
               {
                 "map":"map",
-                "visibility_rules":["hearts_on"],
                 "x":1622,
                 "y":2000,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -1422,13 +1360,12 @@
           },
           {
             "name":"Minish Flippers Hole",
-            "access_rules":["boots,flippers"],
+            "access_rules":["boots,flippers,lamp","boots,flippers,bombs","boots,flippers,sword","boots,flippers,lights"],
             "map_locations": [
               {
                 "map":"map",
                 "x":1225,
                 "y":1800,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -1711,19 +1648,18 @@
             ]
           },
           {
-            "name":"Veil Falls South Heart Piece",
-            "access_rules":["cane,sword","cane,bombs","ocarina,cane"],
+            "name":"Veil Falls Lower Heart Piece",
+            "access_rules":["cane,sword","cane,bombs","ocarina,cane","lamp,cane","lights,cane"],
             "map_locations": [
               {
                 "map":"map",
                 "x":1910,
                 "y":750,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
               {
-                "name":"Veil Falls South Heart Piece",
+                "name":"Veil Falls Lower Heart Piece",
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -1731,19 +1667,18 @@
             ]
           },
           {
-            "name":"Veil Falls Center Heart Piece",
+            "name":"Veil Falls Upper Heart Piece",
             "access_rules":["flippers","cape"],
             "map_locations": [
               {
                 "map":"map",
                 "x":1760,
                 "y":540,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
               {
-                "name":"Center Heart Piece",
+                "name":"Upper Heart Piece",
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -1892,13 +1827,12 @@
                 "map":"map",
                 "x":1975,
                 "y":1025,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections":[
               {
                 "name":"Lon Lon Farm Heart Piece",
-                "access_rules":["boots"],
+                "access_rules":["boots,sword","boots,lamp","boots,bombs","boots,lights","boots,ocarina","boots,llrkey"],
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -1985,7 +1919,6 @@
                 "map":"map",
                 "x":2300,
                 "y":820,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -2005,7 +1938,6 @@
                 "map":"map",
                 "x":2430,
                 "y":1335,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -2042,6 +1974,25 @@
                 "map":"map",
                 "x":2310,
                 "y":1250,
+              }
+            ],
+            "sections": [
+              {
+                "name":"Heart Piece",
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"Hylia Tree",
+            "access_rules":["flippers","cape"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":2310,
+                "y":1250,
                 "visibility_rules":["rando_yes"]
               }
             ],
@@ -2067,7 +2018,6 @@
                 "map":"map",
                 "x":2475,
                 "y":950,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -2103,13 +2053,12 @@
                 "map":"map",
                 "x":2020,
                 "y":875,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections":[
               {
                 "name":"Lon Lon North Heart Piece",
-                "access_rules":["mitts,cape"],
+                "access_rules":["mitts,cape","mitts,flippers"],
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -2158,7 +2107,6 @@
                 "map":"map",
                 "x":2100,
                 "y":1620,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -2223,7 +2171,6 @@
                 "map":"map",
                 "x":2250,
                 "y":1900,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -2260,24 +2207,6 @@
                 "map":"map",
                 "x":2297,
                 "y":2000,
-                "visibility_rules":["hearts_off"]
-              }
-            ],
-            "sections": [
-              {
-                "name": "Barrel",
-                "item_count": 1,
-              }
-            ]
-          },
-          {
-            "name": "Minish Village",
-            "map_locations": [
-              {
-                "map":"map",
-                "x":2297,
-                "y":2000,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -2336,33 +2265,6 @@
                 "map":"map",
                 "x":2050,
                 "y":1800,
-                "visibility_rules":["hearts_off"]
-              }
-            ],
-            "sections": [
-              {
-                "name":"Left",
-                "item_count":1
-              },
-              {
-                "name":"Middle",
-                "item_count":1
-              },
-              {
-                "name":"Right",
-                "item_count":1
-              }
-            ]
-          },
-          {
-            "name":"Minish Flippers Cave",
-            "access_rules":["flippers,bombs","flippers,dws"],
-            "map_locations": [
-              {
-                "map":"map",
-                "x":2050,
-                "y":1800,
-                "visibility_rules":["hearts_on"]
               }
             ],
             "sections": [
@@ -2387,7 +2289,7 @@
             ]
           }
         ]
-      }
+      },
     ]
   }
 ]
