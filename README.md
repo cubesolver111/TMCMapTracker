@@ -23,4 +23,4 @@ When other modes for the randomizer become available, the tracker will also be u
 
 ## Settings
 
-For the moment, heart pieces are not randomized. However, if you press the -![Hearts On](tmcrando_maptracker_cube/images/Heart Container.png "Hearts On") button, you can see the location of heart pieces should you wish to grab some extra health. Once heart pieces are randomized, this setting will be removed.
+For the moment, heart pieces are not randomized. However, if you press the Heart Piece button, you can see the location of heart pieces should you wish to grab some extra health. Once heart pieces are randomized, this setting will be removed.
