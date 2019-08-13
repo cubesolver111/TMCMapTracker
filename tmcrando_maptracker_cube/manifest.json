@@ -7,7 +7,7 @@
   "author": "cubesolver111",
   "variants": {
     "standard": {
-      "display_name": "Standard Map Tracker"
+      "display_name": "Map Tracker"
     },
     "items_only": {
       "display_name": "Items Only"
