@@ -947,7 +947,8 @@
               },
               {
                 "name":"Figurine House Heart Piece",
-                "access_rules":["carlov"],
+                "access_rules":["carlov","{}"],
+                "capture_item":true,
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -1265,13 +1266,14 @@
               {
                 "name":"Heart Piece",
                 "item_count":1,
-                "access_rules":["sword5,cane"],
+                "access_rules":["sword5,cane","{cane}"],
+                "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               },
               {
                 "name":"Roof Chest",
-                "access_rules":["canes"],
+                "access_rules":["cane"],
                 "item_count":1
               },
               {
@@ -1667,7 +1669,7 @@
           },
           {
             "name":"Veil Falls Upper Heart Piece",
-            "access_rules":["flippers","cape"],
+            "access_rules":["flippers","cape","{bombs}"],
             "map_locations": [
               {
                 "map":"map",
@@ -1679,6 +1681,7 @@
               {
                 "name":"Upper Heart Piece",
                 "item_count":1,
+                "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
@@ -1931,7 +1934,7 @@
           },
           {
             "name":"Hylia Southern Heart Piece",
-            "access_rules":["flippers","cape"],
+            "access_rules":["flippers","cape","{llrkey,cane,mitts}","{ocarina,cane,mitts}"],
             "map_locations": [
               {
                 "map":"map",
@@ -1943,6 +1946,7 @@
               {
                 "name":"Hylia Southern Heart Piece",
                 "item_count":1,
+                "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
@@ -2011,7 +2015,7 @@
           },
           {
             "name":"Hylia Central Heart Piece",
-            "access_rules":["cape"],
+            "access_rules":["cape","{ocarina}","{llrkey}"],
             "map_locations": [
               {
                 "map":"map",
@@ -2057,7 +2061,8 @@
             "sections":[
               {
                 "name":"Lon Lon North Heart Piece",
-                "access_rules":["mitts,cape","mitts,flippers"],
+                "access_rules":["mitts,cape","{llrkey}","{ocarina}","{cape}"],
+                "capture_item":true,
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -2100,7 +2105,7 @@
             "access_rules":["flippers",
               "cape",
               "llrkey,cane",
-              "ocarina,cane"],
+              "ocarina,cane", "{lamp}","{lights}","{sword}","{bombs}"],
             "map_locations": [
               {
                 "map":"map",
@@ -2112,6 +2117,7 @@
               {
                 "name":"Northern Heart Piece",
                 "item_count":1,
+                "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
