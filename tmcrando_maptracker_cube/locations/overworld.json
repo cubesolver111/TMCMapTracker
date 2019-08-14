@@ -1009,11 +1009,12 @@
           },
           {
             "name":"Carlov",
+            "access_rules":["cane","cape","flippers"],
             "map_locations": [
               {
                 "map":"map",
-                "x":700,
-                "y":1700
+                "x":1050,
+                "y":1580
                }
             ],
             "sections":[
