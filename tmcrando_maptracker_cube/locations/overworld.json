@@ -1008,6 +1008,23 @@
             ]
           },
           {
+            "name":"Carlov",
+            "access_rules":["cane","cape","flippers"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1050,
+                "y":1580
+               }
+            ],
+            "sections":[
+              {
+                "name":"Carlov",
+                "item_count":1
+              }
+            ]
+          },
+          {
             "name":"Stranger Fusion",
             "access_rules":["red3"],
             "codes":"stranger",
@@ -1094,7 +1111,8 @@
               {
                 "name":"Heart Piece",
                 "item_count":1,
-                "access_rules":["cape"],
+                "access_rules":["cape","{bottle,cane}","{bottle,flippers}"],
+                "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
