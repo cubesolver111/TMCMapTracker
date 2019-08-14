@@ -1008,6 +1008,22 @@
             ]
           },
           {
+            "name":"Carlov",
+            "map_locations": [
+              {
+                "map":"map",
+                "x":700,
+                "y":1700
+               }
+            ],
+            "sections":[
+              {
+                "name":"Carlov",
+                "item_count":1
+              }
+            ]
+          },
+          {
             "name":"Stranger Fusion",
             "access_rules":["red3"],
             "codes":"stranger",
