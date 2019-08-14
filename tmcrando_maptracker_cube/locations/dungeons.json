@@ -166,7 +166,7 @@
           {
             "name":"Bombable Wall Heart Piece",
             "short_name":"Bomb Wall HP",
-            "access_rules": ["bombs","{}"],
+            "access_rules": ["bombs,sword","{}"],
             "capture_item": true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
@@ -175,35 +175,35 @@
           {
             "name":"Spiny Chu Fight",
             "access_rules": [
-              "cane,$canDamage",
-              "shield,$canDamage",
+              "cane,sword",
+              "shield,sword",
               "bombs"],
             "item_count": 1
           },
           {
             "name":"Spiny Chu Pillar Chest",
-            "access_rules": ["cane,$canDamage"],
+            "access_rules": ["cane,sword"],
             "item_count": 1
           },
           //At Least two small keys
           {
             "name":"Pre Lava Basement Room",
-            "access_rules": ["cane,$canDamage"],
+            "access_rules": ["cane,sword"],
             "item_count": 2
           },
           {
             "name":"Trap Chest",
-            "access_rules": ["cane,$canDamage"],
+            "access_rules": ["cane,sword"],
             "item_count": 1
           },
           {
             "name":"Lava Basement",
-            "access_rules": ["cane,$canDamage"],
+            "access_rules": ["cane,sword"],
             "item_count": 3
           },
           {
             "name":"Gleerok",
-            "access_rules": ["cane,$canDamage"],
+            "access_rules": ["cane,sword"],
             "item_count": 1,
             "chest_unopened_img":"images/Heart Container.png",
             "chest_opened_img":"images/Heart Container Gray.png"

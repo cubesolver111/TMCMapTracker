@@ -1094,7 +1094,8 @@
               {
                 "name":"Heart Piece",
                 "item_count":1,
-                "access_rules":["cape"],
+                "access_rules":["cape","{bottle,cane}","{bottle,flippers}"],
+                "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
