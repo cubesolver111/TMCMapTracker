@@ -1666,25 +1666,6 @@
             ]
           },
           {
-            "name":"Veil Falls Lower Heart Piece",
-            "access_rules":["cane,sword","cane,bombs","ocarina,cane","lamp,cane","lights,cane"],
-            "map_locations": [
-              {
-                "map":"map",
-                "x":1910,
-                "y":750,
-              }
-            ],
-            "sections": [
-              {
-                "name":"Veil Falls Lower Heart Piece",
-                "item_count": 1,
-                "chest_unopened_img":"images/Heart Piece.png",
-                "chest_opened_img":"images/Heart Piece Gray.png"
-              }
-            ]
-          },
-          {
             "name":"Veil Falls Upper Heart Piece",
             "access_rules":["flippers","cape","{bombs}"],
             "map_locations": [
@@ -1701,23 +1682,6 @@
                 "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
-              }
-            ]
-          },
-          {
-            "name":"Veil Falls South Mitts Cave",
-            "access_rules":["flippers,mitts,cane","cape,mitts,cane"],
-            "map_locations": [
-              {
-                "map":"map",
-                "x":1940,
-                "y":525
-              }
-            ],
-            "sections": [
-              {
-                "name":"Veil Falls South Mitts Cave",
-                "item_count":2
               }
             ]
           },
@@ -1784,10 +1748,47 @@
         ]
       },
       //Lon Lon Ranch
+
       {
         "name":"Lon Lon Ranch",
-        "access_rules": ["sword","bombs","lamp","lights"],
+        "access_rules": ["sword","bombs","lamp","lights","ocarina"],
         "children": [
+          {
+            "name":"Veil Falls South Mitts Cave",
+            "access_rules":["flippers,mitts,cane","cape,mitts,cane"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1940,
+                "y":525
+              }
+            ],
+            "sections": [
+              {
+                "name":"Veil Falls South Mitts Cave",
+                "item_count":2
+              }
+            ]
+          },
+          {
+            "name":"Veil Falls Lower Heart Piece",
+            "access_rules":["cane"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1910,
+                "y":750,
+              }
+            ],
+            "sections": [
+              {
+                "name":"Veil Falls Lower Heart Piece",
+                "item_count": 1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
           {
             "name": "Lon Lon Pot",
             "access_rules":[""],
