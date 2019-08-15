@@ -1,6 +1,7 @@
 ﻿[
   {
     "name": "map",
-    "img": "images/big_map.png"
+    "img": "images/big_map.png",
+    "map_locations":65
   }
 ]
