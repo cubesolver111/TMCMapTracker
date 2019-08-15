@@ -1706,7 +1706,7 @@
           },
           {
             "name":"Veil Falls South Mitts Cave",
-            "access_rules":["flippers,mitts","cape,mitts"],
+            "access_rules":["flippers,mitts,cane","cape,mitts,cane"],
             "map_locations": [
               {
                 "map":"map",
