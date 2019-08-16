@@ -391,7 +391,7 @@
  {
    "name": "Light Arrows",
    "type": "toggle",
-   "img": "images/Light Arrow.png",
+   "img": "images/Light Arrows.png",
    "codes": "lights"
  },
  // Roll Attack
