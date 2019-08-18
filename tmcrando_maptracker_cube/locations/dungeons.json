@@ -407,8 +407,8 @@
             "item_count":1
           },
           {
-            "name":"Ice Puzzle Chest",
-            "access_rules":["gust,flippers"],
+            "name":"Ice Puzzle Freestanding Chest",
+            "access_rules":["gust,flippers","lamp,cape"],
             "item_count": 1
           },
           //END OF LEFT PATH
