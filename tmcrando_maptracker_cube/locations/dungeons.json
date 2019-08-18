@@ -451,7 +451,7 @@
           //behind small key
           {
             "name":"Octo",
-            "access_rules":["gust,flippers,lamp,bombs,sword3,spinattack"],
+            "access_rules":["gust,flippers,lamp,bombs,sword3,spinattack","cape,lamp,bombs,sword3,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/Heart Container.png",
             "chest_opened_img":"images/Heart Container.png"
