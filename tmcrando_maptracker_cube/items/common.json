@@ -210,20 +210,45 @@
        "codes": ""
      },
      {
-       "img": "images/Bow30.png",
+       "img": "images/Bow0.png",
+       "inherit_codes": false,
        "codes": "bow,dmg"
      },
      {
-       "img": "images/Bow50.png",
-       "codes": "bow,dmg"
+       "img": "images/Light Arrows.png",
+       "inherit_codes": false,
+       "codes": "bow,lights"
+     }
+   ]
+ },
+ //Quivers
+ {
+   "name": "Quiver",
+   "type": "progressive",
+   "allow_disabled": false,
+   "initial_stage_idx": 0,
+   "stages": [
+     {
+       "img": "images/Quiver.png",
+       "inherit_codes": false,
+       "img_mods": "@disabled",
+       "codes": "quiver"
      },
      {
-       "img": "images/Bow70.png",
-       "codes": "bow,dmg"
+       "img": "images/Quiver30.png",
+       "codes": "quiver"
      },
      {
-       "img": "images/Bow99.png",
-       "codes": "bow,dmg"
+       "img": "images/Quiver50.png",
+       "codes": "quiver"
+     },
+     {
+       "img": "images/Quiver70.png",
+       "codes": "quiver"
+     },
+     {
+       "img": "images/Quiver99.png",
+       "codes": "quiver"
      },
    ]
  },
@@ -386,13 +411,6 @@
    "type": "toggle",
    "img": "images/Down Thrust.png",
    "codes": "downthrust"
- },
- // Light Arrows
- {
-   "name": "Light Arrows",
-   "type": "toggle",
-   "img": "images/Light Arrows.png",
-   "codes": "lights"
  },
  // Roll Attack
  {
