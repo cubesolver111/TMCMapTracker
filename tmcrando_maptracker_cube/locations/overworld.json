@@ -9,7 +9,7 @@
       //Trilby Highlands
       {
         "name":"Trilby Highlands",
-        "access_rules":["sword,spinattack","cape","flippers","bombs,sword4"],
+        "access_rules":["sword,spinattack","cape","flippers"],
         "children":[
           //Mount Crenel Base
           {
@@ -105,11 +105,9 @@
                       "grip,gust,bombs",
                       "grip,gust,bow",
                       "grip,gust,boomerang",
-                      "grip,cane",
                       "grip,cape",
                       "grip,lights",
-                      "bombs,cane",
-                      "cape,gust,cane"
+                      "cane"
                     ],
                     "map_locations":[
                       {
@@ -129,11 +127,12 @@
                   {
                     "name":"Melari",
                     "access_rules":[
+                      "cof,cane",
                       "cof,grip,gust,bombs",
-                      "cof,grip,gust,cane",
-                      "cof,grip,cane",
+                      "cof,grip,gust,bow",
+                      "cof,grip,gust,boomerang",
                       "cof,grip,cape",
-                      "cof,bombs,cane"
+                      "cof,grip,lights"
                     ],
                     "map_locations":[
                       {
@@ -296,11 +295,10 @@
                   //Wind Ruins
                   {
                     "name":"Wind Ruins",
-                    "access_rules":["kinstoneWilds:3"],
+                    "access_rules":["kinstoneWilds:3,cape","kinstoneWilds:3,bow","kinstoneWilds:3,flippers"],
                     "children":[
                       {
                         "name":"Minish Wall Hole",
-                        "access_rules":["boots,flippers","boots,bow","cape"],
                         "map_locations": [
                           {
                             "map":"map",
@@ -403,7 +401,7 @@
                   },
                   {
                     "name":"Swiftblade the First",
-                    "access_rules":["boots,bow","cape","boots,flippers"],
+                    "access_rules":["bow","cape","flippers"],
                     "map_locations": [
                       {
                         "map":"map",
@@ -423,7 +421,7 @@
                   },
                   {
                     "name":"Swiftblade the First",
-                    "access_rules":["boots,bow","cape"],
+                    "access_rules":["bow","cape","flippers"],
                     "map_locations": [
                       {
                         "map":"map",
@@ -534,7 +532,7 @@
                   },
                   {
                     "name":"Castor Wilds Top Right Cave",
-                    "access_rules":["boots,flippers,bow","cape,bow"],
+                    "access_rules":["flippers,bow","bow"],
                     "map_locations": [
                       {
                         "map":"map",
@@ -593,7 +591,7 @@
           },
           {
             "name":"Trilby Highlands Cave",
-            "access_rules":["mitts,sword,spinattack","mitts,cape"],
+            "access_rules":["mitts"],
             "map_locations": [
               {
                 "map":"map",
@@ -852,12 +850,12 @@
               },
               {
                 "name":"Dash Attack",
-                "access_rules":["boots"],
+                "access_rules":["sword2,boots"],
                 "item_count":1
               },
               {
                 "name":"Down Thrust",
-                "access_rules":["cape"],
+                "access_rules":["sword2,boots,cape"],
                 "item_count":1
               }
             ]
@@ -1111,7 +1109,8 @@
               {
                 "name":"Heart Piece",
                 "item_count":1,
-                "access_rules":["cape"],
+                "access_rules":["cape","{}"],
+                "capture_item": true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
@@ -1142,12 +1141,12 @@
           },
           {
             "name":"Dr. Left's House",
-            "access_rules": ["bracelets,gust,sword3,cape",
-              "bracelets,gust,sword3,cane",
-              "bracelets,gust,sword3,flippers",
-              "bracelets,bombs,sword3,cape",
-              "bracelets,bombs,sword3,cane",
-              "bracelets,bombs,sword3,flippers"],
+            "access_rules": ["bracelets,gust,sword3,cape,spinattack",
+              "bracelets,gust,sword3,cane,spinattack",
+              "bracelets,gust,sword3,flippers,spinattack",
+              "bracelets,bombs,sword3,cape,spinattack",
+              "bracelets,bombs,sword3,cane,spinattack",
+              "bracelets,bombs,sword3,flippers,spinattack"],
             "map_locations": [
               {
                 "map":"map",
@@ -1164,7 +1163,7 @@
           },
           {
             "name":"Library",
-            "access_rules": ["books:3"],
+            "access_rules": ["books:3,ocarina,cane"],
             "map_locations": [
               {
                 "map":"map",
@@ -1258,8 +1257,8 @@
               {
                 "name":"Hyrule Well Center Chest",
                 "access_rules":[
-                  "flippers,mitts,sword4",
-                  "cape,mitts,sword4"
+                  "flippers,mitts,sword4,spinattack",
+                  "cape,mitts,sword4,spinattack"
                 ],
                 "item_count":1
               }
@@ -1283,7 +1282,7 @@
               {
                 "name":"Heart Piece",
                 "item_count":1,
-                "access_rules":["sword5,cane","{cane}"],
+                "access_rules":["sword5,cane,spinattack","{cane}"],
                 "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -1428,7 +1427,7 @@
               },
               {
                 "name":"Top Right Fusion",
-                "access_rules":["kinstoneClouds:1"],
+                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1447,7 +1446,7 @@
               },
               {
                 "name":"Top Left Fusion",
-                "access_rules":["kinstoneClouds:1"],
+                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1466,7 +1465,7 @@
               },
               {
                 "name":"Bottom Left Fusion",
-                "access_rules":["kinstoneClouds:1"],
+                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1485,7 +1484,7 @@
               },
               {
                 "name":"Bottom Right Fusion",
-                "access_rules":["kinstoneClouds:1"],
+                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1639,7 +1638,7 @@
               },
               {
                 "name":"Wind Tribe House",
-                "access_rules":["kinstoneClouds:5"],
+                "access_rules":["kinstoneClouds:5,mitts","kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1655,6 +1654,7 @@
                   },
                   {
                     "name":"Gregal Second Item",
+                    "access_rules":["gust"],
                     "item_count":1
                   },
                   {
@@ -1716,7 +1716,7 @@
                   },
                   {
                     "name":"Hidden Cave Second Chest",
-                    "access_rules":["bombs,sword4"],
+                    "access_rules":["bombs,sword4,spinattack"],
                     "item_count":1
                   }
                 ]
@@ -1748,7 +1748,6 @@
         ]
       },
       //Lon Lon Ranch
-
       {
         "name":"Lon Lon Ranch",
         "access_rules": ["sword","bombs","lamp","lights","ocarina"],
@@ -1808,7 +1807,7 @@
           },
           {
             "name": "Lon Lon Cave",
-            "access_rules":["sword3,llrkey,spinattack","sword3,ocarina,spinattack","sword3,cape,spinattack"],
+            "access_rules":["sword3,llrkey,spinattack","sword3,ocarina,spinattack","sword3,cape,spinattack","sword3,flippers,mitts,spinattack"],
             "map_locations": [
               {
                 "map":"map",
@@ -1825,7 +1824,7 @@
           },
           {
             "name": "Lon Lon Minish Crack",
-            "access_rules":["llrkey,cane","ocarina,cane","cape"],
+            "access_rules":["llrkey,cane","ocarina,cane","cape","flippers,mitts"],
             "map_locations": [
               {
                 "map":"map",
@@ -1852,7 +1851,7 @@
             "sections":[
               {
                 "name":"Lon Lon Farm Heart Piece",
-                "access_rules":["boots,sword","boots,lamp","boots,bombs","boots,lights","boots,ocarina","boots,llrkey"],
+                "access_rules":["boots,flippers,mitts","boots,ocarina","boots,llrkey"],
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -1873,7 +1872,10 @@
             "cape,lamp",
             "cape,lights",
             "ocarina",
-            "flippers,mitts"],
+            "flippers,mitts,sword",
+            "flippers,mitts,bombs",
+            "flippers,mitts,lamp",
+            "flippers,mitts,lights"],
         "children": [
           {
             "name":"Fifi",
@@ -1896,9 +1898,9 @@
           {
             "name":"Lake Cabin",
             "access_rules": ["flippers,boots,bracelets",
-              "{flippers}","{cape,gust}","{mitts,gust}",
+              "{flippers}","{cape}","{mitts,cane}",
               "cape,boots,gust,bracelets",
-              "mitts,boots,gust,bracelets"],
+              "mitts,cane,boots,gust,bracelets"],
             "map_locations": [
               {
                 "map":"map",
@@ -1952,7 +1954,7 @@
           },
           {
             "name":"Hylia Southern Heart Piece",
-            "access_rules":["flippers","cape","{llrkey,cane,mitts}","{ocarina,cane,mitts}"],
+            "access_rules":["flippers","cape","{cane,mitts}"],
             "map_locations": [
               {
                 "map":"map",
@@ -2033,7 +2035,7 @@
           },
           {
             "name":"Hylia Central Heart Piece",
-            "access_rules":["cape","{ocarina}","{llrkey}"],
+            "access_rules":["cape","{ocarina}","{llrkey}","{flippers,mitts}"],
             "map_locations": [
               {
                 "map":"map",
@@ -2044,6 +2046,7 @@
             "sections": [
               {
                 "name":"Central Heart Piece",
+                "capture_item":true,
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -2079,7 +2082,7 @@
             "sections":[
               {
                 "name":"Lon Lon North Heart Piece",
-                "access_rules":["mitts,cape","{llrkey}","{ocarina}","{cape}"],
+                "access_rules":["mitts,cape","{llrkey}","{ocarina}","{cape}","{flippers,mitts}"],
                 "capture_item":true,
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
@@ -2092,7 +2095,7 @@
       //Eastern Hills
       {
         "name":"Eastern Hills",
-        "access_rules":["bombs","sword","lamp"],
+        "access_rules":["bombs","sword","lamp","lights","ocarina"],
         "children": [
           {
             "name": "Eastern Hills Bombable Wall",
@@ -2116,14 +2119,14 @@
       //Minish Woods
       {
         "name": "Minish Woods",
-        "access_rules":["sword","bombs","lamp","ocarina,flippers","ocarina,cape","lights"],
+        "access_rules":["sword","bombs","lamp","ocarina","lights"],
         "children": [
           {
             "name": "Northern Heart Piece",
             "access_rules":["flippers",
               "cape",
               "llrkey,cane",
-              "ocarina,cane", "{lamp}","{lights}","{sword}","{bombs}"],
+              "ocarina,cane", "{lamp}","{lights}","{sword}","{bombs}","{ocarina}"],
             "map_locations": [
               {
                 "map":"map",
@@ -2144,17 +2147,10 @@
           {
             "name": "Syrup's Hut",
             "access_rules":["sword,flippers",
-              "sword,cape",
               "llrkey,cane",
-              "bombs,cape",
-              "bombs,flippers",
-              "lamp,cape",
-              "lamp,flippers",
-              "lights,cape",
-              "lights,flippers",
-              "ocarina,cane",
-              "ocarina,cape",
-              "ocarina,flippers"],
+              "cape",
+              "flippers",
+              "ocarina,cane"],
             "map_locations": [
               {
                 "map":"map",
