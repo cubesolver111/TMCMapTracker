@@ -4,7 +4,7 @@
         "h_alignment": "center",
         "item_margin": "1,2",
         "rows": [
-            ["sword","gust","cane","boomerang","lights","dws"],
+            ["sword","gust","cane","boomerang","quiver","dws"],
             ["shield","mitts","lamp","bombs","wilds","cof"],
             ["boots","cape","ocarina","bow","clouds","fow"],
             ["bottle","jabber","mushroom","llrkey","falls","tod"],
