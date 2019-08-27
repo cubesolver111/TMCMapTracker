@@ -70,8 +70,8 @@
                                 "wallet",
                                 "books",
                                 "rc",
-                                "dhc_bigkey",
-                                "dhc_smallkey"
+                                "explicit_dhc_bigkey",
+                                "explicit_dhc_smallkey"
                             ]
                         ]
                     }

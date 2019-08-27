@@ -61,8 +61,8 @@
                 "wallet",
                 "books",
                 "rc",
-                "dhc_bigkey",
-                "dhc_smallkey"
+                "explicit_dhc_bigkey",
+                "explicit_dhc_smallkey"
             ]
         ]
     },
@@ -103,7 +103,7 @@
                     "pow_smallkey"
                 ],
                 [
-                    "10hearts","sevenscrolls","wallet","carlov","books","rc","dhc_bigkey","dhc_smallkey"
+                    "10hearts","sevenscrolls","wallet","carlov","books","rc","explicit_dhc_bigkey","explicit_dhc_smallkey"
                 ]
             ]
         }
