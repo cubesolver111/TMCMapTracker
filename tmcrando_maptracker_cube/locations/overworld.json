@@ -509,7 +509,9 @@
                     "sections":[
                       {
                         "name":"Castor Wilds Fusions",
-                        "item_count":3
+                        "item_count":3,
+                        "chest_opened_img":"images/Gold Kinstone (Wilds).png",
+                        "chest_unopened_img":"images/Gold Kinstone (Wilds) Gray.png"
                       }
                     ]
                   },
@@ -691,7 +693,6 @@
                 "map":"map",
                 "x":1050,
                 "y":450,
-                "visibility_rules":["rando_yes"]
               }
             ],
             "sections":[
@@ -809,6 +810,11 @@
                 "map":"map",
                 "x":1175,
                 "y":650,
+              },
+              {
+                "map":"map",
+                "x":1180,
+                "y":900
               }
             ],
             "sections": [
@@ -954,7 +960,7 @@
             ]
           },
           {
-            "name":"Hearth Heart Piece",
+            "name":"Hearth Back Door Heart Piece",
             "access_rules":["cane","flippers","cape"],
             "map_locations": [
               {
@@ -965,7 +971,7 @@
             ],
             "sections": [
               {
-                "name":"Hearth Heart Piece",
+                "name":"Hearth Back Door Heart Piece",
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -1293,14 +1299,14 @@
                 "item_count":1
               },
               {
-                "name":"Basement",
+                "name":"Pull the Statue",
                 "access_rules":["bombs"],
                 "item_count":1
               }
             ]
           },
           {
-            "name":"Cafe Lady",
+            "name":"Lady Next to Cafe",
             "map_locations": [
               {
                 "map":"map",
@@ -1310,7 +1316,7 @@
             ],
             "sections": [
               {
-                "name":"Cafe Lady",
+                "name":"Lady Next to Cafe",
                 "item_count":1
               }
             ]
@@ -1707,15 +1713,17 @@
                 "sections": [
                   {
                     "name":"Fusion",
-                    "item_count":1
+                    "item_count":1,
+                    "chest_opened_img":"images/Gold Kinstone (Falls).png",
+                    "chest_unopened_img":"images/Gold Kinstone (Falls) Gray.png"
                   },
                   {
-                    "name":"Hidden Cave First Chest",
+                    "name":"Bombable Wall First Chest",
                     "access_rules":["bombs"],
                     "item_count":1
                   },
                   {
-                    "name":"Hidden Cave Second Chest",
+                    "name":"Bombable Wall Second Chest",
                     "access_rules":["bombs,sword4,spinattack"],
                     "item_count":1
                   }

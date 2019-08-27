@@ -10,7 +10,9 @@
                 "cane",
                 "boomerang",
                 "quiver",
-                "dws"
+                "dws",
+                "dws_bigkey",
+                "dws_smallkey"
             ],
             [
                 "shield",
@@ -18,7 +20,9 @@
                 "lamp",
                 "bombs",
                 "wilds",
-                "cof"
+                "cof",
+                "cof_bigkey",
+                "cof_smallkey"
             ],
             [
                 "boots",
@@ -26,7 +30,9 @@
                 "ocarina",
                 "bow",
                 "clouds",
-                "fow"
+                "fow",
+                "fow_bigkey",
+                "fow_smallkey"
             ],
             [
                 "bottle",
@@ -34,7 +40,9 @@
                 "mushroom",
                 "llrkey",
                 "falls",
-                "tod"
+                "tod",
+                "tod_bigkey",
+                "tod_smallkey"
             ],
             [
                 "grip",
@@ -42,7 +50,9 @@
                 "flippers",
                 "gravekey",
                 "spinattack",
-                "rc"
+                "pow",
+                "pow_bigkey",
+                "pow_smallkey"
             ],
             [
                 "10hearts",
@@ -50,7 +60,9 @@
                 "carlov",
                 "wallet",
                 "books",
-                "pow"
+                "rc",
+                "explicit_dhc_bigkey",
+                "explicit_dhc_smallkey"
             ]
         ]
     },
@@ -62,13 +74,13 @@
             "item_margin": "1,2",
             "rows": [
                 [
-                    "sword", "gust", "cane", "boomerang", "lights","dws"
+                    "sword", "gust", "cane", "boomerang", "quiver","dws","dws_bigkey","dws_smallkey"
                 ],
                 [
-                    "shield", "mitts", "lamp", "bombs", "wilds","cof"
+                    "shield", "mitts", "lamp", "bombs", "wilds","cof","cof_bigkey","cof_smallkey"
                 ],
                 [
-                    "boots", "cape", "ocarina", "bow", "clouds","fow"
+                    "boots", "cape", "ocarina", "bow", "clouds","fow","fow_bigkey","fow_smallkey"
                 ],
                 [
                     "bottle",
@@ -76,7 +88,9 @@
                     "mushroom",
                     "llrkey",
                     "falls",
-                    "tod"
+                    "tod",
+                    "tod_bigkey",
+                    "tod_smallkey"
                 ],
                 [
                     "grip",
@@ -84,10 +98,12 @@
                     "flippers",
                     "gravekey",
                     "spinattack",
-                    "rc"
+                    "pow",
+                    "pow_bigkey",
+                    "pow_smallkey"
                 ],
                 [
-                    "dws","fire","wallet","carlov","books","pow"
+                    "10hearts","sevenscrolls","wallet","carlov","books","rc","explicit_dhc_bigkey","explicit_dhc_smallkey"
                 ]
             ]
         }

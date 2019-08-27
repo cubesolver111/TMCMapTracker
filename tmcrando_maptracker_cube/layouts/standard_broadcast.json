@@ -19,7 +19,9 @@
                                 "cane",
                                 "boomerang",
                                 "quiver",
-                                "dws"
+                                "dws",
+                                "dws_bigkey",
+                                "dws_smallkey"
                             ],
                             [
                                 "shield",
@@ -27,7 +29,9 @@
                                 "lamp",
                                 "bombs",
                                 "wilds",
-                                "cof"
+                                "cof",
+                                "cof_bigkey",
+                                "cof_smallkey"
                             ],
                             [
                                 "boots",
@@ -35,7 +39,9 @@
                                 "flute",
                                 "bow",
                                 "clouds",
-                                "fow"
+                                "fow",
+                                "fow_bigkey",
+                                "fow_smallkey"
                             ],
                             [
                                 "bottle",
@@ -43,7 +49,9 @@
                                 "mushroom",
                                 "llrkey",
                                 "falls",
-                                "tod"
+                                "tod",
+                                "tod_bigkey",
+                                "tod_smallkey"
                             ],
                             [
                                 "grip",
@@ -51,7 +59,9 @@
                                 "flippers",
                                 "gravekey",
                                 "spinattack",
-                                "rc"
+                                "pow",
+                                "pow_bigkey",
+                                "pow_smallkey"
                             ],
                             [
                                 "10hearts",
@@ -59,21 +69,11 @@
                                 "carlov",
                                 "wallet",
                                 "books",
-                                "pow"
+                                "rc",
+                                "explicit_dhc_bigkey",
+                                "explicit_dhc_smallkey"
                             ]
                         ]
-                    },
-                    {
-                        "type": "container",
-                        "margin": "0,5,0,0",
-                        "content": {
-                            "type": "recentpins",
-                            "h_alignment": "stretch",
-                            "v_alignment": "center",
-                            "orientation": "vertical",
-                            "compact": true,
-                            "num_items": 2
-                        }
                     }
                 ]
             }
