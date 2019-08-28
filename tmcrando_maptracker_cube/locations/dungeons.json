@@ -78,7 +78,7 @@
           {
             "name":"Blue Warp Heart Piece",
             "short_name":"Blue Warp HP",
-            "access_rules": ["bombs,dws_smallkey:2","gust,dws_smallkey","{}"],
+            "access_rules": ["bombs,dws_smallkey:2","gust,dws_smallkey","{dws_smallkey:2}"],
             "capture_item":true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
@@ -94,13 +94,13 @@
           //if lamp then two
           {
             "name":"Madderpillar Chest",
-            "access_rules": ["$canDamage","dws_smallkey:4","dws_smallkey:2,lamp","dws_smallkey:1,lamp,gust"],
+            "access_rules": ["$canDamage,dws_smallkey:4","dws_smallkey:2,lamp","dws_smallkey:1,lamp,gust"],
             "item_count": 1
           },
           {
             "name":"Madderpillar Heart Piece",
             "short_name":"Madderpillar HP",
-            "access_rules": ["gust","lamp","dws_smallkey:4","dws_smallkey:2,lamp","dws_smallkey:1,gust,lamp","{}"],
+            "access_rules": ["dws_smallkey:4","dws_smallkey:2,lamp","dws_smallkey:1,gust,lamp","{dws:smallkey:1}"],
             "capture_item": true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
@@ -397,7 +397,7 @@
           //Need two keys
           {
             "name":"Overhang Chest",
-            "access_rules":["gust,flippers,tod_bigkey"],
+            "access_rules":["tod_bigkey"],
             "item_count": 1
           },
           {
