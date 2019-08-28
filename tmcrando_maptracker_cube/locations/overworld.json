@@ -275,8 +275,8 @@
                   {
                     "name":"Crenel Climbing Wall Cave",
                     "item_count":1,
-                    "chest_opened_img":"images/Heart Piece.png",
-                    "chest_unopened_img":"images/Heart Piece Gray.png"
+                    "chest_unopened_img":"images/Heart Piece.png",
+                    "chest_opened_img":"images/Heart Piece Gray.png"
                   }
                 ]
               }
@@ -814,7 +814,7 @@
               {
                 "map":"map",
                 "x":1180,
-                "y":900
+                "y":800
               }
             ],
             "sections": [
@@ -1644,7 +1644,7 @@
               },
               {
                 "name":"Wind Tribe House",
-                "access_rules":["kinstoneClouds:5,mitts","kinstoneClouds:1,cape"],
+                "access_rules":["kinstoneClouds:5,mitts","kinstoneClouds:5,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1714,8 +1714,8 @@
                   {
                     "name":"Fusion",
                     "item_count":1,
-                    "chest_opened_img":"images/Gold Kinstone (Falls).png",
-                    "chest_unopened_img":"images/Gold Kinstone (Falls) Gray.png"
+                    "chest_unopened_img":"images/Gold Kinstone (Falls).png",
+                    "chest_opened_img":"images/Gold Kinstone (Falls) Gray.png"
                   },
                   {
                     "name":"Bombable Wall First Chest",
