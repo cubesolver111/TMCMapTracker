@@ -462,7 +462,7 @@
                     ]
                   },
                   {
-                    "name":"Northeast Cave",
+                    "name":"North Cave",
                     "access_rules":["bow"],
                     "map_locations":[
                       {
@@ -534,7 +534,7 @@
                   },
                   {
                     "name":"Castor Wilds Top Right Cave",
-                    "access_rules":["flippers,bow","bow"],
+                    "access_rules":["flippers,bow","cape,bow"],
                     "map_locations": [
                       {
                         "map":"map",
@@ -1832,7 +1832,7 @@
           },
           {
             "name": "Lon Lon Minish Crack",
-            "access_rules":["llrkey,cane","ocarina,cane","cape","flippers,mitts"],
+            "access_rules":["llrkey,cane","ocarina,cane","cape","flippers,mitts,cane"],
             "map_locations": [
               {
                 "map":"map",
