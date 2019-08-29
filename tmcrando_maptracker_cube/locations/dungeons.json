@@ -131,14 +131,13 @@
           "sword,spinattack,bottle,grip,gust,boomerang",
           "sword,spinattack,bottle,grip,lights",
           "sword,spinattack,bottle,grip,cane",
-          "sword,spinattack,bottle,grip,cape",
+          "bottle,grip,cape",
           "sword,spinattack,bottle,bombs,cane",
           "flippers,bottle,grip,gust,bombs",
           "flippers,bottle,grip,gust,bow",
           "flippers,bottle,grip,gust,boomerang",
           "flippers,bottle,grip,lights",
           "flippers,bottle,grip,cane",
-          "flippers,bottle,grip,cape",
           "flippers,bottle,bombs,cane"
         ],
         "map_locations": [
