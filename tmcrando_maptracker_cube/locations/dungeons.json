@@ -53,7 +53,7 @@
           //At least two small keys
           {
             "name":"Mulldozer Key",
-            "access_rules":["$canDamage,dws_smallkey:4","$canDamage,gust,dws_smallkey:2"],
+            "access_rules":["$canDamage,dws_smallkey:4","$canDamage,$hasNoGust,dws_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key.png"
@@ -576,7 +576,7 @@
         "name": "Dark Hyrule Castle",
         "short_name": "DHC",
         "codes":"dhc",
-        "access_rules": ["sword5,earth,fire,water,wind,spinattack"],
+        "access_rules": ["sword5,spinattack"],
         "map_locations": [
           {
             "map": "map",
