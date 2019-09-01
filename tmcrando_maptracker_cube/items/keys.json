@@ -72,7 +72,7 @@
     "type": "consumable",
     "img": "images/Small Key.png",
     "codes": "pow_smallkey",
-    "max_quantity": 5
+    "max_quantity": 6
   },
   // DHC Big Key
   {
