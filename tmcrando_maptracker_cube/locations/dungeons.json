@@ -45,10 +45,16 @@
             "item_count": 1
           },
           {
-            "name":"West Side",
+            "name":"West Side Big Chest",
             "access_rules": ["dws_smallkey:1"],
-            "clear_as_group": false,
-            "item_count": 2
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
+          },
+          {
+            "name":"Two Statue Room",
+            "access_rules": ["dws_smallkey:1"],
+            "item_count": 1
           },
           //At least two small keys
           {
@@ -56,7 +62,7 @@
             "access_rules":["$canDamage,dws_smallkey:4","$canDamage,$hasNoGust,dws_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //these could be one small key with gust
           {
@@ -67,7 +73,9 @@
           {
             "name":"Basement Switch Room Big Chest",
             "access_rules":["$canDamage, gust, dws_smallkey:1","dws_smallkey:2"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Basement Switch Chest",
@@ -95,7 +103,9 @@
           {
             "name":"Madderpillar Chest",
             "access_rules": ["$canDamage,dws_smallkey:4","dws_smallkey:2,lamp","dws_smallkey:1,lamp,gust"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Madderpillar Heart Piece",
@@ -110,7 +120,9 @@
           {
             "name":"Basement Big Chest",
             "access_rules": ["gust,dws_smallkey:4"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Green Chu",
@@ -154,7 +166,9 @@
               "cane,$canDamage",
               "shield,$canDamage",
               "bombs"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Big Chest Room",
@@ -162,7 +176,8 @@
               "cane,$canDamage",
               "shield,$canDamage",
               "bombs"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false,
           },
           {
             "name":"First Rollobite Room",
@@ -170,7 +185,8 @@
               "cane,$canDamage",
               "shield,$canDamage",
               "bombs"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false
           },
           //At Least One Small Key
           {
@@ -191,7 +207,9 @@
               "cane,sword,cof_smallkey:1",
               "shield,sword,cof_smallkey:1",
               "bombs,sword,cof_smallkey:1"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Spiny Chu Pillar Chest",
@@ -202,7 +220,8 @@
           {
             "name":"Pre Lava Basement Room",
             "access_rules": ["cane,sword,cof_smallkey:2"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false,
           },
           {
             "name":"Blade Chest",
@@ -210,9 +229,17 @@
             "item_count": 1
           },
           {
-            "name":"Lava Basement (Left,Right,Center)",
+            "name":"Lava Basement (Left,Right)",
             "access_rules": ["cane,sword,cof_smallkey:2"],
-            "item_count": 3
+            "item_count": 2,
+            "clear_as_group": false,
+          },
+          {
+            "name":"Lava Basement Big Chest",
+            "access_rules": ["cane,sword,cof_smallkey:2"],
+            "item_count":1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Gleerok",
@@ -242,24 +269,28 @@
           {
             "name":"Entrance Far Left + Wizzrobe Fight",
             "access_rules": ["mitts"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false
           },
           {
             "name":"Left Side Mitts Chests",
             "access_rules":["bow,mitts"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false
           },
           {
             "name":"Eyegores",
             "access_rules":["bow"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Left Side Key Drop",
             "access_rules":["bow"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Right Side Two Lever Room",
@@ -269,13 +300,14 @@
           {
             "name":"Right Side Mitts Chests",
             "access_rules":["mitts"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false
           },
           {
             "name":"Right Side Key Drop",
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Right Side Heart Piece",
@@ -287,7 +319,9 @@
           {
             "name":"Pedestal Chest",
             "access_rules":["bow"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Center Path Switch",
@@ -297,9 +331,10 @@
           //Everything past here needs two keys
           {
             "name":"Bombable Wall Big Chest",
-            "short_name":"Mitts Chest",
             "access_rules":["bow,bombs,fow_smallkey:2"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Bombable Wall Small Chest",
@@ -311,7 +346,7 @@
             "access_rules":["bow,fow_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //Everything past here needs three keys
           {
@@ -319,13 +354,15 @@
             "access_rules":["bow,mitts,fow_smallkey:3"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //Next one needs four small keys
           {
             "name":"Skull Room Chest",
             "access_rules":["bow,mitts,fow_smallkey:4"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           //Big Key
           {
@@ -383,21 +420,25 @@
           //Need big key
           {
             "name":"Post Madderpillar Chest",
-            "access_rules":["tod_bigkey,tod_bigkey,tod_smallkey:4,bombs"],
-            "item_count": 1
+            "access_rules":["tod_bigkey,tod_smallkey:4,bombs"],
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Underwater Pot",
             "access_rules":["flippers,gust,tod_bigkey","flippers,cape,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //Need two keys
           {
             "name":"Overhang Chest",
             "access_rules":["tod_bigkey"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Ice Puzzle Frozen Chest",
@@ -424,7 +465,9 @@
           {
             "name":"Blue Chu Frozen Chest",
             "access_rules":["gust,flippers,sword3,spinattack,tod_bigkey,tod_smallkey:4","lamp,tod_bigkey"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           //blue chu is behind small key
           {
@@ -442,14 +485,15 @@
           {
             "name":"Dark Maze",
             "access_rules":["lamp,$canDamage,tod_bigkey"],
-            "item_count": 3
+            "item_count": 3,
+            "clear_as_group": false
           },
           {
             "name":"Dark Maze Bomb Wall",
             "access_rules":["lamp,bombs,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //behind small key
           {
@@ -457,7 +501,7 @@
             "access_rules":["gust,flippers,lamp,bombs,sword3,spinattack,tod_bigkey,tod_smallkey:4","cape,lamp,bombs,sword3,spinattack,tod_bigkey,tod_smallkey:4"],
             "item_count": 1,
             "chest_unopened_img":"images/Heart Container.png",
-            "chest_opened_img":"images/Heart Container.png"
+            "chest_opened_img":"images/Heart Container Gray.png"
           }
         ]
       },
@@ -484,14 +528,16 @@
           {
             "name":"Wizzrobe Platform Fight",
             "access_rules":["cape,bombs,boomerang"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Pot Puzzle Key",
             "access_rules":["cape,cane,bracelets"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //Need one key
           {
@@ -504,19 +550,21 @@
             "access_rules":["cape,cane,pow_smallkey:1"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //Need two keys
           {
             "name":"Spark Chest",
-            "access_rules":["cape,cane,pow_smallkey:2"],
+            "access_rules":["cape,cane,pow_smallkey:5"],
             "item_count": 1
           },
           //Need three keys
           {
             "name":"Pre Big Key Door Big Chest",
             "access_rules":["cape,cane,pow_smallkey:6"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           //SECOND HALF
           //Need Big Key
@@ -535,7 +583,8 @@
           {
             "name":"Wizzrobe Fights",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false
           },
           {
             "name":"Heart Piece",
@@ -560,7 +609,8 @@
           {
             "name":"Block Maze Room",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:6"],
-            "item_count": 2
+            "item_count": 2,
+            "clear_as_group": false
           },
           {
             "name":"Gyorg",
@@ -587,76 +637,80 @@
         "sections": [
           {
             "name":"Blade Chest",
-            "access_rules":["dhc_smallkey:1"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Platform Chest",
-            "access_rules":["dhc_smallkey:1"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name": "Stone King",
-            "access_rules": ["bombs,dhc_smallkey:1"],
+            "access_rules": ["bombs"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //Needs one key
           {
             "name":"Post Throne Big Chest",
-            "access_rules":["bombs,dhc_smallkey:2"],
-            "item_count": 1
+            "access_rules":["bombs,explicit_dhc_smallkey:2"],
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Northeast Tower",
-            "access_rules":["bombs,cape,boomerang,lamp,dhc_smallkey:2",
-              "bombs,cape,bow,lamp,dhc_smallkey:2",
-              "bombs,cape,lights,lamp,dhc_smallkey:2"],
+            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:2",
+              "bombs,cape,bow,lamp,explicit_dhc_smallkey:2",
+              "bombs,cape,lights,lamp,explicit_dhc_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Southeast Tower",
-            "access_rules":["bombs,cape,boomerang,dhc_smallkey:2",
-              "bombs,cape,bow,dhc_smallkey:2",
-              "bombs,cape,lights,dhc_smallkey:2"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2",
+              "bombs,cape,bow,explicit_dhc_smallkey:2",
+              "bombs,cape,lights,explicit_dhc_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Southwest Tower",
-            "access_rules":["bombs,cape,boomerang,dhc_smallkey:2",
-              "bombs,cape,bow,dhc_smallkey:2",
-              "bombs,cape,lights,dhc_smallkey:2"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2",
+              "bombs,cape,bow,explicit_dhc_smallkey:2",
+              "bombs,cape,lights,explicit_dhc_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Northwest Tower",
-            "access_rules":["bombs,cape,bow,dhc_smallkey:2"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           //Needs five keys
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,lamp,dhc_smallkey:6"],
-            "item_count": 1
+            "access_rules":["bombs,cape,bow,lamp,explicit_dhc_smallkey:6"],
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           //Needs big key
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,dhc_smallkey:6,dhc_bigkey"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:6,explicit_dhc_bigkey"],
             "item_count": 1,
-            "chest_unopened_img":"images/TriForce_Gray.png",
-            "chest_opened_img":"images/TriForce.png"
+            "chest_unopened_img":"images/TriForce.png",
+            "chest_opened_img":"images/TriForce_Gray.png"
           }
         ]
       }
