@@ -17,22 +17,6 @@
     ]
   },
   {
-    "name": "Heart Pieces",
-    "type": "progressive",
-    "loop": true,
-    "allow_disabled": false,
-    "stages":[
-      {
-        "img": "images/Heart Piece Off.png",
-        "codes": "hearts_off"
-      },
-      {
-        "img": "images/Heart Piece On.png",
-        "codes": "hearts_on"
-      }
-    ]
-  },
-  {
     "name": "Fusions",
     "type": "progressive",
     "loop": true,
