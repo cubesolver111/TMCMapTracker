@@ -18,7 +18,7 @@
                 "shield",
                 "mittsandfly",
                 "lamp",
-                "bombs",
+                "bombsremote",
                 "wilds",
                 "cof",
                 "cof_bigkey",
@@ -77,7 +77,7 @@
                     "sword", "gust", "cane", "boomerang", "quiver","dws","dws_bigkey","dws_smallkey"
                 ],
                 [
-                    "shield", "mittsandfly", "lamp", "bombs", "wilds","cof","cof_bigkey","cof_smallkey"
+                    "shield", "mittsandfly", "lamp", "bombsremote", "wilds","cof","cof_bigkey","cof_smallkey"
                 ],
                 [
                     "boots", "cape", "ocarina", "bowandfly", "clouds","fow","fow_bigkey","fow_smallkey"
