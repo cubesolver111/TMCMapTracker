@@ -27,6 +27,20 @@
           "flags": [
             "chathud"
           ]
+        },
+        {
+          "name": "Keysanity Map Tracker",
+          "flags": [
+            "map",
+            "pins",
+            "chathud"
+          ]
+        },
+        {
+          "name": "Items Only w/Keys",
+          "flags": [
+            "chathud"
+          ]
         }
       ]
     }
