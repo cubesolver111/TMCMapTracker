@@ -5,10 +5,10 @@
         "item_margin": "1,2",
         "rows": [
             ["sword","gust","cane","boomerang","quiver","dws"],
-            ["shield","mitts","lamp","bombs","wilds","cof"],
-            ["boots","cape","ocarina","bow","clouds","fow"],
+            ["shield","mittsandfly","lamp","bombsremote","wilds","cof"],
+            ["boots","cape","ocarina","bowandfly","clouds","fow"],
             ["bottle","jabber","mushroom","llrkey","falls","tod"],
-            ["grip","bracelets","flippers","gravekey","spinattack","rc"],
+            ["grip","bracelets","flippersandfly","gravekey","spinattack","rc"],
             ["10hearts","sevenscrolls","carlov","wallet","books","pow"]
         ]
     },
