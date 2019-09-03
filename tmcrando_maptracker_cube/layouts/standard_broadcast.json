@@ -25,7 +25,7 @@
                             ],
                             [
                                 "shield",
-                                "mitts",
+                                "mittsandfly",
                                 "lamp",
                                 "bombs",
                                 "wilds",
@@ -37,7 +37,7 @@
                                 "boots",
                                 "cape",
                                 "flute",
-                                "bow",
+                                "bowandfly",
                                 "clouds",
                                 "fow",
                                 "fow_bigkey",
@@ -56,7 +56,7 @@
                             [
                                 "grip",
                                 "bracelets",
-                                "flippers",
+                                "flippersandfly",
                                 "gravekey",
                                 "spinattack",
                                 "pow",
