@@ -9,3 +9,11 @@ function canDamage()
     return Tracker:ProviderCountForCode("bombs")
   end
 end
+
+function hasNoGust()
+  if Tracker:ProviderCountForCode("gust") > 0 then
+    return 0
+  else
+    return 1
+  end
+end

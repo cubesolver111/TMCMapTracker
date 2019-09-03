@@ -16,9 +16,9 @@
             ],
             [
                 "shield",
-                "mitts",
+                "mittsandfly",
                 "lamp",
-                "bombs",
+                "bombsremote",
                 "wilds",
                 "cof",
                 "cof_bigkey",
@@ -28,7 +28,7 @@
                 "boots",
                 "cape",
                 "ocarina",
-                "bow",
+                "bowandfly",
                 "clouds",
                 "fow",
                 "fow_bigkey",
@@ -47,7 +47,7 @@
             [
                 "grip",
                 "bracelets",
-                "flippers",
+                "flippersandfly",
                 "gravekey",
                 "spinattack",
                 "pow",
@@ -77,10 +77,10 @@
                     "sword", "gust", "cane", "boomerang", "quiver","dws","dws_bigkey","dws_smallkey"
                 ],
                 [
-                    "shield", "mitts", "lamp", "bombs", "wilds","cof","cof_bigkey","cof_smallkey"
+                    "shield", "mittsandfly", "lamp", "bombsremote", "wilds","cof","cof_bigkey","cof_smallkey"
                 ],
                 [
-                    "boots", "cape", "ocarina", "bow", "clouds","fow","fow_bigkey","fow_smallkey"
+                    "boots", "cape", "ocarina", "bowandfly", "clouds","fow","fow_bigkey","fow_smallkey"
                 ],
                 [
                     "bottle",
@@ -95,7 +95,7 @@
                 [
                     "grip",
                     "bracelets",
-                    "flippers",
+                    "flippersandfly",
                     "gravekey",
                     "spinattack",
                     "pow",

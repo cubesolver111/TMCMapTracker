@@ -117,6 +117,42 @@
     "img": "images/Mole Mitts.png",
     "codes": "mitts"
   },
+  {
+    "name": "Mole Mitts Butterfly",
+    "type": "toggle",
+    "codes": "mittsButterfly",
+    "img": "images/Mole Mitts B.png"
+  },
+  {
+    "name": "Mole Mitts and Butterfly",
+    "type": "composite_toggle",
+    "codes": "mittsandfly",
+    "item_left": "mitts",
+    "item_right": "mittsButterfly",
+    "images": [
+      {
+        "left": false,
+        "right": false,
+        "img": "images/Mole Mitts.png",
+        "img_mods": "@disabled"
+      },
+      {
+        "left": true,
+        "right": false,
+        "img": "images/Mole Mitts.png"
+      },
+      {
+        "left": false,
+        "right": true,
+        "img": "images/Mole Mitts B Gray.png"
+      },
+      {
+        "left": true,
+        "right": true,
+        "img": "images/Mole Mitts B.png"
+      }
+    ]
+  },
   //Lamp
   {
     "name": "Lamp",
@@ -141,6 +177,7 @@
     "name": "Bombs",
     "type": "progressive",
     "allow_disabled": false,
+    "loop": true,
     "initial_stage_idx": 0,
     "stages": [
       {
@@ -166,6 +203,13 @@
         "codes": "bombs,bomb,dmg"
       },
     ]
+  },
+  {
+    "name": "Bombs and Remote",
+    "type": "toggle_badged",
+    "base_item": "bombs",
+    "img": "images/overlay_remote.png",
+    "codes": "bombs,remote,bombsremote"
   },
  //Kinstone Wilds
  {
@@ -200,26 +244,24 @@
  {
    "name": "Bow",
    "type": "progressive",
-   "allow_disabled": false,
-   "initial_stage_idx": 0,
+   "loop": true,
    "stages": [
      {
        "img": "images/Bow0.png",
-       "inherit_codes": false,
-       "img_mods": "@disabled",
-       "codes": ""
-     },
-     {
-       "img": "images/Bow0.png",
-       "inherit_codes": false,
        "codes": "bow,dmg"
      },
      {
-       "img": "images/Light Arrows.png",
-       "inherit_codes": false,
+       "img": "images/Light Arrows Smaller.png",
        "codes": "bow,lights"
      }
    ]
+ },
+ {
+   "name": "Bow w/ Butterfly",
+   "type": "toggle_badged",
+   "base_item": "bow",
+   "img": "images/overlay_butterfly.png",
+   "codes": "bowandfly"
  },
  //Quivers
  {
@@ -232,10 +274,6 @@
        "img": "images/Quiver.png",
        "inherit_codes": false,
        "img_mods": "@disabled",
-       "codes": "quiver"
-     },
-     {
-       "img": "images/Quiver30.png",
        "codes": "quiver"
      },
      {
@@ -334,6 +372,42 @@
    "type": "toggle",
    "img": "images/Flippers.png",
    "codes": "flippers"
+ },
+ {
+   "name": "Flippers and Butterfly",
+   "type": "toggle",
+   "img": "images/Flippers Butterfly.png",
+   "codes": "flippersButterfly"
+ },
+ {
+   "name": "Flippers",
+   "type": "composite_toggle",
+   "codes": "flippersandfly",
+   "item_left":"flippers",
+   "item_right":"flippersButterfly",
+   "images": [
+     {
+       "left": false,
+       "right": false,
+       "img": "images/Flippers.png",
+       "img_mods": "@disabled"
+     },
+     {
+       "left": true,
+       "right": false,
+       "img": "images/Flippers.png"
+     },
+     {
+       "left": false,
+       "right": true,
+       "img": "images/Flippers B Gray.png"
+     },
+     {
+       "left": true,
+       "right": true,
+       "img": "images/Flippers B.png"
+     }
+   ]
  },
  // Graveyard Key
  {
@@ -440,14 +514,7 @@
    "img": "images/Great Spin Attack.png",
    "codes": "greatspin"
  },
- // Go-Mode
- {
-   "name": "Go Mode!",
-   "capturable": false,
-   "type": "toggle",
-   "img": "images/0062.png",
-   "codes": "gomode"
- },
+ // Book Quest
  {
    "name": "Book Quest",
    "type": "consumable",
@@ -455,12 +522,7 @@
    "codes": "bookquest,books",
    "max_quantity": 3
  },
- {
-   "name": "Remote Bombs",
-   "type": "toggle",
-   "img": "images/Remote Bombs.png",
-   "codes": "bomb,bombs,remote"
- },
+ // Seven Scrolls OG Swiftblade Requirement
  {
    "name": "Scrolls",
    "type": "consumable",
@@ -468,6 +530,7 @@
    "codes": "scrolls,allscrolls,sevenscrolls",
    "max_quantity": 7
  },
+ // Royal Crypt Keys
  {
    "name": "Crypt Keys",
    "type": "consumable",
@@ -475,6 +538,7 @@
    "codes": "cryptkey",
    "max_quantity": 3
  },
+ // Ten Hearts Waveblade Requirement
  {
    "name": "Hearts",
    "type": "consumable",
