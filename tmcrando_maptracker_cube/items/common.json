@@ -546,4 +546,35 @@
    "codes": "10hearts,hearts",
    "max_quantity": 20
  },
+ // Keysanity Only Graveyard/LLR Key Combined
+ {
+   "name": "Keys",
+   "type": "composite_toggle",
+   "item_left": "llrkey",
+   "item_right": "gravekey",
+   "codes": "bothkeys",
+   "images": [
+     {
+       "left": false,
+       "right": false,
+       "img": "images/Lon Lon Ranch Key.png",
+       "img_mods": "@disabled"
+     },
+     {
+       "left": true,
+       "right": false,
+       "img": "images/Lon Lon Ranch Key.png"
+     },
+     {
+       "left": false,
+       "right": true,
+       "img": "images/Graveyard Key.png"
+     },
+     {
+       "left": true,
+       "right": true,
+       "img": "images/Both Keys.png"
+     }
+   ]
+ }
 ]

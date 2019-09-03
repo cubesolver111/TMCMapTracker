@@ -2,15 +2,21 @@
   "name": "The Minish Cap Randomizer Map and Item Tracker",
   "game_name": "Minish Cap Randomizer",
   "platform": "GBA",
-  "package_version": "1.0.3.0",
+  "package_version": "1.1.0.0",
   "package_uid": "tmcrando_maptracker_cube",
   "author": "cubesolver111",
   "variants": {
     "standard": {
-      "display_name": "Map Tracker"
+      "display_name": "Standard Map Tracker"
+    },
+    "keysanity": {
+      "display_name": "Keysanity Map Tracker"
     },
     "items_only": {
       "display_name": "Items Only"
-    }
+    },
+    "items_only_keys": {
+      "display_name": "Item Tracker w/ Keys"
+    },
   }
 }
