@@ -514,7 +514,14 @@
    "img": "images/Great Spin Attack.png",
    "codes": "greatspin"
  },
- // Book Quest
+ // Go-Mode
+ {
+   "name": "Go Mode!",
+   "capturable": false,
+   "type": "toggle",
+   "img": "images/0062.png",
+   "codes": "gomode"
+ },
  {
    "name": "Book Quest",
    "type": "consumable",
@@ -522,7 +529,12 @@
    "codes": "bookquest,books",
    "max_quantity": 3
  },
- // Seven Scrolls OG Swiftblade Requirement
+ {
+   "name": "Remote Bombs",
+   "type": "toggle",
+   "img": "images/Remote Bombs.png",
+   "codes": "bomb,bombs,remote"
+ },
  {
    "name": "Scrolls",
    "type": "consumable",
@@ -530,7 +542,6 @@
    "codes": "scrolls,allscrolls,sevenscrolls",
    "max_quantity": 7
  },
- // Royal Crypt Keys
  {
    "name": "Crypt Keys",
    "type": "consumable",
@@ -538,7 +549,6 @@
    "codes": "cryptkey",
    "max_quantity": 3
  },
- // Ten Hearts Waveblade Requirement
  {
    "name": "Hearts",
    "type": "consumable",
@@ -546,7 +556,7 @@
    "codes": "10hearts,hearts",
    "max_quantity": 20
  },
- // Keysanity Only Graveyard/LLR Key Combined
+ // Graveyard/LLR Key Combined
  {
    "name": "Keys",
    "type": "composite_toggle",
@@ -576,5 +586,11 @@
        "img": "images/Both Keys.png"
      }
    ]
+ },
+ {
+   "name": "Generic Yellow Kinstone",
+   "type": "toggle",
+   "img": "images/Generic Gold Kinstone.png",
+   "codes": "genericyellow"
  }
 ]
