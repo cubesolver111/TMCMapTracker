@@ -156,37 +156,18 @@
                         "map":"map",
                         "x":600,
                         "y":350,
-                        "visibility_rules":["rando"]
                       }
                     ],
                     "sections":[
+                      {
+                        "name": "Grayblade",
+                        "item_count":1,
+                        "chest_unopened_img":"images/Tiger Scroll.png",
+                        "chest_opened_img":"images/Tiger Scroll Done.png"
+                      },
                       {
                         "name":"Chests",
                         "item_count":2
-                      },
-                      {
-                        "name":"Heart Piece",
-                        "item_count":1,
-                        "chest_unopened_img":"images/Heart Piece.png",
-                        "chest_opened_img":"images/Heart Piece Gray.png"
-                      }
-                    ]
-                  },
-                  {
-                    "name":"Grayblade",
-                    "access_rules":["grip,sword3,spinattack"],
-                    "map_locations":[
-                      {
-                        "map":"map",
-                        "x":600,
-                        "y":350,
-                        "visibility_rules":["rando_yes"]
-                      }
-                    ],
-                    "sections":[
-                      {
-                        "name":"Chests and Sword Skill",
-                        "item_count":3
                       },
                       {
                         "name":"Heart Piece",
@@ -407,34 +388,15 @@
                         "map":"map",
                         "x":50,
                         "y":1600,
-                        "visibility_rules":["rando"]
-                      }
-                    ],
-                    "sections": [
-                      {
-                        "name":"Heart Piece",
-                        "item_count":1,
-                        "chest_unopened_img":"images/Heart Piece.png",
-                        "chest_opened_img":"images/Heart Piece Gray.png"
-                      }
-                    ]
-                  },
-                  {
-                    "name":"Swiftblade the First",
-                    "access_rules":["bow","cape","flippers"],
-                    "map_locations": [
-                      {
-                        "map":"map",
-                        "x":50,
-                        "y":1600,
-                        "visibility_rules":["rando_yes"]
                       }
                     ],
                     "sections": [
                       {
                         "name":"Swiftblade the First",
                         "access_rules":["sevenscrolls:7"],
-                        "item_count":1
+                        "item_count":1,
+                        "chest_unopened_img":"images/Tiger Scroll.png",
+                        "chest_opened_img":"images/Tiger Scroll Done.png"
                       },
                       {
                         "name":"Heart Piece",
@@ -668,28 +630,11 @@
             ],
             "sections": [
               {
-                "name":"Heart Piece",
-                "item_count":1,
-                "chest_unopened_img":"images/Heart Piece.png",
-                "chest_opened_img":"images/Heart Piece Gray.png"
-              }
-            ]
-          },
-          {
-            "name":"Grimblade",
-            "map_locations": [
-              {
-                "map":"map",
-                "x":1610,
-                "y":360,
-                "visibility_rules":["rando_yes"]
-              }
-            ],
-            "sections": [
-              {
                 "name":"Grimblade",
                 "access_rules":["lamp"],
-                "item_count":1
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               },
               {
                 "name":"Heart Piece",
@@ -876,29 +821,36 @@
                 "map":"map",
                 "x":1194,
                 "y":1575,
-                "visibility_rules":["rando_yes"]
               }
             ],
             "sections": [
               {
                 "name":"Spin Attack",
                 "access_rules":["sword"],
-                "item_count":1
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               },
               {
                 "name":"Rock Breaker",
                 "access_rules":["sword2"],
-                "item_count":1
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               },
               {
                 "name":"Dash Attack",
                 "access_rules":["sword2,boots"],
-                "item_count":1
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               },
               {
                 "name":"Down Thrust",
                 "access_rules":["sword2,boots,cape"],
-                "item_count":1
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               }
             ]
           },
@@ -2055,29 +2007,11 @@
             ],
             "sections": [
               {
-                "name":"Heart Piece",
-                "item_count":1,
-                "chest_unopened_img":"images/Heart Piece.png",
-                "chest_opened_img":"images/Heart Piece Gray.png"
-              }
-            ]
-          },
-          {
-            "name":"Waveblade",
-            "access_rules":["flippers","cape"],
-            "map_locations": [
-              {
-                "map":"map",
-                "x":2310,
-                "y":1250,
-                "visibility_rules":["rando_yes"]
-              }
-            ],
-            "sections": [
-              {
                 "name":"Waveblade",
                 "access_rules":["10hearts:10"],
-                "item_count":1
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               },
               {
                 "name":"Heart Piece",
