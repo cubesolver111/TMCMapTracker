@@ -631,7 +631,7 @@
             "sections": [
               {
                 "name":"Grimblade",
-                "access_rules":["lamp"],
+                "access_rules":["lamp,sword"],
                 "item_count":1,
                 "chest_unopened_img":"images/Tiger Scroll.png",
                 "chest_opened_img":"images/Tiger Scroll Done.png"
@@ -2008,7 +2008,7 @@
             "sections": [
               {
                 "name":"Waveblade",
-                "access_rules":["10hearts:10"],
+                "access_rules":["10hearts:10,sword"],
                 "item_count":1,
                 "chest_unopened_img":"images/Tiger Scroll.png",
                 "chest_opened_img":"images/Tiger Scroll Done.png"
