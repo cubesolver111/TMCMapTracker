@@ -466,8 +466,6 @@
             "name":"Blue Chu Frozen Chest",
             "access_rules":["gust,flippers,sword3,spinattack,tod_bigkey,tod_smallkey:4","lamp,tod_bigkey"],
             "item_count": 1,
-            "chest_unopened_img":"images/big_chest_closed.png",
-            "chest_opened_img":"images/big_chest_open.png"
           },
           //blue chu is behind small key
           {
@@ -475,7 +473,9 @@
             "access_rules":["gust,flippers,sword3,spinattack,tod_bigkey,tod_smallkey:4",
               "gust,lamp,sword,tod_bigkey,tod_smallkey:4",
               "gust,lamp,bombs,tod_bigkey,tod_smallkey:4"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Post Blue Chu Frozen Chest",
