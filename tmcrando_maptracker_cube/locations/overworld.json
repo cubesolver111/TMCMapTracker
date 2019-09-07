@@ -869,7 +869,7 @@
                 "name":"Wallet Spot (80 Rupees)",
                 "item_count": 1,
                 "capture_item":true,
-                "access_rules":["{}"]
+                "access_rules":["{}",""]
               },
               {
                 "name":"Boomerang Spot (300 Rupees)",
