@@ -15,15 +15,17 @@ You can also message me on Discord at __cubesolver#6871__ .
 
 ## Variants
 
-This pack currently offers two variants:
+This pack currently offers four variants:
 1. Map Tracker
 2. Items-Only
+3. Keysanity Map tracker
+4. Keysanity Items-Only
 
-When other modes for the randomizer become available, the tracker will also be updated for those modes. Currently there are two modes in development: Keysanity and Kinsanity.
+When other modes for the randomizer become available, the tracker will also be updated for those modes. Currently there is one more mode in development: Kinsanity.
 
 ## Settings
 
-There are currently no settings as there is only one mode for the randomizer. As the randomizer progresses, settings will be added. Right now, the proposed settings are open, standard, and kinsanity.
+There are currently no settings as there is only one mode for the randomizer. As the randomizer progresses, settings will be added. Right now, the proposed settings are open, standard, and full.
 
 In open, all fusions are completed from the start of the game and the locations they unlock will be considered in logic.
 In standard, all fusions are vanilla and will not be considered in logic.

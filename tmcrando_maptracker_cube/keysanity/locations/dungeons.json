@@ -379,6 +379,49 @@
           }
         ]
       },
+      //Royal Crypt
+      {
+        "name":"Royal Crypt",
+        "access_rules":["gravekey,sword4,boots,spinattack,bombs","gravekey,sword4,boots,spinattack,cape","gravekey,sword4,boots,spinattack,flippers"],
+        "map_locations": [
+          {
+            "map":"map",
+            "x":827,
+            "y":150
+          }
+        ],
+        "sections": [
+          {
+            "name":"Gibdos",
+            "item_count": 1,
+            "chest_unopened_img":"images/Small Key.png",
+            "chest_opened_img":"images/Small Key.png"
+          },
+          {
+            "name":"Other Gibdos",
+            "item_count": 1
+          },
+          {
+            "name":"Left Path",
+            "access_rules":["cryptkey:1"],
+            "item_count":1,
+            "chest_unopened_img":"images/Small Key.png",
+            "chest_opened_img":"images/Small Key.png"
+          },
+          {
+            "name":"Right Path",
+            "access_rules":["cryptkey:1"],
+            "item_count":1,
+            "chest_unopened_img":"images/Small Key.png",
+            "chest_opened_img":"images/Small Key.png"
+          },
+          {
+            "name":"King Gustaf",
+            "access_rules": ["lamp"],
+            "item_count": 1
+          }
+        ]
+      },
       //Temple of Droplets
       {
         "name": "Temple of Droplets",
@@ -466,8 +509,6 @@
             "name":"Blue Chu Frozen Chest",
             "access_rules":["gust,flippers,sword3,spinattack,tod_bigkey,tod_smallkey:4","lamp,tod_bigkey"],
             "item_count": 1,
-            "chest_unopened_img":"images/big_chest_closed.png",
-            "chest_opened_img":"images/big_chest_open.png"
           },
           //blue chu is behind small key
           {
@@ -475,7 +516,9 @@
             "access_rules":["gust,flippers,sword3,spinattack,tod_bigkey,tod_smallkey:4",
               "gust,lamp,sword,tod_bigkey,tod_smallkey:4",
               "gust,lamp,bombs,tod_bigkey,tod_smallkey:4"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Post Blue Chu Frozen Chest",
