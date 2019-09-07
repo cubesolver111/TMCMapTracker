@@ -403,6 +403,7 @@
           },
           {
             "name":"Left Path",
+            "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key.png"
           },
