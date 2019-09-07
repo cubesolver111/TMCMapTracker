@@ -417,7 +417,7 @@
           },
           {
             "name":"King Gustaf",
-            "access_rules": ["lamp"],
+            "access_rules": ["lamp,cryptkey:3"],
             "item_count": 1
           }
         ]
