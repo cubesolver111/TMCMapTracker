@@ -873,17 +873,15 @@
               },
               {
                 "name":"Boomerang Spot (300 Rupees)",
-                "access_rules":["wallet2"],
+                "access_rules":["wallet2","{wallet2}"],
                 "item_count": 1,
                 "capture_item":true,
-                "access_rules":["{wallet2}"]
               },
               {
                 "name":"Quiver Spot (600 Rupees)",
-                "access_rules":["wallet4"],
+                "access_rules":["wallet4","{wallet3}"],
                 "item_count": 1,
                 "capture_item":true,
-                "access_rules":["{wallet3}"]
               },
               {
                 "name":"Attic Chest",
