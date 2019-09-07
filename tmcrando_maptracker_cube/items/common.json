@@ -302,6 +302,7 @@
  {
    "name": "Bottles",
    "type": "progressive",
+   "loop": true,
    "allow_disabled": "false",
    "initial_stage_idx": 0,
    "stages": [
@@ -323,6 +324,13 @@
        "img": "images/Empty Bottle4.png"
      }
    ]
+ },
+ {
+   "name": "Dog Food Bottle",
+   "type": "toggle_badged",
+   "base_item": "bottle",
+   "img": "images/overlay_dogfood.png",
+   "codes": "dogbottle"
  },
  // Jabber Nut
  {
@@ -592,5 +600,35 @@
    "type": "toggle",
    "img": "images/Generic Gold Kinstone.png",
    "codes": "genericyellow"
+ },
+ {
+   "name": "Big Key",
+   "type": "toggle",
+   "img": "images/Big Key.png",
+   "codes": "bigkey"
+ },
+ {
+   "name": "Small Key",
+   "type": "toggle",
+   "img": "images/Small Key.png",
+   "codes": "smallkey"
+ },
+ {
+   "name": "Butterfly",
+   "type": "toggle",
+   "img": "images/Joy_Butterfly.png",
+   "codes": "butterfly"
+ },
+ {
+   "name": "Dog Food",
+   "type": "toggle",
+   "img": "images/overlay_dogfood.png",
+   "codes": "dogfood"
+ },
+ {
+   "name": "Remote Bombs",
+   "type": "toggle",
+   "img": "images/Remote Bombs.png",
+   "codes": "remotebombs"
  }
 ]
