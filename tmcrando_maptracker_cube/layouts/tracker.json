@@ -35,10 +35,10 @@
                 "fow_smallkey"
             ],
             [
-                "bottle",
+                "dogbottle",
                 "jabber",
                 "mushroom",
-                "bothkeys",
+                "llrkey",
                 "falls",
                 "tod",
                 "tod_bigkey",
@@ -48,7 +48,7 @@
                 "grip",
                 "bracelets",
                 "flippersandfly",
-                "genericyellow",
+                "gravekey",
                 "spinattack",
                 "pow",
                 "pow_bigkey",
@@ -74,36 +74,32 @@
             "item_margin": "1,2",
             "rows": [
                 [
-                    "sword", "gust", "cane", "boomerang", "quiver","dws","dws_bigkey","dws_smallkey"
+                    "sword", "gust", "cane", "boomerang", "quiver","bigkey"
                 ],
                 [
-                    "shield", "mittsandfly", "lamp", "bombsremote", "wilds","cof","cof_bigkey","cof_smallkey"
+                    "shield", "mitts", "lamp", "bombs", "wilds","smallkey"
                 ],
                 [
-                    "boots", "cape", "ocarina", "bowandfly", "clouds","fow","fow_bigkey","fow_smallkey"
+                    "boots", "cape", "ocarina", "bow", "clouds","genericyellow"
                 ],
                 [
                     "bottle",
                     "jabber",
                     "mushroom",
-                    "bothkeys",
+                    "llrkey",
                     "falls",
-                    "tod",
-                    "tod_bigkey",
-                    "tod_smallkey"
+                    "dogfood"
                 ],
                 [
                     "grip",
                     "bracelets",
-                    "flippersandfly",
-                    "genericyellow",
+                    "flippers",
+                    "gravekey",
                     "spinattack",
-                    "pow",
-                    "pow_bigkey",
-                    "pow_smallkey"
+                    "butterfly"
                 ],
                 [
-                    "10hearts","sevenscrolls","wallet","carlov","books","rc","explicit_dhc_bigkey","explicit_dhc_smallkey"
+                    "10hearts","sevenscrolls","wallet","carlov","books","remotebombs"
                 ]
             ]
         }
