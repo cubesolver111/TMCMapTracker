@@ -495,7 +495,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey:4,$canDamage"],
             "item_count": 1
           },
           //END OF LEFT PATH
