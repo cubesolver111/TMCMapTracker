@@ -463,14 +463,14 @@
           //Need big key
           {
             "name":"Post Madderpillar Chest",
-            "access_rules":["tod_bigkey,tod_smallkey:4,bombs"],
+            "access_rules":["tod_bigkey,tod_smallkey:4,gust,flippers","tod_bigkey,tod_smallkey:4,gust,cape,lamp,$canDamage"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Underwater Pot",
-            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,tod_bigkey"],
+            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -484,18 +484,18 @@
             "chest_opened_img":"images/big_chest_open.png"
           },
           {
-            "name":"Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "name":"Ice Puzzle Free Chest",
+            "access_rules":["gust,flippers,tod_bigkey,tod_smallkey:4","cape,lamp,$canDamage,tod_bigkey,tod_smallkey:4"],
             "item_count": 1
           },
           {
-            "name":"Ice Plain Frozen Chest",
+            "name":"Ice Puzzle Frozen Chest",
             "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","lamp,$canDamage,cape,tod_bigkey,tod_smallkey:4"],
             "item_count":1
           },
           {
-            "name":"Ice Puzzle Free Chest",
-            "access_rules":["gust,flippers,tod_bigkey,tod_smallkey:4"],
+            "name":"Post Ice Puzzle Frozen Chest",
+            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -506,7 +506,7 @@
             "item_count": 2
           },
           {
-            "name":"Blue Chu Frozen Chest",
+            "name":"Basement Frozen Chest",
             "access_rules":["gust,flippers,sword3,spinattack,tod_bigkey,tod_smallkey:4","lamp,tod_bigkey"],
             "item_count": 1,
           },
@@ -533,7 +533,7 @@
           },
           {
             "name":"Dark Maze Bomb Wall",
-            "access_rules":["lamp,bombs,tod_bigkey"],
+            "access_rules":["lamp,$canDamage,bombs,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
