@@ -548,7 +548,7 @@
    "type": "consumable",
    "img": "images/Tiger Scroll.png",
    "codes": "scrolls,allscrolls,sevenscrolls",
-   "max_quantity": 7
+   "max_quantity": 11
  },
  {
    "name": "Crypt Keys",
