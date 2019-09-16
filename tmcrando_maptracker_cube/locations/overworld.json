@@ -145,6 +145,155 @@
                       {
                         "name":"Melari",
                         "item_count":1
+                      },
+                    ]
+                  },
+                  {
+                    "name":"Melari Mines Digging Spot",
+                    "access_rules":[
+                      "cof,cane,mitts",
+                      "cof,grip,gust,bombs,mitts",
+                      "cof,grip,gust,bow,mitts",
+                      "cof,grip,gust,boomerang,mitts",
+                      "cof,grip,cape,mitts",
+                      "cof,grip,lights,mitts"
+                    ],
+                    "children":[
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":1100,
+                            "y":1100,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":580,
+                            "y":1650,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":2080,
+                            "y":1750,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":2175,
+                            "y":400,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":750,
+                            "y":240,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":1700,
+                            "y":240,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":775,
+                            "y":800,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Digging Spot",
+                        "map_locations":[
+                          {
+                            "map":"mines",
+                            "x":1375,
+                            "y":1700,
+                            "visibility_rules":["obscure_on"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Digging Spot",
+                            "item_count":1
+                          }
+                        ]
                       }
                     ]
                   },
@@ -526,6 +675,32 @@
                         "chest_opened_img":"images/Heart Piece Gray.png"
                       }
                     ]
+                  },
+                  {
+                    "name":"Wilds Diving Spots",
+                    "access_rules":["flippers"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":660,
+                        "y":1560,
+                        "visibility_rules":["obscure_on"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Top",
+                        "item_count":1
+                      },
+                      {
+                        "name":"Middle",
+                        "item_count":1
+                      },
+                      {
+                        "name":"Bottom",
+                        "item_count":1
+                      }
+                    ]
                   }
                 ]
               }
@@ -690,13 +865,13 @@
                 ]
               },
               {
-                "name":"Left Left Left Up Up Up",
+                "name":"Lost Woods Secret Chest",
                 "map_locations": [
                   {
                     "map":"map",
                     "x":750,
                     "y":650,
-                    "visibility_rules":["rando_yes"]
+                    "visibility_rules":["obscure_on"]
                   }
                 ],
                 "sections": [
@@ -764,6 +939,24 @@
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"North Field Digging Spot",
+            "access_rules":["mitts"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x": 1250,
+                "y":800,
+                "visibility_rules":["obscure_on"]
+              }
+            ],
+            "sections": [
+              {
+                "name":"North Field Digging Spot",
+                "item_count":1,
               }
             ]
           }
@@ -902,6 +1095,7 @@
                 "map":"map",
                 "x":1610,
                 "y":1275,
+                "visibility_rules":["obscure_off"]
               }
             ],
             "sections": [
@@ -910,6 +1104,30 @@
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"Hearth",
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1610,
+                "y":1275,
+                "visibility_rules":["obscure_on"]
+              }
+            ],
+            "sections": [
+              {
+                "name":"Hearth Back Door Heart Piece",
+                "access_rules":["cane","flippers","cape"],
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              },
+              {
+                "name":"Hearth Right Pot",
+                "item_count":1,
               }
             ]
           },
@@ -1306,6 +1524,7 @@
                 "map":"map",
                 "x":1622,
                 "y":2000,
+                "visibility_rules":["rando_yes"]
               }
             ],
             "sections": [
@@ -1500,13 +1719,36 @@
                   {
                     "map":"map",
                     "x":2730,
-                    "y":150
+                    "y":150,
+                    "visibility_rules":["obscure_off"]
                   }
                 ],
                 "sections": [
                   {
                     "name":"Top Left North Chests",
                     "item_count":2,
+                  }
+                ]
+              },
+              {
+                "name":"Top Left North Chests",
+                "access_rules":["mitts"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":2730,
+                    "y":150,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections": [
+                  {
+                    "name":"Top Left North Chests",
+                    "item_count":2,
+                  },
+                  {
+                    "name":"Digging Spot on the Left",
+                    "item_count":1
                   }
                 ]
               },
@@ -1574,6 +1816,114 @@
                 "sections": [
                   {
                     "name":"Center Right",
+                    "item_count":1,
+                  }
+                ]
+              },
+              {
+                "name":"Top Right Digging Spot",
+                "access_rules":["mitts"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":3300,
+                    "y":175,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Digging Spot",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Bottom Left Digging Spot",
+                "access_rules":["mitts"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":2670,
+                    "y":730,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections": [
+                  {
+                    "name":"Digging Spot",
+                    "item_count":1,
+                  }
+                ]
+              },
+              {
+                "name":"Center Digging Spot",
+                "access_rules":["mitts"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":2920,
+                    "y":550,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections": [
+                  {
+                    "name":"Digging Spot",
+                    "item_count":1,
+                  }
+                ]
+              },
+              {
+                "name":"South Digging Spot",
+                "access_rules":["mitts"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":3150,
+                    "y":730,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections": [
+                  {
+                    "name":"Digging Spot",
+                    "item_count":1,
+                  }
+                ]
+              },
+              {
+                "name":"Southeast North Digging Spot",
+                "access_rules":["mitts"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":3300,
+                    "y":730,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections": [
+                  {
+                    "name":"Digging Spot",
+                    "item_count":1,
+                  }
+                ]
+              },
+              {
+                "name":"Southeast South Digging Spot",
+                "access_rules":["mitts"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":3300,
+                    "y":600,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections": [
+                  {
+                    "name":"Digging Spot",
                     "item_count":1,
                   }
                 ]
@@ -1688,6 +2038,42 @@
                   }
                 ]
               },
+              {
+                "name":"Veil Falls North Digging Spot",
+                "access_rules":["grip,mitts"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":1885,
+                    "y":245,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"North Digging Spot",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Veil Falls South Digging Spot",
+                "access_rules":["mitts"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":1875,
+                    "y":625,
+                    "visibility_rules":["obscure_on"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"South Digging Spot",
+                    "item_count":1
+                  }
+                ]
+              }
             ]
           }
         ]
@@ -1757,13 +2143,37 @@
               {
                 "map":"map",
                 "x":1825,
-                "y":1075
+                "y":1075,
+                "visibility_rules":["obscure_off"]
               }
             ],
             "sections": [
               {
                 "name":"Lon Lon Cave",
                 "item_count":1
+              }
+            ]
+          },
+          {
+            "name": "Lon Lon Cave",
+            "access_rules":["sword3,llrkey,spinattack","sword3,ocarina,spinattack","sword3,cape,spinattack","sword3,flippers,mitts,spinattack"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1825,
+                "y":1075,
+                "visibility_rules":["obscure_on"]
+              }
+            ],
+            "sections": [
+              {
+                "name":"Lon Lon Cave",
+                "item_count":1
+              },
+              {
+                "name":"Hidden Bomb Wall",
+                "item_count":1,
+                "access_rules":["bombs,lamp"]
               }
             ]
           },
@@ -1800,6 +2210,24 @@
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"Lon Lon Ranch Digging Spot",
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1865,
+                "y":980,
+                "visibility_rules":["obscure_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Digging Spot Above Tree",
+                "access_rules":["llrkey,cane,mitts","ocarina,cane,mitts","cape,mitts","flippers,mitts,cane"],
+                "item_count": 1
               }
             ]
           }
