@@ -115,51 +115,11 @@
                     "type": "dock",
                     "dock": "left",
                     "v_alignment": "stretch",
+                    "margin":"0,0,3,0",
                     "content": [
                         {
                             "type": "group",
                             "header": "Items",
-                            "dock": "top",
-                            "content": {
-                                "type": "layout",
-                                "key": "shared_item_grid"
-                            }
-                        },
-                        {
-                            "type": "group",
-                            "header": "Pinned Locations",
-                            "content": {
-                                "type": "recentpins",
-                                "style": "wrap",
-                                "h_alignment": "stretch",
-                                "v_alignment": "stretch",
-                                "orientation": "vertical",
-                                "compact": true
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "map"
-                }
-            ]
-        }
-    },
-    "tracker_horizontal": {
-        "type": "container",
-        "background": "#877373",
-        "content": {
-            "type": "dock",
-            "dropshadow": true,
-            "content": [
-                {
-                    "type": "dock",
-                    "dock": "bottom",
-                    "content": [
-                        {
-                            "type": "group",
-                            "header": "Items",
-                            "margin": "0,0,3,0",
                             "dock": "left",
                             "content": {
                                 "type": "layout",
@@ -167,8 +127,24 @@
                             }
                         },
                         {
+                          "type": "group",
+                          "header": "Options",
+                          "dock":"left",
+                          "content": {
+                            "type": "itemgrid",
+                            "h_alignment": "left",
+                            "item_margin": "1,2",
+                            "rows": [
+                              [
+                                "obscure_off",
+                              ]
+                            ]
+                          }
+                        },
+                        {
                             "type": "group",
                             "header": "Pinned Locations",
+                            "dock":"bottom",
                             "content": {
                                 "type": "recentpins",
                                 "style": "wrap",
@@ -178,13 +154,37 @@
                                 "compact": true
                             }
                         },
-
+                        {
+                            "type": "dock",
+                            "content":[
+                              {
+                                "type":"tabbed",
+                                "dock":"top",
+                                "tabs":[
+                                  {
+                                    "title":"Overworld",
+                                    "icon":"images/Four Sword.png",
+                                    "content":{
+                                      "type":"map",
+                                      "maps":["map"]
+                                    }
+                                  },
+                                  {
+                                    "title":"Melari's Mines",
+                                    "icon":"images/Obscure_On.png",
+                                    "content":{
+                                      "type":"map",
+                                      "maps":["mines"]
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                        }
                     ]
                 },
-                {
-                    "type": "map"
-                }
             ]
         }
     },
+
 }
