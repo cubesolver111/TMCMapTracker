@@ -215,7 +215,7 @@
  {
    "name": "Gold Kinstone (Wilds)",
    "type": "consumable",
-   "img": "images/Gold Kinstone (Wilds).png",
+   "img": "images/Kinstone Wilds Half.png",
    "codes": "kinstoneWilds,wilds",
    "max_quantity": 3
  },
@@ -294,7 +294,7 @@
  {
   "name": "Gold Kinstone (Clouds)",
   "type": "consumable",
-  "img": "images/Gold Kinstone (Clouds).png",
+  "img": "images/Kinstone Clouds Half.png",
   "codes": "kinstoneClouds,clouds",
   "max_quantity": 5
  },
@@ -357,7 +357,7 @@
  {
    "name": "Gold Kinstone (Falls)",
    "type": "toggle",
-   "img": "images/Gold Kinstone (Falls).png",
+   "img": "images/Kinstone Falls Half.png",
    "codes": "kinstoneFalls, falls"
  },
  // Grip Ring
@@ -548,7 +548,7 @@
    "type": "consumable",
    "img": "images/Tiger Scroll.png",
    "codes": "scrolls,allscrolls,sevenscrolls",
-   "max_quantity": 7
+   "max_quantity": 11
  },
  {
    "name": "Crypt Keys",
@@ -559,10 +559,84 @@
  },
  {
    "name": "Hearts",
-   "type": "consumable",
+   "type": "progressive",
    "img": "images/Heart Container.png",
-   "codes": "10hearts,hearts",
-   "max_quantity": 20
+   "allow_disabled": false,
+   "inherit_codes": false,
+   "stages":[
+     {
+       "img":"images/Heart Container3.png",
+       "codes": "hearts"
+     },
+     {
+       "img":"images/Heart Container4.png",
+       "codes": "hearts"
+     },
+     {
+       "img":"images/Heart Container5.png",
+       "codes": "hearts"
+     },
+     {
+       "img":"images/Heart Container6.png",
+       "codes": "hearts"
+     },
+     {
+       "img":"images/Heart Container7.png",
+       "codes": "hearts"
+     },
+     {
+       "img":"images/Heart Container8.png",
+       "codes": "hearts"
+     },
+     {
+       "img":"images/Heart Container9.png",
+       "codes": "hearts"
+     },
+     {
+       "img":"images/Heart Container10.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container11.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container12.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container13.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container14.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container15.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container16.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container17.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container18.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container19.png",
+       "codes":"10hearts,hearts",
+     },
+     {
+       "img":"images/Heart Container20.png",
+       "codes":"10hearts,hearts",
+     }
+   ]
  },
  // Graveyard/LLR Key Combined
  {

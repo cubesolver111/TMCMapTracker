@@ -1,7 +1,12 @@
-﻿[
+[
   {
     "name": "map",
     "img": "images/big_map.png",
-    "map_locations":65
+    "location_size": 65
+  },
+  {
+    "name":"mines",
+    "img": "images/Mines.png",
+    "locations_size": 50
   }
 ]
