@@ -151,12 +151,12 @@
                   {
                     "name":"Melari Mines Digging Spot",
                     "access_rules":[
-                      "cof,cane,mitts",
-                      "cof,grip,gust,bombs,mitts",
-                      "cof,grip,gust,bow,mitts",
-                      "cof,grip,gust,boomerang,mitts",
-                      "cof,grip,cape,mitts",
-                      "cof,grip,lights,mitts"
+                      "cane,mitts",
+                      "grip,gust,bombs,mitts",
+                      "grip,gust,bow,mitts",
+                      "grip,gust,boomerang,mitts",
+                      "grip,cape,mitts",
+                      "grip,lights,mitts"
                     ],
                     "children":[
                       {
