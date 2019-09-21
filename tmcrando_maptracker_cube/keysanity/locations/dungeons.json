@@ -518,7 +518,7 @@
       //Royal Crypt
       {
         "name":"Royal Crypt",
-        "access_rules":["gravekey,sword4,boots,spinattack,bombs","gravekey,sword4,boots,spinattack,cape","gravekey,sword4,boots,spinattack,flippers"],
+        "access_rules":["gravekey,sword4,boots,spinattack,bombs,[lamp]","gravekey,sword4,boots,spinattack,cape,[lamp]","gravekey,sword4,boots,spinattack,flippers,[lamp]"],
         "map_locations": [
           {
             "map":"map",
@@ -632,7 +632,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey:4"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1018,7 +1018,7 @@
           //Needs big key
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:6,explicit_dhc_bigkey"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:1,explicit_dhc_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/TriForce.png",
             "chest_opened_img":"images/TriForce_Gray.png"
