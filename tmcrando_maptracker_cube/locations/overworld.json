@@ -139,7 +139,6 @@
                         "map":"map",
                         "x":425,
                         "y":350,
-                        "visibility_rules":["obscure_off"]
                       }
                     ],
                     "sections":[
@@ -147,37 +146,6 @@
                         "name":"Melari",
                         "item_count":1
                       },
-                    ]
-                  },
-                  {
-                    "name":"Melari",
-                    "access_rules":[
-                      "cane",
-                      "grip,gust,bombs",
-                      "grip,gust,bow",
-                      "grip,gust,boomerang",
-                      "grip,cape",
-                      "grip,lights"
-                    ],
-                    "map_locations":[
-                      {
-                        "map":"map",
-                        "x":425,
-                        "y":350,
-                        "visibility_rules":["obscure_on"]
-                      }
-                    ],
-                    "sections":[
-                      {
-                        "name":"Melari",
-                        "access_rules":["cof"],
-                        "item_count":1
-                      },
-                      {
-                        "name":"Digging Spots",
-                        "access_rules":["mitts"],
-                        "item_count":8
-                      }
                     ]
                   },
                   {
@@ -915,6 +883,7 @@
               },
               {
                 "name":"Dampe",
+                "access_rules":["[lamp]"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -931,7 +900,7 @@
               },
               {
                 "name":"Northwest Grave",
-                "access_rules":["sword4,gravekey,boots,spinattack"],
+                "access_rules":["sword4,gravekey,boots,spinattack,[lamp]"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1058,13 +1027,13 @@
               },
               {
                 "name":"Boomerang Spot (300 Rupees)",
-                "access_rules":["wallet2","{wallet2}"],
+                "access_rules":["wallet2","{}"],
                 "item_count": 1,
                 "capture_item":true,
               },
               {
                 "name":"Quiver Spot (600 Rupees)",
-                "access_rules":["wallet4","{wallet3}"],
+                "access_rules":["wallet4","{}"],
                 "item_count": 1,
                 "capture_item":true,
               },
@@ -1597,11 +1566,11 @@
           //Cloud Tops
           {
             "name":"Cloud Tops",
-            "access_rules":["kinstoneFalls,grip"],
+            "access_rules":["kinstoneFalls,grip,[lamp]"],
             "children": [
               {
                 "name":"Central Fusion",
-                "access_rules":["kinstoneClouds:1"],
+                "access_rules":["[kinstoneClouds:5],kinstoneClouds:1"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1620,7 +1589,7 @@
               },
               {
                 "name":"Top Right Fusion",
-                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
+                "access_rules":["[kinstoneClouds:5],kinstoneClouds:1,mitts","[kinstoneClouds:5],kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1639,7 +1608,7 @@
               },
               {
                 "name":"Top Left Fusion",
-                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
+                "access_rules":["[kinstoneClouds:5],kinstoneClouds:1,mitts","[kinstoneClouds:5],kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1658,7 +1627,7 @@
               },
               {
                 "name":"Bottom Left Fusion",
-                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
+                "access_rules":["[kinstoneClouds:5],kinstoneClouds:1,mitts","[kinstoneClouds:5],kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -1677,7 +1646,7 @@
               },
               {
                 "name":"Bottom Right Fusion",
-                "access_rules":["kinstoneClouds:1,mitts","kinstoneClouds:1,cape"],
+                "access_rules":["[kinstoneClouds:5],kinstoneClouds:1,mitts","[kinstoneClouds:5],kinstoneClouds:1,cape"],
                 "map_locations": [
                   {
                     "map":"map",
@@ -2038,12 +2007,12 @@
                   },
                   {
                     "name":"Bombable Wall First Chest",
-                    "access_rules":["bombs"],
+                    "access_rules":["bombs,[lamp]"],
                     "item_count":1
                   },
                   {
                     "name":"Bombable Wall Second Chest",
-                    "access_rules":["bombs,sword4,spinattack"],
+                    "access_rules":["bombs,sword4,spinattack,[lamp]"],
                     "item_count":1
                   }
                 ]
@@ -2060,19 +2029,19 @@
                 "sections": [
                   {
                     "name":"Bomb Wall Chest",
-                    "access_rules":["grip,bombs"],
+                    "access_rules":["grip,bombs,[lamp]"],
                     "item_count":1
                   },
                   {
                     "name":"Freestanding Chest",
-                    "access_rules":["grip"],
+                    "access_rules":["grip,[lamp]"],
                     "item_count":1
                   }
                 ]
               },
               {
                 "name":"Veil Falls North Digging Spot",
-                "access_rules":["grip,mitts"],
+                "access_rules":["grip,mitts,[lamp]"],
                 "map_locations":[
                   {
                     "map":"map",
@@ -2090,7 +2059,7 @@
               },
               {
                 "name":"Veil Falls South Digging Spot",
-                "access_rules":["mitts"],
+                "access_rules":["mitts,[lamp]"],
                 "map_locations":[
                   {
                     "map":"map",

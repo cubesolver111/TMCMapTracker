@@ -72,7 +72,7 @@
           },
           {
             "name":"Basement Switch Room Big Chest",
-            "access_rules":["$canDamage, gust, dws_smallkey:1","dws_smallkey:2"],
+            "access_rules":["gust, dws_smallkey:1","$canDamage,dws_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
@@ -80,7 +80,7 @@
           {
             "name":"Basement Switch Chest",
             "short_name": "Basement Switch Chest",
-            "access_rules": ["gust,dws_smallkey:1","cape,dws_smallkey:2"],
+            "access_rules": ["gust,dws_smallkey:1","$canDamage,cape,dws_smallkey:2"],
             "item_count": 1
           },
           {
@@ -110,7 +110,7 @@
           {
             "name":"Madderpillar Heart Piece",
             "short_name":"Madderpillar HP",
-            "access_rules": ["dws_smallkey:2,gust","dws_smallkey:2,lamp","dws_smallkey:2,gust","{dws:smallkey:1}"],
+            "access_rules": ["dws_smallkey:4,gust","dws_smallkey:2,lamp,$canDamage","dws_smallkey:1,gust,lamp","{dws:smallkey:1}"],
             "capture_item": true,
             "item_count": 1,
             "chest_unopened_img":"images/Heart Piece.png",
@@ -332,14 +332,14 @@
           //Everything past here needs two keys
           {
             "name":"Bombable Wall Big Chest",
-            "access_rules":["bow,bombs,fow_smallkey:2"],
+            "access_rules":["bow,bombs,fow_smallkey:4"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Bombable Wall Small Chest",
-            "access_rules":["bow,bombs,mitts,fow_smallkey:2"],
+            "access_rules":["bow,bombs,mitts,fow_smallkey:4"],
             "item_count": 1
           },
           {
@@ -461,14 +461,14 @@
           //Everything past here needs two keys
           {
             "name":"Bombable Wall Big Chest",
-            "access_rules":["bow,bombs,fow_smallkey:2"],
+            "access_rules":["bow,bombs,fow_smallkey:4"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Bombable Wall Small Chest",
-            "access_rules":["bow,bombs,mitts,fow_smallkey:2"],
+            "access_rules":["bow,bombs,mitts,fow_smallkey:4"],
             "item_count": 1
           },
           {
@@ -518,7 +518,7 @@
       //Royal Crypt
       {
         "name":"Royal Crypt",
-        "access_rules":["gravekey,sword4,boots,spinattack"],
+        "access_rules":["gravekey,sword4,boots,spinattack,bombs,[lamp]","gravekey,sword4,boots,spinattack,cape,[lamp]","gravekey,sword4,boots,spinattack,flippers,[lamp]"],
         "map_locations": [
           {
             "map":"map",
@@ -531,7 +531,7 @@
             "name":"Gibdos",
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Other Gibdos",
@@ -541,13 +541,13 @@
             "name":"Left Path",
             "item_count":1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Right Path",
             "item_count":1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"King Gustaf",
@@ -630,7 +630,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -647,7 +647,7 @@
           },
           {
             "name":"Basement Frozen Chest",
-            "access_rules":["gust,flippers,sword3,spinattack,tod_bigkey,tod_smallkey:4","lamp,tod_bigkey"],
+            "access_rules":["gust,flippers,srd3,spinattack,tod_bigkey,tod_smallkey:4","lamp,tod_bigkey"],
             "item_count": 1,
           },
           //blue chu is behind small key
@@ -819,8 +819,8 @@
         "name": "Palace of Winds",
         "short_name": "POW",
         "codes":"pow",
-        "access_rules": ["bombs,kinstoneFalls,grip,kinstoneClouds:5,mitts,sword4,spinattack",
-          "bombs,kinstoneFalls,grip,kinstoneClouds:5,cape,sword4,spinattack"],
+        "access_rules": ["bombs,kinstoneFalls,grip,kinstoneClouds:5,mitts,sword4,spinattack,[lamp]",
+          "bombs,kinstoneFalls,grip,kinstoneClouds:5,cape,sword4,spinattack,[lamp]"],
         "map_locations": [
           {
             "map": "map",
@@ -836,7 +836,6 @@
           },
           {
             "name":"Wizzrobe Platform Fight",
-            "access_rules":["cape,bombs,boomerang"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"

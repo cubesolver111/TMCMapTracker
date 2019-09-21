@@ -113,9 +113,7 @@
             "content": [
                 {
                     "type": "dock",
-                    "dock": "left",
-                    "v_alignment": "stretch",
-                    "margin":"0,0,3,0",
+                    "dock": "bottom",
                     "content": [
                         {
                             "type": "group",
@@ -144,7 +142,6 @@
                         {
                             "type": "group",
                             "header": "Pinned Locations",
-                            "dock":"bottom",
                             "content": {
                                 "type": "recentpins",
                                 "style": "wrap",
@@ -153,38 +150,93 @@
                                 "orientation": "horizontal",
                                 "compact": true
                             }
-                        },
-                        {
-                            "type": "dock",
-                            "content":[
-                              {
-                                "type":"tabbed",
-                                "dock":"top",
-                                "tabs":[
-                                  {
-                                    "title":"Overworld",
-                                    "icon":"images/Four Sword.png",
-                                    "content":{
-                                      "type":"map",
-                                      "maps":["map"]
-                                    }
-                                  },
-                                  {
-                                    "title":"Melari's Mines",
-                                    "icon":"images/Obscure_On.png",
-                                    "content":{
-                                      "type":"map",
-                                      "maps":["mines"]
-                                    }
-                                  }
-                                ]
-                              }
-                            ]
                         }
                     ]
                 },
+                {
+                    "type": "dock",
+                    "content":[
+                      {
+                        "type":"tabbed",
+                        "dock":"top",
+                        "tabs":[
+                          {
+                            "title":"Overworld",
+                            "icon":"images/Four Sword.png",
+                            "content":{
+                              "type":"map",
+                              "maps":["map"]
+                            }
+                          },
+                          {
+                            "title":"Melari's Mines",
+                            "icon":"images/Obscure_On.png",
+                            "content":{
+                              "type":"map",
+                              "maps":["mines"]
+                            }
+                          },
+                          {
+                            "title":"Deepwood Shrine",
+                            "icon":"images/Gust Jar.png",
+                            "content":{
+                              "type":"map",
+                              "maps":["dws"]
+                            }
+                          },
+                          {
+                            "title":"Cave of Flames",
+                            "icon":"images/Cane of Pacci.png",
+                            "content":{
+                              "type":"map",
+                              "maps":["cof"]
+                            }
+                          },
+                          {
+                            "title":"Fortress of Winds",
+                            "icon":"images/Mole Mitts.png",
+                            "content":{
+                              "type":"map",
+                              "maps":["fow"]
+                            }
+                          },
+                          {
+                            "title":"Temple of Droplets",
+                            "icon":"images/Lamp (Lit).png",
+                            "content":{
+                              "type":"map",
+                              "maps":["tod"]
+                            }
+                          },
+                          {
+                            "title":"Royal Crypt",
+                            "icon":"images/Gold Kinstone (Falls).png",
+                            "content":{
+                              "type":"map",
+                              "maps":["rc"]
+                            }
+                          },
+                          {
+                            "title":"Palace of Winds",
+                            "icon":"images/Roc's Cape.png",
+                            "content":{
+                              "type":"map",
+                              "maps":["pow"]
+                            }
+                          },
+                          {
+                            "title":"Dark Hyrule Castle",
+                            "icon":"images/Obscure_On.png",
+                            "content":{
+                              "type":"map",
+                              "maps":["dhc"]
+                            }
+                          },
+                        ]
+                      }
+                    ]
+                }
             ]
         }
-    },
-
+    }
 }
