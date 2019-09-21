@@ -8,5 +8,34 @@
     "name":"mines",
     "img": "images/Mines.png",
     "locations_size": 50
+  },
+  {
+    "name":"dws",
+    "img":"images/DeepwoodShrineFix.png",
+    "location_size": 50
+  },
+  {
+    "name":"cof",
+    "img":"images/CaveOfFlames.png"
+  },
+  {
+    "name":"fow",
+    "img":"images/FortressOfWinds.png"
+  },
+  {
+    "name":"tod",
+    "img":"images/TempleOfDroplets.png"
+  },
+  {
+    "name":"rc",
+    "img":"images/Royal_Crypt(mod).gif"
+  },
+  {
+    "name":"pow",
+    "img":"images/PalaceOfWinds.png"
+  },
+  {
+    "name":"dhc",
+    "img":"images/DarkHyruleCastle.png"
   }
 ]
