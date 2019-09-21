@@ -12,6 +12,7 @@ if not (string.find(Tracker.ActiveVariantUID, "items_only")) then
     Tracker:AddMaps("maps/maps.json")
     Tracker:AddLocations("locations/overworld.json")
     Tracker:AddLocations("locations/dungeons.json")
+    Tracker:AddLocations("locations/advanced.json")
 end
 
 Tracker:AddLayouts("layouts/tracker.json")
