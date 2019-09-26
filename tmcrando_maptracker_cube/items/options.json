@@ -40,12 +40,12 @@
     "allow_disabled": false,
     "stages": [
       {
-        "img": "images/Kinstone Bag (Medium) Gray.png",
-        "codes": "fusions_off"
+        "img": "images/Kinsanity_None.png",
+        "codes": "fusions_none"
       },
       {
-        "img":"images/Kinstone Bag (Medium).png",
-        "codes": "fusions_on"
+        "img":"images/Kinsanity_Open.png",
+        "codes": "fusions_open"
       }
     ]
   }
