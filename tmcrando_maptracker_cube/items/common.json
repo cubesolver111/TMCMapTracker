@@ -470,8 +470,44 @@
  {
    "name": "Spin Attack",
    "type": "toggle",
-   "img": "images/Spin Attack.png",
+   "img": "images/nobeam_spin.png",
    "codes": "spinattack"
+ },
+ //Some Beam
+ {
+   "name": "Sword/Peril Beam",
+   "type": "toggle",
+   "img": "images/beam_nospin.png",
+   "codes": "beam"
+ },
+ {
+   "name": "Beam and Spin Attack",
+   "type": "composite_toggle",
+   "codes": "spinandbeam",
+   "item_left": "spinattack",
+   "item_right": "beam",
+   "images": [
+     {
+       "left": false,
+       "right": false,
+       "img": "images/nobeam_nospin.png",
+     },
+     {
+       "left": true,
+       "right": false,
+       "img": "images/nobeam_spin.png"
+     },
+     {
+       "left": false,
+       "right": true,
+       "img": "images/beam_nospin.png"
+     },
+     {
+       "left": true,
+       "right": true,
+       "img": "images/beam_spin.png"
+     }
+   ]
  },
  // Rock Breaker
  {
@@ -704,5 +740,11 @@
    "type": "toggle",
    "img": "images/Remote Bombs.png",
    "codes": "remotebombs"
+ },
+ {
+  "name":"Tingle Trophy",
+  "type":"toggle",
+  "img":"images/Tingle Trophy.png",
+  "codes":"trophy"
  }
 ]
