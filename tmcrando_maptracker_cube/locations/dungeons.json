@@ -142,12 +142,14 @@
           "sword,spinattack,bottle,grip,gust,bow",
           "sword,spinattack,bottle,grip,gust,boomerang",
           "sword,spinattack,bottle,grip,lights",
+          "sword,spinattack,bottle,grip,gust,beam",
           "sword,spinattack,bottle,grip,cane",
           "bottle,grip,cape",
           "sword,spinattack,bottle,bombs,cane",
           "flippers,bottle,grip,gust,bombs",
           "flippers,bottle,grip,gust,bow",
           "flippers,bottle,grip,gust,boomerang",
+          "flippers,bottle,grip,gust,beam",
           "flippers,bottle,grip,lights",
           "flippers,bottle,grip,cane",
           "flippers,bottle,bombs,cane"
@@ -974,7 +976,8 @@
             "name":"Northeast Tower",
             "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:2",
               "bombs,cape,bow,lamp,explicit_dhc_smallkey:2",
-              "bombs,cape,lights,lamp,explicit_dhc_smallkey:2"],
+              "bombs,cape,lights,lamp,explicit_dhc_smallkey:2",
+              "bombs,cape,beam,lamp,explicit_dhc_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -983,7 +986,8 @@
             "name":"Southeast Tower",
             "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2",
               "bombs,cape,bow,explicit_dhc_smallkey:2",
-              "bombs,cape,lights,explicit_dhc_smallkey:2"],
+              "bombs,cape,lights,explicit_dhc_smallkey:2",
+              "bombs,cape,beam,explicit_dhc_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -992,7 +996,8 @@
             "name":"Southwest Tower",
             "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2",
               "bombs,cape,bow,explicit_dhc_smallkey:2",
-              "bombs,cape,lights,explicit_dhc_smallkey:2"],
+              "bombs,cape,lights,explicit_dhc_smallkey:2",
+              "bombs,cape,beam,explicit_dhc_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1007,7 +1012,10 @@
           //Needs five keys
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,lamp,explicit_dhc_smallkey:6"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:6",
+              "bombs,cape,lights,explicit_dhc_smallkey:6",
+              "bombs,cape,boomerang,explicit_dhc_smallkey:6",
+              "bombs,cape,beam,explicit_dhc_smallkey:6"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"

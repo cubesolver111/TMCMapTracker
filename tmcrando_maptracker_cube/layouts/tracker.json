@@ -38,7 +38,7 @@
                 "dogbottle",
                 "jabber",
                 "mushroom",
-                "llrkey",
+                "bothkeys",
                 "falls",
                 "tod",
                 "tod_bigkey",
@@ -48,8 +48,8 @@
                 "grip",
                 "bracelets",
                 "flippersandfly",
-                "gravekey",
-                "spinattack",
+                "trophy",
+                "spinandbeam",
                 "pow",
                 "pow_bigkey",
                 "pow_smallkey"
@@ -95,11 +95,14 @@
                     "bracelets",
                     "flippers",
                     "gravekey",
-                    "spinattack",
+                    "spinandbeam",
                     "butterfly"
                 ],
                 [
                     "10hearts","sevenscrolls","wallet","carlov","books","remotebombs"
+                ],
+                [
+                  "trophy"
                 ]
             ]
         }
@@ -134,7 +137,10 @@
                             "item_margin": "1,2",
                             "rows": [
                               [
-                                "obscure_off",
+                                "obscure_off"
+                              ],
+                              [
+                                "fusions_none"
                               ]
                             ]
                           }
@@ -226,7 +232,7 @@
                           },
                           {
                             "title":"Dark Hyrule Castle",
-                            "icon":"images/Obscure_On.png",
+                            "icon":"images/vaati.png",
                             "content":{
                               "type":"map",
                               "maps":["dhc"]
