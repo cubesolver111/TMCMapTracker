@@ -80,6 +80,24 @@
                       }
                     ]
                   },
+                  {
+                    "name":"Crenel Climbing Wall Chest",
+                    "access_rules":["grip"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":121,
+                        "y":399,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Wall Chest",
+                        "item_count":1
+                      }
+                    ]
+                  },
                   //Crenel Wall Fairy
                   {
                     "name":"Crenel Wall Fairy",
@@ -105,6 +123,7 @@
                       "grip,gust,bombs",
                       "grip,gust,bow",
                       "grip,gust,boomerang",
+                      "grip,gust,beam",
                       "grip,cape",
                       "grip,lights",
                       "cane"
@@ -127,25 +146,127 @@
                   {
                     "name":"Melari",
                     "access_rules":[
-                      "cof,cane",
-                      "cof,grip,gust,bombs",
-                      "cof,grip,gust,bow",
-                      "cof,grip,gust,boomerang",
-                      "cof,grip,cape",
-                      "cof,grip,lights"
+                      "cane",
+                      "grip,gust,bombs",
+                      "grip,gust,bow",
+                      "grip,gust,boomerang",
+                      "grip,gust,beam",
+                      "grip,cape",
+                      "grip,lights"
                     ],
                     "map_locations":[
                       {
                         "map":"map",
                         "x":425,
                         "y":350,
+                        "visibility_rules":["obscure_off,fusions_none"]
                       }
                     ],
                     "sections":[
                       {
                         "name":"Melari",
-                        "item_count":1
+                        "item_count":1,
+                        "access_rules":["cof"]
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Melari",
+                    "access_rules":[
+                      "cane",
+                      "grip,gust,bombs",
+                      "grip,gust,bow",
+                      "grip,gust,boomerang",
+                      "grip,gust,beam",
+                      "grip,cape",
+                      "grip,lights"
+                    ],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":425,
+                        "y":350,
+                        "visibility_rules":["obscure_off,fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Melari",
+                        "item_count":1,
+                        "access_rules":["cof"]
                       },
+                      {
+                        "name":"Minish Path Chest",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Mines",
+                    "access_rules":[
+                      "cane",
+                      "grip,gust,bombs",
+                      "grip,gust,bow",
+                      "grip,gust,boomerang",
+                      "grip,gust,beam",
+                      "grip,cape",
+                      "grip,lights"
+                    ],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":425,
+                        "y":350,
+                        "visibility_rules":["obscure_on,fusions_none"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Melari",
+                        "item_count":1,
+                        "access_rules":["cof"]
+                      },
+                      {
+                        "name":"Digging Spots (Melari's Mines Tab)",
+                        "item_count":8,
+                        "access_rules":["mitts"]
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Mines",
+                    "access_rules":[
+                      "cane",
+                      "grip,gust,bombs",
+                      "grip,gust,bow",
+                      "grip,gust,boomerang",
+                      "grip,gust,beam",
+                      "grip,cape",
+                      "grip,lights"
+                    ],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":425,
+                        "y":350,
+                        "visibility_rules":["obscure_on,fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Melari",
+                        "item_count":1,
+                        "access_rules":["cof"]
+                      },
+                      {
+                        "name":"Digging Spots (Melari's Mines Tab)",
+                        "item_count":8,
+                        "access_rules":["mitts"]
+                      },
+                      {
+                        "name":"Minish Path Chest",
+                        "item_count":1
+                      }
                     ]
                   },
                   {
@@ -155,6 +276,7 @@
                       "grip,gust,bombs,mitts",
                       "grip,gust,bow,mitts",
                       "grip,gust,boomerang,mitts",
+                      "grip,gust,beam,mitts",
                       "grip,cape,mitts",
                       "grip,lights,mitts"
                     ],
@@ -325,6 +447,62 @@
                         "chest_opened_img":"images/Heart Piece Gray.png"
                       }
                     ]
+                  },
+                  {
+                    "name":"Rainy Minish Path Chest",
+                    "access_rules":["grip"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":490,
+                        "y":100,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Rainy Chest",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Mt. Crenel Beanstalk",
+                    "access_rules":["grip"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":100,
+                        "y":20,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Beanstalk",
+                        "item_count":1,
+                        "chest_unopened_img":"images/Heart Piece.png",
+                        "chest_opened_img":"images/Heart Piece Gray.png"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name":"Spring Water Path Chest",
+                "access_rules":["bombs"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":585,
+                    "y":935,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Spring Water Path",
+                    "item_count":1
                   }
                 ]
               },
@@ -367,6 +545,24 @@
                   {
                     "name":"Minish Crack",
                     "item_count": 1
+                  }
+                ]
+              },
+              {
+                "name":"Crenel Base Chest",
+                "access_rules":["bombs","cape"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":78,
+                    "y":858,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Crenel Base Chest",
+                    "item_count":1
                   }
                 ]
               },
@@ -446,6 +642,23 @@
                         ]
                       },
                       {
+                        "name":"Minish Crack",
+                        "map_locations":[
+                          {
+                            "map":"map",
+                            "x":291,
+                            "y":1953,
+                            "visibility_rules":["fusions_open"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Chest",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
                         "name":"Armos Kill",
                         "map_locations":[
                           {
@@ -493,6 +706,75 @@
                             "item_count":1
                           }
                         ]
+                      },
+                      {
+                        "name":"Wind Ruins Beanstalk",
+                        "map_locations":[
+                          {
+                            "map":"map",
+                            "x":210,
+                            "y":1795
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Beanstalk",
+                            "item_count":1,
+                            "chest_unopened_img":"images/big_chest_closed.png",
+                            "chest_opened_img":"images/big_chest_open.png"
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Pre FOW Chest",
+                        "map_locations":[
+                          {
+                            "map":"map",
+                            "x":640,
+                            "y":1867,
+                            "visibility_rules":["fusions_open"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Pre FOW Chest",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"Joy Butterfly",
+                        "map_locations":[
+                          {
+                            "map":"map",
+                            "x":20,
+                            "y":1850,
+                            "visibility_rules":["fusions_open"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"Joy Butterfly",
+                            "item_count":1
+                          }
+                        ]
+                      },
+                      {
+                        "name":"4 Pillars Chest",
+                        "map_locations":[
+                          {
+                            "map":"map",
+                            "x":250,
+                            "y":2060,
+                            "visibility_rules":["fusions_open"]
+                          }
+                        ],
+                        "sections":[
+                          {
+                            "name":"4 Pillars Chest",
+                            "item_count":1
+                          }
+                        ]
                       }
                     ]
                   },
@@ -513,18 +795,75 @@
                     ]
                   },
                   {
+                    "name":"Joy Butterfly",
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":280,
+                        "y":1465,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Joy Butterfly",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
                     "name":"Mulldozers",
                     "access_rules":["gust","flippers"],
                     "map_locations":[
                       {
                         "map":"map",
                         "x":25,
-                        "y":1175
+                        "y":1175,
+                        "visibility_rules":["fusions_none"]
                       }
                     ],
                     "sections":[
                       {
                         "name":"Bow Chest",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Mulldozers",
+                    "access_rules":["gust","flippers"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":25,
+                        "y":1175,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Bow Chest",
+                        "item_count":1
+                      },
+                      {
+                        "name":"Left Crack",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Right Crack",
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":131,
+                        "y":1165,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Minish Crack",
                         "item_count":1
                       }
                     ]
@@ -677,6 +1016,101 @@
                     ]
                   },
                   {
+                    "name":"Waterfall",
+                    "access_rules":["flippers,bow","cape,bow"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":590,
+                        "y":1150,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Scarblade",
+                        "item_count":1,
+                        "chest_unopened_img":"images/Tiger Scroll.png",
+                        "chest_opened_img":"images/Tiger Scroll Done.png"
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Wilds Northern Minish Crack",
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":130,
+                        "y":1165,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Minish Crack",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Wilds Western Minish Crack",
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":40,
+                        "y":1325,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Minish Crack",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Wilds Vine Minish Crack",
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":240,
+                        "y":1600,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Minish Crack",
+                        "item_count":1
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Wilds Water Minish Hole",
+                    "access_rules":["flippers"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":630,
+                        "y":1630,
+                        "visibility_rules":["fusions_open"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Hiking Trip",
+                        "item_count":1
+                      },
+                      {
+                        "name":"Hiking is Healthy",
+                        "item_count":1,
+                        "chest_unopened_img":"images/Heart Piece.png",
+                        "chest_opened_img":"images/Heart Piece Gray.png"
+                      }
+                    ]
+                  },
+                  {
                     "name":"Wilds Diving Spots",
                     "access_rules":["flippers"],
                     "map_locations":[
@@ -703,6 +1137,81 @@
                     ]
                   }
                 ]
+              },
+              {
+                "name":"Western Woods Beanstalk",
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":710,
+                    "y":2005,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Beanstalk",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Western Wood Chest",
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":825,
+                    "y":1603,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Freestanding Chest",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Percy's House",
+                "access_rules":["lamp"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":765,
+                    "y":1912,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Moblin Reward",
+                    "item_count":1
+                  },
+                  {
+                    "name":"Percy Reward",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Western Woods Tree",
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":775,
+                    "y":1750,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Heart Piece",
+                    "item_count":1,
+                    "chest_unopened_img":"images/Heart Piece.png",
+                    "chest_opened_img":"images/Heart Piece Gray.png"
+                  }
+                ]
               }
             ]
           },
@@ -720,6 +1229,40 @@
             "sections": [
               {
                 "name":"Business Scrub",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Rocks Chest",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":856,
+                "y":1092,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Rocks Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Northern Chest",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":931,
+                "y":836,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Chest",
                 "item_count":1
               }
             ]
@@ -756,6 +1299,23 @@
               {
                 "name":"Trilby Cave",
                 "item_count":2
+              }
+            ]
+          },
+          {
+            "name":"Trilby Highlands Fusion Cave",
+            "access_rules":["flippers,mitts","cape,mitts"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":845,
+                "y":950
+              }
+            ],
+            "sections":[
+              {
+                "name":"Fusion Digging Cave",
+                "item_count":1
               }
             ]
           }
@@ -835,6 +1395,25 @@
                 "item_count":2
               }
             ]
+          },
+          {
+            "name":"Gardens Right Fountain",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1505,
+                "y":160,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Dry Fountain",
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
           }
         ]
       },
@@ -906,6 +1485,7 @@
                     "map":"map",
                     "x":725,
                     "y":200,
+                    "visibility_rules":["fusions_none"]
                   }
                 ],
                 "sections":[
@@ -916,6 +1496,88 @@
                     "chest_opened_img":"images/Heart Piece Gray.png"
                   }
                 ]
+              },
+              {
+                "name":"Northwest Grave Area",
+                "access_rules":["sword4,gravekey,boots,spinattack,[lamp]"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":725,
+                    "y":200,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Northwest Grave",
+                    "item_count": 1,
+                    "chest_unopened_img":"images/Heart Piece.png",
+                    "chest_opened_img":"images/Heart Piece Gray.png"
+                  },
+                  {
+                    "name":"Nearby Chest",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Northeast Grave Area",
+                "access_rules":["sword4,gravekey,boots,spinattack,[lamp]"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":930,
+                    "y":200,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Northeast Grave",
+                    "item_count":1
+                  },
+                  {
+                    "name":"Nearby Chest",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Joy Butterfly",
+                "access_rules":["sword4,gravekey,boots,spinattack,[lamp]"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":705,
+                    "y":270,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Joy Butterfly",
+                    "item_count":1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name":"Pre Royal Valley Chest",
+            "access_rules":["bombs,sword4,spinattack","flippers,sword4,spinattack","cape,sword4,spinattack"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1058,
+                "y":528,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Chest",
+                "item_count":1
               }
             ]
           },
@@ -958,6 +1620,113 @@
               {
                 "name":"North Field Digging Spot",
                 "item_count":1,
+              }
+            ]
+          },
+          {
+            "name":"Top Left Tree",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1275,
+                "y":655,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Top Left Tree",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Top Right Tree",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1370,
+                "y":655,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Top Right Tree",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Bottom Left Tree",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1275,
+                "y":730,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Bottom Left Tree",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Bottom Right Tree",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1370,
+                "y":730,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Bottom Right Tree",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"4 Trees Done",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1325,
+                "y":695,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Center Ladder",
+                "item_count":1,
+                "chest_unopened_img":"images/big_chest_closed.png",
+                "chest_opened_img":"images/big_chest_open.png"
+              }
+            ]
+          },
+          {
+            "name":"North Field Waterfall",
+            "access_rules":["flippers"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1120,
+                "y":800,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Greatblade",
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               }
             ]
           }
@@ -1005,6 +1774,24 @@
                 "item_count":1,
                 "chest_unopened_img":"images/Tiger Scroll.png",
                 "chest_opened_img":"images/Tiger Scroll Done.png"
+              }
+            ]
+          },
+          {
+            "name":"Town Waterfall",
+            "access_rules":["flippers"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1150,
+                "y":1271,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Waterfall",
+                "item_count":1
               }
             ]
           },
@@ -1183,25 +1970,7 @@
             ]
           },
           {
-            "name":"Stranger Fusion",
-            "access_rules":["red3"],
-            "codes":"stranger",
-            "map_locations": [
-              {
-                "map":"map",
-                "x":1095,
-                "y":1240,
-                "visibility_rules":["rando_yes"]
-              }
-            ],
-            "sections":[
-              {
-                "name":"Stranger Fusion",
-                "item_count": 1,
-                "chest_unopened_img":"images/Red Kinstone 3.png",
-                "chest_opened_img":"images/Red Kinstone 3 Gray.png"
-              }
-            ],
+            "name":"Stranger Fusion Warp",
             "children":[
               {
                 "name":"Wind Tribe House Early",
@@ -1210,7 +1979,7 @@
                     "map":"map",
                     "x": 2303,
                     "y": 500,
-                    "visibility_rules":["out_of_logic"]
+                    "visibility_rules":["fusions_open"]
                   }
                 ],
                 "sections":[
@@ -1219,10 +1988,10 @@
                     "item_count":3
                   },
                   {
-                    "name":"Gregal 1st Item",
+                    "name":"Save Gregal",
                     "access_rules":["gust"],
                     "item_count":1
-                  }
+                  },
                 ]
               }
             ]
@@ -1436,19 +2205,6 @@
             ],
             "sections": [
               {
-                "name":"Garden Chests",
-                "access_rules":["sword5,cane,spinattack"],
-                "item_count":3
-              },
-              {
-                "name":"Heart Piece",
-                "item_count":1,
-                "access_rules":["sword5,cane,spinattack","{cane}"],
-                "capture_item":true,
-                "chest_unopened_img":"images/Heart Piece.png",
-                "chest_opened_img":"images/Heart Piece Gray.png"
-              },
-              {
                 "name":"Roof Chest",
                 "access_rules":["cane"],
                 "item_count":1
@@ -1456,6 +2212,64 @@
               {
                 "name":"Pull the Statue",
                 "access_rules":["bombs"],
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"School Gardens",
+            "access_rules":["cane"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1600,
+                "y":1067,
+                "visibility_rules":["fusions_none"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Garden Chests",
+                "access_rules":["sword5,spinattack"],
+                "item_count":3
+              },
+              {
+                "name":"Heart Piece",
+                "item_count":1,
+                "access_rules":["sword5,spinattack","{cane}"],
+                "capture_item":true,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"School Gardens",
+            "access_rules":["cane"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1600,
+                "y":1067,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Garden Chests",
+                "access_rules":["sword5,spinattack"],
+                "item_count":3
+              },
+              {
+                "name":"Heart Piece",
+                "item_count":1,
+                "access_rules":["sword5,spinattack","{cane}"],
+                "capture_item":true,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              },
+              {
+                "name":"Minish Path Chest",
                 "item_count":1
               }
             ]
@@ -1516,6 +2330,42 @@
               }
             ]
           },
+          {
+            "name":"Near Link's House Chest",
+            "access_rules":["sword","bombs","lights","lamp"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1505,
+                "y":1889,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Tingle",
+            "access_rules":["cane,sword,trophy","cane,bow,trophy","cane,lights,trophy","cane,lamp,trophy"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1622,
+                "y":1835,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Tingle",
+                "item_count":1
+              }
+            ]
+          },
           //Southwest Tree Heart Piece
           {
             "name":"Tree Heart Piece",
@@ -1525,7 +2375,7 @@
                 "map":"map",
                 "x":1622,
                 "y":2000,
-                "visibility_rules":["rando_yes"]
+                "visibility_rules":["fusions_open"]
               }
             ],
             "sections": [
@@ -1936,7 +2786,8 @@
                   {
                     "map":"map",
                     "x":2303,
-                    "y":350
+                    "y":350,
+                    "visibility_rules":["fusions_none"]
                   }
                 ],
                 "sections":[
@@ -1953,6 +2804,30 @@
                   {
                     "name":"House Chests",
                     "item_count":8,
+                    "clear_as_group":false
+                  }
+                ]
+              },
+              {
+                "name":"Wind Tribe House",
+                "access_rules":["kinstoneClouds:5,mitts","kinstoneClouds:5,cape"],
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":2303,
+                    "y":350,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Gregal's Gift",
+                    "access_rules":["gust"],
+                    "item_count":1
+                  },
+                  {
+                    "name":"House Chests",
+                    "item_count":5,
                     "clear_as_group":false
                   }
                 ]
@@ -1979,11 +2854,53 @@
               }
             ]
           },
+          {
+            "name":"Fusion Digging Cave",
+            "access_rules":["flippers,mitts","cape,mitts"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1815,
+                "y":550,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Heart Piece",
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              },
+              {
+                "name":"Chest",
+                "item_count":1
+              }
+            ]
+          },
           //North Veil Falls
           {
             "name":"North Veil Falls",
             "access_rules":["kinstoneFalls"],
             "children": [
+              {
+                "name":"Biggoron",
+                "access_rules":["grip,[lamp]"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":1870,
+                    "y":90,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Biggoron",
+                    "item_count":1
+                  }
+                ]
+              },
               {
                 "name":"Source of the Flow Cave",
                 "map_locations": [
@@ -2040,6 +2957,24 @@
                 ]
               },
               {
+                "name":"Veil Falls Rock Chest",
+                "access_rules":["grip,[lamp]"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":1885,
+                    "y":245,
+                    "visibility_rules":["obscure_off,fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Veil Falls Chest",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
                 "name":"Veil Falls North Digging Spot",
                 "access_rules":["grip,mitts,[lamp]"],
                 "map_locations":[
@@ -2047,7 +2982,24 @@
                     "map":"map",
                     "x":1885,
                     "y":245,
-                    "visibility_rules":["obscure_on"]
+                    "visibility_rules":["obscure_off,fusions_none"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"North Digging Spot",
+                  }
+                ]
+              },
+              {
+                "name":"Veil Falls North Digging Spot",
+                "access_rules":["grip,mitts,[lamp]"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":1885,
+                    "y":245,
+                    "visibility_rules":["obscure_on,fusions_none"]
                   }
                 ],
                 "sections":[
@@ -2072,6 +3024,49 @@
                   {
                     "name":"South Digging Spot",
                     "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Upper Veil Falls Rocks",
+                "access_rules":["grip,[lamp]"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":1885,
+                    "y":245,
+                    "visibility_rules":["obscure_on,fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Left Digging Spot",
+                    "item_count":1,
+                    "access_rules":["mitts"]
+                  },
+                  {
+                    "name":"Right Chest",
+                    "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Veil Falls Upper Waterfall",
+                "access_rules":["flippers,grip,[lamp]"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":1695,
+                    "y":155,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Waterfall Heart Piece",
+                    "item_count":1,
+                    "chest_unopened_img":"images/Heart Piece.png",
+                    "chest_opened_img":"images/Heart Piece Gray.png"
                   }
                 ]
               }
@@ -2102,6 +3097,24 @@
             ]
           },
           {
+            "name":"North Ranch Chest",
+            "access_rules":["cane"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1772,
+                "y":826,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
             "name":"Lower Veil Falls Heart Piece",
             "access_rules":["cane"],
             "map_locations": [
@@ -2117,6 +3130,26 @@
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"Lower Veil Falls Waterfall",
+            "access_rules":["cane,flippers"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1820,
+                "y":686,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Splitblade",
+                "item_count":1,
+                "chest_unopened_img":"images/Tiger Scroll.png",
+                "chest_opened_img":"images/Tiger Scroll Done.png"
               }
             ]
           },
@@ -2196,12 +3229,55 @@
             ]
           },
           {
+            "name":"Goron Quest",
+            "access_rules":["cape","flippers"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1750,
+                "y":1365,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Small Chest",
+                "item_count":1
+              },
+              {
+                "name":"Big Chest",
+                "item_count":1,
+                "chest_unopened_img":"images/big_chest_closed.png",
+                "chest_opened_img":"images/big_chest_open.png"
+              }
+            ]
+          },
+          {
+            "name":"Lon Lon Dried Up Pond",
+            "access_rules":["cape","flippers","ocarina"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1995,
+                "y":1140,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Lon Lon Pond",
+                "item_count":1
+              }
+            ]
+          },
+          {
             "name":"Bonk the Tree",
             "map_locations": [
               {
                 "map":"map",
                 "x":1975,
                 "y":1025,
+                "visibility_rules":["fusions_none"]
               }
             ],
             "sections":[
@@ -2211,6 +3287,31 @@
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"Bonk the Tree",
+            "map_locations": [
+              {
+                "map":"map",
+                "x":1975,
+                "y":1025,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Minish Path Heart Piece",
+                "access_rules":["boots,flippers,mitts","boots,ocarina","boots,llrkey","boots,cape"],
+                "item_count": 1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              },
+              {
+                "name":"Minish Path Chest",
+                "access_rules":["boots,flippers,mitts","boots,ocarina","boots,llrkey","boots,cape"],
+                "item_count":1
               }
             ]
           },
@@ -2257,7 +3358,7 @@
             "map_locations": [
               {
                 "map":"map",
-                "x":2340,
+                "x":2360,
                 "y":820,
               }
             ],
@@ -2265,6 +3366,50 @@
               {
                 "name":"Fifi",
                 "item_count": 1
+              }
+            ]
+          },
+          {
+            "name":"Librari",
+            "access_rules":["ocarina"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2239,
+                "y":1144,
+                "visibility_rules":["fusions_open"]
+              },
+              {
+                "map":"map",
+                "x":2464,
+                "y":1083,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Librari",
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Container.png",
+                "chest_opened_img":"images/Heart Container Gray.png"
+              }
+            ]
+          },
+          {
+            "name":"Middle of the Lake",
+            "access_rules":["cape,mitts","flippers,mitts"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2464,
+                "y":1133,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Digging Cave",
+                "item_count":1
               }
             ]
           },
@@ -2279,12 +3424,40 @@
                 "map":"map",
                 "x": 2590,
                 "y": 1365,
+                "visibility_rules":["fusions_none"]
               }
             ],
             "sections":[
               {
                 "name":"Lake Cabin",
                 "capture_item":true,
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Lake Cabin",
+            "map_locations": [
+              {
+                "map":"map",
+                "x": 2590,
+                "y": 1365,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Lake Cabin",
+                "access_rules":["flippers,boots,bracelets",
+                  "{flippers}","{cape}","{mitts,cane}",
+                  "cape,boots,gust,bracelets",
+                  "mitts,cane,boots,gust,bracelets"],
+                "capture_item":true,
+                "item_count":1
+              },
+              {
+                "name":"Chest",
+                "access_rules":["flippers,boots","cape,boots,gust","mitts,cane,boots,gust"],
                 "item_count":1
               }
             ]
@@ -2312,7 +3485,7 @@
             "map_locations": [
               {
                 "map":"map",
-                "x":2300,
+                "x":2290,
                 "y":820,
               }
             ],
@@ -2415,7 +3588,8 @@
               {
                 "map":"map",
                 "x":2450,
-                "y":850
+                "y":850,
+                "visibility_rules":["fusions_none"]
               }
             ],
             "sections": [
@@ -2423,6 +3597,35 @@
                 "name":"North Hylia Cape Cave",
                 "item_count":7,
                 "clear_as_group":false
+              }
+            ]
+          },
+          {
+            "name":"North Hylia Cape Cave",
+            "access_rules":["cape,mitts"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":2450,
+                "y":850,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections": [
+              {
+                "name":"North Hylia Cape Cave",
+                "item_count":7,
+                "clear_as_group":false
+              },
+              {
+                "name":"Beanstalk",
+                "item_count":2
+              },
+              {
+                "name":"Beanstalk Heart Piece",
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
               }
             ]
           },
@@ -2467,6 +3670,46 @@
               {
                 "name":"Eastern Hills Bomb Wall",
                 "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Farm Chest",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1795,
+                "y":1685,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Farm Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Eastern Hills Beanstalk",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1705,
+                "y":1830,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Beanstalk Chests",
+                "item_count":2
+              },
+              {
+                "name":"Beanstalk Heart Piece",
+                "item_count":1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
               }
             ]
           }
@@ -2538,6 +3781,75 @@
               }
             ]
           },
+          {
+            "name":"Minish Woods Pre Stump Chest",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2580,
+                "y":1826,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Cross the Pond",
+            "access_rules":["cape","flippers"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2049,
+                "y":1571,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Minish Woods Entrance Chest",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2112,
+                "y":1677,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Pre Minish Village Minish Hole",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2336,
+                "y":2081,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Minish Hole",
+                "item_count":1
+              }
+            ]
+          },
           //DWS Heart Piece
           {
             "name": "Shrine Heart Piece",
@@ -2558,6 +3870,23 @@
             ]
           },
           {
+            "name":"Pre Shrine Chest",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2421,
+                "y":1921,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Pre Shrine Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
             "name": "Like Like Cave",
             "access_rules": ["mitts"],
             "map_locations": [
@@ -2574,6 +3903,9 @@
               }
             ]
           },
+          {
+
+          },
           //Minish Village
           {
             "name": "Minish Village",
@@ -2582,6 +3914,7 @@
                 "map":"map",
                 "x":2297,
                 "y":2000,
+                "visibility_rules":["fusions_none"]
               }
             ],
             "sections": [
@@ -2597,6 +3930,33 @@
               }
             ]
           },
+          {
+            "name": "Minish Village",
+            "map_locations": [
+              {
+                "map":"map",
+                "x":2297,
+                "y":2000,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections": [
+              {
+                "name": "Barrel",
+                "item_count": 1,
+              },
+              {
+                "name": "Dock Heart Piece",
+                "item_count": 1,
+                "chest_unopened_img":"images/Heart Piece.png",
+                "chest_opened_img":"images/Heart Piece Gray.png"
+              },
+              {
+                "name":"Minish Path Chest",
+                "item_count":1
+              }
+            ]
+          },
           //Belari
           {
             "name":"Belari",
@@ -2606,12 +3966,52 @@
                 "map":"map",
                 "x":2175,
                 "y":1950,
+                "visibility_rules":["fusions_none"]
               }
             ],
             "sections": [
               {
                 "name":"Belari",
                 "item_count": 1
+              }
+            ]
+          },
+          {
+            "name":"Belari",
+            "access_rules":["dws","bombs"],
+            "map_locations": [
+              {
+                "map":"map",
+                "x":2175,
+                "y":1950,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections": [
+              {
+                "name":"Belari",
+                "item_count": 1
+              },
+              {
+                "name":"Belari 2nd Item",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Post Minish Village Chest",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":2038,
+                "y":1879,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Wind Crest Chest",
+                "item_count":1
               }
             ]
           },
