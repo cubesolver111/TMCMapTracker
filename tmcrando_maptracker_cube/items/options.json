@@ -48,5 +48,34 @@
         "codes": "fusions_open"
       }
     ]
+  },
+  {
+    "name":"DHC",
+    "type":"progressive",
+    "loop":true,
+    "allow_disabled":false,
+    "inherit_codes":false,
+    "stages":[
+      {
+        "img":"images/dhc_closed.png",
+        "codes":"dhc_closed",
+        "inherit_codes":false
+      },
+      {
+        "img":"images/dhc_open.png",
+        "codes":"dhc_open",
+        "inherit_codes":false
+      },
+      {
+        "img":"images/dhc_peditems.png",
+        "codes":"dhc_peditems",
+        "inherit_codes":false
+      },
+      {
+        "img":"images/dhc_fast.png",
+        "codes":"dhc_none",
+        "inherit_codes":false
+      }
+    ]
   }
 ]
