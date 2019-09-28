@@ -7,27 +7,27 @@
     "stages": [
       {
         "img":"images/dws_unknown.png",
-        "codes":"dws",
+        "codes":"dws,dwsunknown",
       },
       {
         "img": "images/dws_earth.png",
-        "codes": "dws",
+        "codes": "dws,earth",
       },
       {
         "img": "images/dws_fire.png",
-        "codes": "dws",
+        "codes": "dws,fire",
       },
       {
         "img": "images/dws_water.png",
-        "codes": "dws",
+        "codes": "dws,water",
       },
       {
         "img": "images/dws_wind.png",
-        "codes": "dws",
+        "codes": "dws,wind",
       },
       {
         "img": "images/dws_none.png",
-        "codes": "dws",
+        "codes": "dws,dwsnone",
       }
     ]
   },
@@ -39,27 +39,27 @@
     "stages": [
       {
         "img":"images/cof_unknown.png",
-        "codes":"cof",
+        "codes":"cof,cofunknown",
       },
       {
         "img": "images/cof_earth.png",
-        "codes": "cof",
+        "codes": "cof,earth",
       },
       {
         "img": "images/cof_fire.png",
-        "codes": "cof",
+        "codes": "cof,fire",
       },
       {
         "img": "images/cof_water.png",
-        "codes": "cof",
+        "codes": "cof,water",
       },
       {
         "img": "images/cof_wind.png",
-        "codes": "cof",
+        "codes": "cof,wind",
       },
       {
         "img": "images/cof_none.png",
-        "codes": "cof",
+        "codes": "cof,cofnone",
       }
     ]
   },
@@ -71,27 +71,27 @@
     "stages": [
       {
         "img":"images/fow_unknown.png",
-        "codes":"fow",
+        "codes":"fow,fowunknown",
       },
       {
         "img": "images/fow_earth.png",
-        "codes": "fow",
+        "codes": "fow,earth",
       },
       {
         "img": "images/fow_fire.png",
-        "codes": "fow",
+        "codes": "fow,fire",
       },
       {
         "img": "images/fow_water.png",
-        "codes": "fow",
+        "codes": "fow,water",
       },
       {
         "img": "images/fow_wind.png",
-        "codes": "fow",
+        "codes": "fow,wind",
       },
       {
         "img": "images/fow_none.png",
-        "codes": "fow",
+        "codes": "fow,fownone",
       }
     ]
   },
@@ -103,27 +103,27 @@
     "stages": [
       {
         "img":"images/tod_unknown.png",
-        "codes":"tod",
+        "codes":"tod,todunknown",
       },
       {
         "img": "images/tod_earth.png",
-        "codes": "tod",
+        "codes": "tod,earth",
       },
       {
         "img": "images/tod_fire.png",
-        "codes": "tod",
+        "codes": "tod,fire",
       },
       {
         "img": "images/tod_water.png",
-        "codes": "tod",
+        "codes": "tod,water",
       },
       {
         "img": "images/tod_wind.png",
-        "codes": "tod",
+        "codes": "tod,wind",
       },
       {
         "img": "images/tod_none.png",
-        "codes": "tod",
+        "codes": "tod,todnone",
       }
     ]
   },
@@ -135,27 +135,27 @@
     "stages": [
       {
         "img":"images/rc_unknown.png",
-        "codes":"rc",
+        "codes":"rc,rcunknown",
       },
       {
         "img": "images/rc_earth.png",
-        "codes": "rc",
+        "codes": "rc,earth",
       },
       {
         "img": "images/rc_fire.png",
-        "codes": "rc",
+        "codes": "rc,fire",
       },
       {
         "img": "images/rc_water.png",
-        "codes": "rc",
+        "codes": "rc,water",
       },
       {
         "img": "images/rc_wind.png",
-        "codes": "rc",
+        "codes": "rc,wind",
       },
       {
         "img": "images/rc_none.png",
-        "codes": "rc",
+        "codes": "rc,rcnone",
       }
     ]
   },
@@ -167,27 +167,27 @@
     "stages": [
       {
         "img":"images/pow_unknown.png",
-        "codes":"pow",
+        "codes":"pow,powunknown",
       },
       {
         "img": "images/pow_earth.png",
-        "codes": "pow",
+        "codes": "pow,earth",
       },
       {
         "img": "images/pow_fire.png",
-        "codes": "pow",
+        "codes": "pow,fire",
       },
       {
         "img": "images/pow_water.png",
-        "codes": "pow",
+        "codes": "pow,water",
       },
       {
         "img": "images/pow_wind.png",
-        "codes": "pow",
+        "codes": "pow,wind",
       },
       {
         "img": "images/pow_none.png",
-        "codes": "pow",
+        "codes": "pow,pownone",
       }
     ]
   },
