@@ -713,7 +713,8 @@
                           {
                             "map":"map",
                             "x":210,
-                            "y":1795
+                            "y":1795,
+                            "visibility_rules":["fusions_open"]
                           }
                         ],
                         "sections":[
@@ -1174,7 +1175,7 @@
               },
               {
                 "name":"Percy's House",
-                "access_rules":["lamp"],
+                "access_rules":["boots,lamp"],
                 "map_locations":[
                   {
                     "map":"map",
@@ -1724,6 +1725,7 @@
             "sections":[
               {
                 "name":"Greatblade",
+                "access_rules":["sword"]
                 "item_count":1,
                 "chest_unopened_img":"images/Tiger Scroll.png",
                 "chest_opened_img":"images/Tiger Scroll Done.png"
@@ -2891,7 +2893,7 @@
                     "map":"map",
                     "x":1870,
                     "y":90,
-                    "visibility_rules":["fusions_open"]
+                    "visibility_rules":["rando_yes"]
                   }
                 ],
                 "sections":[
@@ -3147,6 +3149,7 @@
             "sections":[
               {
                 "name":"Splitblade",
+                "access_rules":["sword"]
                 "item_count":1,
                 "chest_unopened_img":"images/Tiger Scroll.png",
                 "chest_opened_img":"images/Tiger Scroll Done.png"
