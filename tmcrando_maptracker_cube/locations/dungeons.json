@@ -1251,7 +1251,7 @@
         "name": "Dark Hyrule Castle",
         "short_name": "DHC",
         "codes":"dhc",
-        "access_rules":["sword5,spinattack,earth,fire,water,wind"],
+        "access_rules":["$neededSwords,$neededElements"],
         "map_locations": [
           {
             "map": "map",
