@@ -15,7 +15,7 @@
       {
         "img": "images/Smith's Sword.png",
         "inherit_codes": false,
-        "codes": "sword, smith"
+        "codes": "sword,sword1,smith"
       },
       {
         "img": "images/Green Sword.png",
