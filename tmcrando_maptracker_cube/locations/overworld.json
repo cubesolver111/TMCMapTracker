@@ -1018,7 +1018,7 @@
                   },
                   {
                     "name":"Waterfall",
-                    "access_rules":["flippers,bow","cape,bow"],
+                    "access_rules":["flippers,bow"],
                     "map_locations":[
                       {
                         "map":"map",
@@ -1153,6 +1153,42 @@
                   {
                     "name":"Beanstalk",
                     "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"North Digging Spots",
+                "access_rules":["mitts"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":800,
+                    "y":1475,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Buried Treasure",
+                    "item_count":6
+                  }
+                ]
+              },
+              {
+                "name":"South Digging Spots",
+                "access_rules":["mitts"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":945,
+                    "y":1780,
+                    "visibility_rules":["fusions_open"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"More Buried Treasure",
+                    "item_count":2
                   }
                 ]
               },
@@ -1310,7 +1346,8 @@
               {
                 "map":"map",
                 "x":845,
-                "y":950
+                "y":950,
+                "visibility_rules":["fusions_open"]
               }
             ],
             "sections":[
@@ -1413,6 +1450,29 @@
                 "item_count":1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
+              },
+              {
+                "name":"Minish Hole",
+                "item_count":1,
+                "access_rules":["boots"]
+              }
+            ]
+          },
+          {
+            "name":"Gardens Left Fountain",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1140,
+                "y":160,
+                "visibility_rules":["fusions_open"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Minish Hole",
+                "item_count":1,
+                "access_rules":["boots"]
               }
             ]
           }
@@ -1725,7 +1785,7 @@
             "sections":[
               {
                 "name":"Greatblade",
-                "access_rules":["sword"]
+                "access_rules":["sword"],
                 "item_count":1,
                 "chest_unopened_img":"images/Tiger Scroll.png",
                 "chest_opened_img":"images/Tiger Scroll Done.png"
@@ -3149,7 +3209,7 @@
             "sections":[
               {
                 "name":"Splitblade",
-                "access_rules":["sword"]
+                "access_rules":["sword"],
                 "item_count":1,
                 "chest_unopened_img":"images/Tiger Scroll.png",
                 "chest_opened_img":"images/Tiger Scroll Done.png"
@@ -3374,7 +3434,7 @@
           },
           {
             "name":"Librari",
-            "access_rules":["ocarina"],
+            "access_rules":["ocarina,flippers","ocarina,gust"],
             "map_locations":[
               {
                 "map":"map",
