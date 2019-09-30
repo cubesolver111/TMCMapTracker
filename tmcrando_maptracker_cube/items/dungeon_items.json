@@ -11,19 +11,19 @@
       },
       {
         "img": "images/dws_earth.png",
-        "codes": "dws,dwsearth",
+        "codes": "dws,earth",
       },
       {
         "img": "images/dws_fire.png",
-        "codes": "dws,dwsfire",
+        "codes": "dws,fire",
       },
       {
         "img": "images/dws_water.png",
-        "codes": "dws,dwswater",
+        "codes": "dws,water",
       },
       {
         "img": "images/dws_wind.png",
-        "codes": "dws,dwswind",
+        "codes": "dws,wind",
       },
       {
         "img": "images/dws_none.png",
@@ -43,19 +43,19 @@
       },
       {
         "img": "images/cof_earth.png",
-        "codes": "cof,cofearth",
+        "codes": "cof,earth",
       },
       {
         "img": "images/cof_fire.png",
-        "codes": "cof,coffire",
+        "codes": "cof,fire",
       },
       {
         "img": "images/cof_water.png",
-        "codes": "cof,cofwater",
+        "codes": "cof,water",
       },
       {
         "img": "images/cof_wind.png",
-        "codes": "cof,cofwind",
+        "codes": "cof,wind",
       },
       {
         "img": "images/cof_none.png",
@@ -75,19 +75,19 @@
       },
       {
         "img": "images/fow_earth.png",
-        "codes": "fow,fowearth",
+        "codes": "fow,earth",
       },
       {
         "img": "images/fow_fire.png",
-        "codes": "fow,fowfire",
+        "codes": "fow,fire",
       },
       {
         "img": "images/fow_water.png",
-        "codes": "fow,fowwater",
+        "codes": "fow,water",
       },
       {
         "img": "images/fow_wind.png",
-        "codes": "fow,fowwind",
+        "codes": "fow,wind",
       },
       {
         "img": "images/fow_none.png",
@@ -107,19 +107,19 @@
       },
       {
         "img": "images/tod_earth.png",
-        "codes": "tod,todearth",
+        "codes": "tod,earth",
       },
       {
         "img": "images/tod_fire.png",
-        "codes": "tod,todfire",
+        "codes": "tod,fire",
       },
       {
         "img": "images/tod_water.png",
-        "codes": "tod,todwater",
+        "codes": "tod,water",
       },
       {
         "img": "images/tod_wind.png",
-        "codes": "tod,todwind",
+        "codes": "tod,wind",
       },
       {
         "img": "images/tod_none.png",
@@ -139,19 +139,19 @@
       },
       {
         "img": "images/rc_earth.png",
-        "codes": "rc,rcearth",
+        "codes": "rc,earth",
       },
       {
         "img": "images/rc_fire.png",
-        "codes": "rc,rcfire",
+        "codes": "rc,fire",
       },
       {
         "img": "images/rc_water.png",
-        "codes": "rc,rcwater",
+        "codes": "rc,water",
       },
       {
         "img": "images/rc_wind.png",
-        "codes": "rc,rcwind",
+        "codes": "rc,wind",
       },
       {
         "img": "images/rc_none.png",
@@ -171,19 +171,19 @@
       },
       {
         "img": "images/pow_earth.png",
-        "codes": "pow,powearth",
+        "codes": "pow,earth",
       },
       {
         "img": "images/pow_fire.png",
-        "codes": "pow,powfire",
+        "codes": "pow,fire",
       },
       {
         "img": "images/pow_water.png",
-        "codes": "pow,powwater",
+        "codes": "pow,water",
       },
       {
         "img": "images/pow_wind.png",
-        "codes": "pow,powwind",
+        "codes": "pow,wind",
       },
       {
         "img": "images/pow_none.png",
