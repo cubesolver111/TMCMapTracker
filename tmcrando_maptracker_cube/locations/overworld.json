@@ -11,6 +11,23 @@
         "name":"Trilby Highlands",
         "access_rules":["sword,spinattack","cape","flippers"],
         "children":[
+          {
+            "name":"Vine Rupee",
+            "map_locations":[
+              {
+                "map":"map",
+                "x":525,
+                "y":1035,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Rupee",
+                "item_count":3
+              }
+            ]
+          },
           //Mount Crenel Base
           {
             "name":"Mount Crenel Base",
@@ -474,7 +491,7 @@
                         "map":"map",
                         "x":100,
                         "y":20,
-                        "visibility_rules":["fusions_open"]
+                        "visibility_rules":["fusions_open,rupees_off"]
                       }
                     ],
                     "sections":[
@@ -483,6 +500,30 @@
                         "item_count":1,
                         "chest_unopened_img":"images/Heart Piece.png",
                         "chest_opened_img":"images/Heart Piece Gray.png"
+                      }
+                    ]
+                  },
+                  {
+                    "name":"Mt. Crenel Beanstalk",
+                    "access_rules":["grip"],
+                    "map_locations":[
+                      {
+                        "map":"map",
+                        "x":100,
+                        "y":20,
+                        "visibility_rules":["fusions_open,rupees_on"]
+                      }
+                    ],
+                    "sections":[
+                      {
+                        "name":"Beanstalk",
+                        "item_count":1,
+                        "chest_unopened_img":"images/Heart Piece.png",
+                        "chest_opened_img":"images/Heart Piece Gray.png"
+                      },
+                      {
+                        "name":"Rupees",
+                        "item_count":8
                       }
                     ]
                   }
@@ -584,6 +625,25 @@
                   {
                     "name":"Minish Hole",
                     "item_count": 1,
+                  }
+                ]
+              },
+              //Crenel Fairy Rupee Cave
+              {
+                "name":"Fairy + Rupee Cave",
+                "access_rules":["bombs"],
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":441,
+                    "y":825,
+                    "visibility_rules":["rupees_on"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Rupees",
+                    "item_count":3
                   }
                 ]
               },
@@ -1146,13 +1206,34 @@
                     "map":"map",
                     "x":710,
                     "y":2005,
-                    "visibility_rules":["fusions_open"]
+                    "visibility_rules":["fusions_open,rupees_off"]
                   }
                 ],
                 "sections":[
                   {
                     "name":"Beanstalk",
                     "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Western Woods Beanstalk",
+                "map_locations":[
+                  {
+                    "map":"map",
+                    "x":710,
+                    "y":2005,
+                    "visibility_rules":["fusions_open,rupees_on"]
+                  }
+                ],
+                "sections":[
+                  {
+                    "name":"Beanstalk",
+                    "item_count":1
+                  },
+                  {
+                    "name":"Rupees",
+                    "item_count":16
                   }
                 ]
               },
@@ -1319,6 +1400,24 @@
               {
                 "name":"Trilby Highlands Bomb Wall",
                 "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Trilby Highlands Rupee Cave",
+            "access_rules":["sword3,spinattack"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":705,
+                "y":1250,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Rupees",
+                "item_count":15
               }
             ]
           },
@@ -2393,6 +2492,24 @@
             ]
           },
           {
+            "name":"Fusion Rupee Cave",
+            "access_rules":["sword","bombs","lights","lamp"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1047,
+                "y":1836,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Rupees",
+                "item_count":15
+              }
+            ]
+          },
+          {
             "name":"Near Link's House Chest",
             "access_rules":["sword","bombs","lights","lamp"],
             "map_locations":[
@@ -2418,7 +2535,6 @@
                 "map":"map",
                 "x":1622,
                 "y":1835,
-                "visibility_rules":["fusions_open"]
               }
             ],
             "sections":[
@@ -2997,12 +3113,13 @@
                 ]
               },
               {
-                "name":"Middle Cave",
+                "name":"Veil Falls Upper Cave",
                 "map_locations": [
                   {
                     "map":"map",
                     "x":1845,
-                    "y":180
+                    "y":180,
+                    "visibility_rules":["rupees_off"]
                   }
                 ],
                 "sections": [
@@ -3015,6 +3132,37 @@
                     "name":"Freestanding Chest",
                     "access_rules":["grip,[lamp]"],
                     "item_count":1
+                  }
+                ]
+              },
+              {
+                "name":"Veil Falls Upper Cave",
+                "map_locations": [
+                  {
+                    "map":"map",
+                    "x":1845,
+                    "y":180,
+                    "visibility_rules":["rupees_on"]
+                  }
+                ],
+                "sections": [
+                  {
+                    "name":"Bomb Wall Chest",
+                    "access_rules":["grip,bombs,[lamp]"],
+                    "item_count":1
+                  },
+                  {
+                    "name":"Freestanding Chest",
+                    "access_rules":["grip,[lamp]"],
+                    "item_count":1
+                  },
+                  {
+                    "name":"Downstairs Rupees",
+                    "item_count":9
+                  },
+                  {
+                    "name":"Underwater Rupees",
+                    "item_count":6
                   }
                 ]
               },
@@ -3147,7 +3295,7 @@
             "map_locations": [
               {
                 "map":"map",
-                "x":1940,
+                "x":1970,
                 "y":525
               }
             ],
@@ -3155,6 +3303,24 @@
               {
                 "name":"Veil Falls South Mitts Cave",
                 "item_count":2
+              }
+            ]
+          },
+          {
+            "name":"South Veil Falls Rupees",
+            "access_rules":["flippers,cane","cape,cane"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1905,
+                "y":543,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Rupees",
+                "item_count":3
               }
             ]
           },
@@ -4063,6 +4229,7 @@
           },
           {
             "name":"Post Minish Village Chest",
+            "access_rules":["bombs","dws"],
             "map_locations":[
               {
                 "map":"map",
