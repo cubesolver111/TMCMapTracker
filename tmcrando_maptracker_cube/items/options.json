@@ -146,5 +146,21 @@
         "codes": "sword5Needed"
       }
     ]
+  },
+  {
+    "name":"Rupeemania",
+    "type":"progressive",
+    "loop":true,
+    "allow_disabled":false,
+    "stages":[
+      {
+        "img":"images/RupeeOFF.png",
+        "codes":"rupees_off"
+      },
+      {
+        "img":"images/RupeeON.png",
+        "codes":"rupees_on"
+      }
+    ]
   }
 ]
