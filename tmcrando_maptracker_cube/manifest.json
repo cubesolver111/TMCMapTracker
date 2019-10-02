@@ -1,8 +1,8 @@
 {
   "name": "The Minish Cap Randomizer Map and Item Tracker",
   "game_name": "Minish Cap Randomizer",
-  "platform": "GBA",
-  "package_version": "1.4.0.0",
+  "platform": "gba",
+  "package_version": "1.5.0.0",
   "package_uid": "tmcrando_maptracker_cube",
   "author": "cubesolver111",
   "variants": {
