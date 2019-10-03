@@ -24,7 +24,7 @@
             "sections":[
               {
                 "name":"Rupee",
-                "item_count":3
+                "item_count":1
               }
             ]
           },
@@ -637,7 +637,7 @@
                     "map":"map",
                     "x":441,
                     "y":825,
-                    "visibility_rules":["rupees_on"]
+                    "visibility_rules":["rupees_on,fusions_open"]
                   }
                 ],
                 "sections":[
@@ -1411,7 +1411,7 @@
                 "map":"map",
                 "x":705,
                 "y":1250,
-                "visibility_rules":["rupees_on"]
+                "visibility_rules":["rupees_on,fusions_open"]
               }
             ],
             "sections":[
@@ -3630,7 +3630,7 @@
           },
           {
             "name":"Librari",
-            "access_rules":["ocarina,flippers","ocarina,gust"],
+            "access_rules":["ocarina,flippers","ocarina,cape"],
             "map_locations":[
               {
                 "map":"map",
@@ -3934,6 +3934,7 @@
           },
           {
             "name":"Farm Chest",
+            "access_rules":["sword","bombs","lights","lamp"],
             "map_locations":[
               {
                 "map":"map",
@@ -3951,6 +3952,7 @@
           },
           {
             "name":"Eastern Hills Beanstalk",
+            "access_rules":["sword","bombs","lights","lamp"],
             "map_locations":[
               {
                 "map":"map",
@@ -4059,7 +4061,7 @@
           },
           {
             "name":"Cross the Pond",
-            "access_rules":["cape","flippers"],
+            "access_rules":["cape","flippers","ocarina,cane","llrkey,cane"],
             "map_locations":[
               {
                 "map":"map",
