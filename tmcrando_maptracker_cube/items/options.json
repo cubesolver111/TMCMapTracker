@@ -7,7 +7,8 @@
     "stages":[
       {
         "img":"images/Obscure_Off.png",
-        "codes":"obscure_off"
+        "codes":"obscure_off",
+        "inherit_codes":false
       },
       {
         "img":"images/Obscure_On.png",
@@ -41,11 +42,13 @@
     "stages": [
       {
         "img": "images/Kinsanity_None.png",
-        "codes": "fusions_none"
+        "codes": "fusions_none",
+        "inherit_codes":false
       },
       {
         "img":"images/Kinsanity_Open.png",
-        "codes": "fusions_open"
+        "codes": "fusions_open",
+        "inherit_codes":false
       }
     ]
   },
@@ -155,11 +158,13 @@
     "stages":[
       {
         "img":"images/RupeeOFF.png",
-        "codes":"rupees_off"
+        "codes":"rupees_off",
+        "inherit_codes":false
       },
       {
         "img":"images/RupeeON.png",
-        "codes":"rupees_on"
+        "codes":"rupees_on",
+        "inherit_codes":false
       }
     ]
   }
