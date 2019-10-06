@@ -145,6 +145,7 @@
           "sword,spinattack,bottle,grip,gust,beam",
           "sword,spinattack,bottle,grip,cane",
           "bottle,grip,cape",
+          "cape,bottle,bombs,cane",
           "sword,spinattack,bottle,bombs,cane",
           "flippers,bottle,grip,gust,bombs",
           "flippers,bottle,grip,gust,bow",
@@ -264,6 +265,7 @@
           "sword,spinattack,bottle,grip,gust,beam",
           "sword,spinattack,bottle,grip,cane",
           "bottle,grip,cape",
+          "cape,bottle,bombs,cane",
           "sword,spinattack,bottle,bombs,cane",
           "flippers,bottle,grip,gust,bombs",
           "flippers,bottle,grip,gust,bow",
@@ -1773,7 +1775,7 @@
           },
           {
             "name": "Stone King",
-            "access_rules": ["bombs"],
+            "access_rules": ["bombs,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1873,7 +1875,7 @@
           },
           {
             "name": "Stone King",
-            "access_rules": ["bombs"],
+            "access_rules": ["bombs,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1988,7 +1990,7 @@
           },
           {
             "name": "Stone King",
-            "access_rules": ["bombs"],
+            "access_rules": ["bombs,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
