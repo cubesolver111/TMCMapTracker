@@ -209,7 +209,7 @@
     "type": "toggle_badged",
     "base_item": "bombs",
     "img": "images/overlay_remote.png",
-    "codes": "bombs,remote,bombsremote"
+    "codes": "remote,bombsremote"
   },
  //Kinstone Wilds
  {
@@ -577,7 +577,7 @@
    "name": "Remote Bombs",
    "type": "toggle",
    "img": "images/Remote Bombs.png",
-   "codes": "bomb,bombs,remote"
+   "codes": "remote"
  },
  {
    "name": "Scrolls",
