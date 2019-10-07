@@ -3613,7 +3613,7 @@
         "children": [
           {
             "name":"Fifi",
-            "access_rules":["cane,dogbottle"],
+            "access_rules":["dogbottle"],
             "map_locations": [
               {
                 "map":"map",
