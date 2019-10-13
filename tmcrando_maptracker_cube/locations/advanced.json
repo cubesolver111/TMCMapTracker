@@ -248,6 +248,7 @@
               {
                 "name":"Madderpillar Heart Piece",
                 "item_count": 1,
+                "capture_item":true,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
               }
@@ -303,6 +304,7 @@
           "sword,spinattack,bottle,grip,lights",
           "sword,spinattack,bottle,grip,cane",
           "bottle,grip,cape",
+          "cape,bottle,bombs,cane",
           "sword,spinattack,bottle,bombs,cane",
           "flippers,bottle,grip,gust,bombs",
           "flippers,bottle,grip,gust,bow",
@@ -329,6 +331,24 @@
               {
                 "name":"Spiny Beetle Fight",
                 "item_count": 1,
+              }
+            ]
+          },
+          {
+            "name":"Cave of Flames Rupees",
+            "access_rules":["cane,$canDamage","shield,$canDamage","bombs"],
+            "map_locations":[
+              {
+                "map":"cof",
+                "x":1260,
+                "y":935,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Rupees",
+                "item_count":5
               }
             ]
           },
@@ -623,6 +643,24 @@
             ]
           },
           {
+            "name":"Entrance Rupee",
+            "access_rules": ["mitts"],
+            "map_locations":[
+              {
+                "map":"fow",
+                "x":1111,
+                "y":2334,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Entrance Rupee",
+                "item_count": 1,
+              }
+            ]
+          },
+          {
             "name":"Wizzrobe Fight",
             "access_rules": ["mitts"],
             "map_locations":[
@@ -653,6 +691,42 @@
               {
                 "name":"Left Side 2nd Floor Mitts Chest",
                 "item_count": 1
+              }
+            ]
+          },
+          {
+            "name":"Left Side Left Rupees",
+            "access_rules": ["bow"],
+            "map_locations":[
+              {
+                "map":"fow",
+                "x":288,
+                "y":1892,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Left Side Left Rupees",
+                "item_count": 4
+              }
+            ]
+          },
+          {
+            "name":"Left Side Right Rupees",
+            "access_rules": ["bow"],
+            "map_locations":[
+              {
+                "map":"fow",
+                "x":520,
+                "y":1893,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Left Side Right Rupees",
+                "item_count": 3
               }
             ]
           },
@@ -1072,7 +1146,7 @@
           },
           {
             "name":"Underwater Pot",
-            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
+            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
             "map_locations":[
               {
                 "map":"tod",
@@ -1105,6 +1179,80 @@
                 "item_count":1,
                 "chest_unopened_img":"images/big_chest_closed.png",
                 "chest_opened_img":"images/big_chest_open.png"
+              }
+            ]
+          },
+          {
+            "name":"Left Path Rupees",
+            "access_rules":["tod_bigkey"],
+            "map_locations":[
+              {
+                "map":"tod",
+                "x":690,
+                "y":2815,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Left Path Rupees",
+                "item_count":5,
+              }
+            ]
+          },
+          {
+            "name":"Right Path Rupees",
+            "access_rules":["tod_bigkey,tod_smallkey:4,lamp,flippers,$canDamage",
+            "tod_bigkey,tod_smallkey:4,lamp,gust,$canDamage",
+            "tod_bigkey,tod_smallkey:4,lamp,cape,$canDamage"],
+            "map_locations":[
+              {
+                "map":"tod",
+                "x":1450,
+                "y":517,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Right Path Rupees",
+                "item_count":5,
+              }
+            ]
+          },
+          {
+            "name":"Upper Underwater Rupees",
+            "access_rules":["tod_bigkey,flippers"],
+            "map_locations":[
+              {
+                "map":"tod",
+                "x":370,
+                "y":2350,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Upper Underwater Rupees",
+                "item_count":6,
+              }
+            ]
+          },
+          {
+            "name":"Lower Underwater Rupees",
+            "access_rules":["tod_bigkey,flippers"],
+            "map_locations":[
+              {
+                "map":"tod",
+                "x":600,
+                "y":1215,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Lower Underwater Rupees",
+                "item_count":6,
               }
             ]
           },
@@ -1496,6 +1644,24 @@
                 "item_count":1,
                 "chest_unopened_img":"images/Small Key.png",
                 "chest_opened_img":"images/Small Key Done.png"
+              }
+            ]
+          },
+          {
+            "name":"Rupees",
+            "access_rules":["cape,cane"],
+            "map_locations":[
+              {
+                "map":"pow",
+                "x":1930,
+                "y":383,
+                "visibility_rules":["rupees_on"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Rupees",
+                "item_count":5
               }
             ]
           },
