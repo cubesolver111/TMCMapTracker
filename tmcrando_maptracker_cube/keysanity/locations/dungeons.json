@@ -1023,7 +1023,7 @@
           },
           {
             "name":"Underwater Pot",
-            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
+            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1149,7 +1149,7 @@
           },
           {
             "name":"Underwater Pot",
-            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
+            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1297,7 +1297,7 @@
           },
           {
             "name":"Underwater Pot",
-            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
+            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1428,7 +1428,7 @@
           },
           {
             "name":"Underwater Pot",
-            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
+            "access_rules":["flippers,gust,tod_bigkey","flippers,cape,tod_bigkey","flippers,cape,lamp,$canDamage,tod_bigkey"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1440,6 +1440,28 @@
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
+          },
+          {
+            "name":"Left Path Rupees",
+            "access_rules":["tod_bigkey"],
+            "item_count":5
+          },
+          {
+            "name":"Right Path Rupees",
+            "access_rules":["tod_bigkey,tod_smallkey:4,lamp,flippers,$canDamage",
+            "tod_bigkey,tod_smallkey:4,lamp,gust,$canDamage",
+            "tod_bigkey,tod_smallkey:4,lamp,cape,$canDamage"],
+            "item_count":5
+          },
+          {
+            "name":"Upper Water Rupees",
+            "access_rules":["tod_bigkey,flippers"],
+            "item_count":6
+          },
+          {
+            "name":"Lower Water Rupees",
+            "access_rules":["tod_bigkey,cape,flippers","tod_bigkey,gust,flippers"],
+            "item_count":6
           },
           {
             "name":"Ice Puzzle Free Chest",
