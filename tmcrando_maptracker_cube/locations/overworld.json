@@ -2134,25 +2134,43 @@
             "name":"Stranger Fusion Warp",
             "children":[
               {
-                "name":"Wind Tribe House Early",
+                "name":"Wind Tribe House",
                 "map_locations": [
                   {
                     "map":"map",
                     "x": 2303,
-                    "y": 500,
+                    "y": 350,
+                    "visibility_rules":["fusions_open"]
+                  },
+                  {
+                    "map":"map",
+                    "x": 1375,
+                    "y": 1830,
                     "visibility_rules":["fusions_open"]
                   }
                 ],
                 "sections":[
                   {
-                    "name":"House Chests",
+                    "name":"Early House Chests",
                     "item_count":3
+                  },
+                  {
+                    "name":"Later House Chests",
+                    "access_rules":["bombs,kinstoneFalls,grip,[lamp],cape,kinstoneClouds:5",
+                    "bombs,kinstoneFalls,grip,[lamp],mitts,kinstoneClouds:5"],
+                    "item_count":5
                   },
                   {
                     "name":"Save Gregal",
                     "access_rules":["gust"],
                     "item_count":1
                   },
+                  {
+                    "name":"Gregal's Gift",
+                    "access_rules":["bombs,kinstoneFalls,grip,[lamp],cape,kinstoneClouds:5,gust",
+                    "bombs,kinstoneFalls,grip,[lamp],mitts,kinstoneClouds:5,gust"],
+                    "item_count":1
+                  }
                 ]
               }
             ]
@@ -2529,7 +2547,7 @@
                 "map":"map",
                 "x":1047,
                 "y":1836,
-                "visibility_rules":["rupees_on"]
+                "visibility_rules":["rupees_on,fusions_open"]
               }
             ],
             "sections":[
@@ -3015,30 +3033,6 @@
                     "clear_as_group":false
                   }
                 ]
-              },
-              {
-                "name":"Wind Tribe House",
-                "access_rules":["kinstoneClouds:5,mitts","kinstoneClouds:5,cape"],
-                "map_locations": [
-                  {
-                    "map":"map",
-                    "x":2303,
-                    "y":350,
-                    "visibility_rules":["fusions_open"]
-                  }
-                ],
-                "sections":[
-                  {
-                    "name":"Gregal's Gift",
-                    "access_rules":["gust"],
-                    "item_count":1
-                  },
-                  {
-                    "name":"House Chests",
-                    "item_count":5,
-                    "clear_as_group":false
-                  }
-                ]
               }
             ]
           },
@@ -3489,7 +3483,7 @@
           },
           {
             "name":"Goron Quest",
-            "access_rules":["cape","flippers"],
+            "access_rules":["cape","flippers","ocarina,cane"],
             "map_locations":[
               {
                 "map":"map",
@@ -3513,7 +3507,7 @@
           },
           {
             "name":"Lon Lon Dried Up Pond",
-            "access_rules":["cape","flippers","ocarina"],
+            "access_rules":["cape","flippers,mitts","ocarina"],
             "map_locations":[
               {
                 "map":"map",
