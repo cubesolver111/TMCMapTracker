@@ -25,7 +25,8 @@
     "stages":[
       {
         "img": "images/Rando_Off.png",
-        "codes": "rando"
+        "codes": "rando",
+        "inherit_codes":false
       },
       {
         "img": "images/Rando_On.png",

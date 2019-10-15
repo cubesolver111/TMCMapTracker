@@ -160,7 +160,7 @@
             "map": "map",
             "x": 323,
             "y": 200,
-            "visibility_rules":["rupees_off"]
+            "restrict_visibility_rules":["rupees_on"]
           }
         ],
         "sections": [
@@ -280,7 +280,7 @@
             "map": "map",
             "x": 323,
             "y": 200,
-            "visibility_rules":["rupees_on"]
+            "restrict_visibility_rules":["rupees_off"]
           }
         ],
         "sections": [
@@ -395,7 +395,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "visibility_rules":["obscure_off,rupees_off"]
+            "restrict_visibility_rules":["obscure_on","rupees_on"]
           }
         ],
         "sections": [
@@ -524,7 +524,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "visibility_rules":["obscure_off,rupees_on"]
+            "restrict_visibility_rules":["obscure_on","rupees_off"]
           }
         ],
         "sections": [
@@ -663,7 +663,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "visibility_rules":["obscure_on,rupees_off"]
+            "restrict_visibility_rules":["obscure_off","rupees_on"]
           }
         ],
         "sections": [
@@ -798,7 +798,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "visibility_rules":["obscure_on, rupees_on"]
+            "restrict_visibility_rules":["obscure_off","rupees_off"]
           }
         ],
         "sections": [
@@ -947,7 +947,7 @@
             "name":"Gibdos",
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Other Gibdos",
@@ -958,14 +958,14 @@
             "access_rules":["cryptkey:1"],
             "item_count":1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"Right Path",
             "access_rules":["cryptkey:1"],
             "item_count":1,
             "chest_unopened_img":"images/Small Key.png",
-            "chest_opened_img":"images/Small Key.png"
+            "chest_opened_img":"images/Small Key Done.png"
           },
           {
             "name":"King Gustaf",
@@ -999,7 +999,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "visibility_rules":["obscure_off,rupees_off"]
+            "restrict_visibility_rules":["obscure_on","rupees_on"]
           }
         ],
         "sections": [
@@ -1125,7 +1125,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "visibility_rules":["obscure_off,rupees_on"]
+            "restrict_visibility_rules":["obscure_on","rupees_off"]
           }
         ],
         "sections": [
@@ -1273,7 +1273,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "visibility_rules":["obscure_on,rupees_off"]
+            "restrict_visibility_rules":["obscure_off","rupees_on"]
           }
         ],
         "sections": [
@@ -1404,7 +1404,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "visibility_rules":["obscure_on,rupees_on"]
+            "restrict_visibility_rules":["obscure_off","rupees_off"]
           }
         ],
         "sections": [
@@ -1545,7 +1545,7 @@
             "map": "map",
             "x": 2303,
             "y": 250,
-            "visibility_rules":["rupees_off"]
+            "restrict_visibility_rules":["rupees_on"]
           }
         ],
         "sections": [
@@ -1660,7 +1660,7 @@
             "map": "map",
             "x": 2303,
             "y": 250,
-            "visibility_rules":["rupees_on"]
+            "restrict_visibility_rules":["rupees_off"]
           }
         ],
         "sections": [
@@ -1774,13 +1774,13 @@
         "name": "Dark Hyrule Castle",
         "short_name": "DHC",
         "codes":"dhc",
-        "access_rules": ["$neededElements,$neededSwords"],
+        "access_rules": ["$neededElements,$neededSwords,$noElementsOrSwords"],
         "map_locations": [
           {
             "map": "map",
             "x": 1326,
             "y": 130,
-            "visibility_rules":["dhc_closed"]
+            "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
           }
         ],
         "sections": [
@@ -1880,7 +1880,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "visibility_rules":["dhc_open"]
+            "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
           }
         ],
         "sections": [
@@ -1980,7 +1980,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "visibility_rules":["dhc_peditems"]
+            "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
           }
         ],
         "sections": [
@@ -2090,13 +2090,13 @@
         "name": "Dark Hyrule Castle",
         "short_name": "DHC",
         "codes":"dhc",
-        "access_rules":["$neededSwords,$neededElements"],
+        "access_rules":["$neededSwords,$neededElements,$noElementsOrSwords"],
         "map_locations": [
           {
             "map": "map",
             "x": 1326,
             "y": 130,
-            "visibility_rules":["dhc_none"]
+            "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_peditems"]
           }
         ],
         "sections": [
