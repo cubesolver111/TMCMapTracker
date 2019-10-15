@@ -1772,7 +1772,7 @@
         "name": "Dark Hyrule Castle",
         "short_name": "DHC",
         "codes":"dhc",
-        "access_rules": ["$neededElements,$neededSwords"],
+        "access_rules": ["$neededElements,$neededSwords,$noElementsOrSwords"],
         "map_locations": [
           {
             "map": "map",
@@ -2088,7 +2088,7 @@
         "name": "Dark Hyrule Castle",
         "short_name": "DHC",
         "codes":"dhc",
-        "access_rules":["$neededSwords,$neededElements"],
+        "access_rules":["$neededSwords,$neededElements,$noElementsOrSwords"],
         "map_locations": [
           {
             "map": "map",
