@@ -342,7 +342,7 @@
                 "map":"cof",
                 "x":1260,
                 "y":935,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -650,7 +650,7 @@
                 "map":"fow",
                 "x":1111,
                 "y":2334,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -702,7 +702,7 @@
                 "map":"fow",
                 "x":288,
                 "y":1892,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -720,7 +720,7 @@
                 "map":"fow",
                 "x":520,
                 "y":1893,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1006,7 +1006,7 @@
                 "map":"fow",
                 "x":1080,
                 "y":1830,
-                "visibility_rules":["obscure_on"]
+                "restrict_visibility_rules":["obscure_off"]
               }
             ],
             "sections":[
@@ -1024,7 +1024,7 @@
                 "map":"fow",
                 "x":965,
                 "y":1980,
-                "visibility_rules":["obscure_on"]
+                "restrict_visibility_rules":["obscure_off"]
               }
             ],
             "sections":[
@@ -1190,7 +1190,7 @@
                 "map":"tod",
                 "x":690,
                 "y":2815,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1210,7 +1210,7 @@
                 "map":"tod",
                 "x":1450,
                 "y":517,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1228,7 +1228,7 @@
                 "map":"tod",
                 "x":370,
                 "y":2350,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1246,7 +1246,7 @@
                 "map":"tod",
                 "x":600,
                 "y":1215,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1349,7 +1349,7 @@
                 "map":"tod",
                 "x":1780,
                 "y":2780,
-                "visibility_rules":["obscure_on"]
+                "restrict_visibility_rules":["obscure_off"]
               }
             ],
             "sections":[
@@ -1655,7 +1655,7 @@
                 "map":"pow",
                 "x":1930,
                 "y":383,
-                "visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1947,7 +1947,7 @@
                 "map":"dhc",
                 "x":2265,
                 "y":870,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -1966,7 +1966,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1800,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -1980,13 +1980,13 @@
           },
           {
             "name":"Stone King",
-            "access_rules":["bombs"],
+            "access_rules":["bombs,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
                 "x":3295,
                 "y":110,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2006,7 +2006,7 @@
                 "map":"dhc",
                 "x":2230,
                 "y":70,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2029,7 +2029,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":130,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2052,7 +2052,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":1490,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2075,7 +2075,7 @@
                 "map":"dhc",
                 "x":1315,
                 "y":1490,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2095,7 +2095,7 @@
                 "map":"dhc",
                 "x":1305,
                 "y":135,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2118,7 +2118,7 @@
                 "map":"dhc",
                 "x":765,
                 "y":225,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2138,7 +2138,7 @@
                 "map":"dhc",
                 "x":1630,
                 "y":300,
-                "visibility_rules":["dhc_closed"]
+                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2164,7 +2164,7 @@
                 "map":"dhc",
                 "x":2265,
                 "y":870,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2183,7 +2183,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1800,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2197,13 +2197,13 @@
           },
           {
             "name":"Stone King",
-            "access_rules":["bombs"],
+            "access_rules":["bombs,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
                 "x":3295,
                 "y":110,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2223,7 +2223,7 @@
                 "map":"dhc",
                 "x":2230,
                 "y":70,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2246,7 +2246,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":130,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2269,7 +2269,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":1490,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2292,7 +2292,7 @@
                 "map":"dhc",
                 "x":1315,
                 "y":1490,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2312,7 +2312,7 @@
                 "map":"dhc",
                 "x":1305,
                 "y":135,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2335,7 +2335,7 @@
                 "map":"dhc",
                 "x":765,
                 "y":225,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2355,7 +2355,7 @@
                 "map":"dhc",
                 "x":1630,
                 "y":300,
-                "visibility_rules":["dhc_open"]
+                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2380,7 +2380,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1480,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2409,7 +2409,7 @@
                 "map":"dhc",
                 "x":2265,
                 "y":870,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2428,7 +2428,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1800,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2442,13 +2442,13 @@
           },
           {
             "name":"Stone King",
-            "access_rules":["bombs"],
+            "access_rules":["bombs,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
                 "x":3295,
                 "y":110,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2468,7 +2468,7 @@
                 "map":"dhc",
                 "x":2230,
                 "y":70,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2491,7 +2491,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":130,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2514,7 +2514,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":1490,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2537,7 +2537,7 @@
                 "map":"dhc",
                 "x":1315,
                 "y":1490,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2557,7 +2557,7 @@
                 "map":"dhc",
                 "x":1305,
                 "y":135,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2580,7 +2580,7 @@
                 "map":"dhc",
                 "x":765,
                 "y":225,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2600,7 +2600,7 @@
                 "map":"dhc",
                 "x":1630,
                 "y":300,
-                "visibility_rules":["dhc_peditems"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2626,7 +2626,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1480,
-                "visibility_rules":["dhc_none"]
+                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_peditems"]
               }
             ],
             "sections":[
