@@ -68,7 +68,7 @@ function has(item, amount)
 end
 
 function neededSwords()
-  if Tracker:ProviderCountForCode("sword") >= 0 and has("sword0Needed") then
+  if Tracker:ProviderCountForCode("sword") >= 0 and has("sword0needed") then
     return 1
   elseif has("sword") and has("sword1needed") then
     return 1
@@ -93,6 +93,111 @@ function neededElements()
   elseif has("element3Needed") and ThreeElements() then
     return 1
   elseif has("element4Needed") and FourElements() then
+    return 1
+  end
+end
+
+function noElementsOrSwords()
+  if has("element0Needed") and has("sword0needed") and FourElements() and has("sword5") then
+    return 1
+  elseif has("element0Needed") and has("sword1needed") then
+    return 1
+  elseif has("element0Needed") and has("sword2needed") then
+    return 1
+  elseif has("element0Needed") and has("sword3needed") then
+    return 1
+  elseif has("element0Needed") and has("sword4needed") then
+    return 1
+  elseif has("element0Needed") and has("sword5needed") then
+    return 1
+  elseif has("element1Needed") and has("sword1needed") then
+    return 1
+  elseif has("element1Needed") and has("sword2needed") then
+    return 1
+  elseif has("element1Needed") and has("sword3needed") then
+    return 1
+  elseif has("element1Needed") and has("sword4needed") then
+    return 1
+  elseif has("element1Needed") and has("sword5needed") then
+    return 1
+  elseif has("element2Needed") and has("sword1needed") then
+    return 1
+  elseif has("element2Needed") and has("sword2needed") then
+    return 1
+  elseif has("element2Needed") and has("sword3needed") then
+    return 1
+  elseif has("element2Needed") and has("sword4needed") then
+    return 1
+  elseif has("element2Needed") and has("sword5needed") then
+    return 1
+  elseif has("element3Needed") and has("sword1needed") then
+    return 1
+  elseif has("element3Needed") and has("sword2needed") then
+    return 1
+  elseif has("element3Needed") and has("sword3needed") then
+    return 1
+  elseif has("element3Needed") and has("sword4needed") then
+    return 1
+  elseif has("element3Needed") and has("sword5needed") then
+    return 1
+  elseif has("element4Needed") and has("sword1needed") then
+    return 1
+  elseif has("element4Needed") and has("sword2needed") then
+    return 1
+  elseif has("element4Needed") and has("sword3needed") then
+    return 1
+  elseif has("element4Needed") and has("sword4needed") then
+    return 1
+  elseif has("element4Needed") and has("sword5needed") then
+    return 1
+
+  elseif has("sword0needed") and has("element1Needed") then
+    return 1
+  elseif has("sword0needed") and has("element2Needed") then
+    return 1
+  elseif has("sword0needed") and has("element3Needed") then
+    return 1
+  elseif has("sword0needed") and has("element4Needed") then
+    return 1
+  elseif has("sword1needed") and has("element1Needed") then
+    return 1
+  elseif has("sword1needed") and has("element2Needed") then
+    return 1
+  elseif has("sword1needed") and has("element3Needed") then
+    return 1
+  elseif has("sword1needed") and has("element4Needed") then
+    return 1
+  elseif has("sword2needed") and has("element1Needed") then
+    return 1
+  elseif has("sword2needed") and has("element2Needed") then
+    return 1
+  elseif has("sword2needed") and has("element3Needed") then
+    return 1
+  elseif has("sword2needed") and has("element4Needed") then
+    return 1
+  elseif has("sword3needed") and has("element1Needed") then
+    return 1
+  elseif has("sword3needed") and has("element2Needed") then
+    return 1
+  elseif has("sword3needed") and has("element3Needed") then
+    return 1
+  elseif has("sword3needed") and has("element4Needed") then
+    return 1
+  elseif has("sword4needed") and has("element1Needed") then
+    return 1
+  elseif has("sword4needed") and has("element2Needed") then
+    return 1
+  elseif has("sword4needed") and has("element3Needed") then
+    return 1
+  elseif has("sword4needed") and has("element4Needed") then
+    return 1
+  elseif has("sword5needed") and has("element1Needed") then
+    return 1
+  elseif has("sword5needed") and has("element2Needed") then
+    return 1
+  elseif has("sword5needed") and has("element3Needed") then
+    return 1
+  elseif has("sword5needed") and has("element4Needed") then
     return 1
   end
 end
