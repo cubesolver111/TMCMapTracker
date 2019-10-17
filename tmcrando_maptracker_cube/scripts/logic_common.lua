@@ -25,6 +25,8 @@ function OneElement()
   or Tracker:ProviderCountForCode("wind") > 0
   then
     return 1
+  else
+    return 0
   end
 end
 
@@ -37,6 +39,8 @@ function TwoElements()
   or Tracker:ProviderCountForCode("water") > 0 and Tracker:ProviderCountForCode("wind") > 0
   then
     return 1
+  else
+    return 0
   end
 end
 
@@ -47,6 +51,8 @@ function ThreeElements()
   or Tracker:ProviderCountForCode("fire") > 0 and Tracker:ProviderCountForCode("water") > 0 and Tracker:ProviderCountForCode("wind") > 0
   then
     return 1
+  else
+    return 0
   end
 end
 
@@ -54,6 +60,8 @@ function FourElements()
   if Tracker:ProviderCountForCode("earth") > 0 and Tracker:ProviderCountForCode("fire") > 0 and Tracker:ProviderCountForCode("water") > 0 and Tracker:ProviderCountForCode("wind") > 0
   then
     return 1
+  else
+    return 0
   end
 end
 
@@ -80,6 +88,8 @@ function neededSwords()
     return 1
   elseif has("sword5") and has("sword5needed") then
     return 1
+  else
+    return 0
   end
 end
 
@@ -94,6 +104,8 @@ function neededElements()
     return 1
   elseif has("element4Needed") and FourElements() then
     return 1
+  else
+    return 0
   end
 end
 
@@ -199,5 +211,7 @@ function noElementsOrSwords()
     return 1
   elseif has("sword5needed") and has("element4Needed") then
     return 1
+  else
+    return 0
   end
 end
