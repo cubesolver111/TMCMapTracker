@@ -342,7 +342,7 @@
                 "map":"cof",
                 "x":1260,
                 "y":935,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -650,7 +650,7 @@
                 "map":"fow",
                 "x":1111,
                 "y":2334,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -702,7 +702,7 @@
                 "map":"fow",
                 "x":288,
                 "y":1892,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -720,7 +720,7 @@
                 "map":"fow",
                 "x":520,
                 "y":1893,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1006,7 +1006,7 @@
                 "map":"fow",
                 "x":1080,
                 "y":1830,
-                "restrict_visibility_rules":["obscure_off"]
+                "force_invisibility_rules":["obscure_off"]
               }
             ],
             "sections":[
@@ -1024,7 +1024,7 @@
                 "map":"fow",
                 "x":965,
                 "y":1980,
-                "restrict_visibility_rules":["obscure_off"]
+                "force_invisibility_rules":["obscure_off"]
               }
             ],
             "sections":[
@@ -1190,7 +1190,7 @@
                 "map":"tod",
                 "x":690,
                 "y":2815,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1210,7 +1210,7 @@
                 "map":"tod",
                 "x":1450,
                 "y":517,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1228,7 +1228,7 @@
                 "map":"tod",
                 "x":370,
                 "y":2350,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1246,7 +1246,7 @@
                 "map":"tod",
                 "x":600,
                 "y":1215,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1349,7 +1349,7 @@
                 "map":"tod",
                 "x":1780,
                 "y":2780,
-                "restrict_visibility_rules":["obscure_off"]
+                "force_invisibility_rules":["obscure_off"]
               }
             ],
             "sections":[
@@ -1657,7 +1657,7 @@
                 "map":"pow",
                 "x":1930,
                 "y":383,
-                "restrict_visibility_rules":["rupees_off"]
+                "force_invisibility_rules":["rupees_off"]
               }
             ],
             "sections":[
@@ -1949,7 +1949,7 @@
                 "map":"dhc",
                 "x":2265,
                 "y":870,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -1968,7 +1968,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1800,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -1988,7 +1988,7 @@
                 "map":"dhc",
                 "x":3295,
                 "y":110,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2008,7 +2008,7 @@
                 "map":"dhc",
                 "x":2230,
                 "y":70,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2031,7 +2031,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":130,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2054,7 +2054,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":1490,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2077,7 +2077,7 @@
                 "map":"dhc",
                 "x":1315,
                 "y":1490,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2097,7 +2097,7 @@
                 "map":"dhc",
                 "x":1305,
                 "y":135,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2120,7 +2120,7 @@
                 "map":"dhc",
                 "x":765,
                 "y":225,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2140,7 +2140,7 @@
                 "map":"dhc",
                 "x":1630,
                 "y":300,
-                "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2166,7 +2166,7 @@
                 "map":"dhc",
                 "x":2265,
                 "y":870,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2185,7 +2185,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1800,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2205,7 +2205,7 @@
                 "map":"dhc",
                 "x":3295,
                 "y":110,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2225,7 +2225,7 @@
                 "map":"dhc",
                 "x":2230,
                 "y":70,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2248,7 +2248,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":130,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2271,7 +2271,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":1490,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2294,7 +2294,7 @@
                 "map":"dhc",
                 "x":1315,
                 "y":1490,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2314,7 +2314,7 @@
                 "map":"dhc",
                 "x":1305,
                 "y":135,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2337,7 +2337,7 @@
                 "map":"dhc",
                 "x":765,
                 "y":225,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2357,7 +2357,7 @@
                 "map":"dhc",
                 "x":1630,
                 "y":300,
-                "restrict_visibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
             ],
             "sections":[
@@ -2382,7 +2382,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1480,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2411,7 +2411,7 @@
                 "map":"dhc",
                 "x":2265,
                 "y":870,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2430,7 +2430,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1800,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2450,7 +2450,7 @@
                 "map":"dhc",
                 "x":3295,
                 "y":110,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2470,7 +2470,7 @@
                 "map":"dhc",
                 "x":2230,
                 "y":70,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2493,7 +2493,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":130,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2516,7 +2516,7 @@
                 "map":"dhc",
                 "x":220,
                 "y":1490,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2539,7 +2539,7 @@
                 "map":"dhc",
                 "x":1315,
                 "y":1490,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2559,7 +2559,7 @@
                 "map":"dhc",
                 "x":1305,
                 "y":135,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2582,7 +2582,7 @@
                 "map":"dhc",
                 "x":765,
                 "y":225,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2602,7 +2602,7 @@
                 "map":"dhc",
                 "x":1630,
                 "y":300,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_none"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
             ],
             "sections":[
@@ -2628,7 +2628,7 @@
                 "map":"dhc",
                 "x":3090,
                 "y":1480,
-                "restrict_visibility_rules":["dhc_closed","dhc_open","dhc_peditems"]
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_peditems"]
               }
             ],
             "sections":[

@@ -1778,7 +1778,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "restrict_visibility_rules":["dhc_open","dhc_none","dhc_peditems"]
+            "force_invisibility_rules":["dhc_open","dhc_none","dhc_peditems"]
           }
         ],
         "sections": [
@@ -1878,7 +1878,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "restrict_visibility_rules":["dhc_closed","dhc_none","dhc_peditems"]
+            "force_invisibility_rules":["dhc_closed","dhc_none","dhc_peditems"]
           }
         ],
         "sections": [
@@ -1978,7 +1978,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "restrict_visibility_rules":["dhc_open","dhc_closed","dhc_none"]
+            "force_invisibility_rules":["dhc_open","dhc_closed","dhc_none"]
           }
         ],
         "sections": [
@@ -2094,7 +2094,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "restrict_visibility_rules":["dhc_open","dhc_peditems","dhc_closed"]
+            "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_closed"]
           }
         ],
         "sections": [
