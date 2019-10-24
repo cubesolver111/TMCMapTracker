@@ -15,7 +15,7 @@
       {
         "img": "images/Smith's Sword.png",
         "inherit_codes": false,
-        "codes": "sword,sword1,smith"
+        "codes": "sword, smith"
       },
       {
         "img": "images/Green Sword.png",
@@ -315,13 +315,16 @@
        "codes": "bottle"
      },
      {
-       "img": "images/Empty Bottle2.png"
+       "img": "images/Empty Bottle2.png",
+       "codes": "bottle"
      },
      {
-       "img": "images/Empty Bottle3.png"
+       "img": "images/Empty Bottle3.png",
+       "codes": "bottle"
      },
      {
-       "img": "images/Empty Bottle4.png"
+       "img": "images/Empty Bottle4.png",
+       "codes": "bottle"
      }
    ]
  },
@@ -505,7 +508,7 @@
      {
        "left": true,
        "right": true,
-       "img": "images/Beam_Spin.png"
+       "img": "images/beam_spin.png"
      }
    ]
  },
@@ -742,9 +745,9 @@
    "codes": "remotebombs"
  },
  {
-  "name":"Tingle Trophy",
-  "type":"toggle",
-  "img":"images/Tingle Trophy.png",
-  "codes":"trophy"
+   "name":"Tingle Trophy",
+   "type":"toggle",
+   "img":"images/Tingle Trophy.png",
+   "codes":"trophy"
  }
 ]
