@@ -96,13 +96,13 @@ end
 function neededElements()
   if has("element0Needed") then
     return 1
-  elseif has("element1Needed") and OneElement() then
+  elseif has("element1Needed") and OneElement()==1 then
     return 1
-  elseif has("element2Needed") and TwoElements() then
+  elseif has("element2Needed") and TwoElements()==1 then
     return 1
-  elseif has("element3Needed") and ThreeElements() then
+  elseif has("element3Needed") and ThreeElements()==1 then
     return 1
-  elseif has("element4Needed") and FourElements() then
+  elseif has("element4Needed") and FourElements()==1 then
     return 1
   else
     return 0
@@ -110,7 +110,7 @@ function neededElements()
 end
 
 function noElementsOrSwords()
-  if has("element0Needed") and has("sword0needed") and FourElements() and has("sword5") then
+  if has("element0Needed") and has("sword0needed") and FourElements() == 1 and has("sword5") then
     return 1
   elseif has("element0Needed") and has("sword1needed") then
     return 1
