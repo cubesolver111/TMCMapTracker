@@ -6,11 +6,28 @@ This is a pack for [EmoTracker](https://emotracker.net/) designed for the [Minis
 You can easily download it from within the EmoTracker application.
 
 This pack allows you to keep track of the items you've collected and what item locations you can reach with those items.
+This pack also now supports autotracking for the Bizhawk Emulator only.
 
 ## Questions
 
-If you have questions about the pack, please join the [Minish Cap Randomizer Discord](https://discord.gg/nCwuNSz).
-If you have questions about EmoTracker, please join the [EmoTracker Discord](https://emotracker.net/community/) and ask there.
+How do I turn on autotracking?
+1. Open Bizhawk.
+2. Go to Config -> Customize -> Advanced
+3. Under Lua Core, check the option for Lua+LuaInterface.
+4. Go to GBA -> Core and make sure mGBA is selected.
+5. Restart Bizhawk to enact these changes.
+6. Go to Tools -> Lua Console
+7. In the console, go to Script -> Open Script
+8. Navigate to where you installed EmoTracker.
+  (This is C:/Program Files/EmoTracker/Connectors/bizhawk by default)
+9. Double click on the file named 'connector'.
+10. In EmoTracker, right click on the little robot icon in the bottom right corner.
+11. Go to GBA, then click Lua.
+12. If you followed these directions, the little robot should turn cyan.
+13. Enjoy the game.
+
+If you have more questions about the pack, please join the [Minish Cap Randomizer Discord](https://discord.gg/nCwuNSz).
+If you have more questions about EmoTracker, please join the [EmoTracker Discord](https://emotracker.net/community/) and ask there.
 You can also message me on Discord at __cubesolver#6871__ .
 
 ## Variants

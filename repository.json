@@ -10,7 +10,7 @@
         "pins",
         "chathud"
       ],
-      "version": "1.5.1.1",
+      "version": "1.6.0.0",
       "uid": "tmcrando_maptracker_cube",
       "link": "https://github.com/cubesolver111/TMCMapTracker/raw/main/tmcrando_maptracker_cube.zip",
       "variants": [
@@ -19,13 +19,15 @@
           "flags": [
             "map",
             "pins",
-            "chathud"
+            "chathud",
+            "autotracker"
           ]
         },
         {
           "name": "Items Only",
           "flags": [
-            "chathud"
+            "chathud",
+            "autotracker"
           ]
         },
         {
@@ -33,13 +35,15 @@
           "flags": [
             "map",
             "pins",
-            "chathud"
+            "chathud",
+            "autotracker"
           ]
         },
         {
           "name": "Items Only w/Keys",
           "flags": [
-            "chathud"
+            "chathud",
+            "autotracker"
           ]
         }
       ]
