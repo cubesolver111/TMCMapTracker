@@ -1008,7 +1008,7 @@
           //Need one key
           {
             "name":"Small Key Locked Ice Block",
-            "access_rules":["tod_smallkey:4"],
+            "access_rules":["tod_smallkey:1"],
             "item_count": 1
           },
           //Need big key
@@ -1134,7 +1134,7 @@
           //Need one key
           {
             "name":"Small Key Locked Ice Block",
-            "access_rules":["tod_smallkey:4"],
+            "access_rules":["tod_smallkey:1"],
             "item_count": 1
           },
           //Need big key
@@ -1282,7 +1282,7 @@
           //Need one key
           {
             "name":"Small Key Locked Ice Block",
-            "access_rules":["tod_smallkey:4"],
+            "access_rules":["tod_smallkey:1"],
             "item_count": 1
           },
           //Need big key
@@ -1413,7 +1413,7 @@
           //Need one key
           {
             "name":"Small Key Locked Ice Block",
-            "access_rules":["tod_smallkey:4"],
+            "access_rules":["tod_smallkey:1"],
             "item_count": 1
           },
           //Need big key
