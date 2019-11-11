@@ -7,7 +7,7 @@
     [
       //DWS
       {
-        "name":"Deepwood Shrine",
+        "name":"DWS",
         "short_name":"DWS",
         "access_rules": [
           "sword,jabber",
@@ -135,7 +135,7 @@
       },
       //COF
       {
-        "name": "Cave of Flames",
+        "name": "COF",
         "short_name": "CoF",
         "access_rules":[
           "sword,spinattack,bottle,grip,gust,bombs",
@@ -255,8 +255,8 @@
         ]
       },
       {
-        "name": "Cave of Flames",
-        "short_name": "CoF",
+        "name": "COF Rupees",
+        "short_name": "CoF Rupees",
         "access_rules":[
           "sword,spinattack,bottle,grip,gust,bombs",
           "sword,spinattack,bottle,grip,gust,bow",
@@ -384,7 +384,7 @@
       },
       //FOW
       {
-        "name": "Fortress of Winds",
+        "name": "FOW",
         "access_rules":["sword3,spinattack,cape,kinstoneWilds:3",
           "sword3,spinattack,boots,bow,kinstoneWilds:3",
           "sword3,spinattack,boots,flippers,kinstoneWilds:3"],
@@ -400,10 +400,14 @@
         ],
         "sections": [
           {
-            "name":"Entrance Far Left + Wizzrobe Fight",
+            "name":"Entrance Far Left",
             "access_rules": ["mitts"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1,
+          },
+          {
+            "name":"Wizzrobe Fight",
+            "access_rules":["mitts"],
+            "item_count":1
           },
           {
             "name":"Left Side Mitts Chests",
@@ -513,7 +517,7 @@
         ]
       },
       {
-        "name": "Fortress of Winds",
+        "name": "FOW Rupees",
         "access_rules":["sword3,spinattack,cape,kinstoneWilds:3",
           "sword3,spinattack,boots,bow,kinstoneWilds:3",
           "sword3,spinattack,boots,flippers,kinstoneWilds:3"],
@@ -529,10 +533,14 @@
         ],
         "sections": [
           {
-            "name":"Entrance Far Left + Wizzrobe Fight",
+            "name":"Entrance Far Left",
             "access_rules": ["mitts"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1,
+          },
+          {
+            "name":"Wizzrobe Fight",
+            "access_rules":["mitts"],
+            "item_count":1
           },
           {
             "name":"Entrance Big Rupee",
@@ -652,7 +660,7 @@
         ]
       },
       {
-        "name": "Fortress of Winds",
+        "name": "FOW Obscure",
         "access_rules":["sword3,spinattack,cape,kinstoneWilds:3",
           "sword3,spinattack,boots,bow,kinstoneWilds:3",
           "sword3,spinattack,boots,flippers,kinstoneWilds:3"],
@@ -668,10 +676,14 @@
         ],
         "sections": [
           {
-            "name":"Entrance Far Left + Wizzrobe Fight",
+            "name":"Entrance Far Left",
             "access_rules": ["mitts"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1,
+          },
+          {
+            "name":"Wizzrobe Fight",
+            "access_rules":["mitts"],
+            "item_count":1
           },
           {
             "name":"Left Side Mitts Chests",
@@ -787,7 +799,7 @@
         ]
       },
       {
-        "name": "Fortress of Winds",
+        "name": "FOW RupObs",
         "access_rules":["sword3,spinattack,cape,kinstoneWilds:3",
           "sword3,spinattack,boots,bow,kinstoneWilds:3",
           "sword3,spinattack,boots,flippers,kinstoneWilds:3"],
@@ -803,10 +815,14 @@
         ],
         "sections": [
           {
-            "name":"Entrance Far Left + Wizzrobe Fight",
+            "name":"Entrance Far Left",
             "access_rules": ["mitts"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1,
+          },
+          {
+            "name":"Wizzrobe Fight",
+            "access_rules":["mitts"],
+            "item_count":1
           },
           {
             "name":"Entrance Large Rupee",
@@ -974,7 +990,7 @@
       },
       //Temple of Droplets
       {
-        "name": "Temple of Droplets",
+        "name": "TOD",
         "short_name": "TOD",
         "access_rules":[
           "llrkey,sword,flippers",
@@ -1100,7 +1116,7 @@
         ]
       },
       {
-        "name": "Temple of Droplets",
+        "name": "TOD Rupees",
         "short_name": "TOD",
         "access_rules":[
           "llrkey,sword,flippers",
@@ -1248,7 +1264,7 @@
         ]
       },
       {
-        "name": "Temple of Droplets",
+        "name": "TOD Obscure",
         "short_name": "TOD",
         "access_rules":[
           "llrkey,sword,flippers",
@@ -1379,7 +1395,7 @@
         ]
       },
       {
-        "name": "Temple of Droplets",
+        "name": "TOD RupObs",
         "short_name": "TOD",
         "access_rules":[
           "llrkey,sword,flippers",
@@ -1533,7 +1549,7 @@
       },
       //POW
       {
-        "name": "Palace of Winds",
+        "name": "POW",
         "short_name": "POW",
         "codes":"pow",
         "access_rules": ["bombs,kinstoneFalls,grip,kinstoneClouds:5,mitts,sword4,spinattack,[lamp]",
@@ -1600,17 +1616,29 @@
             "item_count": 1
           },
           {
-            "name":"Dark Room Big and Small",
+            "name":"Dark Room Big",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:3"],
-            "clear_as_group": false,
-            "item_count": 2
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
+          },
+          {
+            "name":"Dark Room Small",
+            "access_rules":["cape,cane,pow_bigkey,pow_smallkey:3"],
+            "item_count":1
           },
           //Need four keys
           {
-            "name":"Wizzrobe Fights",
+            "name":"Fire Wizzrobe Fight",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1
+          },
+          {
+            "name":"Twin Wizzrobe Fight",
+            "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
+            "item_count":1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Heart Piece",
@@ -1635,8 +1663,12 @@
           {
             "name":"Block Maze Room",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:6"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1
+          },
+          {
+            "name":"Block Maze Detour",
+            "access_rules":["cape,cane,pow_bigkey,pow_smallkey:6"],
+            "item_count":1
           },
           {
             "name":"Gyorg",
@@ -1648,7 +1680,7 @@
         ]
       },
       {
-        "name": "Palace of Winds",
+        "name": "POW Rupees",
         "short_name": "POW",
         "codes":"pow",
         "access_rules": ["bombs,kinstoneFalls,grip,kinstoneClouds:5,mitts,sword4,spinattack,[lamp]",
@@ -1720,17 +1752,29 @@
             "item_count": 1
           },
           {
-            "name":"Dark Room Big and Small",
+            "name":"Dark Room Big",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:3"],
-            "clear_as_group": false,
-            "item_count": 2
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
+          },
+          {
+            "name":"Dark Room Small",
+            "access_rules":["cape,cane,pow_bigkey,pow_smallkey:3"],
+            "item_count":1
           },
           //Need four keys
           {
-            "name":"Wizzrobe Fights",
+            "name":"Fire Wizzrobe Fight",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1
+          },
+          {
+            "name":"Twin Wizzrobe Fight",
+            "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
+            "item_count":1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Heart Piece",
@@ -1755,8 +1799,12 @@
           {
             "name":"Block Maze Room",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:6"],
-            "item_count": 2,
-            "clear_as_group": false
+            "item_count": 1
+          },
+          {
+            "name":"Block Maze Detour",
+            "access_rules":["cape,cane,pow_bigkey,pow_smallkey:6"],
+            "item_count":1
           },
           {
             "name":"Gyorg",
@@ -1769,7 +1817,7 @@
       },
       //Dark Hyrule Castle CLOSED
       {
-        "name": "Dark Hyrule Castle",
+        "name": "DHC",
         "short_name": "DHC",
         "codes":"dhc",
         "access_rules": ["$neededElements,$neededSwords,$noElementsOrSwords"],
@@ -1870,7 +1918,7 @@
       },
       //DHC OPEN
       {
-        "name": "Dark Hyrule Castle",
+        "name": "DHC Open"
         "short_name": "DHC",
         "codes":"dhc",
         "map_locations": [
@@ -1970,7 +2018,7 @@
       },
       //DHC OPEN PED
       {
-        "name": "Dark Hyrule Castle",
+        "name": "DHC Ped",
         "short_name": "DHC",
         "codes":"dhc",
         "map_locations": [
@@ -2086,7 +2134,7 @@
       //DHC FAST
       {
         "name": "Dark Hyrule Castle",
-        "short_name": "DHC",
+        "short_name": "DHC Fast",
         "codes":"dhc",
         "access_rules":["$neededSwords,$neededElements,$noElementsOrSwords"],
         "map_locations": [

@@ -709,6 +709,12 @@
    ]
  },
  {
+   "name": "Heart Piece",
+   "type": "toggle",
+   "img": "images/Heart Piece.png",
+   "codes": "heartpiece"
+ },
+ {
    "name": "Generic Yellow Kinstone",
    "type": "toggle",
    "img": "images/Generic Gold Kinstone.png",

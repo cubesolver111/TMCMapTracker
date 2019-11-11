@@ -61,7 +61,7 @@
                   },
                   //Business Scrub
                   {
-                    "name":"Business Scrub",
+                    "name":"Crenel Business Scrub",
                     "access_rules":["bombs,shield"],
                     "map_locations": [
                       {
@@ -72,7 +72,7 @@
                     ],
                     "sections": [
                       {
-                        "name":"Business Scrub",
+                        "name":"Crenel Business Scrub",
                         "item_count": 1
                       }
                     ]
@@ -504,7 +504,7 @@
                     ]
                   },
                   {
-                    "name":"Mt. Crenel Beanstalk",
+                    "name":"Mt. Crenel Beanstalk Rupees",
                     "access_rules":["grip"],
                     "map_locations":[
                       {
@@ -804,7 +804,7 @@
                         ]
                       },
                       {
-                        "name":"Joy Butterfly",
+                        "name":"Wind Ruins Joy Butterfly",
                         "map_locations":[
                           {
                             "map":"map",
@@ -856,7 +856,7 @@
                     ]
                   },
                   {
-                    "name":"Joy Butterfly",
+                    "name":"Castor Wilds Joy Butterfly",
                     "map_locations":[
                       {
                         "map":"map",
@@ -891,7 +891,7 @@
                     ]
                   },
                   {
-                    "name":"Mulldozers",
+                    "name":"Mulldozers Open",
                     "access_rules":["gust","flippers"],
                     "map_locations":[
                       {
@@ -1217,7 +1217,7 @@
                 ]
               },
               {
-                "name":"Western Woods Beanstalk",
+                "name":"Western Woods Beanstalk Rupee",
                 "map_locations":[
                   {
                     "map":"map",
@@ -1245,7 +1245,7 @@
                     "map":"map",
                     "x":800,
                     "y":1475,
-                    "force_invisibility_rules":["fusions_none"]
+                    "force_invisibility_rules":["fusions_none","obscure_off"]
                   }
                 ],
                 "sections":[
@@ -1263,7 +1263,7 @@
                     "map":"map",
                     "x":945,
                     "y":1780,
-                    "force_invisibility_rules":["fusions_none"]
+                    "force_invisibility_rules":["fusions_none","obscure_off"]
                   }
                 ],
                 "sections":[
@@ -1335,7 +1335,7 @@
           },
           //Business Scrub
           {
-            "name":"Business Scrub",
+            "name":"Trilby Business Scrub",
             "access_rules":["bombs,shield"],
             "map_locations":[
               {
@@ -1346,7 +1346,7 @@
             ],
             "sections": [
               {
-                "name":"Business Scrub",
+                "name":"Trilby Business Scrub",
                 "item_count":1
               }
             ]
@@ -1582,7 +1582,6 @@
                     "map":"map",
                     "x":750,
                     "y":650,
-                    "force_invisibility_rules":["obscure_off"]
                   }
                 ],
                 "sections": [
@@ -1676,7 +1675,7 @@
                 ]
               },
               {
-                "name":"Joy Butterfly",
+                "name":"Royal Valley Joy Butterfly",
                 "access_rules":["sword4,gravekey,boots,spinattack,[lamp]"],
                 "map_locations":[
                   {
@@ -2106,7 +2105,7 @@
             "name":"Stranger Fusion Warp",
             "children":[
               {
-                "name":"Wind Tribe House",
+                "name":"Wind Tribe House Open",
                 "map_locations": [
                   {
                     "map":"map",
@@ -2221,7 +2220,7 @@
             ]
           },
           {
-            "name":"Flippers Cave",
+            "name":"Flippers Cave Rupees",
             "access_rules":["cane,ocarina,books:3,grip","flippers,cane,ocarina"],
             "map_locations":[
               {
@@ -2302,7 +2301,7 @@
             ],
             "sections":[
               {
-                "name":"Anju",
+                "name":"Heart Piece",
                 "item_count": 1,
                 "chest_unopened_img":"images/Heart Piece.png",
                 "chest_opened_img":"images/Heart Piece Gray.png"
@@ -2780,7 +2779,7 @@
                 ]
               },
               {
-                "name":"Top Left North Chests",
+                "name":"Top Left North Chests Obscure",
                 "access_rules":["mitts"],
                 "map_locations": [
                   {
@@ -3126,7 +3125,7 @@
                 ]
               },
               {
-                "name":"Veil Falls Upper Cave",
+                "name":"Veil Falls Upper Cave Rupees",
                 "map_locations": [
                   {
                     "map":"map",
@@ -3397,25 +3396,6 @@
                 "map":"map",
                 "x":1825,
                 "y":1075,
-                "force_invisibility_rules":["obscure_on"]
-              }
-            ],
-            "sections": [
-              {
-                "name":"Lon Lon Cave",
-                "item_count":1
-              }
-            ]
-          },
-          {
-            "name": "Lon Lon Cave",
-            "access_rules":["sword3,llrkey,spinattack","sword3,ocarina,spinattack","sword3,cape,spinattack","sword3,flippers,mitts,spinattack"],
-            "map_locations": [
-              {
-                "map":"map",
-                "x":1825,
-                "y":1075,
-                "force_invisibility_rules":["obscure_off"]
               }
             ],
             "sections": [
@@ -3510,7 +3490,7 @@
             ]
           },
           {
-            "name":"Bonk the Tree",
+            "name":"Bonk the Tree Open",
             "map_locations": [
               {
                 "map":"map",
@@ -3655,7 +3635,7 @@
             ]
           },
           {
-            "name":"Lake Cabin",
+            "name":"Lake Cabin Open",
             "map_locations": [
               {
                 "map":"map",
@@ -3820,7 +3800,7 @@
             ]
           },
           {
-            "name":"North Hylia Cape Cave",
+            "name":"Treasure Cave",
             "access_rules":["cape,mitts"],
             "map_locations": [
               {
@@ -3832,7 +3812,7 @@
             ],
             "sections": [
               {
-                "name":"North Hylia Cape Cave",
+                "name":"Treasure Cave",
                 "item_count":7,
                 "clear_as_group":false
               },
@@ -3906,6 +3886,24 @@
             "sections":[
               {
                 "name":"Farm Chest",
+                "item_count":1
+              }
+            ]
+          },
+          {
+            "name":"Farm Rupee",
+            "access_rules":["sword,mitts","bombs,mitts","lights,mitts","lamp,mitts","ocarina,mitts"],
+            "map_locations":[
+              {
+                "map":"map",
+                "x":1700,
+                "y":1560,
+                "force_invisibility_rules":["rupees_off"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Farm Rupee",
                 "item_count":1
               }
             ]
@@ -4152,7 +4150,7 @@
             ]
           },
           {
-            "name": "Minish Village",
+            "name": "Minish Village Open",
             "map_locations": [
               {
                 "map":"map",

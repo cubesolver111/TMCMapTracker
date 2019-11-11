@@ -94,15 +94,15 @@
                     "grip",
                     "bracelets",
                     "flippers",
+                    "trophy",
                     "gravekey",
-                    "spinandbeam",
                     "butterfly"
                 ],
                 [
                     "10hearts","sevenscrolls","wallet","carlov","books","remotebombs"
                 ],
                 [
-                  "trophy"
+                    "heartpiece","earth","fire","water","wind"
                 ]
             ]
         }
