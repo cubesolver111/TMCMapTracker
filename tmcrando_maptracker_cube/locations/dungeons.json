@@ -1918,7 +1918,7 @@
       },
       //DHC OPEN
       {
-        "name": "DHC Open"
+        "name": "DHC Open",
         "short_name": "DHC",
         "codes":"dhc",
         "map_locations": [
