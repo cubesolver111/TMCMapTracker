@@ -1111,6 +1111,7 @@
           },
           {
             "name":"Key Locked Ice Block",
+            "access_rules":["tod_smallkey:4"],
             "map_locations":[
               {
                 "map":"tod",
