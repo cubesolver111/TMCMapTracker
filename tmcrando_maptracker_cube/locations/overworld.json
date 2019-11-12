@@ -197,7 +197,7 @@
                     ]
                   },
                   {
-                    "name":"Melari",
+                    "name":"Melari Open",
                     "access_rules":[
                       "cane",
                       "grip,gust,bombs",
@@ -228,7 +228,7 @@
                     ]
                   },
                   {
-                    "name":"Mines",
+                    "name":"Mines Obs",
                     "access_rules":[
                       "cane",
                       "grip,gust,bombs",
@@ -2424,7 +2424,7 @@
             ]
           },
           {
-            "name":"School Gardens",
+            "name":"School Gardens Open",
             "access_rules":["cane"],
             "map_locations":[
               {
@@ -4196,7 +4196,7 @@
             ]
           },
           {
-            "name":"Belari",
+            "name":"Belari Open",
             "access_rules":["dws","bombs"],
             "map_locations": [
               {
