@@ -1633,14 +1633,14 @@
           {
             "name":"Fire Wizzrobe Fight",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Twin Wizzrobe Fight",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
-            "item_count":1,
-            "chest_unopened_img":"images/big_chest_closed.png",
-            "chest_opened_img":"images/big_chest_open.png"
+            "item_count":1
           },
           {
             "name":"Heart Piece",
@@ -1769,14 +1769,14 @@
           {
             "name":"Fire Wizzrobe Fight",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
-            "item_count": 1
+            "item_count": 1,
+            "chest_unopened_img":"images/big_chest_closed.png",
+            "chest_opened_img":"images/big_chest_open.png"
           },
           {
             "name":"Twin Wizzrobe Fight",
             "access_rules":["cape,cane,pow_bigkey,pow_smallkey:4"],
-            "item_count":1,
-            "chest_unopened_img":"images/big_chest_closed.png",
-            "chest_opened_img":"images/big_chest_open.png"
+            "item_count":1
           },
           {
             "name":"Heart Piece",
