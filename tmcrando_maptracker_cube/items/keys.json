@@ -93,14 +93,14 @@
     "type": "consumable",
     "img": "images/Small Key.png",
     "codes": "dhc_smallkey",
-    "max_quantity": 6
+    "max_quantity": 5
   },
   {
     "name": "Explicit Dark Hyrule Castle Small Key",
     "type": "consumable",
     "img": "images/DHC Small Key.png",
     "codes": "explicit_dhc_smallkey",
-    "max_quantity": 6
+    "max_quantity": 5
   },
   // Royal Crypt Keys
   {
