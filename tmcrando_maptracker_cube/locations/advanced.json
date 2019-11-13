@@ -2109,10 +2109,10 @@
           },
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:6,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2132,7 +2132,7 @@
           },
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:6,explicit_dhc_bigkey"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:5,explicit_dhc_bigkey"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2326,10 +2326,10 @@
           },
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:6,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2349,7 +2349,7 @@
           },
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:6,explicit_dhc_bigkey,spinattack"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:5,explicit_dhc_bigkey,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2571,10 +2571,10 @@
           },
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:6,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2594,7 +2594,7 @@
           },
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:6,explicit_dhc_bigkey,spinattack"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:5,explicit_dhc_bigkey,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",

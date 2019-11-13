@@ -1900,10 +1900,10 @@
           //Needs five keys
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:6,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
@@ -2000,10 +2000,10 @@
           //Needs five keys
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:6,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
@@ -2115,10 +2115,10 @@
           //Needs five keys
           {
             "name":"Big Block Chest",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:6,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:6,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
             "chest_opened_img":"images/big_chest_open.png"
