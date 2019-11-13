@@ -677,6 +677,12 @@
      }
    ]
  },
+ {
+   "name": "Heart Piece",
+   "type": "toggle",
+   "img": "images/Heart Piece.png",
+   "codes": "heartpiece"
+ },
  // Graveyard/LLR Key Combined
  {
    "name": "Keys",
@@ -707,12 +713,6 @@
        "img": "images/Both Keys.png"
      }
    ]
- },
- {
-   "name": "Heart Piece",
-   "type": "toggle",
-   "img": "images/Heart Piece.png",
-   "codes": "heartpiece"
  },
  {
    "name": "Generic Yellow Kinstone",
