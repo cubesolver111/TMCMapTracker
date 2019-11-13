@@ -8,7 +8,8 @@
       "flags": [
         "map",
         "pins",
-        "chathud"
+        "chathud",
+        "autotracker"
       ],
       "version": "1.7.1.1",
       "uid": "tmcrando_maptracker_cube",
