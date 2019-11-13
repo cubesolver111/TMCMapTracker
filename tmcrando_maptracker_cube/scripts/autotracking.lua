@@ -365,11 +365,7 @@ end
 function updateQuiver(segment)
   local item = Tracker:FindObjectForCode("quiver")
   if item then
-    if BOW_VALUE ~=0 then
-      item.CurrentStage = ReadU8(segment, 0x2002aef) - 1
-    else
       item.CurrentStage = ReadU8(segment, 0x2002aef)
-    end
   end
   if ReadU8(segment,0x2002aef) == 0x00 then
     item.CurrentStage = 0
@@ -1716,7 +1712,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Post Throne Big Chest", 0x2002dbf, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Blade Chest", 0x2002dc0, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Platform Chest", 0x2002dc1, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@DHC/Stone King", 0x2002cd2, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@DHC/Stone King", 0x2002dc2, 0x02)
 
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Vaati", 0x2002ca6, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Northwest Tower", 0x2002dbb, 0x40)
@@ -1727,7 +1723,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Post Throne Big Chest", 0x2002dbf, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Blade Chest", 0x2002dc0, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Platform Chest", 0x2002dc1, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Stone King", 0x2002cd2, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Stone King", 0x2002dc2, 0x02)
 
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Vaati", 0x2002ca6, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Northwest Tower", 0x2002dbb, 0x40)
@@ -1738,7 +1734,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Post Throne Big Chest", 0x2002dbf, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Blade Chest", 0x2002dc0, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Platform Chest", 0x2002dc1, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Stone King", 0x2002cd2, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Stone King", 0x2002dc2, 0x02)
 
   updateSectionChestCountFromByteAndFlag(segment, "@Dark Hyrule Castle/Win", 0x2002ca6, 0x20)
 end
