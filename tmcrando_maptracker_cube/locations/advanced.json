@@ -108,7 +108,7 @@
           },
           {
             "name":"Mulldozer Key",
-            "access_rules":["$canDamage,dws_smallkey:4","$canDamage,$hasNoGust,dws_smallkey:2"],
+            "access_rules":["$canDamage,dws_smallkey:2,[dws_smallkey:4]","$canDamage,$hasNoGust,dws_smallkey:2"],
             "map_locations":[
               {
                 "map":"dws",
@@ -1703,7 +1703,7 @@
           },
           {
             "name":"Spark Chest",
-            "access_rules":["cape,cane,pow_smallkey:5"],
+            "access_rules":["cape,cane,pow_smallkey:2,[pow_smallkey:5]"],
             "map_locations":[
               {
                 "map":"pow",
@@ -1720,7 +1720,7 @@
           },
           {
             "name":"Pre Big Key Door Big Chest",
-            "access_rules":["cape,cane,pow_smallkey:6"],
+            "access_rules":["cape,cane,pow_smallkey:3,[pow_smallkey:6]"],
             "map_locations":[
               {
                 "map":"pow",

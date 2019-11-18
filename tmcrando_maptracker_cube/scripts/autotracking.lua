@@ -14,29 +14,29 @@ print("")
 
 function autotracker_started()
   print("Started Tracking")
+
+  BOW_VALUE = 0
+  GOLD_FALLS_COUNT = 0
+  GOLD_WILDS_COUNT = 0
+  GOLD_CLOUDS_COUNT = 0
+  GOLD_WILDS_PREV_VALUE = 0
+  GOLD_CLOUDS_PREV_VALUE = 0
+
+  DWS_KEY_COUNT = 0
+  DWS_KEY_PREV_VALUE = 0
+  COF_KEY_COUNT = 0
+  COF_KEY_PREV_VALUE = 0
+  FOW_KEY_COUNT = 0
+  FOW_KEY_PREV_VALUE = 0
+  TOD_KEY_COUNT = 0
+  TOD_KEY_PREV_VALUE = 0
+  POW_KEY_COUNT = 0
+  POW_KEY_PREV_VALUE = 0
+  DHC_KEY_COUNT = 0
+  DHC_KEY_PREV_VALUE = 0
+  RC_KEY_COUNT = 0
+  RC_KEY_PREV_VALUE = 0
 end
-
-BOW_VALUE = 0
-GOLD_FALLS_COUNT = 0
-GOLD_WILDS_COUNT = 0
-GOLD_CLOUDS_COUNT = 0
-GOLD_WILDS_PREV_VALUE = 0
-GOLD_CLOUDS_PREV_VALUE = 0
-
-DWS_KEY_COUNT = 0
-DWS_KEY_PREV_VALUE = 0
-COF_KEY_COUNT = 0
-COF_KEY_PREV_VALUE = 0
-FOW_KEY_COUNT = 0
-FOW_KEY_PREV_VALUE = 0
-TOD_KEY_COUNT = 0
-TOD_KEY_PREV_VALUE = 0
-POW_KEY_COUNT = 0
-POW_KEY_PREV_VALUE = 0
-DHC_KEY_COUNT = 0
-DHC_KEY_PREV_VALUE = 0
-RC_KEY_COUNT = 0
-RC_KEY_PREV_VALUE = 0
 
 U8_READ_CACHE = 0
 U8_READ_CACHE_ADDRESS = 0
@@ -183,6 +183,35 @@ function updateMush(segment, code, address, flag)
   end
 end
 
+function graveKey(segment)
+  if not isInGame() then
+    return false
+  end
+  InvalidateReadCaches()
+
+  if AUTOTRACKER_ENABLE_ITEM_TRACKING then
+    graveKeyStolen(segment, "gravekey", 0x2002ac0, 0x01)
+  end
+end
+
+function graveKeyStolen(segment, code, address, flag)
+  local item = Tracker:FindObjectForCode(code)
+  if item then
+    local value = ReadU8(segment, address)
+    if TMC_AUTOTRACKER_DEBUG then
+      print(item.Name, code, flag)
+    end
+
+    local flagTest = value or flag
+
+    if testFlag(segment, address, 0x01) then
+      item.Active = true
+    else
+      item.Active = false
+    end
+  end
+end
+
 function updateGraveKey(segment, code, address, flag)
   local item = Tracker:FindObjectForCode(code)
   if item then
@@ -202,8 +231,6 @@ function updateGraveKey(segment, code, address, flag)
        flagTest == 0x51 or flagTest == 0x52 or
        flagTest == 0x55 or flagTest == 0x56 then
         item.Active = true
-    else
-      item.Active = false
     end
   end
 end
@@ -1807,4 +1834,5 @@ end
 ScriptHost:AddMemoryWatch("TMC Item Data", 0x2002b30, 0x45, updateItemsFromMemorySegment)
 ScriptHost:AddMemoryWatch("TMC Item Upgrades", 0x2002ae4, 0x0c, updateGearFromMemory)
 ScriptHost:AddMemoryWatch("TMC Locations and Bosses", 0x2002c81, 0x200, updateLocations)
+ScriptHost:AddMemoryWatch("Graveyard Key", 0x2002ac0, 0x01, graveKey)
 ScriptHost:AddMemoryWatch("TMC Keys", 0x2002e9d, 0x16, updateKeys)
