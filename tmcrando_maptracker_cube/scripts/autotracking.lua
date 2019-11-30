@@ -16,11 +16,10 @@ function autotracker_started()
   print("Started Tracking")
 
   BOW_VALUE = 0
-  GOLD_FALLS_COUNT = 0
-  GOLD_WILDS_COUNT = 0
-  GOLD_CLOUDS_COUNT = 0
-  GOLD_WILDS_PREV_VALUE = 0
-  GOLD_CLOUDS_PREV_VALUE = 0
+  CLOUDS_FUSED = 0
+  WILDS_FUSED = 0
+
+  KEY_STOLEN = false
 
   DWS_KEY_COUNT = 0
   DWS_KEY_PREV_VALUE = 0
@@ -205,9 +204,9 @@ function graveKeyStolen(segment, code, address, flag)
     local flagTest = value or flag
 
     if testFlag(segment, address, 0x01) then
-      item.Active = true
+      KEY_STOLEN = true
     else
-      item.Active = false
+      KEY_STOLEN = false
     end
   end
 end
@@ -222,15 +221,11 @@ function updateGraveKey(segment, code, address, flag)
 
     local flagTest = value or flag
 
-    if flagTest == 0x01 or flagTest == 0x02 or
-       flagTest == 0x05 or flagTest == 0x06 or
-       flagTest == 0x11 or flagTest == 0x12 or
-       flagTest == 0x15 or flagTest == 0x16 or
-       flagTest == 0x41 or flagTest == 0x42 or
-       flagTest == 0x45 or flagTest == 0x46 or
-       flagTest == 0x51 or flagTest == 0x52 or
-       flagTest == 0x55 or flagTest == 0x56 then
-        item.Active = true
+    if testFlag(segment, address, 0x01) and KEY_STOLEN == true or
+       testFlag(segment, address, 0x02) and KEY_STOLEN == true then
+      item.Active = true
+    elseif KEY_STOLEN == false then
+      item.Active = false
     end
   end
 end
@@ -448,188 +443,144 @@ function updateScrolls(segment)
   item.AcquiredCount = count
 end
 
+function updateGoldFallsUsed(segment, address, flag)
+  local item = Tracker:FindObjectForCode("falls")
+  if testFlag(segment, address, flag) then
+    item.Active = true
+  end
+end
+
 function updateGoldFalls(segment)
   local item = Tracker:FindObjectForCode("falls")
   if ReadU8(segment, 0x2002b58) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b59) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b5a) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b5b) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b5c) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b5d) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b5e) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b5f) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b60) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b61) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
   elseif ReadU8(segment, 0x2002b62) == 0x6d then
     item.Active = true
-    GOLD_FALLS_COUNT = 1
-  elseif GOLD_FALLS_COUNT == 0 then
-    item.Active = false
+  end
+end
+
+function updateWildsUsed(segment)
+  local item = Tracker:FindObjectForCode("wilds")
+  if testFlag(segment, 0x2002c81, 0x40) or testFlag(segment, 0x2002c81, 0x80) or testFlag(segment, 0x2002c82, 0x01) then
+    WILDS_FUSED = 1
+  elseif testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) or
+         testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c82, 0x01) or
+         testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
+            WILDS_FUSED = 2
+  elseif testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
+    WILDS_FUSED = 3
   end
 end
 
 function updateWilds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
   if ReadU8(segment, 0x2002b58) == flag then
-    if ReadU8(segment, 0x2002b6b) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b6b)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6b) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b59) == flag then
-    if ReadU8(segment, 0x2002b6c) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b6c)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6c) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b5a) == flag then
-    if ReadU8(segment, 0x2002b6d) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b6d)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6d) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b5b) == flag then
-    if ReadU8(segment, 0x2002b6e) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b6e)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6e) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b5c) == flag then
-    if ReadU8(segment, 0x2002b6f) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b6f)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6f) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b5d) == flag then
-    if ReadU8(segment, 0x2002b70) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b70)
+    item.AcquiredCount = ReadU8(segment, 0x2002b70) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b5e) == flag then
-    if ReadU8(segment, 0x2002b71) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b71)
+    item.AcquiredCount = ReadU8(segment, 0x2002b71) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b5f) == flag then
-    if ReadU8(segment, 0x2002b72) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b72)
+    item.AcquiredCount = ReadU8(segment, 0x2002b72) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b60) == flag then
-    if ReadU8(segment, 0x2002b73) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b73)
+    item.AcquiredCount = ReadU8(segment, 0x2002b73) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b61) == flag then
-    if ReadU8(segment, 0x2002b74) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b74)
+    item.AcquiredCount = ReadU8(segment, 0x2002b74) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b62) == flag then
-    if ReadU8(segment, 0x2002b75) > GOLD_WILDS_PREV_VALUE then
-      GOLD_WILDS_COUNT = GOLD_WILDS_COUNT + 1
-      item.AcquiredCount = GOLD_WILDS_COUNT
-    end
-    GOLD_WILDS_PREV_VALUE = ReadU8(segment, 0x2002b75)
-  elseif GOLD_WILDS_COUNT == 0 then
+    item.AcquiredCount = ReadU8(segment, 0x2002b75) + WILDS_FUSED
+  elseif WILDS_FUSED == 0 then
     item.AcquiredCount = 0
+  end
+end
+
+function updateCloudsUsed(segment)
+  local item = Tracker:FindObjectForCode("clouds")
+  if testFlag(segment, 0x2002c81, 0x02) or testFlag(segment, 0x2002c81, 0x04) or testFlag(segment, 0x2002c81, 0x08) or testFlag(segment, 0x2002c81, 0x10) or testFlag(segment, 0x2002c81, 0x20) then
+    CLOUDS_FUSED = 1
+  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x10) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
+         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) or
+         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
+         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
+            CLOUDS_FUSED = 2
+  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
+         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
+            CLOUDS_FUSED = 3
+  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
+         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
+            CLOUDS_FUSED = 4
+  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
+    CLOUDS_FUSED = 5
   end
 end
 
 function updateClouds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
   if ReadU8(segment, 0x2002b58) == flag then
-    if ReadU8(segment, 0x2002b6b) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b6b)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6b) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b59) == flag then
-    if ReadU8(segment, 0x2002b6c) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b6c)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6c) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b5a) == flag then
-    if ReadU8(segment, 0x2002b6d) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b6d)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6d) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b5b) == flag then
-    if ReadU8(segment, 0x2002b6e) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b6e)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6e) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b5c) == flag then
-    if ReadU8(segment, 0x2002b6f) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b6f)
+    item.AcquiredCount = ReadU8(segment, 0x2002b6f) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b5d) == flag then
-    if ReadU8(segment, 0x2002b70) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b70)
+    item.AcquiredCount = ReadU8(segment, 0x2002b70) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b5e) == flag then
-    if ReadU8(segment, 0x2002b71) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b71)
+    item.AcquiredCount = ReadU8(segment, 0x2002b71) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b5f) == flag then
-    if ReadU8(segment, 0x2002b72) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b72)
+    item.AcquiredCount = ReadU8(segment, 0x2002b72) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b60) == flag then
-    if ReadU8(segment, 0x2002b73) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b73)
+    item.AcquiredCount = ReadU8(segment, 0x2002b73) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b61) == flag then
-    if ReadU8(segment, 0x2002b74) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b74)
+    item.AcquiredCount = ReadU8(segment, 0x2002b74) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b62) == flag then
-    if ReadU8(segment, 0x2002b75) > GOLD_CLOUDS_PREV_VALUE then
-      GOLD_CLOUDS_COUNT = GOLD_CLOUDS_COUNT + 1
-      item.AcquiredCount = GOLD_CLOUDS_COUNT
-    end
-    GOLD_CLOUDS_PREV_VALUE = ReadU8(segment, 0x2002b75)
-  elseif GOLD_CLOUDS_COUNT == 0 then
+    item.AcquiredCount = ReadU8(segment, 0x2002b75) +CLOUDS_FUSED
+  elseif CLOUDS_FUSED == 0 then
     item.AcquiredCount = 0
   end
 end
