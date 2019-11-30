@@ -2512,7 +2512,7 @@
           },
           {
             "name":"Fusion Rupee Cave",
-            "access_rules":["sword","bombs","lights","lamp"],
+            "access_rules":["sword","bombs","lights","lamp","flippers"],
             "map_locations":[
               {
                 "map":"map",
@@ -3147,10 +3147,12 @@
                   },
                   {
                     "name":"Downstairs Rupees",
+                    "access_rules":["grip,[lamp]"],
                     "item_count":9
                   },
                   {
                     "name":"Underwater Rupees",
+                    "access_rules":["grip,[lamp],flippers"],
                     "item_count":6
                   }
                 ]
