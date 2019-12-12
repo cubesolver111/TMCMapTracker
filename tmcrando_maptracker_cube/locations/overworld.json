@@ -2548,7 +2548,7 @@
           },
           {
             "name":"Tingle",
-            "access_rules":["cane,sword,trophy","cane,bow,trophy","cane,lights,trophy","cane,lamp,trophy"],
+            "access_rules":["cane,sword,trophy","cane,bombs,trophy","cane,lights,trophy","cane,lamp,trophy"],
             "map_locations":[
               {
                 "map":"map",
@@ -3455,7 +3455,7 @@
           },
           {
             "name":"Lon Lon Dried Up Pond",
-            "access_rules":["cape","flippers,mitts","ocarina"],
+            "access_rules":["cape","flippers,mitts","ocarina","llrkey"],
             "map_locations":[
               {
                 "map":"map",
@@ -3658,14 +3658,14 @@
               },
               {
                 "name":"Chest",
-                "access_rules":["flippers,boots","cape,boots,gust","mitts,cane,boots,gust"],
+                "access_rules":["flippers,[boots]","cape,[boots],gust","mitts,cane,[boots],gust"],
                 "item_count":1
               }
             ]
           },
           {
             "name":"North Minish Hole",
-            "access_rules":["flippers,boots"],
+            "access_rules":["flippers,[boots]"],
             "map_locations":[
               {
                 "map":"map",
@@ -3721,7 +3721,7 @@
           },
           {
             "name":"Minish Woods North Minish Hole",
-            "access_rules":["flippers,boots"],
+            "access_rules":["flippers,[boots]"],
             "map_locations": [
               {
                 "map":"map",
