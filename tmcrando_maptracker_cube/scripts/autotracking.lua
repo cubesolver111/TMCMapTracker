@@ -1,5 +1,8 @@
 -- Configuration ----------------------
 TMC_AUTOTRACKER_DEBUG = true
+BOW_VALUE = 0
+CLOUDS_FUSED = 0
+WILDS_FUSED = 0
 ---------------------------------------
 
 print("")
@@ -14,10 +17,6 @@ print("")
 
 function autotracker_started()
   print("Started Tracking")
-
-  BOW_VALUE = 0
-  CLOUDS_FUSED = 0
-  WILDS_FUSED = 0
 
   KEY_STOLEN = false
 
@@ -481,11 +480,13 @@ function updateWildsUsed(segment)
   local item = Tracker:FindObjectForCode("wilds")
   if testFlag(segment, 0x2002c81, 0x40) or testFlag(segment, 0x2002c81, 0x80) or testFlag(segment, 0x2002c82, 0x01) then
     WILDS_FUSED = 1
-  elseif testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) or
+  end
+  if testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) or
          testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c82, 0x01) or
          testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
             WILDS_FUSED = 2
-  elseif testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
+  end
+  if testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
     WILDS_FUSED = 3
   end
 end
@@ -554,6 +555,7 @@ function updateCloudsUsed(segment)
   elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
     CLOUDS_FUSED = 5
   end
+  print("Clouds Fused", CLOUDS_FUSED)
 end
 
 function updateClouds(segment, code, flag)
@@ -1175,6 +1177,9 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Castor Wilds Fusions/Middle", 0x2002c81, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Castor Wilds Fusions/Right", 0x2002c82, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Source of the Flow Cave/Fusion", 0x2002c82, 0x02)
+  updateGoldFallsUsed(segment, 0x2002c82, 0x02)
+  updateWildsUsed(segment)
+  updateCloudsUsed(segment)
 
   --CRENEL
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Climbing Wall Chest/Wall Chest", 0x2002cd4, 0x01)
