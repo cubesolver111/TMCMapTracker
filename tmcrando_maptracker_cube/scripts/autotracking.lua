@@ -200,6 +200,7 @@ function updateGraveKey(segment, code, address, flag)
     if testFlag(segment, address, 0x01) and KEY_STOLEN == true or
        testFlag(segment, address, 0x02) and KEY_STOLEN == true then
       item.Active = true
+    end
   end
 end
 
