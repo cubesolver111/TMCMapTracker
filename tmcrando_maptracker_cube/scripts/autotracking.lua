@@ -100,6 +100,8 @@ function updateSectionChestCountFromByteAndFlag(segment, locationRef, address, f
 
         if (value & flag) ~= 0 then
             location.AvailableChestCount = 0
+        else
+            location.AvailableChestCount = 1
         end
     elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING then
         print("Couldn't find location", locationRef)
@@ -116,10 +118,7 @@ function updateDogFood(segment, code, address, flag)
 
     local flagTest = value or flag
 
-    if flagTest >= 0x10 and flagTest < 0x30
-    or flagTest >= 0x50 and flagTest < 0x70
-    or flagTest >= 0x90 and flagTest < 0xB0
-    or flagTest >= 0xd0 and flagTest < 0xf0 then
+    if testFlag(segment, address, 0x10) or testFlag(segment, address, 0x20) then
       item.Active = true
     else
       item.Active = false
@@ -153,27 +152,7 @@ function updateMush(segment, code, address, flag)
       print(item.Name, code, flag)
     end
 
-    local flagTest = value or flag
-
-    if flagTest == 0x01 or flagTest == 0x02 or
-       flagTest == 0x05 or flagTest == 0x06 or
-       flagTest == 0x09 or flagTest == 0x0A or
-       flagTest == 0x11 or flagTest == 0x12 or
-       flagTest == 0x15 or flagTest == 0x16 or
-       flagTest == 0x19 or flagTest == 0x1A or
-       flagTest == 0x21 or flagTest == 0x22 or
-       flagTest == 0x29 or flagTest == 0x2A or
-       flagTest == 0x41 or flagTest == 0x42 or
-       flagTest == 0x45 or flagTest == 0x46 or
-       flagTest == 0x49 or flagTest == 0x4A or
-       flagTest == 0x51 or flagTest == 0x52 or
-       flagTest == 0x55 or flagTest == 0x56 or
-       flagTest == 0x81 or flagTest == 0x82 or
-       flagTest == 0x85 or flagTest == 0x86 or
-       flagTest == 0x89 or flagTest == 0x8A or
-       flagTest == 0xA1 or flagTest == 0xA2 or
-       flagTest == 0xA5 or flagTest == 0xA6 or
-       flagTest == 0xA9 or flagTest == 0xAA then
+    if testFlag(segment, address, 0x01) or testFlag(segment, address, 0x02) then
       item.Active = true
     else
       item.Active = false
@@ -204,8 +183,6 @@ function graveKeyStolen(segment, code, address, flag)
 
     if testFlag(segment, address, 0x01) then
       KEY_STOLEN = true
-    else
-      KEY_STOLEN = false
     end
   end
 end
@@ -223,9 +200,6 @@ function updateGraveKey(segment, code, address, flag)
     if testFlag(segment, address, 0x01) and KEY_STOLEN == true or
        testFlag(segment, address, 0x02) and KEY_STOLEN == true then
       item.Active = true
-    elseif KEY_STOLEN == false then
-      item.Active = false
-    end
   end
 end
 
@@ -387,6 +361,7 @@ function updateQuiver(segment)
   local item = Tracker:FindObjectForCode("quiver")
   if item then
       item.CurrentStage = ReadU8(segment, 0x2002aef)
+      print("Bow value =", BOW_VALUE, ReadU8(segment, 0x2002aef))
   end
   if ReadU8(segment,0x2002aef) == 0x00 then
     item.CurrentStage = 0
@@ -489,6 +464,7 @@ function updateWildsUsed(segment)
   if testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
     WILDS_FUSED = 3
   end
+  print("Wilds Used", WILDS_FUSED)
 end
 
 function updateWilds(segment, code, flag)
@@ -515,16 +491,40 @@ function updateWilds(segment, code, flag)
     item.AcquiredCount = ReadU8(segment, 0x2002b74) + WILDS_FUSED
   elseif ReadU8(segment, 0x2002b62) == flag then
     item.AcquiredCount = ReadU8(segment, 0x2002b75) + WILDS_FUSED
-  elseif WILDS_FUSED == 0 then
-    item.AcquiredCount = 0
   end
+  print("Wilds Fused", item.AcquiredCount)
+end
+
+function arrMap(arr, f)
+  local array = {}
+  for i=1, arr.n
+    do array[i] = f(arr[i], i)
+  end
+  return array
+end
+
+function arrReduce(arr, f, start)
+  local sum = start
+  for i=1, arr.n
+    do sum = f(sum, arr[i])
+  end
+  return sum
 end
 
 function updateCloudsUsed(segment)
   local item = Tracker:FindObjectForCode("clouds")
+--  local flags = {0x02, 0x04, 0x08, 0x10, 0x20}
+--  local states = arrMap(flags, function(x) return testFlag(segment, 0x2002c81, x) end)
+--  local sum = arrReduce(states, function(s, x) if x then return s+1 else return s end, 0)
+--  if sum > 0 then
+--    CLOUDS_FUSED = sum
+--  end
+
+
   if testFlag(segment, 0x2002c81, 0x02) or testFlag(segment, 0x2002c81, 0x04) or testFlag(segment, 0x2002c81, 0x08) or testFlag(segment, 0x2002c81, 0x10) or testFlag(segment, 0x2002c81, 0x20) then
     CLOUDS_FUSED = 1
-  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) or
+  end
+  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x10) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x20) or
@@ -535,7 +535,8 @@ function updateCloudsUsed(segment)
          testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
          testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
             CLOUDS_FUSED = 2
-  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
+  end
+  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x20) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
@@ -546,16 +547,18 @@ function updateCloudsUsed(segment)
          testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
          testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
             CLOUDS_FUSED = 3
-  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
+  end
+  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
          testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
          testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
             CLOUDS_FUSED = 4
-  elseif testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
+  end
+  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
     CLOUDS_FUSED = 5
   end
-  print("Clouds Fused", CLOUDS_FUSED)
+  print("Clouds Used", CLOUDS_FUSED)
 end
 
 function updateClouds(segment, code, flag)
@@ -582,9 +585,9 @@ function updateClouds(segment, code, flag)
     item.AcquiredCount = ReadU8(segment, 0x2002b74) + CLOUDS_FUSED
   elseif ReadU8(segment, 0x2002b62) == flag then
     item.AcquiredCount = ReadU8(segment, 0x2002b75) +CLOUDS_FUSED
-  elseif CLOUDS_FUSED == 0 then
-    item.AcquiredCount = 0
   end
+  print("Clouds Fused", item.AcquiredCount)
+
 end
 
 function updateHearts(segment, address)
@@ -1436,7 +1439,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Southeast South Digging Spot/Digging Spot", 0x2002cd9, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Kill Piranhas (North)/Kill Piranhas", 0x2002cda, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Kill Piranhas (South)/Kill Piranhas", 0x2002cda, 0x04)
-  updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Early House Chests", 0x2002cdc, 0xe0)
+  updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Early House Chests", 0x2002cdc, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Later House Chests", 0x2002cdd, 0xc7)
   updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Save Gregal", 0x2002ce8, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Gregal's Gift", 0x2002ce8, 0x40)
