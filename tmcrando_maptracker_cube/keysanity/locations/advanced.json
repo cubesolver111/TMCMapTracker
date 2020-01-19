@@ -2003,7 +2003,7 @@
           },
           {
             "name":"Post Throne Big Chest",
-            "access_rules":["bombs,explicit_dhc_smallkey:2"],
+            "access_rules":["bombs,explicit_dhc_smallkey:1"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2023,10 +2023,10 @@
           },
           {
             "name":"Northeast Tower",
-            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:2",
-              "bombs,cape,bow,lamp,explicit_dhc_smallkey:2",
-              "bombs,cape,lights,lamp,explicit_dhc_smallkey:2",
-              "bombs,cape,beam,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:1",
+              "bombs,cape,bow,lamp,explicit_dhc_smallkey:1",
+              "bombs,cape,lights,lamp,explicit_dhc_smallkey:1",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2046,10 +2046,10 @@
           },
           {
             "name":"Southeast Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2",
-              "bombs,cape,bow,explicit_dhc_smallkey:2",
-              "bombs,cape,lights,explicit_dhc_smallkey:2",
-              "bombs,cape,beam,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1",
+              "bombs,cape,bow,explicit_dhc_smallkey:1",
+              "bombs,cape,lights,explicit_dhc_smallkey:1",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2069,10 +2069,10 @@
           },
           {
             "name":"Southwest Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2",
-              "bombs,cape,bow,explicit_dhc_smallkey:2",
-              "bombs,cape,lights,explicit_dhc_smallkey:2",
-              "bombs,cape,beam,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1",
+              "bombs,cape,bow,explicit_dhc_smallkey:1",
+              "bombs,cape,lights,explicit_dhc_smallkey:1",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2092,7 +2092,7 @@
           },
           {
             "name":"Northwest Tower",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:2"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:1"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2135,7 +2135,7 @@
           },
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:2,explicit_dhc_bigkey"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:1,explicit_dhc_bigkey"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2220,7 +2220,7 @@
           },
           {
             "name":"Post Throne Big Chest",
-            "access_rules":["bombs,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2240,10 +2240,10 @@
           },
           {
             "name":"Northeast Tower",
-            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,bow,lamp,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,lights,lamp,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2263,10 +2263,10 @@
           },
           {
             "name":"Southeast Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,bow,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2286,10 +2286,10 @@
           },
           {
             "name":"Southwest Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,bow,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2309,7 +2309,7 @@
           },
           {
             "name":"Northwest Tower",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2352,7 +2352,7 @@
           },
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:2,explicit_dhc_bigkey,spinattack"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:1,explicit_dhc_bigkey,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2465,7 +2465,7 @@
           },
           {
             "name":"Post Throne Big Chest",
-            "access_rules":["bombs,explicit_dhc_smallkey:2"],
+            "access_rules":["bombs,explicit_dhc_smallkey:1"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2485,10 +2485,10 @@
           },
           {
             "name":"Northeast Tower",
-            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,bow,lamp,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,lights,lamp,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,beam,lamp,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2508,10 +2508,10 @@
           },
           {
             "name":"Southeast Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,bow,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,beam,lamp,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2531,10 +2531,10 @@
           },
           {
             "name":"Southwest Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,bow,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:2,sword5,spinattack",
-              "bombs,cape,beam,lamp,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2554,7 +2554,7 @@
           },
           {
             "name":"Northwest Tower",
-            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:2,sword5,spinattack"],
+            "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
@@ -2597,7 +2597,7 @@
           },
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:2,explicit_dhc_bigkey,spinattack"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:1,explicit_dhc_bigkey,spinattack"],
             "map_locations":[
               {
                 "map":"dhc",
