@@ -913,7 +913,7 @@
                     ]
                   },
                   {
-                    "name":"Right Crack",
+                    "name":"Wilds Northern Minish Crack",
                     "map_locations":[
                       {
                         "map":"map",
@@ -1019,21 +1019,21 @@
                     "sections":[
                       {
                         "name":"Left",
-                        "access_rules":["kinstoneWilds:1"],
+                        "access_rules":["[kinstoneWilds:3],kinstoneWilds:1"],
                         "item_count": 1,
                         "chest_opened_img":"images/Gold Kinstone (Wilds) Gray.png",
                         "chest_unopened_img":"images/Gold Kinstone (Wilds).png"
                       },
                       {
                         "name":"Middle",
-                        "access_rules":["kinstoneWilds:2"],
+                        "access_rules":["[kinstoneWilds:3],kinstoneWilds:1"],
                         "item_count": 1,
                         "chest_opened_img":"images/Gold Kinstone (Wilds) Gray.png",
                         "chest_unopened_img":"images/Gold Kinstone (Wilds).png"
                       },
                       {
                         "name":"Right",
-                        "access_rules":["kinstoneWilds:3"],
+                        "access_rules":["[kinstoneWilds:3],kinstoneWilds:1"],
                         "item_count": 1,
                         "chest_opened_img":"images/Gold Kinstone (Wilds) Gray.png",
                         "chest_unopened_img":"images/Gold Kinstone (Wilds).png"
@@ -2512,7 +2512,7 @@
           },
           {
             "name":"Fusion Rupee Cave",
-            "access_rules":["sword","bombs","lights","lamp","flippers"],
+            "access_rules":["sword","bombs","lights","lamp","flippers","cape"],
             "map_locations":[
               {
                 "map":"map",
