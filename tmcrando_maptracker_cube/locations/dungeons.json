@@ -1062,7 +1062,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1210,7 +1210,8 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
+
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1336,7 +1337,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1489,7 +1490,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           //END OF LEFT PATH

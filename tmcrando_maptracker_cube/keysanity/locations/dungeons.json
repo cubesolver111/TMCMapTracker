@@ -1064,7 +1064,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1212,7 +1212,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1338,7 +1338,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1491,7 +1491,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey:1,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           //END OF LEFT PATH
@@ -1911,7 +1911,7 @@
           //Needs big key
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:2,explicit_dhc_bigkey,sword5,spinattack"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:1,explicit_dhc_bigkey,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/TriForce.png",
             "chest_opened_img":"images/TriForce_Gray.png"
@@ -2011,7 +2011,7 @@
           //Needs big key
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:2,explicit_dhc_bigkey,spinattack"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:1,explicit_dhc_bigkey,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/TriForce.png",
             "chest_opened_img":"images/TriForce_Gray.png"
@@ -2126,7 +2126,7 @@
           //Needs big key
           {
             "name":"Vaati",
-            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:2,explicit_dhc_bigkey,spinattack"],
+            "access_rules":["sword5,bombs,cape,bow,cane,gust,lamp,explicit_dhc_smallkey:1,explicit_dhc_bigkey,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/TriForce.png",
             "chest_opened_img":"images/TriForce_Gray.png"
