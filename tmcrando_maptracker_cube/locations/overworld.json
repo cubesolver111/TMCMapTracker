@@ -1,4 +1,3 @@
-
 [
   {
     "name":"World",
@@ -3658,14 +3657,14 @@
               },
               {
                 "name":"Chest",
-                "access_rules":["flippers,[boots]","cape,[boots],gust","mitts,cane,[boots],gust"],
+                "access_rules":["flippers,ocarina,[boots]","cape,boots,gust","mitts,cane,boots,gust"],
                 "item_count":1
               }
             ]
           },
           {
             "name":"North Minish Hole",
-            "access_rules":["flippers,[boots]"],
+            "access_rules":["flippers,ocarina,[boots]"],
             "map_locations":[
               {
                 "map":"map",
@@ -3721,7 +3720,7 @@
           },
           {
             "name":"Minish Woods North Minish Hole",
-            "access_rules":["flippers,[boots]"],
+            "access_rules":["flippers,ocarina,[boots]"],
             "map_locations": [
               {
                 "map":"map",

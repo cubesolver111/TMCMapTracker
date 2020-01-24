@@ -58,7 +58,6 @@ end
 function testFlag(segment, address, flag)
   local value = ReadU8(segment, address)
   local flagTest = value & flag
-
   if flagTest ~= 0 then
     return true
   else
@@ -206,50 +205,23 @@ end
 
 function updateBooks(segment, code, address)
   local item = Tracker:FindObjectForCode(code)
+  local booksObtained = 0
+  local booksUsed = 0
+
+  local bookFlags = {0x04, 0x10, 0x40}
+  local usedBooks = {0x08, 0x20, 0x80}
+
+  for j=1,3,1 do
+    if testFlag(segment, address, bookFlags[j]) == true then
+      booksObtained = booksObtained + 1
+    end
+    if testFlag(segment, address, usedBooks[j]) == true then
+      booksUsed = booksUsed + 1
+    end
+  end
+
   if item then
-    local value = ReadU8(segment, address)
-    if testFlag(segment, address, 0x04) or testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x10) or testFlag(segment, address, 0x20) or
-       testFlag(segment, address, 0x40) or testFlag(segment, address, 0x80) then
-          item.AcquiredCount = 1
-    end
-    if testFlag(segment, address, 0x04) and testFlag(segment, address, 0x10) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x20) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x10) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x20) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x04) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x04) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x04) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x10) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x20) then
-          item.AcquiredCount = 2
-    end
-    if testFlag(segment, address, 0x04) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x40) then
-          item.AcquiredCount = 3
-    end
-    if not testFlag(segment, address, 0x04) and not testFlag(segment, address, 0x08) and
-       not testFlag(segment, address, 0x10) and not testFlag(segment, address, 0x20) and
-       not testFlag(segment, address, 0x40) and not testFlag(segment, address, 0x80) then
-          item.AcquiredCount = 0
-    end
+    item.AcquiredCount = booksObtained + booksUsed
   end
 end
 
@@ -454,15 +426,15 @@ end
 
 function updateWildsUsed(segment)
   local item = Tracker:FindObjectForCode("wilds")
-  if testFlag(segment, 0x2002c81, 0x40) or testFlag(segment, 0x2002c81, 0x80) or testFlag(segment, 0x2002c82, 0x01) then
+  if testFlag(segment, 0x2002c81, 0x40) == true or testFlag(segment, 0x2002c81, 0x80) == true or testFlag(segment, 0x2002c82, 0x01) == true then
     WILDS_FUSED = 1
   end
-  if testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) or
-         testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c82, 0x01) or
-         testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
+  if testFlag(segment, 0x2002c81, 0x40) == true and testFlag(segment, 0x2002c81, 0x80) == true or
+         testFlag(segment, 0x2002c81, 0x40) == true and testFlag(segment, 0x2002c82, 0x01) == true or
+         testFlag(segment, 0x2002c81, 0x80) == true and testFlag(segment, 0x2002c82, 0x01) == true then
             WILDS_FUSED = 2
   end
-  if testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
+  if testFlag(segment, 0x2002c81, 0x40) == true and testFlag(segment, 0x2002c81, 0x80) == true and testFlag(segment, 0x2002c82, 0x01) == true then
     WILDS_FUSED = 3
   end
   print("Wilds Used", WILDS_FUSED)
@@ -470,124 +442,129 @@ end
 
 function updateWilds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
+  local total = 0
+
   if ReadU8(segment, 0x2002b58) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6b) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b6b) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6b))
+
   elseif ReadU8(segment, 0x2002b59) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6c) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b6c) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6c))
+
   elseif ReadU8(segment, 0x2002b5a) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6d) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b6d) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6d))
+
   elseif ReadU8(segment, 0x2002b5b) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6e) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b6e) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6e))
+
   elseif ReadU8(segment, 0x2002b5c) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6f) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b6f) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6f))
+
   elseif ReadU8(segment, 0x2002b5d) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b70) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b70) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b70))
+
   elseif ReadU8(segment, 0x2002b5e) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b71) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b71) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b71))
+
   elseif ReadU8(segment, 0x2002b5f) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b72) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b72) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b72))
+
   elseif ReadU8(segment, 0x2002b60) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b73) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b73) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b73))
+
   elseif ReadU8(segment, 0x2002b61) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b74) + WILDS_FUSED
+    total = (ReadU8(segment, 0x2002b74) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b74))
+
   elseif ReadU8(segment, 0x2002b62) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b75) + WILDS_FUSED
-  end
-  print("Wilds Fused", item.AcquiredCount)
-end
+    total = (ReadU8(segment, 0x2002b75) + WILDS_FUSED)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b75))
 
-function arrMap(arr, f)
-  local array = {}
-  for i=1, arr.n
-    do array[i] = f(arr[i], i)
+  else
+    total = CLOUDS_FUSED
   end
-  return array
-end
 
-function arrReduce(arr, f, start)
-  local sum = start
-  for i=1, arr.n
-    do sum = f(sum, arr[i])
-  end
-  return sum
+  item.AcquiredCount = total
+  print("Wilds Obtained", total, WILDS_FUSED)
 end
 
 function updateCloudsUsed(segment)
   local item = Tracker:FindObjectForCode("clouds")
---  local flags = {0x02, 0x04, 0x08, 0x10, 0x20}
---  local states = arrMap(flags, function(x) return testFlag(segment, 0x2002c81, x) end)
---  local sum = arrReduce(states, function(s, x) if x then return s+1 else return s end, 0)
---  if sum > 0 then
---    CLOUDS_FUSED = sum
---  end
+  local flags = {0x02, 0x04, 0x08, 0x10, 0x20}
 
+  CLOUDS_FUSED = 0
 
-  if testFlag(segment, 0x2002c81, 0x02) or testFlag(segment, 0x2002c81, 0x04) or testFlag(segment, 0x2002c81, 0x08) or testFlag(segment, 0x2002c81, 0x10) or testFlag(segment, 0x2002c81, 0x20) then
-    CLOUDS_FUSED = 1
-  end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-            CLOUDS_FUSED = 2
-  end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-            CLOUDS_FUSED = 3
-  end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-            CLOUDS_FUSED = 4
-  end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-    CLOUDS_FUSED = 5
+  for i=1,5,1 do
+   if testFlag(segment, 0x2002c81, flags[i]) == true then
+     CLOUDS_FUSED = CLOUDS_FUSED + 1
+   end
   end
   print("Clouds Used", CLOUDS_FUSED)
 end
 
 function updateClouds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
+  local total = 0
+
   if ReadU8(segment, 0x2002b58) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6b) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b6b) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6b))
+
   elseif ReadU8(segment, 0x2002b59) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6c) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b6c) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6c))
+
   elseif ReadU8(segment, 0x2002b5a) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6d) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b6d) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6d))
+
   elseif ReadU8(segment, 0x2002b5b) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6e) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b6e) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6e))
+
   elseif ReadU8(segment, 0x2002b5c) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6f) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b6f) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6f))
+
   elseif ReadU8(segment, 0x2002b5d) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b70) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b70) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b70))
+
   elseif ReadU8(segment, 0x2002b5e) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b71) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b71) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b71))
+
   elseif ReadU8(segment, 0x2002b5f) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b72) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b72) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b72))
+
   elseif ReadU8(segment, 0x2002b60) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b73) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b73) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b73))
+
   elseif ReadU8(segment, 0x2002b61) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b74) + CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b74) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b74))
+
   elseif ReadU8(segment, 0x2002b62) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b75) +CLOUDS_FUSED
+    total = (ReadU8(segment, 0x2002b75) + CLOUDS_FUSED)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b75))
+
+  else
+    total = CLOUDS_FUSED
   end
-  print("Clouds Fused", item.AcquiredCount)
+
+  item.AcquiredCount = total
+
+  print("Clouds Obtained", total, CLOUDS_FUSED)
 
 end
 
@@ -595,9 +572,6 @@ function updateHearts(segment, address)
   local item = Tracker:FindObjectForCode("hearts")
   if item then
     item.CurrentStage = ReadU8(segment, address)/8 - 3
-  end
-  if ReadU8(segment,address)/8 == 0x08 then
-    item.CurrentStage = 0
   end
 end
 
@@ -1304,8 +1278,8 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Lady Next to Cafe/Lady Next to Cafe", 0x2002cd6, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Hearth/Hearth Right Pot", 0x2002ce0, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Dog Food Bottle Spot", 0x2002ce6, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Wallet Spot (80 Rupees)", 0x2002ce6, 0x20)
-  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Quiver Spot (600 Rupees)", 0x2002ce6, 0x40)
+--  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Wallet Spot (80 Rupees)", 0x2002ce6, 0x20)
+--  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Quiver Spot (600 Rupees)", 0x2002ce6, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Library/Yellow Library Minish", 0x2002ceb, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Eastern Shops/Figurine House Heart Piece", 0x2002cf2, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Eastern Shops/Figurine House", 0x2002cf2, 0xe0)
@@ -1791,8 +1765,8 @@ function updateKeys(segment)
   end
 end
 
+ScriptHost:AddMemoryWatch("TMC Locations and Bosses", 0x2002c81, 0x200, updateLocations)
 ScriptHost:AddMemoryWatch("TMC Item Data", 0x2002b30, 0x45, updateItemsFromMemorySegment)
 ScriptHost:AddMemoryWatch("TMC Item Upgrades", 0x2002ae4, 0x0c, updateGearFromMemory)
-ScriptHost:AddMemoryWatch("TMC Locations and Bosses", 0x2002c81, 0x200, updateLocations)
 ScriptHost:AddMemoryWatch("Graveyard Key", 0x2002ac0, 0x01, graveKey)
 ScriptHost:AddMemoryWatch("TMC Keys", 0x2002e9d, 0x16, updateKeys)
