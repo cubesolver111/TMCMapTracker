@@ -59,7 +59,7 @@
           //At least two small keys
           {
             "name":"Mulldozer Key",
-            "access_rules":["$canDamage,[dws_smallkey:4],dws_smallkey:2","$canDamage,$hasNoGust,dws_smallkey:2"],
+            "access_rules":["$canDamage,dws_smallkey:4","$canDamage,$hasNoGust,dws_smallkey:2"],
             "item_count": 1,
             "chest_unopened_img":"images/Small Key.png",
             "chest_opened_img":"images/Small Key Done.png"
@@ -1054,12 +1054,12 @@
           },
           {
             "name":"Ice Puzzle Free Chest",
-            "access_rules":["gust,flippers,tod_bigkey,tod_smallkey:4","cape,lamp,$canDamage,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","cape,lamp,$canDamage,tod_bigkey,[tod_smallkey:4],tod_smallkey:1"],
             "item_count": 1
           },
           {
             "name":"Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","lamp,$canDamage,cape,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","lamp,$canDamage,cape,tod_bigkey,[tod_smallkey:4],tod_smallkey:1"],
             "item_count":1
           },
           {
