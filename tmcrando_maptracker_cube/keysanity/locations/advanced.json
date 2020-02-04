@@ -434,9 +434,9 @@
           {
             "name":"Bombable Wall Heart Piece",
             "access_rules": ["bombs,sword,cof_smallkey:1",
-              "{cane,$canDamage,cof_smallkey:1}",
-              "{shield,$canDamage,cof_smallkey:1}",
-              "{bombs,cof_smallkey:1}"],
+              "{cane,$canDamage}",
+              "{shield,$canDamage}",
+              "{bombs}"],
             "map_locations":[
               {
                 "map":"cof",
@@ -786,7 +786,7 @@
             ]
           },
           {
-            "name":"Right Side Two Lever Room Right Chest",
+            "name":"Two Lever Room Right Chest",
             "map_locations":[
               {
                 "map":"fow",
@@ -796,13 +796,13 @@
             ],
             "sections":[
               {
-                "name":"Right Side Two Lever Room Right Chest",
+                "name":"Right Chest",
                 "item_count": 1
               }
             ]
           },
           {
-            "name":"Right Side Two Lever Room Left Chest",
+            "name":"Two Lever Room Left Chest",
             "map_locations":[
               {
                 "map":"fow",
@@ -812,7 +812,7 @@
             ],
             "sections":[
               {
-                "name":"Right Side Two Lever Room Left Chest",
+                "name":"Left Chest",
                 "item_count": 1
               }
             ]
