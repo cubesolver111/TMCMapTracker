@@ -1,0 +1,34 @@
+{
+    "shared_item_grid": {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_margin": "1,2",
+        "rows": [
+            ["sword","gust","cane","boomerang","quiver","dws"],
+            ["shield","mittsandfly","lamp","bombsremote","wilds","cof"],
+            ["boots","cape","ocarina","bowandfly","clouds","fow"],
+            ["dogbottle","jabber","mushroom","bothkeys","falls","tod"],
+            ["grip","bracelets","flippersandfly","trophy","spinandbeam","rc"],
+            ["10hearts","sevenscrolls","carlov","wallet","books","pow"]
+        ]
+    },
+    "tracker_capture_item": {
+        "type": "container",
+        "content": {
+            "type": "layout",
+            "key": "shared_item_grid"
+        }
+    },
+    "tracker_default": {
+        "type": "container",
+        "width": 270,
+        //"height": 250,
+        "background": "#212121",
+        "content": {
+            "dropshadow": true,
+            "margin": 5,
+            "type": "layout",
+            "key": "shared_item_grid"
+        }
+    }
+}

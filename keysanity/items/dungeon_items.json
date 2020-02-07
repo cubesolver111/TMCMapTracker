@@ -1,0 +1,194 @@
+[
+  // DWS
+  {
+    "name": "Deepwood Shrine",
+    "type": "progressive_toggle",
+    "capturable": false,
+    "stages": [
+      {
+        "img":"images/dws_unknown.png",
+        "codes":"dws,dwsunknown",
+      },
+      {
+        "img": "images/dws_earth.png",
+        "codes": "dws,earth",
+      },
+      {
+        "img": "images/dws_fire.png",
+        "codes": "dws,fire",
+      },
+      {
+        "img": "images/dws_water.png",
+        "codes": "dws,water",
+      },
+      {
+        "img": "images/dws_wind.png",
+        "codes": "dws,wind",
+      },
+      {
+        "img": "images/dws_none.png",
+        "codes": "dws,dwsnone",
+      }
+    ]
+  },
+  // COF
+  {
+    "name": "Cave of Flames",
+    "type": "progressive_toggle",
+    "capturable": false,
+    "stages": [
+      {
+        "img":"images/cof_unknown.png",
+        "codes":"cof,cofunknown",
+      },
+      {
+        "img": "images/cof_earth.png",
+        "codes": "cof,earth",
+      },
+      {
+        "img": "images/cof_fire.png",
+        "codes": "cof,fire",
+      },
+      {
+        "img": "images/cof_water.png",
+        "codes": "cof,water",
+      },
+      {
+        "img": "images/cof_wind.png",
+        "codes": "cof,wind",
+      },
+      {
+        "img": "images/cof_none.png",
+        "codes": "cof,cofnone",
+      }
+    ]
+  },
+  // FOW
+  {
+    "name": "Fortress of Winds",
+    "type": "progressive_toggle",
+    "capturable": false,
+    "stages": [
+      {
+        "img":"images/fow_unknown.png",
+        "codes":"fow,fowunknown",
+      },
+      {
+        "img": "images/fow_earth.png",
+        "codes": "fow,earth",
+      },
+      {
+        "img": "images/fow_fire.png",
+        "codes": "fow,fire",
+      },
+      {
+        "img": "images/fow_water.png",
+        "codes": "fow,water",
+      },
+      {
+        "img": "images/fow_wind.png",
+        "codes": "fow,wind",
+      },
+      {
+        "img": "images/fow_none.png",
+        "codes": "fow,fownone",
+      }
+    ]
+  },
+  // TOD
+  {
+    "name": "Temple of Droplets",
+    "type": "progressive_toggle",
+    "capturable": false,
+    "stages": [
+      {
+        "img":"images/tod_unknown.png",
+        "codes":"tod,todunknown",
+      },
+      {
+        "img": "images/tod_earth.png",
+        "codes": "tod,earth",
+      },
+      {
+        "img": "images/tod_fire.png",
+        "codes": "tod,fire",
+      },
+      {
+        "img": "images/tod_water.png",
+        "codes": "tod,water",
+      },
+      {
+        "img": "images/tod_wind.png",
+        "codes": "tod,wind",
+      },
+      {
+        "img": "images/tod_none.png",
+        "codes": "tod,todnone",
+      }
+    ]
+  },
+  // RC
+  {
+    "name": "Royal Crypt",
+    "type": "progressive_toggle",
+    "capturable": false,
+    "stages": [
+      {
+        "img":"images/rc_unknown.png",
+        "codes":"rc,rcunknown",
+      },
+      {
+        "img": "images/rc_earth.png",
+        "codes": "rc,earth",
+      },
+      {
+        "img": "images/rc_fire.png",
+        "codes": "rc,fire",
+      },
+      {
+        "img": "images/rc_water.png",
+        "codes": "rc,water",
+      },
+      {
+        "img": "images/rc_wind.png",
+        "codes": "rc,wind",
+      },
+      {
+        "img": "images/rc_none.png",
+        "codes": "rc,rcnone",
+      }
+    ]
+  },
+  // POW
+  {
+    "name": "Palace of Winds",
+    "type": "progressive_toggle",
+    "capturable": false,
+    "stages": [
+      {
+        "img":"images/pow_unknown.png",
+        "codes":"pow,powunknown",
+      },
+      {
+        "img": "images/pow_earth.png",
+        "codes": "pow,earth",
+      },
+      {
+        "img": "images/pow_fire.png",
+        "codes": "pow,fire",
+      },
+      {
+        "img": "images/pow_water.png",
+        "codes": "pow,water",
+      },
+      {
+        "img": "images/pow_wind.png",
+        "codes": "pow,wind",
+      },
+      {
+        "img": "images/pow_none.png",
+        "codes": "pow,pownone",
+      }
+    ]
+  },
+]
