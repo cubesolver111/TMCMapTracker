@@ -3430,7 +3430,7 @@
           },
           {
             "name":"Goron Quest",
-            "access_rules":["cape","flippers","ocarina,cane"],
+            "access_rules":["cape","flippers","ocarina,cane","llrkey,cane"],
             "map_locations":[
               {
                 "map":"map",
