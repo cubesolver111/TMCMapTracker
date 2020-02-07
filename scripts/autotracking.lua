@@ -1,8 +1,8 @@
 -- Configuration ----------------------
 TMC_AUTOTRACKER_DEBUG = true
 BOW_VALUE = 0
-CLOUDS_FUSED = 0
-WILDS_FUSED = 0
+WildsFused = 0
+CloudsFused = 0
 ---------------------------------------
 
 print("")
@@ -58,7 +58,6 @@ end
 function testFlag(segment, address, flag)
   local value = ReadU8(segment, address)
   local flagTest = value & flag
-
   if flagTest ~= 0 then
     return true
   else
@@ -94,7 +93,7 @@ function updateSectionChestCountFromByteAndFlag(segment, locationRef, address, f
 
         local value = ReadU8(segment, address)
 
-        if AUTOTRACKER_ENABLE_DEBUG_LOGGING then
+        if TMC_AUTOTRACKER_DEBUGG then
             print(locationRef, value)
         end
 
@@ -106,6 +105,34 @@ function updateSectionChestCountFromByteAndFlag(segment, locationRef, address, f
     elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING then
         print("Couldn't find location", locationRef)
     end
+end
+
+function decreaseChestCount(segment, locationRef, chestData)
+  local location = Tracker:FindObjectForCode(locationRef)
+  if location then
+    if location.Owner.ModifiedByUser then
+      return
+    end
+
+    local cleared = 0
+
+    for i=1, #chestData, 1 do
+      local address = chestData[i][1]
+      local flag = chestData[i][2]
+      local value = ReadU8(segment, address)
+
+      local flagTest = value & flag
+
+      if flagTest ~= 0 then
+        cleared = cleared + 1
+      end
+    end
+
+    location.AvailableChestCount = (#chestData - cleared)
+
+  elseif TMC_AUTOTRACKER_DEBUG then
+    print("Location not found", locationRef)
+  end
 end
 
 function updateDogFood(segment, code, address, flag)
@@ -183,8 +210,6 @@ function graveKeyStolen(segment, code, address, flag)
 
     if testFlag(segment, address, 0x01) then
       KEY_STOLEN = true
-    else
-      KEY_STOLEN = false
     end
   end
 end
@@ -202,58 +227,29 @@ function updateGraveKey(segment, code, address, flag)
     if testFlag(segment, address, 0x01) and KEY_STOLEN == true or
        testFlag(segment, address, 0x02) and KEY_STOLEN == true then
       item.Active = true
-    elseif KEY_STOLEN == false then
-      item.Active = false
     end
   end
 end
 
 function updateBooks(segment, code, address)
   local item = Tracker:FindObjectForCode(code)
+  local booksObtained = 0
+  local booksUsed = 0
+
+  local bookFlags = {0x04, 0x10, 0x40}
+  local usedBooks = {0x08, 0x20, 0x80}
+
+  for j=1,3,1 do
+    if testFlag(segment, address, bookFlags[j]) == true then
+      booksObtained = booksObtained + 1
+    end
+    if testFlag(segment, address, usedBooks[j]) == true then
+      booksUsed = booksUsed + 1
+    end
+  end
+
   if item then
-    local value = ReadU8(segment, address)
-    if testFlag(segment, address, 0x04) or testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x10) or testFlag(segment, address, 0x20) or
-       testFlag(segment, address, 0x40) or testFlag(segment, address, 0x80) then
-          item.AcquiredCount = 1
-    end
-    if testFlag(segment, address, 0x04) and testFlag(segment, address, 0x10) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x20) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x10) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x20) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x04) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x10) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x04) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x20) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x04) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x08) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x10) or
-       testFlag(segment, address, 0x40) and testFlag(segment, address, 0x20) then
-          item.AcquiredCount = 2
-    end
-    if testFlag(segment, address, 0x04) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x04) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x20) and testFlag(segment, address, 0x40) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x80) or
-       testFlag(segment, address, 0x08) and testFlag(segment, address, 0x10) and testFlag(segment, address, 0x40) then
-          item.AcquiredCount = 3
-    end
-    if not testFlag(segment, address, 0x04) and not testFlag(segment, address, 0x08) and
-       not testFlag(segment, address, 0x10) and not testFlag(segment, address, 0x20) and
-       not testFlag(segment, address, 0x40) and not testFlag(segment, address, 0x80) then
-          item.AcquiredCount = 0
-    end
+    item.AcquiredCount = booksObtained + booksUsed
   end
 end
 
@@ -456,154 +452,155 @@ function updateGoldFalls(segment)
   end
 end
 
-function updateWildsUsed(segment)
+function updateWildsUsedFixed(segment, locationData)
   local item = Tracker:FindObjectForCode("wilds")
-  if testFlag(segment, 0x2002c81, 0x40) or testFlag(segment, 0x2002c81, 0x80) or testFlag(segment, 0x2002c82, 0x01) then
-    WILDS_FUSED = 1
+  if item then
+    WildsFused = 0
+    for i=1, #locationData, 1 do
+      local address = locationData[i][1]
+      local flag = locationData[i][2]
+      local value = ReadU8(segment,address)
+
+      local flagTest = value & flag
+
+      if flagTest ~= 0 then
+        WildsFused = WildsFused + 1
+      end
+    end
+    print("Wilds Used", WildsFused)
   end
-  if testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) or
-         testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c82, 0x01) or
-         testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
-            WILDS_FUSED = 2
-  end
-  if testFlag(segment, 0x2002c81, 0x40) and testFlag(segment, 0x2002c81, 0x80) and testFlag(segment, 0x2002c82, 0x01) then
-    WILDS_FUSED = 3
-  end
-  print("Wilds Used", WILDS_FUSED)
 end
 
 function updateWilds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
+  local inBag = 0
+
   if ReadU8(segment, 0x2002b58) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6b) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b6b)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6b))
+
   elseif ReadU8(segment, 0x2002b59) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6c) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b6c)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6c))
+
   elseif ReadU8(segment, 0x2002b5a) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6d) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b6d)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6d))
+
   elseif ReadU8(segment, 0x2002b5b) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6e) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b6e)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6e))
+
   elseif ReadU8(segment, 0x2002b5c) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6f) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b6f)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b6f))
+
   elseif ReadU8(segment, 0x2002b5d) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b70) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b70)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b70))
+
   elseif ReadU8(segment, 0x2002b5e) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b71) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b71)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b71))
+
   elseif ReadU8(segment, 0x2002b5f) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b72) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b72)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b72))
+
   elseif ReadU8(segment, 0x2002b60) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b73) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b73)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b73))
+
   elseif ReadU8(segment, 0x2002b61) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b74) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b74)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b74))
+
   elseif ReadU8(segment, 0x2002b62) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b75) + WILDS_FUSED
+    inBag = ReadU8(segment, 0x2002b75)
+    print("Wilds in Bag", ReadU8(segment, 0x2002b75))
   end
-  print("Wilds Fused", item.AcquiredCount)
+
+  item.AcquiredCount = WildsFused + inBag
+  print("Wilds Obtained", WildsFused)
 end
 
-function arrMap(arr, f)
-  local array = {}
-  for i=1, arr.n
-    do array[i] = f(arr[i], i)
-  end
-  return array
-end
-
-function arrReduce(arr, f, start)
-  local sum = start
-  for i=1, arr.n
-    do sum = f(sum, arr[i])
-  end
-  return sum
-end
-
-function updateCloudsUsed(segment)
+function updateCloudsUsedFixed(segment, locationData)
   local item = Tracker:FindObjectForCode("clouds")
---  local flags = {0x02, 0x04, 0x08, 0x10, 0x20}
---  local states = arrMap(flags, function(x) return testFlag(segment, 0x2002c81, x) end)
---  local sum = arrReduce(states, function(s, x) if x then return s+1 else return s end, 0)
---  if sum > 0 then
---    CLOUDS_FUSED = sum
---  end
+  if item then
+    CloudsFused = 0
+    for i=1, #locationData, 1 do
+      local address = locationData[i][1]
+      local flag = locationData[i][2]
+      local value = ReadU8(segment,address)
 
+      local flagTest = value & flag
 
-  if testFlag(segment, 0x2002c81, 0x02) or testFlag(segment, 0x2002c81, 0x04) or testFlag(segment, 0x2002c81, 0x08) or testFlag(segment, 0x2002c81, 0x10) or testFlag(segment, 0x2002c81, 0x20) then
-    CLOUDS_FUSED = 1
+      if flagTest ~= 0 then
+        CloudsFused = CloudsFused + 1
+      end
+    end
+    print("Clouds Fused", CloudsFused)
   end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-            CLOUDS_FUSED = 2
-  end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-            CLOUDS_FUSED = 3
-  end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) or
-         testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-            CLOUDS_FUSED = 4
-  end
-  if testFlag(segment, 0x2002c81, 0x02) and testFlag(segment, 0x2002c81, 0x04) and testFlag(segment, 0x2002c81, 0x08) and testFlag(segment, 0x2002c81, 0x10) and testFlag(segment, 0x2002c81, 0x20) then
-    CLOUDS_FUSED = 5
-  end
-  print("Clouds Used", CLOUDS_FUSED)
 end
 
 function updateClouds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
-  if ReadU8(segment, 0x2002b58) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6b) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b59) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6c) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b5a) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6d) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b5b) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6e) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b5c) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b6f) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b5d) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b70) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b5e) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b71) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b5f) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b72) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b60) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b73) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b61) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b74) + CLOUDS_FUSED
-  elseif ReadU8(segment, 0x2002b62) == flag then
-    item.AcquiredCount = ReadU8(segment, 0x2002b75) +CLOUDS_FUSED
-  elseif CLOUDS_FUSED == 0 then
-    item.AcquiredCount = 0
-  end
-  print("Clouds Fused", item.AcquiredCount)
+  local inBag = 0
 
+  if ReadU8(segment, 0x2002b58) == flag then
+    inBag = ReadU8(segment, 0x2002b6b)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6b))
+
+  elseif ReadU8(segment, 0x2002b59) == flag then
+    inBag = ReadU8(segment, 0x2002b6c)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6c))
+
+  elseif ReadU8(segment, 0x2002b5a) == flag then
+    inBag = ReadU8(segment, 0x2002b6d)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6d))
+
+  elseif ReadU8(segment, 0x2002b5b) == flag then
+    inBag = ReadU8(segment, 0x2002b6e)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6e))
+
+  elseif ReadU8(segment, 0x2002b5c) == flag then
+    inBag = ReadU8(segment, 0x2002b6f)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b6f))
+
+  elseif ReadU8(segment, 0x2002b5d) == flag then
+    inBag = ReadU8(segment, 0x2002b70)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b70))
+
+  elseif ReadU8(segment, 0x2002b5e) == flag then
+    inBag = ReadU8(segment, 0x2002b71)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b71))
+
+  elseif ReadU8(segment, 0x2002b5f) == flag then
+    inBag = ReadU8(segment, 0x2002b72)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b72))
+
+  elseif ReadU8(segment, 0x2002b60) == flag then
+    inBag = ReadU8(segment, 0x2002b73)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b73))
+
+  elseif ReadU8(segment, 0x2002b61) == flag then
+    inBag = ReadU8(segment, 0x2002b74)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b74))
+
+  elseif ReadU8(segment, 0x2002b62) == flag then
+    inBag = ReadU8(segment, 0x2002b75)
+    print("Clouds in Bag", ReadU8(segment, 0x2002b75))
+  end
+
+  item.AcquiredCount = inBag + CloudsFused
+
+  print("Clouds Obtained", CloudsFused)
 end
 
 function updateHearts(segment, address)
   local item = Tracker:FindObjectForCode("hearts")
   if item then
     item.CurrentStage = ReadU8(segment, address)/8 - 3
-  end
-  if ReadU8(segment,address)/8 == 0x08 then
-    item.CurrentStage = 0
   end
 end
 
@@ -728,435 +725,6 @@ function updateGearFromMemory(segment)
   end
 end
 
-function updateNorthDigging(segment)
-  if testFlag(segment, 0x2002cce, 0xf8) and testFlag(segment, 0x2002ccf, 0x01) then
-    local location = Tracker:FindObjectForCode("@North Digging Spots/Buried Treasure")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateMelariDigging(segment)
-  if testFlag(segment, 0x2002cf3, 0xfe) and testFlag(segment, 0x2002cf4, 0x01) then
-    local location = Tracker:FindObjectForCode("@Mines/Digging Spots (Melari's Mines Tab)")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateMelariDiggingObs(segment)
-  if testFlag(segment, 0x2002cf3, 0xfe) and testFlag(segment, 0x2002cf4, 0x01) then
-    local location = Tracker:FindObjectForCode("@Mines Obs/Digging Spots (Melari's Mines Tab)")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateNorthHyliaCapeCave(segment)
-  if testFlag(segment,0x2002d02, 0x80) and testFlag(segment, 0x2002d03, 0x7e) then
-    local location = Tracker:FindObjectForCode("@North Hylia Cape Cave/North Hylia Cape Cave")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTreasureCave(segment)
-  if testFlag(segment,0x2002d02, 0x80) and testFlag(segment, 0x2002d03, 0x7e) then
-    local location = Tracker:FindObjectForCode("@Treasure Cave/Treasure Cave")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateDigCave(segment)
-  if testFlag(segment, 0x2002d04, 0x80) and testFlag(segment, 0x2002d05, 0x02) then
-    local location = Tracker:FindObjectForCode("@Trilby Highlands Mitts Cave/Trilby Cave")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWLeftMitts(segment)
-  if testFlag(segment, 0x2002d06, 0x01) and testFlag(segment, 0x2002d07, 0x20) then
-    local location = Tracker:FindObjectForCode("@FOW/Left Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWLeftMittsRupees(segment)
-  if testFlag(segment, 0x2002d06, 0x01) and testFlag(segment, 0x2002d07, 0x20) then
-    local location = Tracker:FindObjectForCode("@FOW Rupees/Left Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWLeftMittsObscure(segment)
-  if testFlag(segment, 0x2002d06, 0x01) and testFlag(segment, 0x2002d07, 0x20) then
-    local location = Tracker:FindObjectForCode("@FOW Obscure/Left Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWLeftMittsRupObs(segment)
-  if testFlag(segment, 0x2002d06, 0x01) and testFlag(segment, 0x2002d07, 0x20) then
-    local location = Tracker:FindObjectForCode("@FOW RupObs/Left Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWRightMitts(segment)
-  if testFlag(segment, 0x2002d06, 0x04) and testFlag(segment, 0x2002d07, 0x40) then
-    local location = Tracker:FindObjectForCode("@FOW/Right Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWRightMittsRupees(segment)
-  if testFlag(segment, 0x2002d06, 0x04) and testFlag(segment, 0x2002d07, 0x40) then
-    local location = Tracker:FindObjectForCode("@FOW Rupees/Right Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWRightMittsObscure(segment)
-  if testFlag(segment, 0x2002d06, 0x04) and testFlag(segment, 0x2002d07, 0x40) then
-    local location = Tracker:FindObjectForCode("@FOW Obscure/Right Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWRightMittsRupObs(segment)
-  if testFlag(segment, 0x2002d06, 0x04) and testFlag(segment, 0x2002d07, 0x40) then
-    local location = Tracker:FindObjectForCode("@FOW RupObs/Right Side Mitts Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWRupees(segment)
-  if testFlag(segment, 0x2002d06, 0xe0) and testFlag(segment, 0x2002d07, 0x0f) then
-    local location = Tracker:FindObjectForCode("@FOW Rupees/Left Side Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateFOWRupeesObs(segment)
-  if testFlag(segment, 0x2002d06, 0xe0) and testFlag(segment, 0x2002d07, 0x0f) then
-    local location = Tracker:FindObjectForCode("@FOW RupObs/Left Side Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateSchoolyard(segment)
-  if testFlag(segment, 0x2002d0b, 0x80) and testFlag(segment, 0x2002d0c, 0x03) then
-    local location = Tracker:FindObjectForCode("@School Gardens/Garden Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateSchoolyardOpen(segment)
-  if testFlag(segment, 0x2002d0b, 0x80) and testFlag(segment, 0x2002d0c, 0x03) then
-    local location = Tracker:FindObjectForCode("@School Gardens Open/Garden Chests")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateWestWoodsRupees(segment)
-  if testFlag(segment, 0x2002d0d, 0xf0) and testFlag(segment, 0x2002d0e, 0x0f) and testFlag(segment, 0x2002d0f, 0xc0) and testFlag(segment, 0x2002d10, 0x3f) then
-    local location = Tracker:FindObjectForCode("@Western Woods Beanstalk Rupee/Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateCrenelRupees(segment)
-  if testFlag(segment, 0x2002d0e, 0xc0) and testFlag(segment, 0x2002d0f, 0x3f) then
-    local location = Tracker:FindObjectForCode("@Mt. Crenel Beanstalk Rupees/Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateSouthRupees(segment)
-  if testFlag(segment, 0x2002d1e, 0xe0) and testFlag(segment, 0x2002d1f, 0xff) and testFlag(segment, 0x2002d20, 0x0f) then
-    local location = Tracker:FindObjectForCode("@Fusion Rupee Cave/Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTrilbyRupees(segment)
-  if testFlag(segment, 0x2002d20, 0xf0) and testFlag(segment, 0x2002d21, 0xff) and testFlag(segment, 0x2002d22, 0x07) then
-    local location = Tracker:FindObjectForCode("@Trilby Highlands Rupee Cave/Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateUpperCaveRupees(segment)
-  if testFlag(segment, 0x2002d25, 0xe0) and testFlag(segment, 0x2002d26, 0x3f) then
-    local location = Tracker:FindObjectForCode("@Veil Falls Upper Cave Rupees/Downstairs Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateUpperCaveDivingRupees(segment)
-  if testFlag(segment, 0x2002d26, 0xc0) and testFlag(segment, 0x2002d27, 0x0f) then
-    local location = Tracker:FindObjectForCode("@Veil Falls Upper Cave Rupees/Underwater Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateCOFChests(segment)
-  if testFlag(segment, 0x2002d5a, 0x80) and testFlag(segment, 0x2002d5b, 0x01) then
-    local location = Tracker:FindObjectForCode("@COF/Lava Basement (Left,Right)")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateCOFChestsRupees(segment)
-  if testFlag(segment, 0x2002d5a, 0x80) and testFlag(segment, 0x2002d5b, 0x01) then
-    local location = Tracker:FindObjectForCode("@COF Rupees/Lava Basement (Left,Right)")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateCOFRupees(segment)
-  if testFlag(segment, 0x2002d5b, 0xc0) and testFlag(segment, 0x2002d5c, 0x07) then
-    local location = Tracker:FindObjectForCode("@COF Rupees/Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTODOverhangRupees(segment)
-  if testFlag(segment, 0x2002d94, 0xe0) and testFlag(segment, 0x2002d95, 0x03) then
-    local location = Tracker:FindObjectForCode("@TOD Rupees/Left Path Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTODOverhangRupeesObs(segment)
-  if testFlag(segment, 0x2002d94, 0xe0) and testFlag(segment, 0x2002d95, 0x03) then
-    local location = Tracker:FindObjectForCode("@TOD RupObs/Left Path Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTODLowerRupees(segment)
-  if testFlag(segment, 0x2002d95, 0x80) and testFlag(segment, 0x2002d96, 0x1f) then
-    local location = Tracker:FindObjectForCode("@TOD Rupees/Lower Water Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTODLowerRupeesObs(segment)
-  if testFlag(segment, 0x2002d95, 0x80) and testFlag(segment, 0x2002d96, 0x1f) then
-    local location = Tracker:FindObjectForCode("@TOD RupObs/Lower Water Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTODUpperRupees(segment)
-  if testFlag(segment, 0x2002d96, 0xe0) and testFlag(segment, 0x2002d97, 0x07) then
-    local location = Tracker:FindObjectForCode("@TOD Rupees/Upper Water Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
-function updateTODUpperRupeesObs(segment)
-  if testFlag(segment, 0x2002d96, 0xe0) and testFlag(segment, 0x2002d97, 0x07) then
-    local location = Tracker:FindObjectForCode("@TOD RupObs/Upper Water Rupees")
-    if location then
-      if location.Owner.ModifiedByUser then
-        return
-      end
-
-      location.AvailableChestCount = 0
-    end
-  end
-end
-
 function updateLocations(segment)
   if not isInGame() then
     return false
@@ -1188,22 +756,30 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Castor Wilds Fusions/Right", 0x2002c82, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Source of the Flow Cave/Fusion", 0x2002c82, 0x02)
   updateGoldFallsUsed(segment, 0x2002c82, 0x02)
-  updateWildsUsed(segment)
-  updateCloudsUsed(segment)
+  updateWildsUsedFixed(segment, {{0x2002c81,0x40},{0x2002c81,0x80},{0x2002c82,0x01}})
+  updateCloudsUsedFixed(segment, {{0x2002c81,0x02},{0x2002c81,0x04},{0x2002c81,0x08},{0x2002c81,0x10},{0x2002c81,0x20}})
 
   --CRENEL
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Climbing Wall Chest/Wall Chest", 0x2002cd4, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Wall Fairy/Crenel Fairy", 0x2002cf0, 0x01)
-  updateMelariDigging(segment)
-  updateMelariDiggingObs(segment)
+  decreaseChestCount(segment, "@Mines/Digging Spots (Melari's Mines Tab)", {{0x2002cf3,0x02},{0x2002cf3,0x04},{0x2002cf3,0x08},{0x2002cf3,0x10},{0x2002cf3,0x20},{0x2002cf3,0x40},{0x2002cf3,0x80},{0x2002cf4,0x01}})
+  decreaseChestCount(segment, "@Mines Obs/Digging Spots (Melari's Mines Tab)", {{0x2002cf3,0x02},{0x2002cf3,0x04},{0x2002cf3,0x08},{0x2002cf3,0x10},{0x2002cf3,0x20},{0x2002cf3,0x40},{0x2002cf3,0x80},{0x2002cf4,0x01}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 8/Digging Spot", 0x2002cf4, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 1/Digging Spot", 0x2002cf3, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 7/Digging Spot", 0x2002cf3, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 6/Digging Spot", 0x2002cf3, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 5/Digging Spot", 0x2002cf3, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 4/Digging Spot", 0x2002cf3, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 2/Digging Spot", 0x2002cf3, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Digging Spot 3/Digging Spot", 0x2002cf3, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Climbing Wall Cave/Crenel Climbing Wall Cave", 0x2002d04, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Mt. Crenel Beanstalk/Beanstalk", 0x2002d0c, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Mt. Crenel Beanstalk Rupees/Beanstalk", 0x2002d0c, 0x08)
-  updateCrenelRupees(segment)
+  decreaseChestCount(segment, "@Mt. Crenel Beanstalk Rupees/Rupees", {{0x2002d0e,0x40},{0x2002d0e,0x80},{0x2002d0f,0x01},{0x2002d0f,0x02},{0x2002d0f,0x04},{0x2002d0f,0x08},{0x2002d0f,0x10},{0x2002d0f,0x20}})
   updateSectionChestCountFromByteAndFlag(segment, "@Rainy Minish Path Chest/Rainy Chest", 0x2002d10, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Mines/Minish Path Chest", 0x2002d11, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Melari Open/Minish Path Chest", 0x2002d11, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@Grayblade/Chests", 0x2002d1c, 0x06)
+  decreaseChestCount(segment, "@Grayblade/Chests", {{0x2002d1c, 0x02},{0x2002d1c,0x04}})
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Mines Cave/Crenel Mines Cave", 0x2002d23, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Bridge Cave/Bridge Cave", 0x2002d23, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Fairy Cave Heart Piece/Fairy Cave", 0x2002d2b, 0x20)
@@ -1215,22 +791,23 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Minish Crack/Minish Crack", 0x2002cde, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@Spring Water Path Chest/Spring Water Path", 0x2002d10, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Heart Piece Cave/Heart Piece", 0x2002d24, 0x01)
-  updateSectionChestCountFromByteAndFlag(segment, "@Crenel Heart Piece Cave/Chests", 0x2002d24, 0x06)
-  updateSectionChestCountFromByteAndFlag(segment, "@Fairy + Rupee Cave/Rupees", 0x2002d24, 0x38)
+  decreaseChestCount(segment, "@Crenel Heart Piece Cave/Chests", {{0x2002d24, 0x02},{0x2002d24,0x04}})
+  decreaseChestCount(segment, "@Fairy + Rupee Cave/Rupees", {{0x2002d24, 0x08},{0x2002d24,0x10},{0x2002d24,0x20}})
   updateSectionChestCountFromByteAndFlag(segment, "@Crenel Minish Hole/Minish Hole", 0x2002d28, 0x01)
 
   --CASTOR WILDS
-  updateSectionChestCountFromByteAndFlag(segment, "@Platform Chest/Platform Chest", 0x2002cbd, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Wilds Platform Chest/Platform Chest", 0x2002cbd, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Diving Spots/Top", 0x2002cc0, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Diving Spots/Middle", 0x2002cc0, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Diving Spots/Bottom", 0x2002cc0, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Mulldozers/Bow Chest", 0x2002cde, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Mulldozers Open/Bow Chest", 0x2002cde, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Northern Minish Crack/Minish Crack", 0x2002cde, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Wilds Northern Minish Crack/Minish Crack", 0x2002cde, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Western Minish Crack/Minish Crack", 0x2002cde, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Vine Minish Crack/Minish Crack", 0x2002cde, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Mulldozers Open/Left Crack", 0x2002cf0, 0x20)
-  updateSectionChestCountFromByteAndFlag(segment, "@Castor Wilds Mitts Cave/Castor Wilds Mitts Cave", 0x2002d04, 0x03)
+  decreaseChestCount(segment, "@Castor Wilds Mitts Cave/Castor Wilds Mitts Cave", {{0x2002d04, 0x01},{0x2002d04,0x02}})
   updateSectionChestCountFromByteAndFlag(segment, "@South Lake Cave/South Lake Cave", 0x2002d22, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@North Cave/North Cave", 0x2002d22, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Northeast Lake Cave/Northeast Lake Cave", 0x2002d23, 0x01)
@@ -1240,7 +817,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Water Minish Hole/Hiking Trip", 0x2002d2c, 0x20)
 
   --WIND RUINS
-  updateSectionChestCountFromByteAndFlag(segment, "@Armos Kill/Armos", 0x2002cc2, 0x18)
+  decreaseChestCount(segment, "@Armos Kill/Armos", {{0x2002cc2, 0x08},{0x2002cc2,0x10}})
   updateSectionChestCountFromByteAndFlag(segment, "@Pre FOW Chest/Pre FOW Chest", 0x2002cd2, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@4 Pillars Chest/4 Pillars Chest", 0x2002cd4, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Hole/Minish Hole", 0x2002cde, 0x04)
@@ -1256,10 +833,15 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Dampe/Dampe", 0x2002ce9, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@Great Fairy/Great Fairy", 0x2002cef, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Royal Crypt/King Gustaf", 0x2002d02, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@King Gustaf/King Gustaf", 0x2002d02, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Royal Crypt/Left Path", 0x2002d12, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Left Path/Left Path", 0x2002d12, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Royal Crypt/Right Path", 0x2002d12, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Path/Right Path", 0x2002d12, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Royal Crypt/Gibdos", 0x2002d14, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Gibdos/First Gibdos", 0x2002d14, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Royal Crypt/Other Gibdos", 0x2002d14, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Gibdos/Other Gibdos", 0x2002d14, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Northwest Grave Area/Northwest Grave", 0x2002d27, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Northwest Grave/Northwest Grave", 0x2002d27, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Northeast Grave Area/Northeast Grave", 0x2002d27, 0x40)
@@ -1268,24 +850,24 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Trilby Business Scrub/Trilby Business Scrub", 0x2002ca7, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Northern Chest/Chest", 0x2002cd2, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Rocks Chest/Rocks Chest", 0x2002cd3, 0x10)
-  updateDigCave(segment)
+  decreaseChestCount(segment, "@Trilby Highlands Mitts Cave/Trilby Cave", {{0x2002d04,0x80},{0x2002d05,0x02}})
   updateSectionChestCountFromByteAndFlag(segment, "@Trilby Highlands Fusion Cave/Fusion Digging Cave", 0x2002d05, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Trilby Highlands Bomb Wall/Trilby Highlands Bomb Wall", 0x2002d1d, 0x20)
-  updateTrilbyRupees(segment)
+  decreaseChestCount(segment, "@Trilby Highlands Rupee Cave/Rupees",{{0x2002d20,0x10},{0x2002d20,0x20},{0x2002d20,0x40},{0x2002d20,0x80},{0x2002d21,0x01},{0x2002d21,0x02},{0x2002d21,0x04},{0x2002d21,0x08},{0x2002d21,0x10},{0x2002d21,0x20},{0x2002d21,0x40},{0x2002d21,0x80},{0x2002d22,0x01},{0x2002d22,0x02},{0x2002d22,0x04}})
 
   --WESTERN WOOD
-  updateNorthDigging(segment)
-  updateSectionChestCountFromByteAndFlag(segment, "@South Digging Spots/More Buried Treasure", 0x2002ccf, 0x06)
+  decreaseChestCount(segment, "@North Digging Spots/Buried Treasure", {{0x2002cce,0x08},{0x2002cce,0x10},{0x2002cce,0x20},{0x2002cce,0x40},{0x2002cce,0x80},{0x2002ccf,0x01}})
+  decreaseChestCount(segment, "@South Digging Spots/More Buried Treasure", {{0x2002ccf, 0x02},{0x2002ccf,0x04}})
   updateSectionChestCountFromByteAndFlag(segment, "@Western Wood Chest/Freestanding Chest",0x2002ccf, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Percy's House/Percy Reward", 0x2002ce3, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Percy's House/Moblin Reward", 0x2002ce4, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Western Woods Tree/Heart Piece", 0x2002cef, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Western Woods Beanstalk/Beanstalk", 0x2002d0d, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Western Woods Beanstalk Rupee/Beanstalk", 0x2002d0d, 0x08)
-  updateWestWoodsRupees(segment)
+  decreaseChestCount(segment, "@Western Woods Beanstalk Rupee/Rupees",{{0x2002d0d,0x10},{0x2002d0d,0x20},{0x2002d0d,0x40},{0x2002d0d,0x80},{0x2002d0e,0x01},{0x2002d0e,0x02},{0x2002d0e,0x04},{0x2002d0e,0x08},{0x2002d0f,0x40},{0x2002d0f,0x80},{0x2002d10,0x01},{0x2002d10,0x02},{0x2002d10,0x04},{0x2002d10,0x08},{0x2002d10,0x10},{0x2002d10,0x20}})
 
   --GARDENS
-  updateSectionChestCountFromByteAndFlag(segment, "@Moat/Moat", 0x2002cbe, 0x0c)
+  decreaseChestCount(segment, "@Moat/Moat", {{0x2002cbe, 0x04},{0x2002cbe,0x08}})
   updateSectionChestCountFromByteAndFlag(segment, "@Grimblade/Heart Piece", 0x2002d2c, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Gardens Right Fountain/Dry Fountain", 0x2002d0e, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Gardens Right Fountain/Minish Hole", 0x2002d28, 0x10)
@@ -1310,11 +892,11 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Lady Next to Cafe/Lady Next to Cafe", 0x2002cd6, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Hearth/Hearth Right Pot", 0x2002ce0, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Dog Food Bottle Spot", 0x2002ce6, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Wallet Spot (80 Rupees)", 0x2002ce6, 0x20)
-  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Quiver Spot (600 Rupees)", 0x2002ce6, 0x40)
+--  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Wallet Spot (80 Rupees)", 0x2002ce6, 0x20)
+--  updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Quiver Spot (600 Rupees)", 0x2002ce6, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Library/Yellow Library Minish", 0x2002ceb, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Eastern Shops/Figurine House Heart Piece", 0x2002cf2, 0x10)
-  updateSectionChestCountFromByteAndFlag(segment, "@Eastern Shops/Figurine House", 0x2002cf2, 0xe0)
+  decreaseChestCount(segment, "@Eastern Shops/Figurine House", {{0x2002cf2, 0x20},{0x2002cf2,0x40},{0x2002cf2,0x80}})
   updateSectionChestCountFromByteAndFlag(segment, "@Hearth/Hearth Back Door Heart Piece", 0x2002cf3, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Hearth Back Door Heart Piece/Hearth Back Door Heart Piece", 0x2002cf3, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@School/Pull the Statue", 0x2002cfc, 0x40)
@@ -1329,12 +911,12 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Flippers Cave Rupees/Scissor Beetles", 0x2002cfe, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Flippers Cave/Frozen Chest", 0x2002cfe, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Flippers Cave Rupees/Frozen Chest", 0x2002cfe, 0x20)
-  updateSectionChestCountFromByteAndFlag(segment, "@Town Digging Cave/Cave Chests", 0x2002d04, 0x1c)
+  decreaseChestCount(segment, "@Town Digging Cave/Cave Chests", {{0x2002d04, 0x04},{0x2002d04,0x08},{0x2002d04,0x10}})
   updateSectionChestCountFromByteAndFlag(segment, "@Stockwell's Shop/Attic Chest", 0x2002d0a, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@School Gardens/Heart Piece", 0x2002d0b, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@School Gardens Open/Heart Piece", 0x2002d0b, 0x40)
-  updateSchoolyard(segment)
-  updateSchoolyardOpen(segment)
+  decreaseChestCount(segment, "@School Gardens/Garden Chests",{{0x2002d0b,80},{0x2002d0c,0x01},{0x2002d0c,0x02}})
+  decreaseChestCount(segment, "@School Gardens Open/Garden Chests",{{0x2002d0b,80},{0x2002d0c,0x01},{0x2002d0c,0x02}})
   updateSectionChestCountFromByteAndFlag(segment, "@School Gardens Open/Minish Path Chest", 0x2002d11, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Bakery Attic Chest/Bakery Attic Chest", 0x2002d13, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Fountain/Heart Piece", 0x2002d14, 0x08)
@@ -1345,28 +927,28 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Near Link's House Chest/Chest", 0x2002cd3, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@Smith's House/Intro Items", 0x2002cde, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Tree Heart Piece/Tree Heart Piece", 0x2002cee, 0x80)
-  updateSouthRupees(segment)
+  decreaseChestCount(segment,"@Fusion Rupee Cave/Rupees", {{0x2002d1e,0x20},{0x2002d1e,0x40},{0x2002d1e,0x80},{0x2002d1f,0x01},{0x2002d1f,0x02},{0x2002d1f,0x04},{0x2002d1f,0x08},{0x2002d1f,0x10},{0x2002d1f,0x20},{0x2002d1f,0x40},{0x2002d1f,0x80},{0x2002d20,0x01},{0x2002d20,0x02},{0x2002d20,0x04},{0x2002d20,0x08}})
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Flippers Hole/Minish Flippers Hole", 0x2002d2c, 0x02)
 
   --VEIL FALLS
   updateSectionChestCountFromByteAndFlag(segment, "@Upper Veil Falls Heart Piece/Upper Heart Piece", 0x2002cd0, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Source of the Flow Cave/Bombable Wall Second Chest", 0x2002cd0, 0x02)
-  updateSectionChestCountFromByteAndFlag(segment, "@South Veil Falls Rupees/Rupees", 0x2002cd0, 0x1c)
+  decreaseChestCount(segment, "@South Veil Falls Rupees/Rupees", {{0x2002cd0, 0x04},{0x2002cd0,0x08},{0x2002cd0,0x10}})
   updateSectionChestCountFromByteAndFlag(segment, "@Upper Veil Falls Rocks/Left Digging Spot", 0x2002cd0, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Lower Veil Falls Heart Piece/Lower Heart Piece", 0x2002cd1, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@Upper Veil Falls Rocks/Right Chest", 0x2002cd3, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls Rock Chest/Veil Falls Chest", 0x2002cd3, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls South Digging Spot/South Digging Spot", 0x2002cda, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Fusion Digging Cave/Chest", 0x2002d05, 0x04)
-  updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls South Mitts Cave/Veil Falls South Mitts Cave", 0x2002d05, 0x18)
+  decreaseChestCount(segment, "@Veil Falls South Mitts Cave/Veil Falls South Mitts Cave", {{0x2002d05, 0x08},{0x2002d05,0x10}})
   updateSectionChestCountFromByteAndFlag(segment, "@Fusion Digging Cave/Heart Piece", 0x2002d05, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls Upper Cave/Freestanding Chest", 0x2002d25, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls Upper Cave Rupees/Freestanding Chest", 0x2002d25, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls Upper Cave/Bomb Wall Chest", 0x2002d25, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls Upper Cave Rupees/Bomb Wall Chest", 0x2002d25, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Source of the Flow Cave/Bombable Wall First Chest", 0x2002d25, 0x10)
-  updateUpperCaveRupees(segment)
-  updateUpperCaveDivingRupees(segment)
+  decreaseChestCount(segment, "@Veil Falls Upper Cave Rupees/Downstairs Rupees", {{0x2002d25,0x20},{0x2002d25,0x40},{0x2002d25,0x80},{0x2002d26,0x01},{0x2002d26,0x02},{0x2002d26,0x04},{0x2002d26,0x08},{0x2002d26,0x10},{0x2002d26,0x20}})
+  decreaseChestCount(segment, "@Veil Falls Upper Cave Rupees/Underwater Rupees", {{0x2002d26,0x40},{0x2002d26,0x80},{0x2002d27,0x01},{0x2002d27,0x02},{0x2002d27,0x04},{0x2002d27,0x08}})
   updateSectionChestCountFromByteAndFlag(segment, "@Veil Falls Upper Waterfall/Waterfall Heart Piece", 0x2002d27, 0x10)
 
   --LON LON RANCH
@@ -1388,7 +970,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Farm Chest/Farm Chest", 0x2002cd2, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Farm Rupee/Farm Rupee", 0x2002d04, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Eastern Hills Beanstalk/Beanstalk Heart Piece", 0x2002d0d, 0x01)
-  updateSectionChestCountFromByteAndFlag(segment, "@Eastern Hills Beanstalk/Beanstalk Chests", 0x2002d0d, 0x06)
+  decreaseChestCount(segment, "@Eastern Hills Beanstalk/Beanstalk Chests", {{0x2002d0d, 0x02},{0x2002d0d, 0x04}})
   updateSectionChestCountFromByteAndFlag(segment, "@Eastern Hills Bombable Wall/Eastern Hills Bomb Wall", 0x2002d22, 0x08)
 
   --LAKE HYLIA
@@ -1397,10 +979,10 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Hylia Southern Heart Piece/Hylia Southern Heart Piece", 0x2002cbd, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Librari/Librari", 0x2002cf2, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Middle of the Lake/Digging Cave", 0x2002d02, 0x40)
-  updateNorthHyliaCapeCave(segment)
-  updateTreasureCave(segment)
+  decreaseChestCount(segment, "@North Hylia Cape Cave/North Hylia Cape Cave", {{0x2002d02,0x80},{0x2002d03,0x02},{0x2002d03,0x04},{0x2002d03,0x08},{0x2002d03,0x10},{0x2002d03,0x20},{0x2002d03,0x40}})
+  decreaseChestCount(segment, "@Treasure Cave/Treasure Cave", {{0x2002d02,0x80},{0x2002d03,0x02},{0x2002d03,0x04},{0x2002d03,0x08},{0x2002d03,0x10},{0x2002d03,0x20},{0x2002d03,0x40}})
   updateSectionChestCountFromByteAndFlag(segment, "@Treasure Cave/Beanstalk Heart Piece", 0x2002d0c, 0x10)
-  updateSectionChestCountFromByteAndFlag(segment, "@Treasure Cave/Beanstalk", 0x2002d0c, 0x60)
+  decreaseChestCount(segment, "@Treasure Cave/Beanstalk", {{0x2002d0c, 0x20},{0x2002d0c,0x40}})
   updateSectionChestCountFromByteAndFlag(segment, "@Lake Cabin Open/Chest", 0x2002d11, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@North Minish Hole/North Minish Hole", 0x2002d2a, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Waveblade/Heart Piece", 0x2002d2c, 0x04)
@@ -1421,7 +1003,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Village/Barrel", 0x2002cf5, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Village Open/Barrel", 0x2002cf5, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Woods North Digging Cave/Minish Woods North Digging Cave", 0x2002d02, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@Like Like Cave/Like Like Cave", 0x2002d02, 0x30)
+  decreaseChestCount(segment, "@Like Like Cave/Like Like Cave", {{0x2002d02, 0x10},{0x2002d02,0x20}})
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Village Open/Minish Path Chest", 0x2002d11, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Woods North Minish Hole/Minish Woods North Minish Hole", 0x2002d28, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@Minish Flippers Cave/Middle", 0x2002d2a, 0x08)
@@ -1434,7 +1016,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Center Left/Center Left", 0x2002cd7, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Top Left South Chest/Top Left South Chest", 0x2002cd7, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Top Left North Chests/Top Left North Chests", 0x2002cd7, 0xc0)
-  updateSectionChestCountFromByteAndFlag(segment, "@Top Left North Chests Obscure/Top Left North Chests", 0x2002cd7, 0xc0)
+  decreaseChestCount(segment, "@Top Left North Chests Obscure/Top Left North Chests", {{0x2002cd7, 0x40},{0x2002cd7,0x80}})
   updateSectionChestCountFromByteAndFlag(segment, "@Bottom Left Chest/Bottom Left Chest", 0x2002cd8, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Center Right/Center Right", 0x2002cd8, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@Top Left North Chests Obscure/Digging Spot on the Left", 0x2002cd8, 0x04)
@@ -1446,82 +1028,136 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Southeast South Digging Spot/Digging Spot", 0x2002cd9, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Kill Piranhas (North)/Kill Piranhas", 0x2002cda, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Kill Piranhas (South)/Kill Piranhas", 0x2002cda, 0x04)
-  updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Early House Chests", 0x2002cdc, 0x80)
-  updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Later House Chests", 0x2002cdd, 0xc7)
+  decreaseChestCount(segment, "@Wind Tribe House Open/Early House Chests", {{0x2002cdc,0x20},{0x2002cdc,0x40},{0x2002cdc,0x80}})
+  decreaseChestCount(segment, "@Wind Tribe House Open/Later House Chests", {{0x2002cdd,0x01},{0x2002cdd,0x02},{0x2002cdd,0x04},{0x2002cdd,0x40},{0x2002cdd,0x80}})
   updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Save Gregal", 0x2002ce8, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House Open/Gregal's Gift", 0x2002ce8, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House/Save Gregal", 0x2002ce8, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House/Gregal's Gift", 0x2002ce8, 0x40)
-  updateSectionChestCountFromByteAndFlag(segment, "@Wind Tribe House/House Chests", 0x2002cdd, 0xc7)
+  decreaseChestCount(segment, "@Wind Tribe House/House Chests", {{0x2002cdc, 0x20},{0x2002cdc,0x40},{0x2002cdc,0x80},{0x2002cdd,0x01},{0x2002cdd,0x02},{0x2002cdd,0x04},{0x2002cdd,0x40},{0x2002cdd,0x80}})
 
   --DWS
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Madderpillar Chest", 0x2002d3f, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@DWS/Puffstool Room", 0x2002d40, 0x0c)
+  updateSectionChestCountFromByteAndFlag(segment, "@Madderpillar Chest/Madderpillar Chest", 0x2002d3f, 0x08)
+  decreaseChestCount(segment, "@DWS/Puffstool Room", {{0x2002d40, 0x04},{0x2002d40,0x08}})
+  decreaseChestCount(segment, "@Puffstool Room/Puffstool Room", {{0x2002d40, 0x04},{0x2002d40,0x08}})
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Two Lamp Chest", 0x2002d40, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Two Lamp Chest/Two Lamp", 0x2002d40, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Two Statue Room", 0x2002d40, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Two Statue Room/Two Statue Room", 0x2002d40, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/West Side Big Chest", 0x2002d41, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@West Side Big Chest/West Side Big Chest", 0x2002d41, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Barrel Room Northwest", 0x2002d41, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Barrel Room Northwest/Barrel Room Northwest", 0x2002d41, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Mulldozer Key", 0x2002d42, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Mulldozer Key/Mulldozer Key", 0x2002d42, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Slug Room", 0x2002d43, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Slug Room/Slug Room", 0x2002d43, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Basement Big Chest", 0x2002d43, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Basement Big Chest/Basement Big Chest", 0x2002d43, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Basement Switch Chest", 0x2002d44, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Basement Switch Chest/Basement Switch Chest", 0x2002d44, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Basement Switch Room Big Chest", 0x2002d44, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Basement Switch Room Big Chest/Basement Switch Room Big Chest", 0x2002d44, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Green Chu", 0x2002d44, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Green Chu/Green Chu", 0x2002d44, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Upstairs Chest", 0x2002d45, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Upstairs Room/Upstairs Chest", 0x2002d45, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Blue Warp Heart Piece", 0x2002d45, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Blue Warp Heart Piece/Blue Warp Heart Piece", 0x2002d45, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DWS/Madderpillar Heart Piece", 0x2002d46, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Madderpillar Heart Piece/Madderpillar Heart Piece", 0x2002d46, 0x04)
 
   --COF
   updateSectionChestCountFromByteAndFlag(segment, "@COF/Spiny Chu Pillar Chest", 0x2002d57, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Spiny Chu Pillar Chest/Spiny Chu Pillar Chest", 0x2002d57, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@COF/Spiny Chu Fight", 0x2002d57, 0x02)
-  updateSectionChestCountFromByteAndFlag(segment, "@COF/First Rollobite Room", 0x2002d58, 0xc0)
-  updateSectionChestCountFromByteAndFlag(segment, "@COF/Pre Lava Basement Room", 0x2002d59, 0x30)
-  updateSectionChestCountFromByteAndFlag(segment, "@COF/Big Chest Room", 0x2002d59, 0x06)
+  updateSectionChestCountFromByteAndFlag(segment, "@Spiny Chu Fight/Spiny Chu Fight", 0x2002d57, 0x02)
+  decreaseChestCount(segment, "@COF/First Rollobite Room", {{0x2002d58, 0x40},{0x2002d58,0x80}})
+  updateSectionChestCountFromByteAndFlag(segment, "@First Rollobite Room Pillar Chest/First Rollobite Room Pillar Chest", 0x2002d58, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@First Rollobite Room Free Chest/First Rollobite Room Free Chest", 0x2002d58, 0x80)
+  decreaseChestCount(segment, "@COF/Pre Lava Basement Room", {{0x2002d59, 0x10},{0x2002d59, 0x20}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Pre Lava Basement Room Block Chest/Pre Lava Basement Room Block Chest", 0x2002d59, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Pre Lava Basement Room Ledge/Pre Lava Basement Room Ledge", 0x2002d59, 0x20)
+  decreaseChestCount(segment, "@COF/Big Chest Room", {{0x2002d59, 0x02},{0x2002d59,0x04}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Big Chest Room Small Chest/Big Chest Room Small Chest", 0x2002d59, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Big Chest Room Big Chest/Big Chest Room Big Chest", 0x2002d59, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@COF/Blade Chest", 0x2002d5a, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@COF Blade Chest/Blade Chest", 0x2002d5a, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@COF/Spiny Beetle Fight", 0x2002d5a, 0x04)
-  updateCOFChests(segment)
+  updateSectionChestCountFromByteAndFlag(segment, "@Spiny Beetle Fight/Spiny Beetle Fight", 0x2002d5a, 0x04)
+  decreaseChestCount(segment, "@COF/Lava Basement (Left,Right)", {{0x2002d5a, 0x80},{0x2002d5b, 0x01}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Lava Basement Left/Lava Basement Left", 0x2002d5a, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Lava Basement Right/Lava Basement Right", 0x2002d5b, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@COF/Lava Basement Big Chest", 0x2002d5b, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Lava Basement Big Chest/Lava Basement Big Chest", 0x2002d5b, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@COF/Gleerok", 0x2002d5b, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Gleerok/Gleerok", 0x2002d5b, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@COF/Bombable Wall Heart Piece", 0x2002d5b, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Bombable Wall Heart Piece/Bomb Wall HP", 0x2002d5b, 0x10)
 
   updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Spiny Chu Pillar Chest", 0x2002d57, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Spiny Chu Fight", 0x2002d57, 0x02)
-  updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/First Rollobite Room", 0x2002d58, 0xc0)
-  updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Pre Lava Basement Room", 0x2002d59, 0x30)
-  updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Big Chest Room", 0x2002d59, 0x06)
+  decreaseChestCount(segment, "@COF Rupees/First Rollobite Room", {{0x2002d58, 0x40},{0x2002d58,0x80}})
+  decreaseChestCount(segment, "@COF Rupees/Pre Lava Basement Room", {{0x2002d59, 0x10},{0x2002d59, 0x20}})
+  decreaseChestCount(segment, "@COF Rupees/Big Chest Room", {{0x2002d59, 0x02},{0x2002d59,0x04}})
   updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Blade Chest", 0x2002d5a, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Spiny Beetle Fight", 0x2002d5a, 0x04)
-  updateCOFChestsRupees(segment)
+  decreaseChestCount(segment, "@COF Rupees/Lava Basement (Left,Right)", {{0x2002d5a, 0x80},{0x2002d5b, 0x01}})
   updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Lava Basement Big Chest", 0x2002d5b, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Gleerok", 0x2002d5b, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@COF Rupees/Bombable Wall Heart Piece", 0x2002d5b, 0x10)
-  updateCOFRupees(segment)
+  decreaseChestCount(segment, "@COF Rupees/Rupees", {{0x2002d5b, 0x40},{0x2002d5b, 0x80},{0x2002d5c, 0x01},{0x2002d5c, 0x02},{0x2002d5c, 0x04}})
+  decreaseChestCount(segment, "@Cave of Flames Rupees/Rupees", {{0x2002d5b, 0x40},{0x2002d5b, 0x80},{0x2002d5c, 0x01},{0x2002d5c, 0x02},{0x2002d5c, 0x04}})
 
   --FOW
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Entrance Far Left", 0x2002d05, 0x80)
-  updateFOWLeftMitts(segment)
-  updateFOWRightMitts(segment)
+  updateSectionChestCountFromByteAndFlag(segment, "@Far Left Entrance Room/Far Left Entrance Room", 0x2002d05, 0x80)
+  decreaseChestCount(segment, "@FOW/Left Side Mitts Chests", {{0x2002d06, 0x01},{0x2002d07, 0x20}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Left Side 2nd Floor Mitts Chest/Left Side 2nd Floor Mitts Chest", 0x2002d06, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Left Side 3rd Floor Mitts Chest/Left Side 3rd Floor Mitts Chest", 0x2002d07, 0x20)
+  decreaseChestCount(segment, "@FOW/Right Side Mitts Chests", {{0x2002d06, 0x04},{0x2002d07, 0x40}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Side 2nd Floor Mitts Chest/Right Side 2nd Floor Mitts Chest", 0x2002d06, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Side 3rd Floor Mitts Chest/Right Side 3rd Floor Mitts Chest", 0x2002d07, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Center Path Switch", 0x2002d06, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Center Path Switch/Center Path Switch", 0x2002d06, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Bombable Wall Big Chest", 0x2002d08, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Bombable Wall Big Chest/Bombable Wall Big Chest", 0x2002d08, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Bombable Wall Small Chest", 0x2002d08, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Bombable Wall Small Chest/Bombable Wall Small Chest", 0x2002d08, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Minish Dirt Room Key Drop", 0x2002d08, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Minish Dirt Room Key Drop/Minish Dirt Room Key Drop", 0x2002d08, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Eyegores", 0x2002d6f, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Eyegores/Eyegores", 0x2002d6f, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Clone Puzzle Key Drop", 0x2002d71, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Clone Puzzle Key Drop/Clone Puzzle Key Drop", 0x2002d71, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Mazaal", 0x2002d72, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Mazaal/Mazaal", 0x2002d72, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Pedestal Chest", 0x2002d73, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Pedestal Chest/Pedestal Chest", 0x2002d73, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Skull Room Chest", 0x2002d73, 0x04)
-  updateSectionChestCountFromByteAndFlag(segment, "@FOW/Right Side Two Lever Room", 0x2002d73, 0x60)
+  updateSectionChestCountFromByteAndFlag(segment, "@Skull Room Chest/Skull Room Chest", 0x2002d73, 0x04)
+  decreaseChestCount(segment, "@FOW/Right Side Two Lever Room", {{0x2002d73, 0x20},{0x2002d73,0x40}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Two Lever Room Left Chest/Left Chest", 0x2002d73, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Two Lever Room Right Chest/Right Chest", 0x2002d73, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Left Side Key Drop", 0x2002d73, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Left Side Key Drop/Left Side Key Drop", 0x2002d73, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Right Side Key Drop", 0x2002d74, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Side Key Drop/Right Side Key Drop", 0x2002d74, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Wizzrobe Fight", 0x2002d74, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Wizzrobe Fight/Wizzrobe Fight", 0x2002d74, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/FOW Reward", 0x2002d74, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW/Right Side Heart Piece", 0x2002d74, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Side Heart Piece/Right Side Heart Piece", 0x2002d74, 0x80)
 
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Entrance Big Rupee", 0x2002d05, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Entrance Rupee/Entrance Rupee", 0x2002d05, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Entrance Far Left", 0x2002d05, 0x80)
-  updateFOWLeftMittsRupees(segment)
-  updateFOWRightMittsRupees(segment)
-  updateFOWRupees(segment)
+  decreaseChestCount(segment, "@FOW Rupees/Left Side Mitts Chests", {{0x2002d06, 0x01},{0x2002d07, 0x20}})
+  decreaseChestCount(segment, "@FOW Rupees/Right Side Mitts Chests", {{0x2002d06, 0x04},{0x2002d07, 0x40}})
+  decreaseChestCount(segment, "@FOW Rupees/Left Side Rupees",{{0x2002d06, 0x20},{0x2002d06,0x40},{0x2002d06,0x80},{0x2002d07,0x01},{0x2002d07,0x02},{0x2002d07,0x04},{0x2002d07,0x08}})
+  decreaseChestCount(segment, "@Left Side Left Rupees/Left Side Left Rupees",{{0x2002d06, 0x20},{0x2002d06,0x40},{0x2002d06,0x80},{0x2002d07,0x01}})
+  decreaseChestCount(segment, "@Left Side Right Rupees/Left Side Right Rupees",{{0x2002d07,0x02},{0x2002d07,0x04},{0x2002d07,0x08}})
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Center Path Switch", 0x2002d06, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Bombable Wall Big Chest", 0x2002d08, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Bombable Wall Small Chest", 0x2002d08, 0x02)
@@ -1531,7 +1167,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Mazaal", 0x2002d72, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Pedestal Chest", 0x2002d73, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Skull Room Chest", 0x2002d73, 0x04)
-  updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Right Side Two Lever Room", 0x2002d73, 0x60)
+  decreaseChestCount(segment, "@FOW Rupees/Right Side Two Lever Room", {{0x2002d73, 0x20},{0x2002d73,0x40}})
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Left Side Key Drop", 0x2002d73, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Right Side Key Drop", 0x2002d74, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Wizzrobe Fight", 0x2002d74, 0x08)
@@ -1539,10 +1175,12 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Rupees/Right Side Heart Piece", 0x2002d74, 0x80)
 
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Entrance Far Left", 0x2002d05, 0x80)
-  updateFOWLeftMittsObscure(segment)
-  updateFOWRightMittsObscure(segment)
+  decreaseChestCount(segment, "@FOW Obscure/Left Side Mitts Chests", {{0x2002d06, 0x01},{0x2002d07, 0x20}})
+  decreaseChestCount(segment, "@FOW Obscure/Right Side Mitts Chests", {{0x2002d06, 0x04},{0x2002d07, 0x40}})
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Center Path Switch", 0x2002d06, 0x02)
-  updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Right Side Moldorm Pots", 0x2002d06, 0x18)
+  decreaseChestCount(segment, "@FOW Obscure/Right Side Moldorm Pots", {{0x2002d06, 0x08},{0x2002d06,0x10}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Side Top Moldorm Pot/Moldorm Pot", 0x2002d06, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Side Left Moldorm Pot/Moldorm Pot", 0x2002d06,0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Bombable Wall Big Chest", 0x2002d08, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Bombable Wall Small Chest", 0x2002d08, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Minish Dirt Room Key Drop", 0x2002d08, 0x10)
@@ -1551,7 +1189,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Mazaal", 0x2002d72, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Pedestal Chest", 0x2002d73, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Skull Room Chest", 0x2002d73, 0x04)
-  updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Right Side Two Lever Room", 0x2002d73, 0x60)
+  decreaseChestCount(segment, "@FOW Obscure/Right Side Two Lever Room", {{0x2002d73, 0x20},{0x2002d73,0x40}})
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Left Side Key Drop", 0x2002d73, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Right Side Key Drop", 0x2002d74, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW Obscure/Wizzrobe Fight", 0x2002d74, 0x08)
@@ -1560,11 +1198,11 @@ function updateLocations(segment)
 
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Entrance Large Rupee", 0x2002d05, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Entrance Far Left", 0x2002d05, 0x80)
-  updateFOWLeftMittsRupObs(segment)
-  updateFOWRightMittsRupObs(segment)
-  updateFOWRupeesObs(segment)
+  decreaseChestCount(segment, "@FOW RupObs/Left Side Mitts Chests", {{0x2002d06, 0x01},{0x2002d07, 0x20}})
+  decreaseChestCount(segment, "@FOW RupObs/Right Side Mitts Chests", {{0x2002d06, 0x04},{0x2002d07, 0x40}})
+  decreaseChestCount(segment, "@FOW RupObs/Left Side Rupees",{{0x2002d06, 0x20},{0x2002d06,0x40},{0x2002d06,0x80},{0x2002d07,0x01},{0x2002d07,0x02},{0x2002d07,0x04},{0x2002d07,0x08}})
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Center Path Switch", 0x2002d06, 0x02)
-  updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Right Side Moldorm Pots", 0x2002d06, 0x18)
+  decreaseChestCount(segment, "@FOW RupObs/Right Side Moldorm Pots", {{0x2002d06, 0x08},{0x2002d06,0x10}})
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Bombable Wall Big Chest", 0x2002d08, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Bombable Wall Small Chest", 0x2002d08, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Minish Dirt Room Key Drop", 0x2002d08, 0x10)
@@ -1573,7 +1211,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Mazaal", 0x2002d72, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Pedestal Chest", 0x2002d73, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Skull Room Chest", 0x2002d73, 0x04)
-  updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Right Side Two Lever Room", 0x2002d73, 0x60)
+  decreaseChestCount(segment, "@FOW RupObs/Right Side Two Lever Room", {{0x2002d73, 0x20},{0x2002d73,0x40}})
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Left Side Key Drop", 0x2002d73, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Right Side Key Drop", 0x2002d74, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Wizzrobe Fight", 0x2002d74, 0x08)
@@ -1581,21 +1219,39 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@FOW RupObs/Right Side Heart Piece", 0x2002d74, 0x80)
 
   --TOD
-  updateSectionChestCountFromByteAndFlag(segment, "@TOD/Right Path Ice Walkway Chests", 0x2002d8b, 0x05)
+  decreaseChestCount(segment, "@TOD/Right Path Ice Walkway Chests", {{0x2002d8b, 0x01},{0x2002d8b,0x04}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Path Ice Walkway First Chest/Right Path Ice Walkway First Chest", 0x2002d8b, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Path Ice Walkway Second Chest/Right Path Ice Walkway Second Chest", 0x2002d8b, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Overhang Chest", 0x2002d8b, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Overhang Chest/Overhang Chest", 0x2002d8b, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Octo", 0x2002d8c, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Octo/Octo", 0x2002d8c, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Blue Chu", 0x2002d8c, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Blue Chu/Blue Chu", 0x2002d8c, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Basement Frozen Chest", 0x2002d8d, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Basement Frozen Chest/Basement Frozen Chest", 0x2002d8d, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Small Key Locked Ice Block", 0x2002d8d, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Key Locked Ice Block/Key Locked Ice Block", 0x2002d8d, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/First Ice Block", 0x2002d8e, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@First Ice Block/First Ice Block", 0x2002d8e, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Ice Puzzle Frozen Chest", 0x2002d8f, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Ice Puzzle Frozen Chest/Ice Puzzle Frozen Chest", 0x2002d8f, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Ice Puzzle Free Chest", 0x2002d8f, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@TOD/Dark Maze", 0x2002d8f, 0xe0)
+  updateSectionChestCountFromByteAndFlag(segment, "@Ice Puzzle Free Chest/Ice Puzzle Free Chest", 0x2002d8f, 0x08)
+  decreaseChestCount(segment, "@TOD/Dark Maze", {{0x2002d8f, 0x20},{0x2002d8f, 0x40},{0x2002d8f,0x80}})
+  updateSectionChestCountFromByteAndFlag(segment, "@Dark Maze Top Right/Dark Maze Top Right", 0x2002d8f, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Dark Maze Top Left/Dark Maze Top Left", 0x2002d8f, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Dark Maze Bottom/Dark Maze Bottom", 0x2002d8f, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Dark Maze Bomb Wall", 0x2002d91, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Dark Maze Bombable Wall/Dark Maze Bombable Wall", 0x2002d91, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Post Blue Chu Frozen Chest", 0x2002d92, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Post Blue Chu Frozen Chest/Post Blue Chu Frozen Chest", 0x2002d92, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Post Madderpillar Chest", 0x2002d92, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Post Madderpillar Chest/Post Madderpillar Chest", 0x2002d92, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Underwater Pot", 0x2002d93, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Underwater Pot/Underwater Pot", 0x2002d93, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD/Post Ice Puzzle Frozen Chest", 0x2002d93, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Post Ice Puzzle Frozen Chest/Post Ice Puzzle Frozen Chest", 0x2002d93, 0x40)
 
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Right Path Ice Walkway Chests", 0x2002d8b, 0x05)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Overhang Chest", 0x2002d8b, 0x80)
@@ -1606,19 +1262,24 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/First Ice Block", 0x2002d8e, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Ice Puzzle Frozen Chest", 0x2002d8f, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Ice Puzzle Free Chest", 0x2002d8f, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Dark Maze", 0x2002d8f, 0xe0)
+  decreaseChestCount(segment, "@TOD Rupees/Dark Maze", {{0x2002d8f, 0x20},{0x2002d8f, 0x40},{0x2002d8f,0x80}})
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Dark Maze Bomb Wall", 0x2002d91, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Post Blue Chu Frozen Chest", 0x2002d92, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Post Madderpillar Chest", 0x2002d92, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Underwater Pot", 0x2002d93, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Post Ice Puzzle Frozen Chest", 0x2002d93, 0x40)
-  updateTODOverhangRupees(segment)
-  updateSectionChestCountFromByteAndFlag(segment, "@TOD Rupees/Right Path Rupees", 0x2002d95, 0x7c)
-  updateTODLowerRupees(segment)
-  updateTODUpperRupees(segment)
+  decreaseChestCount(segment,"@TOD Rupees/Left Path Rupees",{{0x2002d94,0x20},{0x2002d94,0x40},{0x2002d94,0x80},{0x2002d95,0x01},{0x2002d95,0x02}})
+  decreaseChestCount(segment,"@Left Path Rupees/Left Path Rupees",{{0x2002d94,0x20},{0x2002d94,0x40},{0x2002d94,0x80},{0x2002d95,0x01},{0x2002d95,0x02}})
+  decreaseChestCount(segment, "@TOD Rupees/Right Path Rupees", {{0x2002d95,0x04,},{0x2002d95,0x08},{0x2002d95,0x10},{0x2002d95,0x20},{0x2002d95,0x40}})
+  decreaseChestCount(segment, "@Right Path Rupees/Right Path Rupees", {{0x2002d95,0x04,},{0x2002d95,0x08},{0x2002d95,0x10},{0x2002d95,0x20},{0x2002d95,0x40}})
+  decreaseChestCount(segment, "@TOD Rupees/Lower Water Rupees",{{0x2002d95,0x80},{0x2002d96,0x01},{0x2002d96,0x02},{0x2002d96,0x04},{0x2002d96,0x08},{0x2002d96,0x10}})
+  decreaseChestCount(segment, "@Lower Underwater Rupees/Lower Underwater Rupees",{{0x2002d95,0x80},{0x2002d96,0x01},{0x2002d96,0x02},{0x2002d96,0x04},{0x2002d96,0x08},{0x2002d96,0x10}})
+  decreaseChestCount(segment, "@TOD Rupees/Upper Water Rupees",{{0x2002d96,0x20},{0x2002d96,0x40},{0x2002d96,0x80},{0x2002d97,0x01},{0x2002d97,0x02},{0x2002d97,0x04}})
+  decreaseChestCount(segment, "@Upper Underwater Rupees/Upper Underwater Rupees",{{0x2002d96,0x20},{0x2002d96,0x40},{0x2002d96,0x80},{0x2002d97,0x01},{0x2002d97,0x02},{0x2002d97,0x04}})
 
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Right Path Ice Walkway Chests", 0x2002d8b, 0x05)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Right Path Ice Walkway Pot", 0x2002d8b, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Right Path Ice Walkway Pot/Right Path Ice Walkway Pot", 0x2002d8b, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Overhang Chest", 0x2002d8b, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Octo", 0x2002d8c, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Blue Chu", 0x2002d8c, 0x80)
@@ -1627,7 +1288,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/First Ice Block", 0x2002d8e, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Ice Puzzle Frozen Chest", 0x2002d8f, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Ice Puzzle Free Chest", 0x2002d8f, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Dark Maze", 0x2002d8f, 0xe0)
+  decreaseChestCount(segment, "@TOD Obscure/Dark Maze", {{0x2002d8f, 0x20},{0x2002d8f, 0x40},{0x2002d8f,0x80}})
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Dark Maze Bomb Wall", 0x2002d91, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Post Blue Chu Frozen Chest", 0x2002d92, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD Obscure/Post Madderpillar Chest", 0x2002d92, 0x80)
@@ -1644,36 +1305,54 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/First Ice Block", 0x2002d8e, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Ice Puzzle Frozen Chest", 0x2002d8f, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Ice Puzzle Free Chest", 0x2002d8f, 0x08)
-  updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Dark Maze", 0x2002d8f, 0xe0)
+  decreaseChestCount(segment, "@TOD RupObs/Dark Maze", {{0x2002d8f, 0x20},{0x2002d8f, 0x40},{0x2002d8f,0x80}})
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Dark Maze Bomb Wall", 0x2002d91, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Post Blue Chu Frozen Chest", 0x2002d92, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Post Madderpillar Chest", 0x2002d92, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Underwater Pot", 0x2002d93, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Post Ice Puzzle Frozen Chest", 0x2002d93, 0x40)
-  updateTODOverhangRupeesObs(segment)
-  updateSectionChestCountFromByteAndFlag(segment, "@TOD RupObs/Right Path Rupees", 0x2002d95, 0x7c)
-  updateTODLowerRupeesObs(segment)
-  updateTODUpperRupeesObs(segment)
+  decreaseChestCount(segment, "@TOD RupObs/Left Path Rupees",{{0x2002d94,0x20},{0x2002d94,0x40},{0x2002d94,0x80},{0x2002d95,0x01},{0x2002d95,0x02}})
+  decreaseChestCount(segment, "@TOD RupObs/Right Path Rupees", {{0x2002d95,0x04},{0x2002d95,0x08},{0x2002d95,0x10},{0x2002d95,0x20},{0x2002d95,0x40}})
+  decreaseChestCount(segment, "@TOD RupObs/Lower Water Rupees",{{0x2002d95,0x80},{0x2002d96,0x01},{0x2002d96,0x02},{0x2002d96,0x04},{0x2002d96,0x08},{0x2002d96,0x10}})
+  decreaseChestCount(segment, "@TOD RupObs/Upper Water Rupees",{{0x2002d96,0x20},{0x2002d96,0x40},{0x2002d96,0x80},{0x2002d97,0x01},{0x2002d97,0x02},{0x2002d97,0x04}})
 
   --POW
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Pre Big Key Door Big Chest", 0x2002da2, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Pre Big Key Door Big Chest/Pre Big Key Door Big Chest", 0x2002da2, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Bombarossa Maze", 0x2002da2, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Bombarossa Maze/Bombarossa Maze", 0x2002da2, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Block Maze Detour", 0x2002da2, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Block Maze Room Detour/Block Maze Room Detour", 0x2002da2, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Spark Chest", 0x2002da3, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Spark Chest/Spark Chest", 0x2002da3, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Flail Soldiers", 0x2002da4, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Flail Soldiers/Flail Soldiers", 0x2002da4, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Moblin Archer Chest", 0x2002da4, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Moblin Archer Chest/Moblin Archer Chest", 0x2002da4, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Block Maze Room", 0x2002da5, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Block Maze Room/Block Maze Room", 0x2002da5, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Switch Chest", 0x2002da5, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Switch Chest/Switch Chest", 0x2002da5, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Fire Wizzrobe Fight", 0x2002da6, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Firerobe Fight/Firerobe Fight", 0x2002da6, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Pot Puzzle Key", 0x2002da7, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Pot Puzzle Key/Pot Puzzle Key", 0x2002da7, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Twin Wizzrobe Fight", 0x2002da9, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Twin Wizzrobe Fight/Twin Wizzrobe Fight", 0x2002da9, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Roller Chest", 0x2002da9, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Roller Chest/Roller Chest", 0x2002da9, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Wizzrobe Platform Fight", 0x2002daa, 0x10)
+  updateSectionChestCountFromByteAndFlag(segment, "@Wizzrobe Platform Fight/Wizzrobe Platform Fight", 0x2002daa, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Firebar Grate", 0x2002daa, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Firebar Grate/Firebar Grate", 0x2002daa, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Dark Room Big", 0x2002dab, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Dark Room Big Chest/Dark Room Big Chest", 0x2002dab, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Dark Room Small", 0x2002dab, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@Dark Room Small Chest/Dark Room Small Chest", 0x2002dab, 0x04)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Gyorg", 0x2002dab, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Gyorg/Gyorg", 0x2002dab, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@POW/Heart Piece", 0x2002dac, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Heart Piece/Heart Piece", 0x2002dac, 0x01)
 
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Pre Big Key Door Big Chest", 0x2002da2, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Bombarossa Maze", 0x2002da2, 0x20)
@@ -1685,7 +1364,8 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Switch Chest", 0x2002da5, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Fire Wizzrobe Fight", 0x2002da6, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Pot Puzzle Key", 0x2002da7, 0x02)
-  updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Rupees", 0x2002da7, 0x7c)
+  decreaseChestCount(segment, "@POW Rupees/Rupees", {{0x2002da7, 0x04},{0x2002da7,0x08},{0x2002da7,0x10},{0x2002da7,0x20},{0x2002da7,0x40}})
+  decreaseChestCount(segment, "@Rupees/Rupees", {{0x2002da7, 0x04},{0x2002da7,0x08},{0x2002da7,0x10},{0x2002da7,0x20},{0x2002da7,0x40}})
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Twin Wizzrobe Fight", 0x2002da9, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Roller Chest", 0x2002da9, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@POW Rupees/Wizzrobe Platform Fight", 0x2002daa, 0x10)
@@ -1697,39 +1377,70 @@ function updateLocations(segment)
 
   --DHC
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Vaati", 0x2002ca6, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Vaati/Vaati", 0x2002ca6, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Northwest Tower", 0x2002dbb, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Northwest Tower/Northwest Tower", 0x2002dbb, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Northeast Tower", 0x2002dbb, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Northeast Tower/Northeast Tower", 0x2002dbb, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Southwest Tower", 0x2002dbc, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Southwest Tower/Southwest Tower", 0x2002dbc, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Southeast Tower", 0x2002dbc, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Southeast Tower/Southeast Tower", 0x2002dbc, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Big Block Chest", 0x2002dbc, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Big Block Chest/Big Block Chest", 0x2002dbc, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Post Throne Big Chest", 0x2002dbf, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Post Throne Big Chest/Post Throne Big Chest", 0x2002dbf, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Blade Chest", 0x2002dc0, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Blade Chest/Blade Chest", 0x2002dc0, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Platform Chest", 0x2002dc1, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Platform Chest/Platform Chest", 0x2002dc1, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC/Stone King", 0x2002dc2, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Stone King/Stone King", 0x2002dc2, 0x02)
 
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Vaati", 0x2002ca6, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Vaati Open/Vaati", 0x2002ca6, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Northwest Tower", 0x2002dbb, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Northwest Tower Open/Northwest Tower", 0x2002dbb, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Northeast Tower", 0x2002dbb, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Northeast Tower Open/Northeast Tower", 0x2002dbb, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Southwest Tower", 0x2002dbc, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Southwest Tower Open/Southwest Tower", 0x2002dbc, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Southeast Tower", 0x2002dbc, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Southeast Tower Open/Southeast Tower", 0x2002dbc, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Big Block Chest", 0x2002dbc, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Big Block Chest Open/Big Block Chest", 0x2002dbc, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Post Throne Big Chest", 0x2002dbf, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Post Throne Big Chest Open/Post Throne Big Chest", 0x2002dbf, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Blade Chest", 0x2002dc0, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Blade Chest Open/Blade Chest", 0x2002dc0, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Platform Chest", 0x2002dc1, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Platform Chest Open/Platform Chest", 0x2002dc1, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Open/Stone King", 0x2002dc2, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Stone King Open/Stone King", 0x2002dc2, 0x02)
 
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Vaati", 0x2002ca6, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Vaati Ped/Vaati", 0x2002ca6, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Northwest Tower", 0x2002dbb, 0x40)
+  updateSectionChestCountFromByteAndFlag(segment, "@Northwest Tower Ped/Northwest Tower", 0x2002dbb, 0x40)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Northeast Tower", 0x2002dbb, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Northeast Tower Ped/Northeast Tower", 0x2002dbb, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Southwest Tower", 0x2002dbc, 0x01)
+  updateSectionChestCountFromByteAndFlag(segment, "@Southwest Tower Ped/Southwest Tower", 0x2002dbc, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Southeast Tower", 0x2002dbc, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Southeast Tower Ped/Southeast Tower", 0x2002dbc, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Big Block Chest", 0x2002dbc, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Big Block Chest Ped/Big Block Chest", 0x2002dbc, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Post Throne Big Chest", 0x2002dbf, 0x80)
+  updateSectionChestCountFromByteAndFlag(segment, "@Post Throne Big Chest Ped/Post Throne Big Chest", 0x2002dbf, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Blade Chest", 0x2002dc0, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Blade Chest Ped/Blade Chest", 0x2002dc0, 0x20)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Platform Chest", 0x2002dc1, 0x08)
+  updateSectionChestCountFromByteAndFlag(segment, "@Platform Chest Ped/Platform Chest", 0x2002dc1, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Stone King", 0x2002dc2, 0x02)
+  updateSectionChestCountFromByteAndFlag(segment, "@Stone King Ped/Stone King", 0x2002dc2, 0x02)
 
   updateSectionChestCountFromByteAndFlag(segment, "@Dark Hyrule Castle/Win", 0x2002ca6, 0x20)
+  updateSectionChestCountFromByteAndFlag(segment, "@Pull the Pedestal/Just Win", 0x2002ca6, 0x20)
 end
 
 function updateKeys(segment)
@@ -1787,8 +1498,11 @@ function updateKeys(segment)
     updateSectionChestCountFromByteAndFlag(segment, "@Castor Wilds Joy Butterfly/Joy Butterfly", 0x2002ea7, 0x10)
     updateSectionChestCountFromByteAndFlag(segment, "@Royal Valley Joy Butterfly/Joy Butterfly", 0x2002ea7, 0x20)
     updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Pedestal Two Elements", 0x2002ea7, 0x80)
+    updateSectionChestCountFromByteAndFlag(segment, "@Pedestal Items/Two Elements", 0x2002ea7, 0x80)
     updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Pedestal Three Elements", 0x2002ea8, 0x01)
+    updateSectionChestCountFromByteAndFlag(segment, "@Pedestal Items/Three Elements", 0x2002ea8, 0x01)
     updateSectionChestCountFromByteAndFlag(segment, "@DHC Ped/Pedestal Four Elements", 0x2002ea8, 0x02)
+    updateSectionChestCountFromByteAndFlag(segment, "@Pedestal Items/Four Elements", 0x2002ea8, 0x02)
 
   end
 
@@ -1797,8 +1511,8 @@ function updateKeys(segment)
   end
 end
 
+ScriptHost:AddMemoryWatch("TMC Locations and Bosses", 0x2002c81, 0x200, updateLocations)
 ScriptHost:AddMemoryWatch("TMC Item Data", 0x2002b30, 0x45, updateItemsFromMemorySegment)
 ScriptHost:AddMemoryWatch("TMC Item Upgrades", 0x2002ae4, 0x0c, updateGearFromMemory)
-ScriptHost:AddMemoryWatch("TMC Locations and Bosses", 0x2002c81, 0x200, updateLocations)
 ScriptHost:AddMemoryWatch("Graveyard Key", 0x2002ac0, 0x01, graveKey)
 ScriptHost:AddMemoryWatch("TMC Keys", 0x2002e9d, 0x16, updateKeys)
