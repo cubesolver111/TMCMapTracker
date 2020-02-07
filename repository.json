@@ -13,7 +13,7 @@
       ],
       "version": "1.7.3.0",
       "uid": "tmcrando_maptracker_cube",
-      "link": "https://github.com/cubesolver111/TMCMapTracker/raw/main/tmcrando_maptracker_cube.zip",
+      "link": "https://api.github.com/repos/cubesolver111/TMCMapTracker/zipball/v1.7.3.0",
       "variants": [
         {
           "name": "Map Tracker",
