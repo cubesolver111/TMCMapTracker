@@ -4,12 +4,12 @@
         "h_alignment": "center",
         "item_margin": "1,2",
         "rows": [
-            ["sword","gust","cane","boomerang","quiver","dws"],
-            ["shield","mittsandfly","lamp","bombsremote","wilds","cof"],
-            ["boots","cape","ocarina","bowandfly","clouds","fow"],
-            ["dogbottle","jabber","mushroom","bothkeys","falls","tod"],
-            ["grip","bracelets","flippersandfly","trophy","spinandbeam","rc"],
-            ["10hearts","sevenscrolls","carlov","wallet","books","pow"]
+            ["sword","gust","cane","boomerang","wilds","dws"],
+            ["shield","mittsandfly","lamp","bombsremote","clouds","cof"],
+            ["boots","cape","ocarina","bowandfly","falls","fow"],
+            ["dogbottle","nutandshroom","bothkeys","ringandbracelets","flippersandfly","tod"],
+            ["10hearts","sevenscrolls","carlovtingle","wallet","books","rc"],
+            ["earth","fire","water","wind","spinandbeam","pow"]
         ]
     },
     "tracker_capture_item": {
