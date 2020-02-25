@@ -349,6 +349,35 @@
    "img": "images/Mushroom.png",
    "codes": "mushroom"
  },
+ {
+   "name": "Jabber Shroom",
+   "type": "composite_toggle",
+   "codes": "nutandshroom",
+   "item_left":"jabber",
+   "item_right":"mushroom",
+   "images": [
+     {
+       "left": false,
+       "right": false,
+       "img": "images/Jabber_Shroom_Gray.png",
+     },
+     {
+       "left": true,
+       "right": false,
+       "img": "images/Jabber_Shroom_J.png"
+     },
+     {
+       "left": false,
+       "right": true,
+       "img": "images/Jabber_Shroom_S.png"
+     },
+     {
+       "left": true,
+       "right": true,
+       "img": "images/Jabber_Shroom.png"
+     }
+   ]
+ },
  // Lon Lon Ranch Key
  {
    "name": "Lon Lon Ranch Key",
@@ -376,6 +405,35 @@
    "type": "toggle",
    "img": "images/Power Bracelets.png",
    "codes": "bracelets"
+ },
+ {
+   "name": "Grip Ring and Bracelets",
+   "type": "composite_toggle",
+   "codes": "ringandbracelets",
+   "item_left":"grip",
+   "item_right":"bracelets",
+   "images": [
+     {
+       "left": false,
+       "right": false,
+       "img": "images/Power_Grips_Gray.png",
+     },
+     {
+       "left": true,
+       "right": false,
+       "img": "images/Power_Grips_G.png"
+     },
+     {
+       "left": false,
+       "right": true,
+       "img": "images/Power_Grips_P.png"
+     },
+     {
+       "left": true,
+       "right": true,
+       "img": "images/Power_Grips.png"
+     }
+   ]
  },
  // Flippers
  {
@@ -433,6 +491,41 @@
    "type": "toggle",
    "img": "images/Carlov Medal.png",
    "codes": "carlov"
+ },
+ {
+   "name":"Tingle Trophy",
+   "type":"toggle",
+   "img":"images/Tingle Trophy.png",
+   "codes":"trophy"
+ },
+ {
+   "name": "Carlov and Tingle",
+   "type":"composite_toggle",
+   "codes":"carlovtingle",
+   "item_left":"carlov",
+   "item_right":"trophy",
+   "images":[
+     {
+       "left": false,
+       "right": false,
+       "img": "images/carlov_tingle_gray.png",
+     },
+     {
+       "left": true,
+       "right": false,
+       "img": "images/carlov_tingle_c.png"
+     },
+     {
+       "left": false,
+       "right": true,
+       "img": "images/carlov_tingle_t.png"
+     },
+     {
+       "left": true,
+       "right": true,
+       "img": "images/carlov_tingle.png"
+     }
+   ]
  },
  // Earth Element
  {
@@ -508,7 +601,7 @@
      {
        "left": true,
        "right": true,
-       "img": "images/beam_and_spin.png"
+       "img": "images/beam_spin.png"
      }
    ]
  },
@@ -571,10 +664,21 @@
  },
  {
    "name": "Book Quest",
-   "type": "consumable",
-   "img": "images/Book1.png",
-   "codes": "bookquest,books",
-   "max_quantity": 3
+   "type": "progressive",
+   "stages": [
+     {
+       "img": "images/Book1.png",
+       "codes": "books"
+     },
+     {
+       "img": "images/Book2.png",
+       "codes": "books"
+     },
+     {
+       "img": "images/Book3.png",
+       "codes": "books"
+     }
+   ]
  },
  {
    "name": "Remote Bombs",
@@ -687,30 +791,29 @@
  {
    "name": "Keys",
    "type": "composite_toggle",
-   "item_left": "llrkey",
-   "item_right": "gravekey",
+   "item_right": "llrkey",
+   "item_left": "gravekey",
    "codes": "bothkeys",
    "images": [
      {
        "left": false,
        "right": false,
-       "img": "images/Lon Lon Ranch Key.png",
-       "img_mods": "@disabled"
+       "img": "images/Both_Keys_Gray.png",
      },
      {
        "left": true,
        "right": false,
-       "img": "images/Lon Lon Ranch Key.png"
+       "img": "images/Both_Keys_G.png"
      },
      {
        "left": false,
        "right": true,
-       "img": "images/Graveyard Key.png"
+       "img": "images/Both_Keys_L.png"
      },
      {
        "left": true,
        "right": true,
-       "img": "images/Both Keys.png"
+       "img": "images/Both_Keys.png"
      }
    ]
  },
@@ -749,11 +852,5 @@
    "type": "toggle",
    "img": "images/Remote Bombs.png",
    "codes": "remotebombs"
- },
- {
-   "name":"Tingle Trophy",
-   "type":"toggle",
-   "img":"images/Tingle Trophy.png",
-   "codes":"trophy"
  }
 ]
