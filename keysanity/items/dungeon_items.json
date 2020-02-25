@@ -6,28 +6,24 @@
     "capturable": false,
     "stages": [
       {
-        "img":"images/dws_unknown.png",
+        "img":"images/chu.png",
         "codes":"dws,dwsunknown",
       },
       {
-        "img": "images/dws_earth.png",
+        "img": "images/chu_earth.png",
         "codes": "dws,earth",
       },
       {
-        "img": "images/dws_fire.png",
+        "img": "images/chu_fire.png",
         "codes": "dws,fire",
       },
       {
-        "img": "images/dws_water.png",
+        "img": "images/chu_water.png",
         "codes": "dws,water",
       },
       {
-        "img": "images/dws_wind.png",
+        "img": "images/chu_wind.png",
         "codes": "dws,wind",
-      },
-      {
-        "img": "images/dws_none.png",
-        "codes": "dws,dwsnone",
       }
     ]
   },
@@ -38,28 +34,24 @@
     "capturable": false,
     "stages": [
       {
-        "img":"images/cof_unknown.png",
+        "img":"images/gleerok.png",
         "codes":"cof,cofunknown",
       },
       {
-        "img": "images/cof_earth.png",
+        "img": "images/gleerok_earth.png",
         "codes": "cof,earth",
       },
       {
-        "img": "images/cof_fire.png",
+        "img": "images/gleerok_fire.png",
         "codes": "cof,fire",
       },
       {
-        "img": "images/cof_water.png",
+        "img": "images/gleerok_water.png",
         "codes": "cof,water",
       },
       {
-        "img": "images/cof_wind.png",
+        "img": "images/gleerok_wind.png",
         "codes": "cof,wind",
-      },
-      {
-        "img": "images/cof_none.png",
-        "codes": "cof,cofnone",
       }
     ]
   },
@@ -70,28 +62,24 @@
     "capturable": false,
     "stages": [
       {
-        "img":"images/fow_unknown.png",
+        "img":"images/mazaal.png",
         "codes":"fow,fowunknown",
       },
       {
-        "img": "images/fow_earth.png",
+        "img": "images/mazaal_earth.png",
         "codes": "fow,earth",
       },
       {
-        "img": "images/fow_fire.png",
+        "img": "images/mazaal_fire.png",
         "codes": "fow,fire",
       },
       {
-        "img": "images/fow_water.png",
+        "img": "images/mazaal_water.png",
         "codes": "fow,water",
       },
       {
-        "img": "images/fow_wind.png",
+        "img": "images/mazaal_wind.png",
         "codes": "fow,wind",
-      },
-      {
-        "img": "images/fow_none.png",
-        "codes": "fow,fownone",
       }
     ]
   },
@@ -102,28 +90,24 @@
     "capturable": false,
     "stages": [
       {
-        "img":"images/tod_unknown.png",
+        "img":"images/octo.png",
         "codes":"tod,todunknown",
       },
       {
-        "img": "images/tod_earth.png",
+        "img": "images/octo_earth.png",
         "codes": "tod,earth",
       },
       {
-        "img": "images/tod_fire.png",
+        "img": "images/octo_fire.png",
         "codes": "tod,fire",
       },
       {
-        "img": "images/tod_water.png",
+        "img": "images/octo_water.png",
         "codes": "tod,water",
       },
       {
-        "img": "images/tod_wind.png",
+        "img": "images/octo_wind.png",
         "codes": "tod,wind",
-      },
-      {
-        "img": "images/tod_none.png",
-        "codes": "tod,todnone",
       }
     ]
   },
@@ -134,28 +118,24 @@
     "capturable": false,
     "stages": [
       {
-        "img":"images/rc_unknown.png",
+        "img":"images/gustaf.png",
         "codes":"rc,rcunknown",
       },
       {
-        "img": "images/rc_earth.png",
+        "img": "images/gustaf_earth.png",
         "codes": "rc,earth",
       },
       {
-        "img": "images/rc_fire.png",
+        "img": "images/gustaf_fire.png",
         "codes": "rc,fire",
       },
       {
-        "img": "images/rc_water.png",
+        "img": "images/gustaf_water.png",
         "codes": "rc,water",
       },
       {
-        "img": "images/rc_wind.png",
+        "img": "images/gustaf_wind.png",
         "codes": "rc,wind",
-      },
-      {
-        "img": "images/rc_none.png",
-        "codes": "rc,rcnone",
       }
     ]
   },
@@ -166,28 +146,24 @@
     "capturable": false,
     "stages": [
       {
-        "img":"images/pow_unknown.png",
+        "img":"images/gyorg.png",
         "codes":"pow,powunknown",
       },
       {
-        "img": "images/pow_earth.png",
+        "img": "images/gyorg_earth.png",
         "codes": "pow,earth",
       },
       {
-        "img": "images/pow_fire.png",
+        "img": "images/gyorg_fire.png",
         "codes": "pow,fire",
       },
       {
-        "img": "images/pow_water.png",
+        "img": "images/gyorg_water.png",
         "codes": "pow,water",
       },
       {
-        "img": "images/pow_wind.png",
+        "img": "images/gyorg_wind.png",
         "codes": "pow,wind",
-      },
-      {
-        "img": "images/pow_none.png",
-        "codes": "pow,pownone",
       }
     ]
   },
