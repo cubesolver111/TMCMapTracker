@@ -1862,7 +1862,7 @@
           },
           {
             "name":"Northeast Tower",
-            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -1872,7 +1872,7 @@
           },
           {
             "name":"Southeast Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -1882,7 +1882,7 @@
           },
           {
             "name":"Southwest Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -1902,7 +1902,7 @@
             "name":"Big Block Chest",
             "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,magicboomerang,explicit_dhc_smallkey:5,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
@@ -1962,7 +1962,7 @@
           },
           {
             "name":"Northeast Tower",
-            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -1972,7 +1972,7 @@
           },
           {
             "name":"Southeast Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -1982,7 +1982,7 @@
           },
           {
             "name":"Southwest Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -2002,7 +2002,7 @@
             "name":"Big Block Chest",
             "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,magicboomerang,explicit_dhc_smallkey:5,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
@@ -2077,7 +2077,7 @@
           },
           {
             "name":"Northeast Tower",
-            "access_rules":["bombs,cape,boomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -2087,7 +2087,7 @@
           },
           {
             "name":"Southeast Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -2097,7 +2097,7 @@
           },
           {
             "name":"Southwest Tower",
-            "access_rules":["bombs,cape,boomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
@@ -2117,7 +2117,7 @@
             "name":"Big Block Chest",
             "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:5,sword5,spinattack",
               "bombs,cape,lights,explicit_dhc_smallkey:5,sword5,spinattack",
-              "bombs,cape,boomerang,explicit_dhc_smallkey:5,sword5,spinattack",
+              "bombs,cape,magicboomerang,explicit_dhc_smallkey:5,sword5,spinattack",
               "bombs,cape,beam,explicit_dhc_smallkey:5,sword5,spinattack"],
             "item_count": 1,
             "chest_unopened_img":"images/big_chest_closed.png",
