@@ -668,15 +668,15 @@
    "stages": [
      {
        "img": "images/Book1.png",
-       "codes": "books"
+       "codes": "books,book1"
      },
      {
        "img": "images/Book2.png",
-       "codes": "books"
+       "codes": "books,book2"
      },
      {
        "img": "images/Book3.png",
-       "codes": "books"
+       "codes": "books,book3"
      }
    ]
  },

@@ -2266,7 +2266,7 @@
               {
                 "name":"Yellow Library Minish",
                 "item_count":1,
-                "access_rules":["books:3,cane"]
+                "access_rules":["book3,cane"]
               },
             ]
           },
