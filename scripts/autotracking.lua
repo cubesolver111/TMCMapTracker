@@ -249,7 +249,7 @@ function updateBooks(segment, code, address)
   end
 
   if item then
-    item.AcquiredCount = booksObtained + booksUsed
+    item.CurrentStage = booksObtained + booksUsed
   end
 end
 
@@ -471,7 +471,7 @@ function updateWildsUsedFixed(segment, locationData)
   end
 end
 
-function updateWilds(segment, code, flag)
+function updateWilds(segment, code, flag, numUsed)
   local item = Tracker:FindObjectForCode(code)
   local inBag = 0
 
@@ -520,8 +520,8 @@ function updateWilds(segment, code, flag)
     print("Wilds in Bag", ReadU8(segment, 0x2002b75))
   end
 
-  item.AcquiredCount = WildsFused + inBag
-  print("Wilds Obtained", WildsFused)
+  item.AcquiredCount = numUsed + inBag
+  print("Wilds Obtained", inBag)
 end
 
 function updateCloudsUsedFixed(segment, locationData)
@@ -678,6 +678,10 @@ function updateItemsFromMemorySegment(segment)
     updateToggleItemFromByteAndFlag(segment, "bowandfly", 0x2002b4e, 0x01)
     updateToggleItemFromByteAndFlag(segment, "mittsButterfly", 0x2002b4e, 0x04)
     updateToggleItemFromByteAndFlag(segment, "flippersButterfly", 0x2002b4e, 0x10)
+    updateToggleItemFromByteAndFlag(segment, "earth", 0x2002b42, 0x01)
+    updateToggleItemFromByteAndFlag(segment, "fire", 0x2002b42, 0x04)
+    updateToggleItemFromByteAndFlag(segment, "water", 0x2002b42, 0x10)
+    updateToggleItemFromByteAndFlag(segment, "wind", 0x2002b42, 0x40)
 
     updateLLRKey(segment, "llrkey", 0x2002b3f, 0x40)
     updateDogFood(segment, "dogbottle", 0x2002b3f, 0x10)
@@ -694,7 +698,7 @@ function updateItemsFromMemorySegment(segment)
     updateBeams(segment)
     updateScrolls(segment)
     updateGoldFalls(segment)
-    updateWilds(segment, "wilds", 0x6a)
+    updateWilds(segment, "wilds", 0x6a, WildsFused)
     updateClouds(segment, "clouds", 0x65)
 
     updateSectionChestCountFromByteAndFlag(segment, "@Fifi/Fifi", 0x2002b3f, 0x20)
@@ -802,7 +806,6 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Diving Spots/Bottom", 0x2002cc0, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Mulldozers/Bow Chest", 0x2002cde, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Mulldozers Open/Bow Chest", 0x2002cde, 0x01)
-  updateSectionChestCountFromByteAndFlag(segment, "@Wilds Northern Minish Crack/Minish Crack", 0x2002cde, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Northern Minish Crack/Minish Crack", 0x2002cde, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Western Minish Crack/Minish Crack", 0x2002cde, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Wilds Vine Minish Crack/Minish Crack", 0x2002cde, 0x20)
@@ -1015,7 +1018,7 @@ function updateLocations(segment)
   updateSectionChestCountFromByteAndFlag(segment, "@Right Chest/Right Chest", 0x2002cd7, 0x08)
   updateSectionChestCountFromByteAndFlag(segment, "@Center Left/Center Left", 0x2002cd7, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Top Left South Chest/Top Left South Chest", 0x2002cd7, 0x20)
-  updateSectionChestCountFromByteAndFlag(segment, "@Top Left North Chests/Top Left North Chests", 0x2002cd7, 0xc0)
+  decreaseChestCount(segment, "@Top Left North Chests/Top Left North Chests", {{0x2002cd7, 0x40},{0x2002cd7,0x80}})
   decreaseChestCount(segment, "@Top Left North Chests Obscure/Top Left North Chests", {{0x2002cd7, 0x40},{0x2002cd7,0x80}})
   updateSectionChestCountFromByteAndFlag(segment, "@Bottom Left Chest/Bottom Left Chest", 0x2002cd8, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Center Right/Center Right", 0x2002cd8, 0x02)
