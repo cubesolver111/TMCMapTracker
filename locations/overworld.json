@@ -1245,7 +1245,7 @@
                     "map":"map",
                     "x":945,
                     "y":1780,
-                    "restrict_visibility_rules":["fusions_open","obscure_on"]
+                    "restrict_visibility_rules":["fusions_open,obscure_on"]
                   }
                 ],
                 "sections":[
