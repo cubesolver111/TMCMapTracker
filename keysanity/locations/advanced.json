@@ -1229,7 +1229,7 @@
                 "map":"tod",
                 "x":370,
                 "y":2350,
-                "force_invisibility_rules":["rupees_off"]
+                "restrict_visibility_rules":["rupees_on,obscure_on"]
               }
             ],
             "sections":[
@@ -1247,7 +1247,7 @@
                 "map":"tod",
                 "x":600,
                 "y":1215,
-                "force_invisibility_rules":["rupees_off"]
+                "restrict_visibility_rules":["rupees_on,obscure_on"]
               }
             ],
             "sections":[
