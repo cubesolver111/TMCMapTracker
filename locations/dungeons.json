@@ -160,7 +160,7 @@
             "map": "map",
             "x": 323,
             "y": 200,
-            "force_invisibility_rules":["rupees_on"]
+            "restrict_visibility_rules":["rupees_off"]
           }
         ],
         "sections": [
@@ -280,7 +280,7 @@
             "map": "map",
             "x": 323,
             "y": 200,
-            "force_invisibility_rules":["rupees_off"]
+            "restrict_visibility_rules":["rupees_on"]
           }
         ],
         "sections": [
@@ -395,7 +395,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "force_invisibility_rules":["obscure_on","rupees_on"]
+            "restrict_visibility_rules":["obscure_off,rupees_off"]
           }
         ],
         "sections": [
@@ -528,7 +528,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "force_invisibility_rules":["obscure_on","rupees_off"]
+            "restrict_visibility_rules":["obscure_off,rupees_on"]
           }
         ],
         "sections": [
@@ -671,7 +671,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "force_invisibility_rules":["obscure_off","rupees_on"]
+            "restrict_visibility_rules":["obscure_on,rupees_off"]
           }
         ],
         "sections": [
@@ -810,7 +810,7 @@
             "map": "map",
             "x":592,
             "y":1800,
-            "force_invisibility_rules":["obscure_off","rupees_off"]
+            "restrict_visibility_rules":["obscure_on,rupees_on"]
           }
         ],
         "sections": [
@@ -1013,7 +1013,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "force_invisibility_rules":["obscure_on","rupees_on"]
+            "restrict_visibility_rules":["obscure_off,rupees_off"]
           }
         ],
         "sections": [
@@ -1139,7 +1139,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "force_invisibility_rules":["obscure_on","rupees_off"]
+            "restrict_visibility_rules":["obscure_off,rupees_on"]
           }
         ],
         "sections": [
@@ -1187,16 +1187,6 @@
             "tod_bigkey,tod_smallkey:4,lamp,gust,$canDamage",
             "tod_bigkey,tod_smallkey:4,lamp,cape,$canDamage"],
             "item_count":5
-          },
-          {
-            "name":"Upper Water Rupees",
-            "access_rules":["tod_bigkey,flippers"],
-            "item_count":6
-          },
-          {
-            "name":"Lower Water Rupees",
-            "access_rules":["tod_bigkey,cape,flippers","tod_bigkey,gust,flippers"],
-            "item_count":6
           },
           {
             "name":"Ice Puzzle Free Chest",
@@ -1287,7 +1277,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "force_invisibility_rules":["obscure_off","rupees_on"]
+            "restrict_visibility_rules":["obscure_on,rupees_off"]
           }
         ],
         "sections": [
@@ -1418,7 +1408,7 @@
             "map":"map",
             "x":2337,
             "y":1035,
-            "force_invisibility_rules":["obscure_off","rupees_off"]
+            "restrict_visibility_rules":["obscure_on,rupees_on"]
           }
         ],
         "sections": [
@@ -1559,7 +1549,7 @@
             "map": "map",
             "x": 2303,
             "y": 250,
-            "force_invisibility_rules":["rupees_on"]
+            "restrict_visibility_rules":["rupees_off"]
           }
         ],
         "sections": [
@@ -1690,7 +1680,7 @@
             "map": "map",
             "x": 2303,
             "y": 250,
-            "force_invisibility_rules":["rupees_off"]
+            "restrict_visibility_rules":["rupees_on"]
           }
         ],
         "sections": [
@@ -1826,7 +1816,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "force_invisibility_rules":["dhc_open","dhc_none","dhc_peditems"]
+            "restrict_visibility_rules":["dhc_closed"]
           }
         ],
         "sections": [
@@ -1926,7 +1916,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "force_invisibility_rules":["dhc_closed","dhc_none","dhc_peditems"]
+            "restrict_visibility_rules":["dhc_open"]
           }
         ],
         "sections": [
@@ -2026,7 +2016,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "force_invisibility_rules":["dhc_open","dhc_closed","dhc_none"]
+            "restrict_visibility_rules":["dhc_peditems"]
           }
         ],
         "sections": [
@@ -2142,7 +2132,7 @@
             "map": "map",
             "x": 1326,
             "y": 130,
-            "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_closed"]
+            "restrict_visibility_rules":["dhc_none"]
           }
         ],
         "sections": [
