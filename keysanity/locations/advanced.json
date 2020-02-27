@@ -2022,7 +2022,7 @@
             ]
           },
           {
-            "name":"Northeast Tower",
+            "name":"Northwest Tower",
             "access_rules":["bombs,cape,magicboomerang,lamp,explicit_dhc_smallkey:1",
               "bombs,cape,bow,lamp,explicit_dhc_smallkey:1",
               "bombs,cape,lights,lamp,explicit_dhc_smallkey:1",
@@ -2037,30 +2037,7 @@
             ],
             "sections":[
               {
-                "name":"Northeast Tower",
-                "item_count":1,
-                "chest_unopened_img":"images/Small Key.png",
-                "chest_opened_img":"images/Small Key Done.png"
-              }
-            ]
-          },
-          {
-            "name":"Southeast Tower",
-            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1",
-              "bombs,cape,bow,explicit_dhc_smallkey:1",
-              "bombs,cape,lights,explicit_dhc_smallkey:1",
-              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
-            "map_locations":[
-              {
-                "map":"dhc",
-                "x":220,
-                "y":1490,
-                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
-              }
-            ],
-            "sections":[
-              {
-                "name":"Southeast Tower",
+                "name":"Northwest Tower",
                 "item_count":1,
                 "chest_unopened_img":"images/Small Key.png",
                 "chest_opened_img":"images/Small Key Done.png"
@@ -2076,7 +2053,7 @@
             "map_locations":[
               {
                 "map":"dhc",
-                "x":1315,
+                "x":220,
                 "y":1490,
                 "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
               }
@@ -2091,7 +2068,30 @@
             ]
           },
           {
-            "name":"Northwest Tower",
+            "name":"Southeast Tower",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1",
+              "bombs,cape,bow,explicit_dhc_smallkey:1",
+              "bombs,cape,lights,explicit_dhc_smallkey:1",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
+            "map_locations":[
+              {
+                "map":"dhc",
+                "x":1315,
+                "y":1490,
+                "force_invisibility_rules":["dhc_open","dhc_peditems","dhc_none"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Southeast Tower",
+                "item_count":1,
+                "chest_unopened_img":"images/Small Key.png",
+                "chest_opened_img":"images/Small Key Done.png"
+              }
+            ]
+          },
+          {
+            "name":"Northeast Tower",
             "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:1"],
             "map_locations":[
               {
@@ -2103,7 +2103,7 @@
             ],
             "sections":[
               {
-                "name":"Northwest Tower",
+                "name":"Northeast Tower",
                 "item_count":1,
                 "chest_unopened_img":"images/Small Key.png",
                 "chest_opened_img":"images/Small Key Done.png"
@@ -2239,7 +2239,7 @@
             ]
           },
           {
-            "name":"Northeast Tower Open",
+            "name":"Northwest Tower Open",
             "access_rules":["bombs,cape,magicboomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
@@ -2254,30 +2254,7 @@
             ],
             "sections":[
               {
-                "name":"Northeast Tower",
-                "item_count":1,
-                "chest_unopened_img":"images/Small Key.png",
-                "chest_opened_img":"images/Small Key Done.png"
-              }
-            ]
-          },
-          {
-            "name":"Southeast Tower Open",
-            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
-              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
-              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
-            "map_locations":[
-              {
-                "map":"dhc",
-                "x":220,
-                "y":1490,
-                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
-              }
-            ],
-            "sections":[
-              {
-                "name":"Southeast Tower",
+                "name":"Northwest Tower",
                 "item_count":1,
                 "chest_unopened_img":"images/Small Key.png",
                 "chest_opened_img":"images/Small Key Done.png"
@@ -2293,7 +2270,7 @@
             "map_locations":[
               {
                 "map":"dhc",
-                "x":1315,
+                "x":220,
                 "y":1490,
                 "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
               }
@@ -2308,7 +2285,30 @@
             ]
           },
           {
-            "name":"Northwest Tower Open",
+            "name":"Southeast Tower Open",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,explicit_dhc_smallkey:1,sword5,spinattack"],
+            "map_locations":[
+              {
+                "map":"dhc",
+                "x":1315,
+                "y":1490,
+                "force_invisibility_rules":["dhc_closed","dhc_peditems","dhc_none"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Southeast Tower",
+                "item_count":1,
+                "chest_unopened_img":"images/Small Key.png",
+                "chest_opened_img":"images/Small Key Done.png"
+              }
+            ]
+          },
+          {
+            "name":"Northeast Tower Open",
             "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
@@ -2320,7 +2320,7 @@
             ],
             "sections":[
               {
-                "name":"Northwest Tower",
+                "name":"Northeast Tower",
                 "item_count":1,
                 "chest_unopened_img":"images/Small Key.png",
                 "chest_opened_img":"images/Small Key Done.png"
@@ -2484,7 +2484,7 @@
             ]
           },
           {
-            "name":"Northeast Tower Ped",
+            "name":"Northwest Tower Ped",
             "access_rules":["bombs,cape,magicboomerang,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,bow,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
               "bombs,cape,lights,lamp,explicit_dhc_smallkey:1,sword5,spinattack",
@@ -2499,30 +2499,7 @@
             ],
             "sections":[
               {
-                "name":"Northeast Tower",
-                "item_count":1,
-                "chest_unopened_img":"images/Small Key.png",
-                "chest_opened_img":"images/Small Key Done.png"
-              }
-            ]
-          },
-          {
-            "name":"Southeast Tower Ped",
-            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
-              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
-              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
-              "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
-            "map_locations":[
-              {
-                "map":"dhc",
-                "x":220,
-                "y":1490,
-                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
-              }
-            ],
-            "sections":[
-              {
-                "name":"Southeast Tower",
+                "name":"Northwest Tower",
                 "item_count":1,
                 "chest_unopened_img":"images/Small Key.png",
                 "chest_opened_img":"images/Small Key Done.png"
@@ -2538,7 +2515,7 @@
             "map_locations":[
               {
                 "map":"dhc",
-                "x":1315,
+                "x":220,
                 "y":1490,
                 "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
               }
@@ -2553,7 +2530,30 @@
             ]
           },
           {
-            "name":"Northwest Tower Ped",
+            "name":"Southeast Tower Ped",
+            "access_rules":["bombs,cape,magicboomerang,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,lights,explicit_dhc_smallkey:1,sword5,spinattack",
+              "bombs,cape,beam,lamp,explicit_dhc_smallkey:1,sword5,spinattack"],
+            "map_locations":[
+              {
+                "map":"dhc",
+                "x":1315,
+                "y":1490,
+                "force_invisibility_rules":["dhc_closed","dhc_open","dhc_none"]
+              }
+            ],
+            "sections":[
+              {
+                "name":"Southeast Tower",
+                "item_count":1,
+                "chest_unopened_img":"images/Small Key.png",
+                "chest_opened_img":"images/Small Key Done.png"
+              }
+            ]
+          },
+          {
+            "name":"Northeast Tower Ped",
             "access_rules":["bombs,cape,bow,explicit_dhc_smallkey:1,sword5,spinattack"],
             "map_locations":[
               {
@@ -2565,7 +2565,7 @@
             ],
             "sections":[
               {
-                "name":"Northwest Tower",
+                "name":"Northeast Tower",
                 "item_count":1,
                 "chest_unopened_img":"images/Small Key.png",
                 "chest_opened_img":"images/Small Key Done.png"
