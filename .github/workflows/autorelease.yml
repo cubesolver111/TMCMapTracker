@@ -1,0 +1,74 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - repository.json
+
+jobs:
+  autorelease:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 2
+      
+      - name: Check for Update
+        id: check
+        run: |
+          if git diff HEAD^1 HEAD -- repository.json | grep -q "version"; then
+            echo "::set-output name=updated::true"
+          else
+            echo "::set-output name=updated::false"
+          fi
+      
+      - name: Create Zip
+        if: steps.check.outputs.updated == 'true'
+        run: |
+          rm tmcrando_maptracker_cube.zip
+          zip -r tmcrando_maptracker_cube.zip . -x "*.git*"
+      
+      - name: Get Version
+        id: get_version
+        if: steps.check.outputs.updated == 'true'
+        uses: actions/github-script@0.8.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: string
+          script: |
+            const fs = require("fs");
+            const pkg = JSON.parse(fs.readFileSync("repository.json", {encoding: "utf8"}));
+            return pkg.packages[0].version;
+      
+      - name: Create Draft Release
+        if: steps.check.outputs.updated == 'true'
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v${{ steps.get_version.outputs.result }}
+          release_name: v${{ steps.get_version.outputs.result }}
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Zip
+        if: steps.check.outputs.updated == 'true'
+        uses: actions/upload-release-asset@v1.0.1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: tmcrando_maptracker_cube.zip
+          asset_name: tmcrando_maptracker_cube.zip
+          asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Release
+        if: steps.check.outputs.updated == 'true'
+        uses: eregon/publish-release@v1
+        with:
+          release_id: ${{ steps.create_release.outputs.id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
