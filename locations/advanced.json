@@ -1247,7 +1247,7 @@
                 "map":"tod",
                 "x":600,
                 "y":1215,
-                "restrict_visibility_rules":["rupees_on"]
+                "restrict_visibility_rules":["rupees_on,obscure_on"]
               }
             ],
             "sections":[

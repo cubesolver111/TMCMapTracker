@@ -1559,6 +1559,7 @@
               },
               {
                 "name":"Lost Woods Secret Chest",
+                "access_rules":["[lamp]"],
                 "map_locations": [
                   {
                     "map":"map",
