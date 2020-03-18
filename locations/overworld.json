@@ -3310,7 +3310,7 @@
           },
           {
             "name":"South Veil Falls Rupees",
-            "access_rules":["flippers,cane","cape,cane"],
+            "access_rules":["flippers,cane","cape,cane","{bombs,falls}","{bombs,flippers}","{bombs,cape}"],
             "map_locations":[
               {
                 "map":"map",
@@ -3321,8 +3321,19 @@
             ],
             "sections":[
               {
-                "name":"Rupees",
-                "item_count":3
+                "name":"Rupee 1",
+                "capture_item":true,
+                "item_count":1
+              },
+              {
+                "name":"Rupee 2",
+                "capture_item": true,
+                "item_count":1
+              },
+              {
+                "name":"Rupee 3",
+                "capture_item": true,
+                "item_count":1
               }
             ]
           },
