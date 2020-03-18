@@ -2,7 +2,10 @@
 TMC_AUTOTRACKER_DEBUG = true
 BOW_VALUE = 0
 WildsFused = 0
+WildsBag = 0
 CloudsFused = 0
+CloudsBag = 0
+KEY_STOLEN = false
 ---------------------------------------
 
 print("")
@@ -17,8 +20,6 @@ print("")
 
 function autotracker_started()
   print("Started Tracking")
-
-  KEY_STOLEN = false
 
   DWS_KEY_COUNT = 0
   DWS_KEY_PREV_VALUE = 0
@@ -224,8 +225,7 @@ function updateGraveKey(segment, code, address, flag)
 
     local flagTest = value or flag
 
-    if testFlag(segment, address, 0x01) and KEY_STOLEN == true or
-       testFlag(segment, address, 0x02) and KEY_STOLEN == true then
+    if testFlag(segment, address, 0x01) or testFlag(segment, address, 0x02) then
       item.Active = true
     end
   end
@@ -467,61 +467,61 @@ function updateWildsUsedFixed(segment, locationData)
         WildsFused = WildsFused + 1
       end
     end
+    item.AcquiredCount = WildsFused + WildsBag
     print("Wilds Used", WildsFused)
   end
 end
 
-function updateWilds(segment, code, flag, numUsed)
+function updateWilds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
-  local inBag = 0
 
   if ReadU8(segment, 0x2002b58) == flag then
-    inBag = ReadU8(segment, 0x2002b6b)
+    WildsBag = ReadU8(segment, 0x2002b6b)
     print("Wilds in Bag", ReadU8(segment, 0x2002b6b))
 
   elseif ReadU8(segment, 0x2002b59) == flag then
-    inBag = ReadU8(segment, 0x2002b6c)
+    WildsBag = ReadU8(segment, 0x2002b6c)
     print("Wilds in Bag", ReadU8(segment, 0x2002b6c))
 
   elseif ReadU8(segment, 0x2002b5a) == flag then
-    inBag = ReadU8(segment, 0x2002b6d)
+    WildsBag = ReadU8(segment, 0x2002b6d)
     print("Wilds in Bag", ReadU8(segment, 0x2002b6d))
 
   elseif ReadU8(segment, 0x2002b5b) == flag then
-    inBag = ReadU8(segment, 0x2002b6e)
+    WildsBag = ReadU8(segment, 0x2002b6e)
     print("Wilds in Bag", ReadU8(segment, 0x2002b6e))
 
   elseif ReadU8(segment, 0x2002b5c) == flag then
-    inBag = ReadU8(segment, 0x2002b6f)
+    WildsBag = ReadU8(segment, 0x2002b6f)
     print("Wilds in Bag", ReadU8(segment, 0x2002b6f))
 
   elseif ReadU8(segment, 0x2002b5d) == flag then
-    inBag = ReadU8(segment, 0x2002b70)
+    WildsBag = ReadU8(segment, 0x2002b70)
     print("Wilds in Bag", ReadU8(segment, 0x2002b70))
 
   elseif ReadU8(segment, 0x2002b5e) == flag then
-    inBag = ReadU8(segment, 0x2002b71)
+    WildsBag = ReadU8(segment, 0x2002b71)
     print("Wilds in Bag", ReadU8(segment, 0x2002b71))
 
   elseif ReadU8(segment, 0x2002b5f) == flag then
-    inBag = ReadU8(segment, 0x2002b72)
+    WildsBag = ReadU8(segment, 0x2002b72)
     print("Wilds in Bag", ReadU8(segment, 0x2002b72))
 
   elseif ReadU8(segment, 0x2002b60) == flag then
-    inBag = ReadU8(segment, 0x2002b73)
+    WildsBag = ReadU8(segment, 0x2002b73)
     print("Wilds in Bag", ReadU8(segment, 0x2002b73))
 
   elseif ReadU8(segment, 0x2002b61) == flag then
-    inBag = ReadU8(segment, 0x2002b74)
+    WildsBag = ReadU8(segment, 0x2002b74)
     print("Wilds in Bag", ReadU8(segment, 0x2002b74))
 
   elseif ReadU8(segment, 0x2002b62) == flag then
-    inBag = ReadU8(segment, 0x2002b75)
+    WildsBag = ReadU8(segment, 0x2002b75)
     print("Wilds in Bag", ReadU8(segment, 0x2002b75))
   end
 
-  item.AcquiredCount = numUsed + inBag
-  print("Wilds Obtained", inBag)
+  item.AcquiredCount = WildsFused + WildsBag
+  print("Wilds Obtained", WildsBag)
 end
 
 function updateCloudsUsedFixed(segment, locationData)
@@ -539,60 +539,60 @@ function updateCloudsUsedFixed(segment, locationData)
         CloudsFused = CloudsFused + 1
       end
     end
+    item.AcquiredCount = CloudsFused + CloudsBag
     print("Clouds Fused", CloudsFused)
   end
 end
 
 function updateClouds(segment, code, flag)
   local item = Tracker:FindObjectForCode(code)
-  local inBag = 0
 
   if ReadU8(segment, 0x2002b58) == flag then
-    inBag = ReadU8(segment, 0x2002b6b)
+    CloudsBag = ReadU8(segment, 0x2002b6b)
     print("Clouds in Bag", ReadU8(segment, 0x2002b6b))
 
   elseif ReadU8(segment, 0x2002b59) == flag then
-    inBag = ReadU8(segment, 0x2002b6c)
+    CloudsBag = ReadU8(segment, 0x2002b6c)
     print("Clouds in Bag", ReadU8(segment, 0x2002b6c))
 
   elseif ReadU8(segment, 0x2002b5a) == flag then
-    inBag = ReadU8(segment, 0x2002b6d)
+    CloudsBag = ReadU8(segment, 0x2002b6d)
     print("Clouds in Bag", ReadU8(segment, 0x2002b6d))
 
   elseif ReadU8(segment, 0x2002b5b) == flag then
-    inBag = ReadU8(segment, 0x2002b6e)
+    CloudsBag = ReadU8(segment, 0x2002b6e)
     print("Clouds in Bag", ReadU8(segment, 0x2002b6e))
 
   elseif ReadU8(segment, 0x2002b5c) == flag then
-    inBag = ReadU8(segment, 0x2002b6f)
+    CloudsBag = ReadU8(segment, 0x2002b6f)
     print("Clouds in Bag", ReadU8(segment, 0x2002b6f))
 
   elseif ReadU8(segment, 0x2002b5d) == flag then
-    inBag = ReadU8(segment, 0x2002b70)
+    CloudsBag = ReadU8(segment, 0x2002b70)
     print("Clouds in Bag", ReadU8(segment, 0x2002b70))
 
   elseif ReadU8(segment, 0x2002b5e) == flag then
-    inBag = ReadU8(segment, 0x2002b71)
+    CloudsBag = ReadU8(segment, 0x2002b71)
     print("Clouds in Bag", ReadU8(segment, 0x2002b71))
 
   elseif ReadU8(segment, 0x2002b5f) == flag then
-    inBag = ReadU8(segment, 0x2002b72)
+    CloudsBag = ReadU8(segment, 0x2002b72)
     print("Clouds in Bag", ReadU8(segment, 0x2002b72))
 
   elseif ReadU8(segment, 0x2002b60) == flag then
-    inBag = ReadU8(segment, 0x2002b73)
+    CloudsBag = ReadU8(segment, 0x2002b73)
     print("Clouds in Bag", ReadU8(segment, 0x2002b73))
 
   elseif ReadU8(segment, 0x2002b61) == flag then
-    inBag = ReadU8(segment, 0x2002b74)
+    CloudsBag = ReadU8(segment, 0x2002b74)
     print("Clouds in Bag", ReadU8(segment, 0x2002b74))
 
   elseif ReadU8(segment, 0x2002b62) == flag then
-    inBag = ReadU8(segment, 0x2002b75)
+    CloudsBag = ReadU8(segment, 0x2002b75)
     print("Clouds in Bag", ReadU8(segment, 0x2002b75))
   end
 
-  item.AcquiredCount = inBag + CloudsFused
+  item.AcquiredCount = CloudsBag + CloudsFused
 
   print("Clouds Obtained", CloudsFused)
 end
@@ -698,7 +698,7 @@ function updateItemsFromMemorySegment(segment)
     updateBeams(segment)
     updateScrolls(segment)
     updateGoldFalls(segment)
-    updateWilds(segment, "wilds", 0x6a, WildsFused)
+    updateWilds(segment, "wilds", 0x6a)
     updateClouds(segment, "clouds", 0x65)
 
     updateSectionChestCountFromByteAndFlag(segment, "@Fifi/Fifi", 0x2002b3f, 0x20)
@@ -936,7 +936,9 @@ function updateLocations(segment)
   --VEIL FALLS
   updateSectionChestCountFromByteAndFlag(segment, "@Upper Veil Falls Heart Piece/Upper Heart Piece", 0x2002cd0, 0x01)
   updateSectionChestCountFromByteAndFlag(segment, "@Source of the Flow Cave/Bombable Wall Second Chest", 0x2002cd0, 0x02)
-  decreaseChestCount(segment, "@South Veil Falls Rupees/Rupees", {{0x2002cd0, 0x04},{0x2002cd0,0x08},{0x2002cd0,0x10}})
+  updateSectionChestCountFromByteAndFlag(segment, "@South Veil Falls Rupees/Rupee 1", 0x2002cd0, 0x04)
+  updateSectionChestCountFromByteAndFlag(segment, "@South Veil Falls Rupees/Rupee 2", 0x2002cd0, 0x08)
+  updateSectionChestCountFromByteAndFlag(segmemt, "@South Veil Falls Rupees/Rupee 3", 0x2002cd0, 0x10)
   updateSectionChestCountFromByteAndFlag(segment, "@Upper Veil Falls Rocks/Left Digging Spot", 0x2002cd0, 0x80)
   updateSectionChestCountFromByteAndFlag(segment, "@Lower Veil Falls Heart Piece/Lower Heart Piece", 0x2002cd1, 0x02)
   updateSectionChestCountFromByteAndFlag(segment, "@Upper Veil Falls Rocks/Right Chest", 0x2002cd3, 0x80)
@@ -1514,9 +1516,8 @@ function updateKeys(segment)
     return true
   end
 end
-
+ScriptHost:AddMemoryWatch("Graveyard Key", 0x2002ac0, 0x01, graveKey)
 ScriptHost:AddMemoryWatch("TMC Locations and Bosses", 0x2002c81, 0x200, updateLocations)
 ScriptHost:AddMemoryWatch("TMC Item Data", 0x2002b30, 0x45, updateItemsFromMemorySegment)
 ScriptHost:AddMemoryWatch("TMC Item Upgrades", 0x2002ae4, 0x0c, updateGearFromMemory)
-ScriptHost:AddMemoryWatch("Graveyard Key", 0x2002ac0, 0x01, graveKey)
 ScriptHost:AddMemoryWatch("TMC Keys", 0x2002e9d, 0x16, updateKeys)
