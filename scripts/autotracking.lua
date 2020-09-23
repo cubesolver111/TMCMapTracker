@@ -518,6 +518,9 @@ function updateWilds(segment, code, flag)
   elseif ReadU8(segment, 0x2002b62) == flag then
     WildsBag = ReadU8(segment, 0x2002b75)
     print("Wilds in Bag", ReadU8(segment, 0x2002b75))
+
+  else
+    WildsBag = 0
   end
 
   item.AcquiredCount = WildsFused + WildsBag
@@ -590,6 +593,9 @@ function updateClouds(segment, code, flag)
   elseif ReadU8(segment, 0x2002b62) == flag then
     CloudsBag = ReadU8(segment, 0x2002b75)
     print("Clouds in Bag", ReadU8(segment, 0x2002b75))
+
+  else
+    CloudsBag = 0
   end
 
   item.AcquiredCount = CloudsBag + CloudsFused
