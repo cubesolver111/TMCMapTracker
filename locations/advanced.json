@@ -1259,7 +1259,7 @@
           },
           {
             "name":"Ice Puzzle Free Chest",
-            "access_rules":["gust,flippers,tod_bigkey,tod_smallkey:4","cape,lamp,$canDamage,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","cape,lamp,$canDamage,tod_bigkey,[tod_smallkey:4],tod_smallkey:1"],
             "map_locations":[
               {
                 "map":"tod",
@@ -1276,7 +1276,7 @@
           },
           {
             "name":"Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","lamp,$canDamage,cape,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","lamp,$canDamage,cape,tod_bigkey,[tod_smallkey:4],tod_smallkey:1"],
             "map_locations":[
               {
                 "map":"tod",
@@ -1293,7 +1293,7 @@
           },
           {
             "name":"Post Ice Puzzle Frozen Chest",
-            "access_rules":["gust,flippers,lamp,tod_bigkey,tod_smallkey:4","gust,cape,lamp,tod_bigkey,tod_smallkey:4"],
+            "access_rules":["gust,flippers,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1","gust,cape,lamp,tod_bigkey,[tod_smallkey:4],tod_smallkey:1"],
             "map_locations":[
               {
                 "map":"tod",

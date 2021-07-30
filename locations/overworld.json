@@ -2180,7 +2180,7 @@
           },
           {
             "name":"Flippers Cave",
-            "access_rules":["cane,ocarina,books:3,grip","flippers,cane,ocarina"],
+            "access_rules":["cane,ocarina,book3,grip","flippers,cane,ocarina"],
             "map_locations":[
               {
                 "map":"map",
@@ -2204,7 +2204,7 @@
           },
           {
             "name":"Flippers Cave Rupees",
-            "access_rules":["cane,ocarina,books:3,grip","flippers,cane,ocarina"],
+            "access_rules":["cane,ocarina,book3,grip","flippers,cane,ocarina"],
             "map_locations":[
               {
                 "map":"map",
